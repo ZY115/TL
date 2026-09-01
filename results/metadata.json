@@ -1,0 +1,32 @@
+{
+  "base_random_seed": 20260831,
+  "canonical_python_formatter": "Black, line length 88",
+  "modified_smoke_checks": 60,
+  "packages": {
+    "apted": "1.0.3",
+    "black": "26.5.1",
+    "matplotlib": "3.11.1",
+    "pandas": "2.3.3",
+    "pytest": "8.4.2"
+  },
+  "pilot": "0.1",
+  "platform": "macOS-15.3.1-arm64-arm-64bit",
+  "python_version": "3.12.13",
+  "random_category_counts": {
+    "early_future": 3000,
+    "incomplete": 3000,
+    "irrelevant": 3000,
+    "repeated": 3000,
+    "satisfying": 4000,
+    "uniform": 4000
+  },
+  "random_seed_rule": "base_random_seed + n*100 + category_index",
+  "randomized_trajectories_per_n": 20000,
+  "timestamps_intentionally_omitted": true,
+  "tl_fragment": [
+    "Atom",
+    "And",
+    "Eventually"
+  ],
+  "tree_edit": "APTED ordered tree edit distance; unit insert/delete/rename"
+}

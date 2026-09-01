@@ -1,0 +1,81 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Event:A1"
+            },
+            {
+              "children": [],
+              "label": "Destination:WAIT_A2"
+            }
+          ],
+          "label": "Transition"
+        }
+      ],
+      "label": "State:WAIT_A1"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Event:A2"
+            },
+            {
+              "children": [],
+              "label": "Destination:WAIT_A3"
+            }
+          ],
+          "label": "Transition"
+        }
+      ],
+      "label": "State:WAIT_A2"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Event:A3"
+            },
+            {
+              "children": [],
+              "label": "Destination:WAIT_A4"
+            }
+          ],
+          "label": "Transition"
+        }
+      ],
+      "label": "State:WAIT_A3"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Event:A4"
+            },
+            {
+              "children": [],
+              "label": "Destination:SUCCESS"
+            }
+          ],
+          "label": "Transition"
+        }
+      ],
+      "label": "State:WAIT_A4"
+    },
+    {
+      "children": [],
+      "label": "State:SUCCESS"
+    }
+  ],
+  "label": "FSM"
+}

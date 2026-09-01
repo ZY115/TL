@@ -1,0 +1,153 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Event:A1"
+            },
+            {
+              "children": [],
+              "label": "Destination:WAIT_A2"
+            }
+          ],
+          "label": "Transition"
+        }
+      ],
+      "label": "State:WAIT_A1"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Event:A2"
+            },
+            {
+              "children": [],
+              "label": "Destination:WAIT_A3"
+            }
+          ],
+          "label": "Transition"
+        }
+      ],
+      "label": "State:WAIT_A2"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Event:A3"
+            },
+            {
+              "children": [],
+              "label": "Destination:WAIT_A4"
+            }
+          ],
+          "label": "Transition"
+        }
+      ],
+      "label": "State:WAIT_A3"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Event:A4"
+            },
+            {
+              "children": [],
+              "label": "Destination:WAIT_A5"
+            }
+          ],
+          "label": "Transition"
+        }
+      ],
+      "label": "State:WAIT_A4"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Event:A5"
+            },
+            {
+              "children": [],
+              "label": "Destination:WAIT_A6"
+            }
+          ],
+          "label": "Transition"
+        }
+      ],
+      "label": "State:WAIT_A5"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Event:A6"
+            },
+            {
+              "children": [],
+              "label": "Destination:WAIT_A7"
+            }
+          ],
+          "label": "Transition"
+        }
+      ],
+      "label": "State:WAIT_A6"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Event:A7"
+            },
+            {
+              "children": [],
+              "label": "Destination:WAIT_A8"
+            }
+          ],
+          "label": "Transition"
+        }
+      ],
+      "label": "State:WAIT_A7"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Event:A8"
+            },
+            {
+              "children": [],
+              "label": "Destination:SUCCESS"
+            }
+          ],
+          "label": "Transition"
+        }
+      ],
+      "label": "State:WAIT_A8"
+    },
+    {
+      "children": [],
+      "label": "State:SUCCESS"
+    }
+  ],
+  "label": "FSM"
+}

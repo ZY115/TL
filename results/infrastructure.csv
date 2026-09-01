@@ -1,0 +1,11 @@
+component,characters,lines,tokens,python_ast_nodes
+TL AST syntax,2097,70,370,407
+TL evaluator,1038,31,169,168
+TL task generator,1128,35,184,179
+Explicit FSM generator/compiler,4212,122,678,745
+Parameterized sequence-monitor engine,1783,50,301,321
+Independent sequence oracle,657,19,70,73
+Trace generators,4092,131,901,903
+Source metrics,2535,79,208,387
+Tree edit implementation,1172,43,210,171
+Benchmark runner,22340,697,3615,3540

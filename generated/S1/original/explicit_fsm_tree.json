@@ -1,0 +1,27 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Event:A1"
+            },
+            {
+              "children": [],
+              "label": "Destination:SUCCESS"
+            }
+          ],
+          "label": "Transition"
+        }
+      ],
+      "label": "State:WAIT_A1"
+    },
+    {
+      "children": [],
+      "label": "State:SUCCESS"
+    }
+  ],
+  "label": "FSM"
+}

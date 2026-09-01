@@ -1,0 +1,37 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "children": [],
+          "label": "Atom:A1"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "label": "Atom:A2"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "label": "Atom:A3"
+                    }
+                  ],
+                  "label": "Eventually"
+                }
+              ],
+              "label": "And"
+            }
+          ],
+          "label": "Eventually"
+        }
+      ],
+      "label": "And"
+    }
+  ],
+  "label": "Eventually"
+}

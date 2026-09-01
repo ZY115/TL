@@ -1,0 +1,63 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Event:A1"
+            },
+            {
+              "children": [],
+              "label": "Destination:WAIT_X"
+            }
+          ],
+          "label": "Transition"
+        }
+      ],
+      "label": "State:WAIT_A1"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Event:X"
+            },
+            {
+              "children": [],
+              "label": "Destination:WAIT_A2"
+            }
+          ],
+          "label": "Transition"
+        }
+      ],
+      "label": "State:WAIT_X"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Event:A2"
+            },
+            {
+              "children": [],
+              "label": "Destination:SUCCESS"
+            }
+          ],
+          "label": "Transition"
+        }
+      ],
+      "label": "State:WAIT_A2"
+    },
+    {
+      "children": [],
+      "label": "State:SUCCESS"
+    }
+  ],
+  "label": "FSM"
+}

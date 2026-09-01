@@ -1,0 +1,21 @@
+{
+  "children": [
+    {
+      "children": [],
+      "label": "A1"
+    },
+    {
+      "children": [],
+      "label": "A2"
+    },
+    {
+      "children": [],
+      "label": "X"
+    },
+    {
+      "children": [],
+      "label": "A3"
+    }
+  ],
+  "label": "Sequence"
+}
