@@ -1,0 +1,364 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "children": [],
+                                      "label": "Atom:S"
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [
+                                                {
+                                                  "children": [],
+                                                  "label": "Atom:L1"
+                                                },
+                                                {
+                                                  "children": [],
+                                                  "label": "Atom:R1"
+                                                }
+                                              ],
+                                              "label": "Or"
+                                            },
+                                            {
+                                              "children": [
+                                                {
+                                                  "children": [
+                                                    {
+                                                      "children": [
+                                                        {
+                                                          "children": [],
+                                                          "label": "Atom:L2"
+                                                        },
+                                                        {
+                                                          "children": [],
+                                                          "label": "Atom:R2"
+                                                        }
+                                                      ],
+                                                      "label": "Or"
+                                                    },
+                                                    {
+                                                      "children": [
+                                                        {
+                                                          "children": [],
+                                                          "label": "Atom:E"
+                                                        }
+                                                      ],
+                                                      "label": "Eventually"
+                                                    }
+                                                  ],
+                                                  "label": "And"
+                                                }
+                                              ],
+                                              "label": "Eventually"
+                                            }
+                                          ],
+                                          "label": "And"
+                                        }
+                                      ],
+                                      "label": "Eventually"
+                                    }
+                                  ],
+                                  "label": "And"
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "label": "Atom:L1"
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [
+                                                {
+                                                  "children": [],
+                                                  "label": "Atom:R1"
+                                                }
+                                              ],
+                                              "label": "Not"
+                                            }
+                                          ],
+                                          "label": "Always"
+                                        }
+                                      ],
+                                      "label": "Implies"
+                                    }
+                                  ],
+                                  "label": "Always"
+                                }
+                              ],
+                              "label": "And"
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "children": [],
+                                      "label": "Atom:R1"
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "label": "Atom:L1"
+                                            }
+                                          ],
+                                          "label": "Not"
+                                        }
+                                      ],
+                                      "label": "Always"
+                                    }
+                                  ],
+                                  "label": "Implies"
+                                }
+                              ],
+                              "label": "Always"
+                            }
+                          ],
+                          "label": "And"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "label": "Atom:L1"
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "label": "Atom:P1"
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "label": "Atom:E"
+                                            }
+                                          ],
+                                          "label": "Eventually"
+                                        }
+                                      ],
+                                      "label": "And"
+                                    }
+                                  ],
+                                  "label": "BoundedEventually[1,8]"
+                                }
+                              ],
+                              "label": "Implies"
+                            }
+                          ],
+                          "label": "Always"
+                        }
+                      ],
+                      "label": "And"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [],
+                              "label": "Atom:R1"
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "children": [],
+                                      "label": "Atom:Q1"
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "label": "Atom:E"
+                                        }
+                                      ],
+                                      "label": "Eventually"
+                                    }
+                                  ],
+                                  "label": "And"
+                                }
+                              ],
+                              "label": "BoundedEventually[1,10]"
+                            }
+                          ],
+                          "label": "Implies"
+                        }
+                      ],
+                      "label": "Always"
+                    }
+                  ],
+                  "label": "And"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "label": "Atom:L2"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "label": "Atom:R2"
+                                }
+                              ],
+                              "label": "Not"
+                            }
+                          ],
+                          "label": "Always"
+                        }
+                      ],
+                      "label": "Implies"
+                    }
+                  ],
+                  "label": "Always"
+                }
+              ],
+              "label": "And"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "label": "Atom:R2"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [],
+                              "label": "Atom:L2"
+                            }
+                          ],
+                          "label": "Not"
+                        }
+                      ],
+                      "label": "Always"
+                    }
+                  ],
+                  "label": "Implies"
+                }
+              ],
+              "label": "Always"
+            }
+          ],
+          "label": "And"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "label": "Atom:L2"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "label": "Atom:P2"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [],
+                              "label": "Atom:E"
+                            }
+                          ],
+                          "label": "Eventually"
+                        }
+                      ],
+                      "label": "And"
+                    }
+                  ],
+                  "label": "BoundedEventually[1,8]"
+                }
+              ],
+              "label": "Implies"
+            }
+          ],
+          "label": "Always"
+        }
+      ],
+      "label": "And"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Atom:R2"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "label": "Atom:Q2"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "label": "Atom:E"
+                        }
+                      ],
+                      "label": "Eventually"
+                    }
+                  ],
+                  "label": "And"
+                }
+              ],
+              "label": "BoundedEventually[1,10]"
+            }
+          ],
+          "label": "Implies"
+        }
+      ],
+      "label": "Always"
+    }
+  ],
+  "label": "And"
+}

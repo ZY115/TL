@@ -1,0 +1,8 @@
+k,definition_before,definition_after,infrastructure_lines_inserted,infrastructure_lines_deleted,infrastructure_lines_changed,infrastructure_tokens_inserted,infrastructure_tokens_deleted,infrastructure_tokens_changed,infrastructure_python_ast_edit_distance,task_source_tokens_changed,task_source_tree_edit_distance,expanded_core_tokens_changed,expanded_core_tree_edit_distance,expanded_ast_equal
+0,V1 direct four-clause expansion,V2 helper-macro composition,20,24,8,124,91,10,100,0,0,0,0,True
+1,V1 direct four-clause expansion,V2 helper-macro composition,20,24,8,124,91,10,100,0,0,0,0,True
+2,V1 direct four-clause expansion,V2 helper-macro composition,20,24,8,124,91,10,100,0,0,0,0,True
+3,V1 direct four-clause expansion,V2 helper-macro composition,20,24,8,124,91,10,100,0,0,0,0,True
+4,V1 direct four-clause expansion,V2 helper-macro composition,20,24,8,124,91,10,100,0,0,0,0,True
+5,V1 direct four-clause expansion,V2 helper-macro composition,20,24,8,124,91,10,100,0,0,0,0,True
+6,V1 direct four-clause expansion,V2 helper-macro composition,20,24,8,124,91,10,100,0,0,0,0,True

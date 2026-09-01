@@ -1,0 +1,144 @@
+{
+  "children": [
+    {
+      "children": [],
+      "label": "Start:S"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "L1"
+            },
+            {
+              "children": [],
+              "label": "R1"
+            }
+          ],
+          "label": "Choice"
+        },
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "L2"
+            },
+            {
+              "children": [],
+              "label": "R2"
+            }
+          ],
+          "label": "Choice"
+        },
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "L3"
+            },
+            {
+              "children": [],
+              "label": "R3"
+            }
+          ],
+          "label": "Choice"
+        }
+      ],
+      "label": "OrderedChoices"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "label": "LeftEvent:L1"
+        },
+        {
+          "children": [],
+          "label": "LeftGoal:P1"
+        },
+        {
+          "children": [],
+          "label": "LeftBound:8"
+        },
+        {
+          "children": [],
+          "label": "RightEvent:R1"
+        },
+        {
+          "children": [],
+          "label": "RightGoal:Q1"
+        },
+        {
+          "children": [],
+          "label": "RightBound:10"
+        }
+      ],
+      "label": "TimedChoiceStage"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "label": "LeftEvent:L2"
+        },
+        {
+          "children": [],
+          "label": "LeftGoal:P2"
+        },
+        {
+          "children": [],
+          "label": "LeftBound:8"
+        },
+        {
+          "children": [],
+          "label": "RightEvent:R2"
+        },
+        {
+          "children": [],
+          "label": "RightGoal:Q2"
+        },
+        {
+          "children": [],
+          "label": "RightBound:10"
+        }
+      ],
+      "label": "TimedChoiceStage"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "label": "LeftEvent:L3"
+        },
+        {
+          "children": [],
+          "label": "LeftGoal:P3"
+        },
+        {
+          "children": [],
+          "label": "LeftBound:8"
+        },
+        {
+          "children": [],
+          "label": "RightEvent:R3"
+        },
+        {
+          "children": [],
+          "label": "RightGoal:Q3"
+        },
+        {
+          "children": [],
+          "label": "RightBound:10"
+        }
+      ],
+      "label": "TimedChoiceStage"
+    },
+    {
+      "children": [],
+      "label": "End:E"
+    }
+  ],
+  "label": "MacroTask"
+}

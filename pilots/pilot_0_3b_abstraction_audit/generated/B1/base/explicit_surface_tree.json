@@ -1,0 +1,87 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "LeftChoice:L1"
+            },
+            {
+              "children": [],
+              "label": "RightChoice:R1"
+            }
+          ],
+          "label": "Stage:1"
+        }
+      ],
+      "label": "DecisionSequence"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "SelectedVariable:selected_1"
+            },
+            {
+              "children": [],
+              "label": "StartVariable:start_1"
+            },
+            {
+              "children": [],
+              "label": "CompletionFlag:done_1"
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "label": "Trigger:L1"
+                },
+                {
+                  "children": [],
+                  "label": "Goal:P1"
+                },
+                {
+                  "children": [],
+                  "label": "Bound:8"
+                },
+                {
+                  "children": [],
+                  "label": "DeadlineCheck"
+                }
+              ],
+              "label": "LeftBranch"
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "label": "Trigger:R1"
+                },
+                {
+                  "children": [],
+                  "label": "Goal:Q1"
+                },
+                {
+                  "children": [],
+                  "label": "Bound:10"
+                },
+                {
+                  "children": [],
+                  "label": "DeadlineCheck"
+                }
+              ],
+              "label": "RightBranch"
+            }
+          ],
+          "label": "Stage:1"
+        }
+      ],
+      "label": "Obligations"
+    }
+  ],
+  "label": "ConditionalTimedMonitor"
+}

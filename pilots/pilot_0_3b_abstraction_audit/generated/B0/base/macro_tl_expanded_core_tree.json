@@ -1,0 +1,18 @@
+{
+  "children": [
+    {
+      "children": [],
+      "label": "Atom:S"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "label": "Atom:E"
+        }
+      ],
+      "label": "Eventually"
+    }
+  ],
+  "label": "And"
+}

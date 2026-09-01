@@ -1,0 +1,6 @@
+apted==1.0.3
+black==26.5.1
+matplotlib==3.11.1
+pandas==2.3.3
+pytest==8.4.2
+

@@ -1,0 +1,60 @@
+{
+  "children": [
+    {
+      "children": [],
+      "label": "Start:S"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "L1"
+            },
+            {
+              "children": [],
+              "label": "R1"
+            }
+          ],
+          "label": "Choice"
+        }
+      ],
+      "label": "OrderedChoices"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "label": "LeftEvent:L1"
+        },
+        {
+          "children": [],
+          "label": "LeftGoal:X1"
+        },
+        {
+          "children": [],
+          "label": "LeftBound:8"
+        },
+        {
+          "children": [],
+          "label": "RightEvent:R1"
+        },
+        {
+          "children": [],
+          "label": "RightGoal:Q1"
+        },
+        {
+          "children": [],
+          "label": "RightBound:10"
+        }
+      ],
+      "label": "TimedChoiceStage"
+    },
+    {
+      "children": [],
+      "label": "End:E"
+    }
+  ],
+  "label": "MacroTask"
+}

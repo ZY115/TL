@@ -1,11 +1,14 @@
 # Temporal Logic vs. Handwritten Monitor — Pilot Suite
 
 This repository contains a sequence of reproducible methodology-calibration
-experiments. Each pilot compares three first-class task representations:
+experiments. The core pilots compare three first-class task representations:
 
 1. a finite-trace temporal-logic specification;
 2. a canonical explicit handwritten monitor;
 3. a reasonable parameterized handwritten monitor.
+
+Pilot 0.3B adds a fourth Macro-TL representation to audit whether differences
+come from the language or from the author-facing abstraction level.
 
 The suite does **not** assume that temporal logic wins. It reports raw
 task-specific representation size and structural edit footprint, validates all
@@ -22,7 +25,8 @@ tl_sequence_pilot/
 └── pilots/
     ├── pilot_0_1_sequence/
     ├── pilot_0_2_timing/
-    └── pilot_0_3_branch_timing/
+    ├── pilot_0_3_branch_timing/
+    └── pilot_0_3b_abstraction_audit/
 ```
 
 | Pilot | Independent variable | Fixed structure | Main modification |
@@ -30,6 +34,7 @@ tl_sequence_pilot/
 | [0.1 — Sequence](pilots/pilot_0_1_sequence/README.md) | ordered-sequence length `n=1...10` | sequence-only semantics | insert one target `X` |
 | [0.2 — Timing](pilots/pilot_0_2_timing/README.md) | overlapping deadlines `m=0...5` | ten-event sequence | add a constraint; change `8 -> 6` |
 | [0.3 — Branch + timing](pilots/pilot_0_3_branch_timing/README.md) | conditional stages `k=0...6` | left/right bounded obligations | add a stage; rewire `Pq -> Xq` |
+| [0.3B — Abstraction audit](pilots/pilot_0_3b_abstraction_audit/README.md) | abstraction interface | exact Pilot 0.3 task family | compare Core TL, Macro TL, explicit, and parameterized surfaces |
 
 Every pilot owns its `src/`, `tests/`, `generated/`, `results/`, and `plots/`
 directories. This prevents later experiments from overwriting earlier outputs.
@@ -52,7 +57,7 @@ Python 3.11 or newer is required. The validated local environment used Python
 Each pilot remains independently reproducible with one experiment command:
 
 ```bash
-cd pilots/pilot_0_3_branch_timing
+cd pilots/pilot_0_3b_abstraction_audit
 python run_experiment.py
 ```
 

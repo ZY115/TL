@@ -1,0 +1,5 @@
+representation,author_facing_abstraction,reusable_interpreter_or_expander,task_specific_information_location,task_specific_information_counted,environment_assumptions_externalized
+Core TL,primitive temporal operators,Core-TL evaluator,formula,yes,yes
+Macro TL,TIMED_CHOICE_STAGE and ORDERED_CHOICES,macro expander plus Core-TL evaluator,macro calls,yes,yes
+Explicit monitor,direct state and branch logic,Python runtime,generated task monitor,yes,yes
+Parameterized DSL,six-field stage descriptor,generic stage interpreter,STAGES list,yes,yes

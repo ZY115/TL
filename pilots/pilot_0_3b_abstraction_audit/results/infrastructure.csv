@@ -1,0 +1,13 @@
+component,category,abstraction_introduction_cost,characters,lines,tokens,python_ast_nodes
+Core TL syntax/evaluator,core_tl,no,5885,196,1045,1159
+Core TL generator,core_tl,no,3364,104,546,526
+Macro TL syntax/parser,macro_tl,yes,4170,135,721,746
+Macro TL expander,macro_tl,yes,1310,42,235,217
+Macro TL formatter,macro_tl,yes,841,25,122,186
+Macro definitions V1,macro_tl,yes,1255,52,200,166
+Macro definitions V2 refactor,macro_tl,no,1181,48,233,198
+Explicit generator/compiler,explicit,no,5853,158,626,745
+Parameterized DSL parser/interpreter,parameterized,no,4010,122,691,769
+Oracle,shared,no,1622,46,240,294
+Shared trace validator,shared,no,1025,37,167,161
+Shared test generators,shared,no,11119,298,2249,2505

@@ -1,0 +1,17 @@
+{
+  "children": [
+    {
+      "children": [],
+      "label": "Start:S"
+    },
+    {
+      "children": [],
+      "label": "OrderedChoices"
+    },
+    {
+      "children": [],
+      "label": "End:E"
+    }
+  ],
+  "label": "MacroTask"
+}

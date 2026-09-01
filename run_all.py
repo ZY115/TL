@@ -12,6 +12,7 @@ PILOTS = (
     ROOT / "pilots/pilot_0_1_sequence",
     ROOT / "pilots/pilot_0_2_timing",
     ROOT / "pilots/pilot_0_3_branch_timing",
+    ROOT / "pilots/pilot_0_3b_abstraction_audit",
 )
 
 
