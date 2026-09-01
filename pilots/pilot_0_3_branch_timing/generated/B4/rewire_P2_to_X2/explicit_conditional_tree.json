@@ -1,0 +1,303 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "LeftChoice:L1"
+            },
+            {
+              "children": [],
+              "label": "RightChoice:R1"
+            }
+          ],
+          "label": "Stage:1"
+        },
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "LeftChoice:L2"
+            },
+            {
+              "children": [],
+              "label": "RightChoice:R2"
+            }
+          ],
+          "label": "Stage:2"
+        },
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "LeftChoice:L3"
+            },
+            {
+              "children": [],
+              "label": "RightChoice:R3"
+            }
+          ],
+          "label": "Stage:3"
+        },
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "LeftChoice:L4"
+            },
+            {
+              "children": [],
+              "label": "RightChoice:R4"
+            }
+          ],
+          "label": "Stage:4"
+        }
+      ],
+      "label": "DecisionSequence"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "SelectedVariable:selected_1"
+            },
+            {
+              "children": [],
+              "label": "StartVariable:start_1"
+            },
+            {
+              "children": [],
+              "label": "CompletionFlag:done_1"
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "label": "Trigger:L1"
+                },
+                {
+                  "children": [],
+                  "label": "Goal:P1"
+                },
+                {
+                  "children": [],
+                  "label": "Bound:8"
+                },
+                {
+                  "children": [],
+                  "label": "DeadlineCheck"
+                }
+              ],
+              "label": "LeftBranch"
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "label": "Trigger:R1"
+                },
+                {
+                  "children": [],
+                  "label": "Goal:Q1"
+                },
+                {
+                  "children": [],
+                  "label": "Bound:10"
+                },
+                {
+                  "children": [],
+                  "label": "DeadlineCheck"
+                }
+              ],
+              "label": "RightBranch"
+            }
+          ],
+          "label": "Stage:1"
+        },
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "SelectedVariable:selected_2"
+            },
+            {
+              "children": [],
+              "label": "StartVariable:start_2"
+            },
+            {
+              "children": [],
+              "label": "CompletionFlag:done_2"
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "label": "Trigger:L2"
+                },
+                {
+                  "children": [],
+                  "label": "Goal:X2"
+                },
+                {
+                  "children": [],
+                  "label": "Bound:8"
+                },
+                {
+                  "children": [],
+                  "label": "DeadlineCheck"
+                }
+              ],
+              "label": "LeftBranch"
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "label": "Trigger:R2"
+                },
+                {
+                  "children": [],
+                  "label": "Goal:Q2"
+                },
+                {
+                  "children": [],
+                  "label": "Bound:10"
+                },
+                {
+                  "children": [],
+                  "label": "DeadlineCheck"
+                }
+              ],
+              "label": "RightBranch"
+            }
+          ],
+          "label": "Stage:2"
+        },
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "SelectedVariable:selected_3"
+            },
+            {
+              "children": [],
+              "label": "StartVariable:start_3"
+            },
+            {
+              "children": [],
+              "label": "CompletionFlag:done_3"
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "label": "Trigger:L3"
+                },
+                {
+                  "children": [],
+                  "label": "Goal:P3"
+                },
+                {
+                  "children": [],
+                  "label": "Bound:8"
+                },
+                {
+                  "children": [],
+                  "label": "DeadlineCheck"
+                }
+              ],
+              "label": "LeftBranch"
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "label": "Trigger:R3"
+                },
+                {
+                  "children": [],
+                  "label": "Goal:Q3"
+                },
+                {
+                  "children": [],
+                  "label": "Bound:10"
+                },
+                {
+                  "children": [],
+                  "label": "DeadlineCheck"
+                }
+              ],
+              "label": "RightBranch"
+            }
+          ],
+          "label": "Stage:3"
+        },
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "SelectedVariable:selected_4"
+            },
+            {
+              "children": [],
+              "label": "StartVariable:start_4"
+            },
+            {
+              "children": [],
+              "label": "CompletionFlag:done_4"
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "label": "Trigger:L4"
+                },
+                {
+                  "children": [],
+                  "label": "Goal:P4"
+                },
+                {
+                  "children": [],
+                  "label": "Bound:8"
+                },
+                {
+                  "children": [],
+                  "label": "DeadlineCheck"
+                }
+              ],
+              "label": "LeftBranch"
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "label": "Trigger:R4"
+                },
+                {
+                  "children": [],
+                  "label": "Goal:Q4"
+                },
+                {
+                  "children": [],
+                  "label": "Bound:10"
+                },
+                {
+                  "children": [],
+                  "label": "DeadlineCheck"
+                }
+              ],
+              "label": "RightBranch"
+            }
+          ],
+          "label": "Stage:4"
+        }
+      ],
+      "label": "Obligations"
+    }
+  ],
+  "label": "ConditionalTimedMonitor"
+}

@@ -401,9 +401,10 @@ versions in `results/metadata.json`.
 Fresh setup:
 
 ```bash
-cd pilot_0_2_timing
+cd tl_sequence_pilot
 python3.11 -m venv .venv
 source .venv/bin/activate
+cd pilots/pilot_0_2_timing
 python -m pip install -r requirements.txt
 pytest
 python run_experiment.py

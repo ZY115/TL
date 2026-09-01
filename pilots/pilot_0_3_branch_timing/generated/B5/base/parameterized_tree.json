@@ -1,0 +1,205 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "label": "Event:L1"
+                },
+                {
+                  "children": [],
+                  "label": "Goal:P1"
+                },
+                {
+                  "children": [],
+                  "label": "Bound:8"
+                }
+              ],
+              "label": "Left"
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "label": "Event:R1"
+                },
+                {
+                  "children": [],
+                  "label": "Goal:Q1"
+                },
+                {
+                  "children": [],
+                  "label": "Bound:10"
+                }
+              ],
+              "label": "Right"
+            }
+          ],
+          "label": "Stage:1"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "label": "Event:L2"
+                },
+                {
+                  "children": [],
+                  "label": "Goal:P2"
+                },
+                {
+                  "children": [],
+                  "label": "Bound:8"
+                }
+              ],
+              "label": "Left"
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "label": "Event:R2"
+                },
+                {
+                  "children": [],
+                  "label": "Goal:Q2"
+                },
+                {
+                  "children": [],
+                  "label": "Bound:10"
+                }
+              ],
+              "label": "Right"
+            }
+          ],
+          "label": "Stage:2"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "label": "Event:L3"
+                },
+                {
+                  "children": [],
+                  "label": "Goal:P3"
+                },
+                {
+                  "children": [],
+                  "label": "Bound:8"
+                }
+              ],
+              "label": "Left"
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "label": "Event:R3"
+                },
+                {
+                  "children": [],
+                  "label": "Goal:Q3"
+                },
+                {
+                  "children": [],
+                  "label": "Bound:10"
+                }
+              ],
+              "label": "Right"
+            }
+          ],
+          "label": "Stage:3"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "label": "Event:L4"
+                },
+                {
+                  "children": [],
+                  "label": "Goal:P4"
+                },
+                {
+                  "children": [],
+                  "label": "Bound:8"
+                }
+              ],
+              "label": "Left"
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "label": "Event:R4"
+                },
+                {
+                  "children": [],
+                  "label": "Goal:Q4"
+                },
+                {
+                  "children": [],
+                  "label": "Bound:10"
+                }
+              ],
+              "label": "Right"
+            }
+          ],
+          "label": "Stage:4"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "label": "Event:L5"
+                },
+                {
+                  "children": [],
+                  "label": "Goal:P5"
+                },
+                {
+                  "children": [],
+                  "label": "Bound:8"
+                }
+              ],
+              "label": "Left"
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "label": "Event:R5"
+                },
+                {
+                  "children": [],
+                  "label": "Goal:Q5"
+                },
+                {
+                  "children": [],
+                  "label": "Bound:10"
+                }
+              ],
+              "label": "Right"
+            }
+          ],
+          "label": "Stage:5"
+        }
+      ],
+      "label": "Stages"
+    }
+  ],
+  "label": "Task"
+}

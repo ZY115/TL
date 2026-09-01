@@ -1,0 +1,49 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "label": "Event:L1"
+                },
+                {
+                  "children": [],
+                  "label": "Goal:X1"
+                },
+                {
+                  "children": [],
+                  "label": "Bound:8"
+                }
+              ],
+              "label": "Left"
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "label": "Event:R1"
+                },
+                {
+                  "children": [],
+                  "label": "Goal:Q1"
+                },
+                {
+                  "children": [],
+                  "label": "Bound:10"
+                }
+              ],
+              "label": "Right"
+            }
+          ],
+          "label": "Stage:1"
+        }
+      ],
+      "label": "Stages"
+    }
+  ],
+  "label": "Task"
+}

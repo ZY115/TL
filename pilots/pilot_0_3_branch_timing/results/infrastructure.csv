@@ -1,0 +1,13 @@
+component,characters,lines,tokens,python_ast_nodes
+Task-family model,1454,60,259,272
+Bounded-TL syntax,3907,136,694,789
+Bounded-TL evaluator,1978,60,351,370
+Bounded-TL generator,3364,104,546,526
+Explicit conditional-monitor generator/compiler,6079,163,638,753
+Parameterized conditional deadline-monitor engine,4167,127,719,804
+Independent branch/timing oracle,1963,57,294,353
+Deterministic and random trace generators,11119,298,2249,2505
+Source metrics,2177,69,153,379
+Tree edit implementation,977,37,201,165
+Plotting utilities,7900,242,1316,1233
+Benchmark runner,19627,605,2939,2812
