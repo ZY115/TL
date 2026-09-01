@@ -1,0 +1,123 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "children": [],
+          "label": "A1"
+        },
+        {
+          "children": [],
+          "label": "A2"
+        },
+        {
+          "children": [],
+          "label": "A3"
+        },
+        {
+          "children": [],
+          "label": "A4"
+        },
+        {
+          "children": [],
+          "label": "A5"
+        },
+        {
+          "children": [],
+          "label": "A6"
+        },
+        {
+          "children": [],
+          "label": "A7"
+        },
+        {
+          "children": [],
+          "label": "A8"
+        },
+        {
+          "children": [],
+          "label": "A9"
+        },
+        {
+          "children": [],
+          "label": "A10"
+        }
+      ],
+      "label": "Sequence"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Start:A1"
+            },
+            {
+              "children": [],
+              "label": "End:A6"
+            },
+            {
+              "children": [],
+              "label": "Bound:8"
+            }
+          ],
+          "label": "Constraint"
+        },
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Start:A2"
+            },
+            {
+              "children": [],
+              "label": "End:A7"
+            },
+            {
+              "children": [],
+              "label": "Bound:8"
+            }
+          ],
+          "label": "Constraint"
+        },
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Start:A3"
+            },
+            {
+              "children": [],
+              "label": "End:A8"
+            },
+            {
+              "children": [],
+              "label": "Bound:8"
+            }
+          ],
+          "label": "Constraint"
+        },
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Start:A4"
+            },
+            {
+              "children": [],
+              "label": "End:A9"
+            },
+            {
+              "children": [],
+              "label": "Bound:8"
+            }
+          ],
+          "label": "Constraint"
+        }
+      ],
+      "label": "Timing"
+    }
+  ],
+  "label": "Task"
+}

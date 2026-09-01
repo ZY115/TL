@@ -1,0 +1,93 @@
+{
+  "canonical_python_formatter": "Black, line length 88",
+  "fixed_targets": [
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "A5",
+    "A6",
+    "A7",
+    "A8",
+    "A9",
+    "A10"
+  ],
+  "gap_trace_count_per_task": 19683,
+  "gap_values": [
+    0,
+    1,
+    2
+  ],
+  "irrelevant_event": "O",
+  "main_gap_evaluations_per_representation": 118098,
+  "numeric_modification": {
+    "new_bound": 6,
+    "old_bound": 8
+  },
+  "packages": {
+    "apted": "1.0.3",
+    "black": "26.5.1",
+    "matplotlib": "3.11.1",
+    "pandas": "2.3.3",
+    "pytest": "8.4.2"
+  },
+  "pilot": "0.2",
+  "platform": "macOS-15.3.1-arm64-arm-64bit",
+  "python_version": "3.12.13",
+  "sequence_failure_traces_per_task": 19,
+  "source_diff": "SequenceMatcher with autojunk=False",
+  "target_events_at_most_once": true,
+  "timestamps_intentionally_omitted": true,
+  "timing_constraints": [
+    {
+      "bound": 8,
+      "end": "A6",
+      "inclusive": true,
+      "lower": 1,
+      "name": "C1",
+      "start": "A1"
+    },
+    {
+      "bound": 8,
+      "end": "A7",
+      "inclusive": true,
+      "lower": 1,
+      "name": "C2",
+      "start": "A2"
+    },
+    {
+      "bound": 8,
+      "end": "A8",
+      "inclusive": true,
+      "lower": 1,
+      "name": "C3",
+      "start": "A3"
+    },
+    {
+      "bound": 8,
+      "end": "A9",
+      "inclusive": true,
+      "lower": 1,
+      "name": "C4",
+      "start": "A4"
+    },
+    {
+      "bound": 8,
+      "end": "A10",
+      "inclusive": true,
+      "lower": 1,
+      "name": "C5",
+      "start": "A5"
+    }
+  ],
+  "tl_fragment": [
+    "Atom",
+    "And",
+    "Eventually",
+    "Always",
+    "Implication",
+    "BoundedEventually"
+  ],
+  "tokenizer": "Pilot 0.1 language-neutral tokenizer, unchanged",
+  "tree_edit": "APTED ordered tree edit distance; unit insert/delete/rename"
+}

@@ -1,0 +1,16 @@
+m_before,m_after,added_constraint,representation,original_characters,modified_characters,lines_inserted,lines_deleted,lines_changed,tokens_inserted,tokens_deleted,tokens_changed,tree_edit_distance,constraints_added,constraints_removed,timing_variables_added,timing_variables_removed,timing_start_rules_added,timing_start_rules_removed,deadline_checks_added,deadline_checks_removed,existing_checks_changed,bounds_changed
+0,1,C1,tl,79,101,1,0,1,15,0,0,6,1,0,,,,,,,,0
+0,1,C1,explicit_timed,934,1067,4,0,0,19,0,0,7,1,0,1,0,1,0,1,0,0,0
+0,1,C1,parameterized,139,161,2,0,1,8,0,0,4,1,0,,,,,,,,0
+1,2,C2,tl,101,123,1,0,1,15,0,0,6,1,0,,,,,,,,0
+1,2,C2,explicit_timed,1067,1200,4,0,0,19,0,0,7,1,0,1,0,1,0,1,0,0,0
+1,2,C2,parameterized,161,182,1,0,0,8,0,0,4,1,0,,,,,,,,0
+2,3,C3,tl,123,145,1,0,1,15,0,0,6,1,0,,,,,,,,0
+2,3,C3,explicit_timed,1200,1333,4,0,0,19,0,0,7,1,0,1,0,1,0,1,0,0,0
+2,3,C3,parameterized,182,203,1,0,0,8,0,0,4,1,0,,,,,,,,0
+3,4,C4,tl,145,167,1,0,1,15,0,0,6,1,0,,,,,,,,0
+3,4,C4,explicit_timed,1333,1466,4,0,0,19,0,0,7,1,0,1,0,1,0,1,0,0,0
+3,4,C4,parameterized,203,224,1,0,0,8,0,0,4,1,0,,,,,,,,0
+4,5,C5,tl,167,190,1,0,1,15,0,0,6,1,0,,,,,,,,0
+4,5,C5,explicit_timed,1466,1599,4,0,0,19,0,0,7,1,0,1,0,1,0,1,0,0,0
+4,5,C5,parameterized,224,246,1,0,0,8,0,0,4,1,0,,,,,,,,0

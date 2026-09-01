@@ -1,0 +1,191 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "label": "Atom:A1"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "label": "Atom:A2"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "label": "Atom:A3"
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "label": "Atom:A4"
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [
+                                                {
+                                                  "children": [],
+                                                  "label": "Atom:A5"
+                                                },
+                                                {
+                                                  "children": [
+                                                    {
+                                                      "children": [
+                                                        {
+                                                          "children": [],
+                                                          "label": "Atom:A6"
+                                                        },
+                                                        {
+                                                          "children": [
+                                                            {
+                                                              "children": [
+                                                                {
+                                                                  "children": [],
+                                                                  "label": "Atom:A7"
+                                                                },
+                                                                {
+                                                                  "children": [
+                                                                    {
+                                                                      "children": [
+                                                                        {
+                                                                          "children": [],
+                                                                          "label": "Atom:A8"
+                                                                        },
+                                                                        {
+                                                                          "children": [
+                                                                            {
+                                                                              "children": [
+                                                                                {
+                                                                                  "children": [],
+                                                                                  "label": "Atom:A9"
+                                                                                },
+                                                                                {
+                                                                                  "children": [
+                                                                                    {
+                                                                                      "children": [],
+                                                                                      "label": "Atom:A10"
+                                                                                    }
+                                                                                  ],
+                                                                                  "label": "Eventually"
+                                                                                }
+                                                                              ],
+                                                                              "label": "And"
+                                                                            }
+                                                                          ],
+                                                                          "label": "Eventually"
+                                                                        }
+                                                                      ],
+                                                                      "label": "And"
+                                                                    }
+                                                                  ],
+                                                                  "label": "Eventually"
+                                                                }
+                                                              ],
+                                                              "label": "And"
+                                                            }
+                                                          ],
+                                                          "label": "Eventually"
+                                                        }
+                                                      ],
+                                                      "label": "And"
+                                                    }
+                                                  ],
+                                                  "label": "Eventually"
+                                                }
+                                              ],
+                                              "label": "And"
+                                            }
+                                          ],
+                                          "label": "Eventually"
+                                        }
+                                      ],
+                                      "label": "And"
+                                    }
+                                  ],
+                                  "label": "Eventually"
+                                }
+                              ],
+                              "label": "And"
+                            }
+                          ],
+                          "label": "Eventually"
+                        }
+                      ],
+                      "label": "And"
+                    }
+                  ],
+                  "label": "Eventually"
+                }
+              ],
+              "label": "And"
+            }
+          ],
+          "label": "Eventually"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "label": "Atom:A1"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "label": "Atom:A6"
+                    }
+                  ],
+                  "label": "BoundedEventually[1,6]"
+                }
+              ],
+              "label": "Implies"
+            }
+          ],
+          "label": "Always"
+        }
+      ],
+      "label": "And"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Atom:A2"
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "label": "Atom:A7"
+                }
+              ],
+              "label": "BoundedEventually[1,8]"
+            }
+          ],
+          "label": "Implies"
+        }
+      ],
+      "label": "Always"
+    }
+  ],
+  "label": "And"
+}

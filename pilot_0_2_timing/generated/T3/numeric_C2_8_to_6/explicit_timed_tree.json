@@ -1,0 +1,196 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Transition:A1->WAIT_A2"
+            }
+          ],
+          "label": "State:WAIT_A1"
+        },
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Transition:A2->WAIT_A3"
+            }
+          ],
+          "label": "State:WAIT_A2"
+        },
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Transition:A3->WAIT_A4"
+            }
+          ],
+          "label": "State:WAIT_A3"
+        },
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Transition:A4->WAIT_A5"
+            }
+          ],
+          "label": "State:WAIT_A4"
+        },
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Transition:A5->WAIT_A6"
+            }
+          ],
+          "label": "State:WAIT_A5"
+        },
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Transition:A6->WAIT_A7"
+            }
+          ],
+          "label": "State:WAIT_A6"
+        },
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Transition:A7->WAIT_A8"
+            }
+          ],
+          "label": "State:WAIT_A7"
+        },
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Transition:A8->WAIT_A9"
+            }
+          ],
+          "label": "State:WAIT_A8"
+        },
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Transition:A9->WAIT_A10"
+            }
+          ],
+          "label": "State:WAIT_A9"
+        },
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Transition:A10->SUCCESS"
+            }
+          ],
+          "label": "State:WAIT_A10"
+        },
+        {
+          "children": [],
+          "label": "State:SUCCESS"
+        }
+      ],
+      "label": "Sequence"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Start:A1"
+            },
+            {
+              "children": [],
+              "label": "End:A6"
+            },
+            {
+              "children": [],
+              "label": "Bound:8"
+            },
+            {
+              "children": [],
+              "label": "StartVariable:start_C1"
+            },
+            {
+              "children": [],
+              "label": "TimingStartRule"
+            },
+            {
+              "children": [],
+              "label": "DeadlineCheck"
+            }
+          ],
+          "label": "Constraint:C1"
+        },
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Start:A2"
+            },
+            {
+              "children": [],
+              "label": "End:A7"
+            },
+            {
+              "children": [],
+              "label": "Bound:6"
+            },
+            {
+              "children": [],
+              "label": "StartVariable:start_C2"
+            },
+            {
+              "children": [],
+              "label": "TimingStartRule"
+            },
+            {
+              "children": [],
+              "label": "DeadlineCheck"
+            }
+          ],
+          "label": "Constraint:C2"
+        },
+        {
+          "children": [
+            {
+              "children": [],
+              "label": "Start:A3"
+            },
+            {
+              "children": [],
+              "label": "End:A8"
+            },
+            {
+              "children": [],
+              "label": "Bound:8"
+            },
+            {
+              "children": [],
+              "label": "StartVariable:start_C3"
+            },
+            {
+              "children": [],
+              "label": "TimingStartRule"
+            },
+            {
+              "children": [],
+              "label": "DeadlineCheck"
+            }
+          ],
+          "label": "Constraint:C3"
+        }
+      ],
+      "label": "Timing"
+    }
+  ],
+  "label": "TimedMonitor"
+}
