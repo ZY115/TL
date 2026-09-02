@@ -1,0 +1,15 @@
+```python
+class Monitor:
+    def __init__(self):
+        self.x_seen = False
+
+    def reset(self) -> None:
+        self.x_seen = False
+
+    def step(self, propositions: set[str]) -> None:
+        if 'X' in propositions and not self.x_seen:
+            self.x_seen = True
+
+    def finish(self) -> bool:
+        return not self.x_seen
+```

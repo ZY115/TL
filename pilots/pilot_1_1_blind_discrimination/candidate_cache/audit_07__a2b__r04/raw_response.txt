@@ -1,0 +1,13 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def task_15(source: str) -> bool:
+    return (
+        seen A  # Visit A before B
+        and seen B  # After every A visit C at an offset from 1 through 3, inclusive
+        and seen C  # after every A visit C at an offset from 1 through 3, inclusive
+        and seen D  # After every B visit D at an offset from 2 through 4, inclusive
+        and seen B  # Each response must be strictly later than its trigger.
+    )
+
+# test task_15 against the given source
+assert evaluate_task(source, (frozenset(["A"]), frozenset(["B", "C", "D"]))) == True

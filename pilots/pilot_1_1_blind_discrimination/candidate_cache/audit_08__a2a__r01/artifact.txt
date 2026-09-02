@@ -1,0 +1,16 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def task(source):
+    return (
+        # Visit A before a strictly later B
+        (sequence A B)
+        
+        # After every A visit C at an offset from 2 through 4, inclusive
+        + ((after-each A) * (within 2 4 C))
+        
+        # After every B visit D at an offset from 1 through 2, inclusive
+        + ((after-each B) * (within 1 2 D))
+    )
+
+# Test the task
+print(canonicalize(task("eventually A; after-each A (within 2 4 C); after-each B (within 1 2 D)")) == "(eventually A);(after-each A);(within 2 4 C);(after-each B);(within 1 2 D)")

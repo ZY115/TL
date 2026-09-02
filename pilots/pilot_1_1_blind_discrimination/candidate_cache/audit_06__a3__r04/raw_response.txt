@@ -1,0 +1,16 @@
+```python
+class Monitor:
+    def reset(self) -> None:
+        self.step_index = 0
+        self.A_visited = False
+        self.X_avoided = True
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions:
+            self.A_visited = True
+        elif 'X' in propositions and not self.X_avoided:
+            raise ValueError("Avoid X until C")
+
+    def finish(self) -> bool:
+        return self.A_visited
+```

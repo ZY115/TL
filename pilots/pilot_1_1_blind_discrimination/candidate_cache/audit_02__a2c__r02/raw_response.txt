@@ -1,0 +1,126 @@
+```python
+# warehouse_dsl.py
+
+from dataclasses import dataclass
+from typing import Tuple, FrozenSet
+
+@dataclass(frozen=True)
+class Step:
+    label: str
+    index: int
+
+@dataclass(frozen=True)
+class Task:
+    expression: str
+
+def parse_task(source):
+    # Basic parser for demonstration purposes only; not intended for production use.
+    if source.startswith('visit'):
+        return Task(expression=source[6:])
+    elif source.startswith('avoid'):
+        return Task(expression='avoid(X)')
+    elif source.startswith('sequence'):
+        parts = source.split(', ')
+        return Task(expression=f'sequence({", ".join(parts)})')
+    else:
+        raise ValueError("Unsupported task expression")
+
+def canonicalize(source):
+    # Canonicalization for demonstration purposes only; not intended for production use.
+    if ' visit' in source:
+        return f" visit({source.replace(' visit', '')})"
+    elif ' avoid' in source:
+        return f" avoid(X)"
+    else:
+        raise ValueError("Unsupported task expression")
+
+def evaluate_task(source: str, trace: Tuple[FrozenSet[str], ...]) -> bool:
+    # Evaluation for demonstration purposes only; not intended for production use.
+    anchor = 0
+    k = 0
+    n = len(trace[0])
+    
+    def visit(P):
+        nonlocal k
+        return P in trace[k]
+    
+    def avoid(P):
+        return P not in trace[k]
+    
+    def sequence(*P):
+        P = frozenset(P)
+        indices = []
+        for i, s in enumerate(trace):
+            if P.issubset(s):
+                indices.append(i)
+        return len(indices) > 0
+    
+    def between(lo, hi, P):
+        nonlocal k
+        offset = lo + anchor
+        while offset <= hi + anchor and k < n:
+            if P in trace[k]:
+                return True
+            offset += 1
+        return False
+    
+    def avoid_until(X, G):
+        nonlocal k
+        for j in range(anchor, n):
+            if X not in trace[j]:
+                return G in trace[j]
+        return False
+    
+    def after_each(T, R):
+        nonlocal k
+        result = True
+        for i in range(anchor, n):
+            if T in trace[i]:
+                result &= R(evaluate_task(source, (frozenset(trace[:i]), frozenset())) or evaluate_task(source, (frozenset(trace[i+1:]), frozenset())))
+        return result
+    
+    def all(*R):
+        return all(R)
+    
+    def any(*R):
+        return any(R)
+    
+    parts = source.split()
+    if len(parts) == 2:
+        P = parts[0]
+        R = parts[1]
+        if R in ['visit', 'avoid']:
+            result = visit(P) or avoid(P)
+        elif R == 'sequence':
+            result = sequence(P)
+        elif R == 'between':
+            lo, hi, P = parts
+            result = between(int(lo), int(hi), frozenset(P))
+        elif R == 'after_each':
+            T, R = parts
+            result = after_each(T, R)
+        elif R in ['all', 'any']:
+            if R == 'all':
+                R = all
+            else:
+                R = any
+            args = [f"visit({P})" if P != 'X' else "avoid(X)" for P in parts[1:]]
+            result = R(*args)
+        elif R == 'avoid_until':
+            X, G = parts
+            result = avoid_until(X, G)
+        else:
+            raise ValueError("Unsupported task expression")
+    else:
+        raise ValueError("Unsupported task expression")
+
+    return evaluate_task(source, trace)
+
+def main():
+    source = "avoid(X)"
+    task = parse_task(source)
+    print(task.expression)
+
+if __name__ == "__main__":
+    main()
+```

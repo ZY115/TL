@@ -1,0 +1,4 @@
+import warehouse_dsl
+
+def task():
+    return (sequence A (eventually B))

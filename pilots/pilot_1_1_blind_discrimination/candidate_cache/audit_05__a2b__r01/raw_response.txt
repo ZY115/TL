@@ -1,0 +1,15 @@
+```python
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+task = """
+all {
+  seen A;
+  within 2..4 { seen B }
+}
+"""
+
+canonicalized_task = canonicalize(task)
+print(canonicalized_task)
+```
+
+This code defines a task that visits region A at least once and after every occurrence of A, it must visit B at an offset from 2 through 4, inclusive. The `all` clause ensures that both conditions are met.

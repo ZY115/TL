@@ -1,0 +1,44 @@
+```python
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def audit_candidate():
+    def satisfies_alternative(alternative):
+        trace = []
+        for task in alternative:
+            for step in task.steps:
+                if any(label in step for label in 'ABCDX'):
+                    trace.append(step)
+        # Evaluate each trigger and child
+        for i, t in enumerate(trace):
+            satisfied = True
+            for trigger in t.triggers:
+                for j in range(i+1, len(trace)):
+                    if (any(t in task.steps for task in trace[j].tasks) 
+                        and trigger.label not in [label for step in trace[j].steps for label in step])
+                            or any(label not in step for step in trace[j].steps for label in 'ABCDX')
+                            or any(step in t.steps for step in trace[j].steps)):
+                        satisfied = False
+            if satisfied:
+                for child in t.children:
+                    # Check that the child's origin is one more than its parent's
+                    if child.origin < i + 1:
+                        return False
+        return True
+
+    def satisfies_all_alternatives(alternatives):
+        return all(satisfies_alternative(alternative) for alternative in alternatives)
+
+    task = parse_task('''
+(all (eventually A) (never X))
+(after-each A (within 2 4 B))
+''')
+    if not task.valid:
+        raise ValueError("Invalid input")
+    else:
+        # Check that the task has a valid origin and only one sequence of steps
+        assert len(task.steps[0].steps) == 1
+        return satisfies_all_alternatives([task])
+
+# Run the test suite from this directory with:
+# python3 -m unittest discover -s tests -v
+```

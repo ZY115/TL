@@ -1,0 +1,19 @@
+class Monitor:
+    def reset(self):
+        self.trace = []
+
+    def step(self, propositions):
+        self.trace.append(set(propositions))
+
+    def finish(self):
+        n = len(self.trace)
+        has_a = any('A' in props for props in self.trace)
+        if not has_a:
+            return False
+        for i in range(n):
+            if 'A' not in self.trace[i]:
+                continue
+            window = range(i + 1, min(i + 3, n))
+            if not any('B' in self.trace[j] for j in window):
+                return False
+        return True

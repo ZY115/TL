@@ -1,0 +1,1 @@
+and(order(A, B, C), avoid_until(X, C))

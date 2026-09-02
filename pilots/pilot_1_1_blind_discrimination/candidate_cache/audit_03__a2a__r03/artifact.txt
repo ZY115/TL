@@ -1,0 +1,6 @@
+from warehouse_dsl import evaluate_task
+
+task = "(sequence (eventually A) (after-each A (within 1 4 B)))"
+trace = ("A", frozenset({"B"}))
+result = evaluate_task(task, trace)
+print(result)

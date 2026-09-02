@@ -1,0 +1,29 @@
+class Monitor:
+    def __init__(self):
+        self.last_A = None
+        self.last_D = None
+        self.last_X = None
+
+    def reset(self) -> None:
+        self.last_A = None
+        self.last_D = None
+        self.last_X = None
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and (self.last_A is not None):
+            for p in ['B', 'C']:
+                if p in propositions and p != 'X':
+                    return
+            return
+        elif 'D' in propositions and self.last_D is None:
+            for d_offset in range(1, 3):
+                if f'D_{d_offset}' in propositions:
+                    return
+            return
+        elif 'A' not in propositions and 'B' in propositions:
+            self.last_B = propositions.pop()
+        elif 'X' in propositions:
+            self.last_X = propositions.pop()
+
+    def finish(self) -> bool:
+        return all([self.last_D, self.last_A])

@@ -1,0 +1,5 @@
+```
+(at_A U at_B) & (X^2 at_C | X^3 at_C | X^4 at_C) 
+& (at_D U X at_D | X at_D) 
+& (~at_X U X at_C)
+```

@@ -1,0 +1,88 @@
+def evaluate_task(task, trace):
+    k = 0  # Anchor step is the first recorded step (index 0)
+    
+    def visit(P):
+        for i in range(k + 1, len(trace)):
+            if P in trace[i]:
+                return True
+        return False
+    
+    def avoid(P):
+        for i in range(len(trace)):
+            if P in trace[i]:
+                return False
+        return True
+    
+    def sequence(*Ps):
+        indices = []
+        for p in Ps:
+            i = k
+            while True:
+                if visit(p):
+                    indices.append(i)
+                    break
+                elif avoid(p):
+                    break
+                i += 1
+        return any(i1 < i2 for i1, i2 in zip(indices[:-1], indices[1:]))
+    
+    def between(lo, hi, P):
+        found = False
+        for d in range(lo, hi + 1):
+            if visit(P) and k + d not in trace:
+                found = True
+                break
+        return found
+    
+    def avoid_until(X, G):
+        j = k
+        while True:
+            if visit(G):
+                return True
+            elif visit(X):
+                return False
+            else:
+                j += 1
+            if j >= len(trace) or not visit(G):
+                return False
+    
+    def after_each(T, R):
+        for i in range(k, len(trace)):
+            if visit(T):
+                return R()
+        return True
+    
+    def all(*Rs):
+        return all(R() for R in Rs)
+    
+    def any(*Rs):
+        return any(R() for R in Rs)
+    
+    task_expr = task.split()
+    if task_expr[0] == 'visit':
+        P = task_expr[1]
+        return visit(P)
+    elif task_expr[0] == 'avoid':
+        P = task_expr[1]
+        return avoid(P)
+    elif task_expr[0] == 'sequence':
+        Ps = [P for p in task_expr[1:] if p != ',']
+        return sequence(*Ps)
+    elif task_expr[0] == 'between':
+        lo, hi, P = task_expr[1:]
+        lo, hi = int(lo), int(hi)
+        return between(lo, hi, P)
+    elif task_expr[0] == 'avoid_until':
+        X, G = task_expr[1], task_expr[2]
+        return avoid_until(X, G)
+    elif task_expr[0] == 'after_each':
+        T, R = task_expr[1], task_expr[2]
+        return after_each(T, R())
+    elif task_expr[0] == 'all':
+        Rs = [task_expr[i + 1:] for i in range(len(task_expr)) if task_expr[i] != ',']
+        return all(*Rs)
+    elif task_expr[0] == 'any':
+        Rs = [task_expr[i + 1:] for i in range(len(task_expr)) if task_expr[i] != ',']
+        return any(*Rs)
+    else:
+        raise ValueError(f"Unknown task expression: {task}")

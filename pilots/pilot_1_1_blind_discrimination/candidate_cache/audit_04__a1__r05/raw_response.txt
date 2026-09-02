@@ -1,0 +1,1 @@
+at_A U (at_X -> F) U at_C

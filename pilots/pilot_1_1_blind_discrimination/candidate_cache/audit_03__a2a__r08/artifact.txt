@@ -1,0 +1,11 @@
+import warehouse_dsl
+
+def task():
+    return (eventually A) >> sequence(A B)
+
+task_source = """
+(eventually A)
+(sequence A B)
+"""
+
+print(warehouse_dsl.parse_task(task_source))

@@ -1,0 +1,31 @@
+```python
+import enum
+
+class Proposition(enum.Enum):
+    A = 'A'
+    B = 'B'
+    C = 'C'
+    X = 'X'
+
+class Monitor:
+    def __init__(self, task_name):
+        self.task_name = task_name
+        self.propositions = set()
+        self.a_occurred = False
+        self.b_offset = None
+
+    def reset(self) -> None:
+        self.propositions.clear()
+        self.a_occurred = False
+        self.b_offset = None
+
+    def step(self, propositions: set[str]) -> None:
+        if Proposition.A in propositions and not self.a_occurred:
+            self.a_occurred = True
+        elif Proposition.B in propositions and self.a_occurred:
+            self.b_offset = min(4, len(propositions) - self.propositions.index(Proposition.B))
+        self.propositions.update(propositions)
+
+    def finish(self) -> bool:
+        return self.b_offset is not None
+```

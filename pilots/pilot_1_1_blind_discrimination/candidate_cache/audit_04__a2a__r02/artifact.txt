@@ -1,0 +1,1 @@
+(eventually A (never X) (all (after-each A (eventually C)))))

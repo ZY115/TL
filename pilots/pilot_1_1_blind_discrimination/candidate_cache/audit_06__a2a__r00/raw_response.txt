@@ -1,0 +1,6 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def solve_audit():
+    return "(after-each A (avoid-until X C))"
+
+print(solve_audit())

@@ -1,0 +1,6 @@
+after A {
+  any {
+    seen B;
+    seen C;
+  }
+}

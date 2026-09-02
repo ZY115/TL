@@ -1,0 +1,19 @@
+class Monitor:
+    def __init__(self):
+        self.visited = set()
+        self.x_visited = False
+
+    def reset(self) -> None:
+        self.visited.clear()
+        self.x_visited = False
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and 'X' not in propositions:
+            self.visited.add('A')
+        elif 'D' in propositions and 'C' in propositions and 'X' not in propositions:
+            return
+        if 'C' in propositions and 'X' not in propositions:
+            return
+
+    def finish(self) -> bool:
+        return len(self.visited) > 0 and 'C' in self.visited

@@ -1,0 +1,51 @@
+```python
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+task = """
+order [A, B, C]
+never [X]
+"""
+canonicalized_task = canonicalize(task)
+print(canonicalized_task)
+
+def main():
+    try:
+        parsed_task = parse_task(canonicalized_task)
+    except ValueError as e:
+        print(f"Invalid syntax: {e}")
+        return
+    
+    def evaluate_alternatives(traces):
+        for trace in traces:
+            status = True
+            if "order [A, B, C]" in canonicalize(task):
+                i_A, i_B, i_C = 0, 1, 2
+                if (i_A < i_B and i_B < i_C) or (i_B == i_C and i_C < len(trace)):
+                    status = False
+            if "never [X]" in canonicalize(task):
+                seen_X = False
+                for idx, label in enumerate(trace):
+                    if label == "X":
+                        seen_X = True
+                    elif seen_X:
+                        status = False
+                        break
+            return status
+    
+    # Generate random traces
+    import random
+    def generate_trace(length=10):
+        trace = [random.choice(["A", "B", "C", "D", "X"]) for _ in range(length)]
+        return frozenset(trace)
+    
+    # Find a satisfying trace
+    while True:
+        random.seed(123)  # For reproducibility
+        traces = [generate_trace() for _ in range(100)]
+        if any(evaluate_alternatives(trace) for trace in traces):
+            print(canonicalized_task)
+            break
+
+if __name__ == "__main__":
+    main()
+```

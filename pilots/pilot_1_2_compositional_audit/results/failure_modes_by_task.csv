@@ -1,0 +1,5 @@
+task_id,representation,failure_category,count
+audit_05,a2b,other semantic error,1
+audit_09,a2a,other semantic error,2
+audit_10,a3,other semantic error,3
+audit_11,a3,other semantic error,1

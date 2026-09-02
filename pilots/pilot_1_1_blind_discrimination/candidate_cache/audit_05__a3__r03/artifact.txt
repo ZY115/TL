@@ -1,0 +1,18 @@
+class Monitor:
+    def reset(self) -> None:
+        self.a_visited = False
+        self.b_offset = 0
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions:
+            if not self.a_visited:
+                self.a_visited = True
+                # Initialize b_offset to a random value between 2 and 4
+                import random
+                self.b_offset = random.randint(2, 4)
+            elif self.b_offset < 2:
+                # Adjust the offset if it's too early
+                self.b_offset += 1
+
+    def finish(self) -> bool:
+        return self.a_visited

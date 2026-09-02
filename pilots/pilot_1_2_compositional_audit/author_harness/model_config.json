@@ -1,0 +1,8 @@
+{
+  "provider": "claude-subagent",
+  "model": "claude-haiku-4-5",
+  "model_revision": "haiku-4-5-20251001",
+  "temperature": null,
+  "top_p": null,
+  "transport": "fresh memoryless subagent; reads exactly one exported prompt file outside the repository; no repository access; first attempt only"
+}

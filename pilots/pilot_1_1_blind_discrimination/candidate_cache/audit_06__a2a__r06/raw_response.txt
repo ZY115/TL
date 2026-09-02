@@ -1,0 +1,8 @@
+```python
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def create_candidate_artifact():
+    return "(after-each A (avoid-until X C))"
+```
+
+This artifact represents the task "After every occurrence of A, avoid X until C is reached" in the Warehouse DSL.

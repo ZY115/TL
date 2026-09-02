@@ -1,0 +1,1 @@
+at_A X at_B | X^3 at_B | X^4 at_B

@@ -1,0 +1,2 @@
+seen after A {
+  until C avoiding [X]

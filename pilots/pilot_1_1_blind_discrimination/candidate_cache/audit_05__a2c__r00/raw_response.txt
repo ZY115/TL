@@ -1,0 +1,31 @@
+{
+  "task": {
+    "type": "expression",
+    "children": [
+      {
+        "type": "visit",
+        "label": "A"
+      },
+      {
+        "type": "sequence",
+        "children": [
+          {
+            "type": "between",
+            "lower": 2,
+            "upper": 4,
+            "label": "B"
+          }
+        ]
+      },
+      {
+        "type": "after_each",
+        "trigger_label": "A",
+        "expression": {
+          "type": "visit",
+          "label": "B"
+        }
+      }
+    ],
+    "anchor": 0
+  }
+}

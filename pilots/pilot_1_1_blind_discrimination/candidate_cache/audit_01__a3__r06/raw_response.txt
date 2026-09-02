@@ -1,0 +1,27 @@
+```python
+class Monitor:
+    def reset(self) -> None:
+        self.a_visited = False
+        self.b_visited = False
+        self.c_visited = False
+        self.x_early = False
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions:
+            if not self.a_visited:
+                self.a_visited = True
+                return  # A must be visited before any other step
+            if 'B' in propositions and not self.b_visited:
+                self.b_visited = True
+            elif 'C' in propositions and not self.c_visited:
+                self.c_visited = True
+
+        if 'X' in propositions and self.x_early:
+            return  # X cannot occur before C when it is allowed on the endpoint
+
+    def finish(self) -> bool:
+        return (self.a_visited and
+                (self.b_visited or self.c_visited)) and not self.x_early
+```
+
+Note: This implementation uses a simple state machine to track whether A, B, and C have been visited. The `x_early` flag is used to indicate that X can occur before C when it is allowed on the endpoint.

@@ -1,0 +1,4 @@
+# train_13: accept the run if either plan holds (completing both is fine).
+# Plan one: visit A then, strictly later, visit B, while never touching
+# hazard zone X. Plan two: visit the overflow dock D at least once.
+(either (all_of (order A B) (never X)) (visit D))

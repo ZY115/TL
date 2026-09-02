@@ -1,0 +1,11 @@
+def parse_task(source):
+    # Implementation of task parsing logic based on the DSL grammar
+    pass
+
+def canonicalize(source):
+    # Implementation of task canonicalization logic based on the DSL grammar
+    pass
+
+def evaluate_task(source, trace):
+    # Implementation of task evaluation logic based on the DSL semantics
+    return True

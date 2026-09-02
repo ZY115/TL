@@ -1,0 +1,4 @@
+{
+    "task": "sequence(A, after_each(A, between(2, 4, C)), after_each(B, between(1, 2, D)), avoid(X))",
+    "anchor": 0
+}

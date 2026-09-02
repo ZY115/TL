@@ -1,0 +1,4 @@
+all_of(
+    every(A, within(1, 3, B)),
+    every(B, avoid_until(X, C))
+)

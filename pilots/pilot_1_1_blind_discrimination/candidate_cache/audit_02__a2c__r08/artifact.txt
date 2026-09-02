@@ -1,0 +1,2 @@
+def task():
+    return "avoid(X)"

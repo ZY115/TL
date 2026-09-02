@@ -1,0 +1,5 @@
+Task train_04
+
+Every time the robot visits A, it must visit B between one and four steps
+later, inclusive. If A is never visited, this requirement is satisfied.
+

@@ -1,0 +1,4 @@
+seen A { until 1..3 { seen C } }
+any {
+  after B { seen D; }
+}

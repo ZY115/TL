@@ -1,0 +1,3 @@
+Task train_12
+
+Every time the robot picks up at A, it must reach the inspection station B one or two steps later, and from that inspection onward it must stay out of the hazard zone X until it reaches the delivery bay C. A C at that B step or later is required; X is forbidden strictly between that B and its C and allowed on the C step. If A is never visited, this requirement is satisfied.

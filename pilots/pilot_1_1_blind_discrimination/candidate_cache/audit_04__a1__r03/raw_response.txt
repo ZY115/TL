@@ -1,0 +1,1 @@
+at_A U (F X B & F X C | ! F at_X)

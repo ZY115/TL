@@ -1,0 +1,57 @@
+```python
+import random
+
+class Monitor:
+    def __init__(self):
+        self.propositions = set()
+        self.traces = []
+
+    def reset(self) -> None:
+        self.propositions = set()
+        self.traces = []
+
+    def step(self, propositions: set[str]) -> None:
+        for proposition in propositions:
+            if proposition == 'A':
+                self.propositions.add('A')
+                self.add_trace(0)
+                self.add_trigger('D', 1, 3)
+            elif proposition == 'B':
+                self.propositions.add('B')
+                self.add_trace(len(self.traces))
+                self.add_trigger('C', len(self.traces), len(self.traces) + 2)
+                if self.get_last_visited_prop() == 'A':
+                    self.add_trigger('D', random.randint(1, 3), len(self.traces))
+            elif proposition == 'X' and not self.get_last_visited_prop():
+                self.propositions.remove('X')
+                if self.get_last_visited_prop() == 'B':
+                    self.add_trigger('C', len(self.traces), len(self.traces) + 2)
+            else:
+                continue
+
+    def finish(self) -> bool:
+        return len(self.traces) > 0
+```
+
+`add_trace` function to add a trace step and its corresponding trigger rules:
+
+```python
+def add_trace(self, index: int):
+    self.traces.append(index)
+
+def add_trigger(self, prop: str, min_offset: int, max_offset: int) -> None:
+    self.add_trigger_dict[prop] = {'min_offset': min_offset, 'max_offset': max_offset}
+```
+
+`get_last_visited_prop` function to get the last proposition visited:
+
+```python
+def get_last_visited_prop(self):
+    if len(self.propositions) > 0:
+        return list(self.propositions)[-1]
+    else:
+        return None
+```
+This code implements a Monitor class with methods for `reset`, `step`, and `finish`. It keeps track of visited propositions, traces, and trigger rules. The `step` method processes each proposition and adds it to the trace and triggers accordingly. The `finish` method checks if there are any remaining traces.
+
+The candidate artifact is this Python code snippet that implements the required functionality according to the provided specification.

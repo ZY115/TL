@@ -1,0 +1,85 @@
+{
+  "design": {
+    "seed": "33303",
+    "version": "1.0"
+  },
+  "tasks": [
+    {
+      "task_id": "train_01",
+      "source": "visit(A)",
+      "canonical": "visit(A)"
+    },
+    {
+      "task_id": "train_02",
+      "source": "avoid(X)",
+      "canonical": "avoid(X)"
+    },
+    {
+      "task_id": "train_03",
+      "source": "sequence(A, B)",
+      "canonical": "sequence(A,B)"
+    },
+    {
+      "task_id": "train_04",
+      "source": "after_each(A, between(1, 4, B))",
+      "canonical": "after_each(A,between(1,4,B))"
+    },
+    {
+      "task_id": "train_05",
+      "source": "avoid_until(X, C)",
+      "canonical": "avoid_until(X,C)"
+    },
+    {
+      "task_id": "train_06",
+      "source": "after_each(A, any(visit(B), visit(C)))",
+      "canonical": "after_each(A,any(visit(B),visit(C)))"
+    },
+    {
+      "task_id": "train_07",
+      "source": "all(visit(A), avoid(X))",
+      "canonical": "all(visit(A),avoid(X))"
+    },
+    {
+      "task_id": "train_08",
+      "source": "sequence(A, B, C)",
+      "canonical": "sequence(A,B,C)"
+    },
+    {
+      "task_id": "train_09",
+      "source": "after_each(A, between(1, 1, B))",
+      "canonical": "after_each(A,between(1,1,B))"
+    },
+    {
+      "task_id": "train_10",
+      "source": "after_each(B, avoid_until(X, C))",
+      "canonical": "after_each(B,avoid_until(X,C))"
+    },
+    {
+      "task_id": "train_11",
+      "source": "any(visit(B), visit(D))",
+      "canonical": "any(visit(B),visit(D))"
+    },
+    {
+      "task_id": "train_12",
+      "source": "after_each(A, between(2, 4, B))",
+      "canonical": "after_each(A,between(2,4,B))"
+    },
+    {
+      "task_id": "train_13",
+      "source": "all(after_each(A, between(1, 3, B)), after_each(C, between(1, 2, D)))",
+      "canonical": "all(after_each(A,between(1,3,B)),after_each(C,between(1,2,D)))"
+    },
+    {
+      "task_id": "train_14",
+      "source": "all(visit(A), after_each(A, avoid_until(X, C)))",
+      "canonical": "all(visit(A),after_each(A,avoid_until(X,C))"
+    }
+  ],
+  "audits": [
+    {
+      "task_id": "audit_task",
+      "source": "visit(A) after_each(A, between(2, 4, B))",
+      "canonical": "visit(A) after_each(A,between(2,4,B))"
+    }
+  ]
+}

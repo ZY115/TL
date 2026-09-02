@@ -1,0 +1,6 @@
+# Task train_07: visit the pickup shelf A at least once, and never enter
+# the hazard zone X.
+and(
+    visit(A),
+    avoid(X)
+)

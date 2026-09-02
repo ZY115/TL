@@ -1,0 +1,25 @@
+class Monitor:
+    def reset(self) -> None:
+        self.trace = []
+        self.last_A = -1
+        self.last_B = -1
+        self.cached_B_visited = False
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and not self.cached_B_visited:
+            self.last_A = len(self.trace)
+            if self.last_A > 0:
+                # A has been seen before, trigger B
+                self.last_B = len(self.trace) + 1
+                self.cached_B_visited = True
+
+        elif 'B' in propositions and not self.cached_B_visited:
+            # Ensure we don't visit B too early after A
+            if self.last_A == -1 or self.last_B > self.last_A:
+                self.last_B = len(self.trace)
+                self.cached_B_visited = False
+
+        self.trace.append(len(self.trace))
+
+    def finish(self) -> bool:
+        return all(self.last_B != -1 for _ in range(len(self.trace)))

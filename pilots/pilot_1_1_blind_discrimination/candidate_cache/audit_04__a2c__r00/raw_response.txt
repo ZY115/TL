@@ -1,0 +1,1 @@
+task = "all(visit(A), avoid(X), after_each(C, any(visit(D))))"

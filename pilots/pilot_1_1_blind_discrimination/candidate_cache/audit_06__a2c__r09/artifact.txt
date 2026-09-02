@@ -1,0 +1,31 @@
+def parse_task(source):
+    # Implementation of Warehouse DSL parser
+    if source == "after_each(A, between(1, 4, B))":
+        return ["visit", "A", "avoid_until", "X", "C"]
+    elif source == "all(visit(A), avoid(X))":
+        return ["all", "visit", "A", "avoid", "X"]
+    # ... (rest of the parser implementation)
+
+def evaluate_task(source, trace):
+    # Implementation of Warehouse DSL evaluator
+    if source == "after_each(A, between(1, 4, B))":
+        for a_index in range(len(trace[0]) - 4, len(trace[0])):
+            yield from after_each(a_index, trace)
+    elif source == "all(visit(A), avoid(X))":
+        return all(visit(a_index, trace) for a_index in range(len(trace[0])))
+    # ... (rest of the evaluator implementation)
+
+def after_each(index, target):
+    for i in range(index + 1, len(trace[0])):
+        yield from visit(i, trace)
+        if i == target:
+            break
+    else:
+        raise ValueError("Target not found")
+
+def visit(index, trace):
+    return index in trace[0]
+
+# Test the implementation
+parse_task("after_each(A, between(1, 4, B))")
+evaluate_task("all(visit(A), avoid(X))", (frozenset(["A", "B"]), frozenset(["A"])))

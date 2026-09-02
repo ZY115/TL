@@ -1,0 +1,54 @@
+import json
+
+class DSLError(Exception):
+    pass
+
+def parse_task(source):
+    try:
+        # implementation of task parsing goes here
+        return {"task": "example"}
+    except Exception as e:
+        raise DSLError("Invalid language source") from e
+
+def canonicalize(source):
+    try:
+        # implementation of task canonicalization goes here
+        return "canonicalized"
+    except Exception as e:
+        raise DSLError("Invalid language source") from e
+
+def evaluate_task(source, trace):
+    try:
+        # implementation of task evaluation goes here
+        return True
+    except Exception as e:
+        raise DSLError("Invalid language source") from e
+
+class WarehouseDSLEvaluator:
+    def __init__(self, task_source):
+        self.task_source = parse_task(task_source)
+        
+    def evaluate(self, trace):
+        # implementation of trace evaluation goes here
+        return True
+
+# Define the task sources
+task_sources = [
+    "visit(A) visit(B) visit(C)",
+    "avoid(X) avoid(Y)",
+    "sequence(A, B) sequence(C, D)",
+    "between(1, 4, B)"
+]
+
+# Create an instance of WarehouseDSLEvaluator for each task source
+evaluators = [WarehouseDSLEvaluator(source) for source in task_sources]
+
+# Evaluate the trace for each evaluator
+results = []
+for i, evaluator in enumerate(evaluators):
+    result = evaluate_task(task_sources[i], ({}, frozenset(["A", "B", "C"])))
+    results.append((i, result))
+
+# Print the results
+for i, result in results:
+    print(f"Task {i+1}: {result}")

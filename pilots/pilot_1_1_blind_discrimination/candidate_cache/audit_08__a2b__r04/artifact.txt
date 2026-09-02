@@ -1,0 +1,3 @@
+seen A { within 2..4 { seen C } }
+after B { until D avoiding X { seen C } }
+all { seen A; after A { until C avoiding [X] } }

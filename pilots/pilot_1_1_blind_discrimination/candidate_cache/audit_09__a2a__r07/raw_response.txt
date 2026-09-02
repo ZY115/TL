@@ -1,0 +1,13 @@
+```python
+import warehouse_dsl as wds
+
+task = (
+    all(
+        (eventually A),
+        (never X),
+        (any (eventually B) (eventually C))
+    )
+)
+
+candidate_artifact = task
+```

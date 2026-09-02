@@ -1,0 +1,3 @@
+Task train_05
+
+The robot must stay out of the hazard zone X until it reaches the delivery bay C. A C at the current step or a later step is required; X is forbidden strictly before that C and allowed on the C step itself.

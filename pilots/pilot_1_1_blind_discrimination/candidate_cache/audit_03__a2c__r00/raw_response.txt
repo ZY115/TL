@@ -1,0 +1,5 @@
+import warehouse_dsl
+
+task = "sequence(A, sequence(B, ))"
+canonicalized_task = warehouse_dsl.canonicalize(task)
+print(canonicalized_task)

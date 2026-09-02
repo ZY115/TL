@@ -1,0 +1,45 @@
+import re
+from dataclasses import dataclass, field
+from typing import Tuple, Optional, List
+
+@dataclass(frozen=True)
+class Node:
+    """Represents a node in the warehouse DSL grammar."""
+    kind: str = field(default=None)
+    children: List['Node'] = field(default_factory=list)
+
+@dataclass(frozen=True)
+class ValueNode(Node):
+    """Represents a value node in the warehouse DSL grammar."""
+    value: int
+
+def parse_task(source: str) -> Tuple[Optional[ValueNode], Optional[Node]]:
+    """Parses a task from a string and returns its root node or None if invalid."""
+    source = re.sub(r'\s+', ' ', source)
+    lines = source.splitlines()
+    
+    # Parse the grammar
+    def parse_node(line: str, kind: str, children: Optional[List[str]]) -> Node:
+        match = re.match(f'({kind})\s*([^\s]+)', line)
+        if not match:
+            raise ValueError(f"Invalid input: {line}")
+        
+        value = int(match.group(2))
+        node = ValueNode(value) if kind == 'value' else Node(kind=kind, children=[])
+        return node
+    
+    # Create the parse tree
+    root_node = None
+    for line in lines:
+        if not root_node:
+            root_node = parse_node(line, 'task', [])
+        
+        elif root_node.children and re.match(r'^\s*([a-zA-Z]+)\s*\([^)]+\)', line):
+            new_child = parse_node(line, re.match(r'([a-zA-Z]+)\s*\([^)]+\)', line).group(1), None)
+            if not root_node.children:
+                raise ValueError(f"Invalid input: {line}")
+            root_node.children.append(new_child)
+        else:
+            raise ValueError(f"Invalid input: {line}")
+    
+    return root_node, root_node

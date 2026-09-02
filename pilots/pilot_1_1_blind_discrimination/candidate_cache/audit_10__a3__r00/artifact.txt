@@ -1,0 +1,39 @@
+import random
+
+class Monitor:
+    def __init__(self):
+        self.propositions = set()
+        self.visited_A = False
+        self.visited_B = False
+        self.visited_C = False
+        self.offset = 0
+        self.B_offset = 1
+        self.D_offset = 2
+
+    def reset(self) -> None:
+        pass
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions:
+            self.propositions.add('A')
+            self.visited_A = True
+            self.offset += 1
+            if random.random() < 0.5:
+                self.visited_B = True
+                self.B_offset += 1
+            for _ in range(random.randint(1, 3)):
+                self.offset += 1
+        elif 'B' in propositions:
+            self.propositions.add('B')
+            self.visited_B = True
+            if random.random() < 0.5 and not self.visited_A:
+                self.visited_C = True
+                self.D_offset += 1
+            for _ in range(random.randint(2, 4)):
+                pass
+        elif 'C' in propositions:
+            self.propositions.add('C')
+            self.visited_C = True
+
+    def finish(self) -> bool:
+        return len(self.propositions) > 0 and (self.visited_A and self.visited_B and self.visited_C)

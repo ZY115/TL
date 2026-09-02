@@ -1,0 +1,13 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def task():
+    seen A { never [X] }
+    order [A, B, C]
+    after D {
+        within 1..2 {
+            seen E
+        };
+        until F avoiding [G];
+    };
+
+# task is the first alternative

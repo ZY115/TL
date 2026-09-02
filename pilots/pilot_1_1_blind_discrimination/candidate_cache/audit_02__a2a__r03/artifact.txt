@@ -1,0 +1,8 @@
+import warehouse_dsl as dsl
+
+task = dsl.parse_task(
+    "never X"
+)
+
+canonicalized_task = dsl.canonicalize(task)
+print(canonicalized_task)  # Output: never X

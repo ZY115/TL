@@ -1,0 +1,1 @@
+Pick up at shelf A and, at a strictly later step, visit the inspection station B. Irrelevant and repeated visits are allowed.

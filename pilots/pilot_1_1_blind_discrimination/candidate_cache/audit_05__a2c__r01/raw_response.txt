@@ -1,0 +1,5 @@
+from warehouse_dsl import parse_task
+
+task = "after_each(A, between(2, 4, B))"
+
+print(parse_task(task).expression)

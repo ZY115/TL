@@ -1,0 +1,47 @@
+import enum
+
+class Region(str, enum.Enum):
+    A = 'A'
+    B = 'B'
+    C = 'C'
+    D = 'D'
+    X = 'X'
+
+class Monitor:
+    def __init__(self):
+        self.visited_A = False
+        self.visited_B = False
+        self.visited_C = False
+        self.visited_D = False
+        self.X_allowed = True
+
+    def reset(self) -> None:
+        pass
+
+    def step(self, propositions: set[str]) -> None:
+        if Region.A in propositions and not self.visited_A:
+            self.visited_A = True
+            return
+        elif Region.B in propositions and self.visited_A:
+            self.visited_B = True
+            return
+        elif Region.C in propositions:
+            if Region.A in propositions and (self.visited_C or 2 <= self.get_offset() <= 4):
+                return
+            else:
+                raise ValueError('Invalid trigger')
+        elif Region.D in propositions and self.visited_B:
+            self.visited_D = True
+        elif Region.X in propositions and not self.X_allowed:
+            raise ValueError('X is forbidden before C')
+
+    def finish(self) -> bool:
+        return self.visited_C
+
+    def get_offset(self):
+        if self.visited_A:
+            return 2
+        elif self.visited_B:
+            return 1
+        else:
+            return None

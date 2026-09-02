@@ -1,0 +1,23 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+task_source = """
+seen A {
+  within 2..4 {
+    seen B
+  }
+}
+"""
+
+canonicalized_task = canonicalize(task_source)
+print(canonicalized_task)
+
+def main(trace):
+    for step in trace:
+        if step == 'A':
+            return evaluate_task("seen B", trace[step:])
+        elif step == 'B' and len([s for s, ls in enumerate(trace) if s >= 2 and s <= 4]) > 0:
+            return True
+    return False
+
+result = main(parse_task(task_source))
+print(result)

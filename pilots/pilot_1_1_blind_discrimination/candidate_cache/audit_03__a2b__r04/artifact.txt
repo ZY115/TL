@@ -1,0 +1,2 @@
+seen A
+order [A, B]

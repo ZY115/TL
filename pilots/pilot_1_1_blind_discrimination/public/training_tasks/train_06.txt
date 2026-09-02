@@ -1,0 +1,6 @@
+Task train_06
+
+Every time the robot visits A, at least one of these alternatives must happen
+later in that suffix: it eventually visits B, or it eventually visits C.
+If A never occurs, this triggered requirement is satisfied.
+

@@ -1,0 +1,5 @@
+import warehouse_dsl as wds
+
+task = wds.parse_task('eventually A')
+canonicalized_task = wds.canonicalize(task)
+print(canonicalized_task)

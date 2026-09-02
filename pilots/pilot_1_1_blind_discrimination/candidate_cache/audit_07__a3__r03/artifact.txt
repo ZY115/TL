@@ -1,0 +1,25 @@
+class Monitor:
+    def __init__(self):
+        self.a_visited = False
+        self.b_visited = False
+        self.c_visited = False
+        self.a_offset = 0
+        self.b_offset = 0
+        self.x_allowed = True
+
+    def reset(self) -> None:
+        pass
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and not self.a_visited:
+            self.a_visited = True
+            self.a_offset = len(propositions)
+        elif 'B' in propositions and self.a_visited:
+            self.b_visited = True
+            self.b_offset = len(propositions) - 1
+            for _ in range(self.b_offset + 2, self.b_offset + 5):
+                if '_X' not in list(propositions)[_]:
+                    self.x_allowed = False
+
+    def finish(self) -> bool:
+        return (self.a_visited and self.b_visited) or (not self.a_visited and self.c_visited)

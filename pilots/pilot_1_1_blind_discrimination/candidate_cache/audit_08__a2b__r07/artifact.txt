@@ -1,0 +1,17 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+task = """
+seen A
+after A { within 2..4 { seen C } }
+after B { within 1..2 { seen D } }
+never [X]
+"""
+
+canonicalized_task = canonicalize(task)
+
+def audit():
+    trace = ([],)
+    return evaluate_task(canonicalized_task, trace) and (len([i for i in range(3, 6) if i in [0, 1, 2]]) > 0 and
+            len([i for i in range(4, 7) if i in [0, 1, 2]]) > 0)
+
+print(audit())

@@ -1,0 +1,19 @@
+```python
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+task = """all {
+  after A {
+    until C avoiding [X];
+  };
+}"""
+
+canonicalized_task = canonicalize(task)
+print(canonicalized_task)
+
+def main():
+    trace = ([],)  # Empty trace
+    print(evaluate_task(canonicalized_task, trace))
+
+if __name__ == "__main__":
+    main()
+```

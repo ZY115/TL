@@ -1,0 +1,5 @@
+Task train_09
+
+Whenever A occurs, B must occur at the immediately following trace step. If A
+is the final step, the requirement is violated. If no A occurs, it is satisfied.
+

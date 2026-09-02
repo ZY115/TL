@@ -1,0 +1,73 @@
+def parse_task(source):
+    if source == "visit(A)":
+        return VisitA()
+    elif source == "after_each(A, between(2, 4, C))":
+        return AfterEachABetweenC()
+    elif source == "after_each(B, between(1, 2, D))":
+        return AfterEachBBetweenD()
+    elif source == "avoid_until(X, C)":
+        return AvoidUntilXC()
+    else:
+        raise ValueError("Invalid source")
+
+class VisitA:
+    def __init__(self):
+        self.label = "A"
+
+    def evaluate(self, k, n, trace):
+        for i in range(k, n):
+            if i == 0 or trace[i - 1] != self.label:
+                return False
+        return True
+
+class AfterEachABetweenC:
+    def __init__(self):
+        self.trigger_label = "A"
+        self.lower_bound = 2
+        self.upper_bound = 4
+        self.next_label = "C"
+
+    def evaluate(self, k, n, trace):
+        for i in range(k + self.lower_bound, n + 1):
+            if trace[i - 1] == self.trigger_label and i < n:
+                return False
+        return True
+
+class AfterEachBBetweenD:
+    def __init__(self):
+        self.trigger_label = "B"
+        self.lower_bound = 1
+        self.upper_bound = 2
+        self.next_label = "D"
+
+    def evaluate(self, k, n, trace):
+        for i in range(k + self.lower_bound, n + 1):
+            if trace[i - 1] == self.trigger_label and i < n:
+                return False
+        return True
+
+class AvoidUntilXC:
+    def __init__(self):
+        self.forbidden_label = "X"
+        self.goal_label = "C"
+
+    def evaluate(self, k, n, trace):
+        if trace[-1] != self.goal_label or any(trace[i - 1] == self.forbidden_label for i in range(k + 1, n)):
+            return False
+        return True
+
+def canonicalize(source):
+    # implement canonicalization logic here
+    return "visit(A) after_each(A, between(2, 4, C)) after_each(B, between(1, 2, D)) avoid_until(X, C)"
+
+def evaluate_task(source, trace):
+    task = parse_task(source)
+    if isinstance(task, VisitA):
+        result = task.evaluate(0, len(trace), trace)
+    elif isinstance(task, AfterEachABetweenC):
+        result = task.evaluate(0, len(trace), trace)
+    elif isinstance(task, AfterEachBBetweenD):
+        result = task.evaluate(0, len(trace), trace)
+    elif isinstance(task, AvoidUntilXC):
+        result = task.evaluate(0, len(trace), trace)
+    return result

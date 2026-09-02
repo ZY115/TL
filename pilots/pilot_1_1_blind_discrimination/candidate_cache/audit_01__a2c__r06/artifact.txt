@@ -1,0 +1,5 @@
+from warehouse_dsl import parse_task
+
+task = "visit(A)"
+tree = parse_task(task)
+print(tree)

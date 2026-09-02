@@ -1,0 +1,8 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def task():
+    never [X]
+
+print(canonicalize(task()))
+result = evaluate_task('never [X]', ([],))
+assert result == False, f"Got {result}"

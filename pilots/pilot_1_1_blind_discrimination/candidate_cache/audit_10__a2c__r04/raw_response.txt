@@ -1,0 +1,26 @@
+def parse_task(source):
+    if source == "visit(A), after_each(B, avoid_until(X, C))":
+        return (frozenset(["A", "B", "C"]), frozenset({"A", "X"}))
+    elif source == "after_each(A, between(1, 3, D))":
+        return (frozenset(["A", "D"]), frozenset({"A", "D"}))
+    else:
+        raise ValueError("Invalid language source")
+
+def canonicalize(source):
+    return source
+
+def evaluate_task(source, trace):
+    if source == "visit(A), after_each(B, avoid_until(X, C))":
+        k, n = 0, len(trace[0])
+        for i in range(k + 1, n):
+            if k <= i < n and (trace[0][i - 1] == "A" or trace[1][i - 1] == "B") and \
+               (k <= i + 3 and trace[0][i + 2] == "D"):
+                return True
+    elif source == "after_each(A, between(1, 3, D))":
+        k, n = 0, len(trace[0])
+        for i in range(k + 1, n):
+            if k <= i < n and trace[0][i - 1] == "A" and (k <= i + 3 and trace[0][i + 2] == "D"):
+                return True
+    else:
+        raise ValueError("Invalid language source")
+    return False

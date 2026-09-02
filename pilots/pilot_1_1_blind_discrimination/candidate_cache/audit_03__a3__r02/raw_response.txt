@@ -1,0 +1,23 @@
+```python
+class Monitor:
+    def __init__(self):
+        self.visited = set()
+        self.steps = []
+
+    def reset(self) -> None:
+        self.visited.clear()
+        self.steps.append([])
+
+    def step(self, propositions: set[str]) -> None:
+        if len(propositions) == 0:
+            return
+        if 'A' in propositions and not self.visited:
+            self.steps[-1].append('A')
+            self.visited.add('A')
+        elif 'B' in propositions and 'A' in self.steps[-1]:
+            self.steps[-1].append('B')
+            self.visited.add('B')
+
+    def finish(self) -> bool:
+        return len(self.steps[-1]) > 0
+```

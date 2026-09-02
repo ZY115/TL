@@ -1,0 +1,11 @@
+from warehouse_dsl import parse_task, evaluate_task
+
+tree = parse_task("sequence(A, visit(B))")
+text = canonicalize(" sequence ( A ,visit(B) ) ")
+ok = evaluate_task(
+    "sequence(A, visit(B))",
+    (frozenset({"A", "B"}), frozenset({"A"})),
+)
+print(tree)
+print(text)
+print(ok)

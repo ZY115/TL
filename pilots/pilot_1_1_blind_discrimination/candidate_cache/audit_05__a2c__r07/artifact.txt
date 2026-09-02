@@ -1,0 +1,12 @@
+import ast
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def create_artifact():
+    task_source = """
+    all(visit(A), after_each(A, between(2, 4, B)))
+    """
+
+    # Parse the task source into an immutable dataclass node
+    tree = parse_task(task_source)
+
+    return ast.dump(tree)

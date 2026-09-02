@@ -1,0 +1,4 @@
+Task train_02
+
+The robot must never enter region X during the finite run.
+

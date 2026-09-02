@@ -1,0 +1,59 @@
+```python
+class Monitor:
+    def __init__(self):
+        self.traces = {}
+
+    def reset(self) -> None:
+        self.traces = {}
+        for label in ['A', 'B', 'C', 'D', 'X']:
+            self.traces[label] = []
+
+    def step(self, propositions: set[str]) -> None:
+        if propositions.issubset({'A'}):
+            if not self.traces['A'] or self.traces['A'][0] == 0:
+                for label in ['B', 'C', 'D']:
+                    if label != 'X' and label not in propositions:
+                        self.traces[label].append(1)
+            else:
+                current_label = next(label for label in ['A', 'B', 'C', 'D'] if label not in propositions)
+                self.traces[current_label].append(self.traces['A'][0] + 1)
+
+        elif propositions.issubset({'X'}):
+            if len(propositions) == 1:
+                return
+
+        elif propositions.issubset({'B', 'C'}):
+            for label in ['D']:
+                if label not in propositions and self.traces[label]:
+                    offset = next(self.traces[label]) - 1
+                    if offset <= 2 and offset >= 1:
+                        self.traces[label].append(offset)
+
+        elif propositions.issubset({'A', 'B'}):
+            for label in ['D']:
+                if label not in propositions and self.traces[label]:
+                    offset = next(self.traces[label]) - 1
+                    if offset <= 2 and offset >= 1:
+                        self.traces[label].append(offset)
+
+        elif propositions.issubset({'C', 'X'}):
+            for label in ['B']:
+                if label not in propositions and self.traces[label]:
+                    offset = next(self.traces[label]) - 1
+                    if offset <= 2 and offset >= 1:
+                        self.traces[label].append(offset)
+
+    def finish(self) -> bool:
+        if any(not self.traces[label] for label in ['A', 'B', 'C', 'D']):
+            return False
+
+        # Ensure that every D has a B at an offset from 1 through 2
+        if any((self.traces['D'][i] - 1) not in range(1, 3) or self.traces['B'].count(self.traces['D'][i] - 1) == 0 for i in range(len(self.traces['D']))):
+            return False
+
+        # Ensure that X is avoided globally until A is reached
+        if any(propositions.issubset({'X'}) and len(propositions) == 1 for propositions in self.traces.values()):
+            return False
+
+        return True
+```

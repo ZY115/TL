@@ -1,0 +1,25 @@
+```python
+class Monitor:
+    def reset(self) -> None:
+        self.a_visited = False
+        self.c_visited = []
+        self.b_visited = []
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and not self.a_visited:
+            self.a_visited = True
+            self.c_visited.append(0)
+            self.b_visited.append(None)
+
+        elif 'B' in propositions and self.a_visited:
+            self.b_visited[-1] = len(self.b_visited)
+
+        elif 'C' in propositions:
+            if self.a_visited:
+                c_offset = next(c for c, _ in enumerate(self.c_visited) if c > 0)
+                self.c_visited.remove(c_offset)
+                self.c_visited.append(min(3, c_offset + 1))
+
+    def finish(self) -> bool:
+        return all(len(a) == len(b) and a[-1] >= b[-1] for a, b in zip(self.c_visited, self.b_visited))
+```

@@ -1,0 +1,1 @@
+Visit A, then at a strictly later step B, then at a strictly later step C. In addition, stay out of the hazard zone X until C is reached: a C at the current or a later step is required, X is forbidden strictly before the selected C, and X is allowed on that C step and afterwards.

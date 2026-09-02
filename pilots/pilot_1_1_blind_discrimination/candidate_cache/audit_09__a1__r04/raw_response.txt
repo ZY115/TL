@@ -1,0 +1,4 @@
+```
+((at_A U at_B) | (at_A F at_C)) & (at_D U ((at_B U at_C) F)) 
+& X^4 !at_X
+```

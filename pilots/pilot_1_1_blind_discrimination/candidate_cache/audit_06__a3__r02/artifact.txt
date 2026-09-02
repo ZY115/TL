@@ -1,0 +1,16 @@
+class Monitor:
+    def reset(self) -> None:
+        self.a_visited = False
+        self.x_prevented = set()
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions:
+            self.a_visited = True
+            if 'X' in propositions:
+                self.x_prevented.add(0)
+        for i, prop in enumerate(propositions):
+            if 'C' in propositions and i > 0 and 'X' not in propositions[i-1:i+1]:
+                return True
+
+    def finish(self) -> bool:
+        return self.a_visited

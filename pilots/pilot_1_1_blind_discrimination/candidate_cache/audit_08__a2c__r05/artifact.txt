@@ -1,0 +1,36 @@
+{
+  "task": "all(visit(A), after_each(A, between(2, 4, C)), after_each(B, between(1, 2, D)), avoid(X))",
+  "anchor": 0,
+  "_type": "DSL",
+  "_id": "test_task",
+  "sequence": [
+    {
+      "_type": "visit",
+      "label": "A"
+    },
+    {
+      "_type": "after_each",
+      "trigger_label": "A",
+      "expression": {
+        "_type": "between",
+        "lo": 2,
+        "hi": 4,
+        "P": "C"
+      }
+    },
+    {
+      "_type": "after_each",
+      "trigger_label": "B",
+      "expression": {
+        "_type": "between",
+        "lo": 1,
+        "hi": 2,
+        "P": "D"
+      }
+    },
+    {
+      "_type": "avoid",
+      "label": "X"
+    }
+  ]
+}

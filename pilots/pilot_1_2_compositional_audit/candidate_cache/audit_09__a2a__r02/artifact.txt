@@ -1,0 +1,1 @@
+all_of(visit(A), every(A, within(1, 2, B) then avoid_until(X, C)))

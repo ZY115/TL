@@ -1,0 +1,4 @@
+pair,tasks,left_only_correct,right_only_correct,discordant,mcnemar_p,significant
+a1_vs_a2,12,1,0,1,1.0,False
+a1_vs_a3,12,1,0,1,1.0,False
+a2_vs_a3,12,1,1,2,1.0,False

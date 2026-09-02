@@ -1,0 +1,29 @@
+class Monitor:
+    def reset(self):
+        self.trace = []
+
+    def step(self, propositions):
+        self.trace.append(set(propositions))
+
+    def finish(self):
+        n = len(self.trace)
+        if not any('A' in self.trace[i] for i in range(n)):
+            return False
+        for i in range(n):
+            if 'A' not in self.trace[i]:
+                continue
+            satisfied = False
+            for j in range(i + 1, min(i + 3, n)):
+                if 'B' not in self.trace[j]:
+                    continue
+                for k in range(j, n):
+                    if 'C' not in self.trace[k]:
+                        continue
+                    if all('X' not in self.trace[m] for m in range(j, k)):
+                        satisfied = True
+                        break
+                if satisfied:
+                    break
+            if not satisfied:
+                return False
+        return True

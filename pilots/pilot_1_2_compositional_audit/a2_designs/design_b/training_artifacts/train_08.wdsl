@@ -1,0 +1,3 @@
+# train_08: visit A, then B, then C at strictly increasing steps
+# (pickup, inspection, delivery).
+(order A B C)

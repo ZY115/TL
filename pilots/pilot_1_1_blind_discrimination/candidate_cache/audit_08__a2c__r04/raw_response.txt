@@ -1,0 +1,13 @@
+def parse_task(source):
+    # Implement parsing logic here
+    return source
+
+def canonicalize(source):
+    # Implement canonicalization logic here
+    return source
+
+def evaluate_task(task, trace):
+    # Implement evaluation logic here
+    return task
+
+task = "all(visit(A), after_each(A, between(2, 4, C)), after_each(B, between(1, 2, D)), avoid(X))"

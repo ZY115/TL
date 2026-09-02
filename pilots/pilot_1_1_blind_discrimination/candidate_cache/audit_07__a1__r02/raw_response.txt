@@ -1,0 +1,1 @@
+at_A U (X^1 at_C | X^2 at_D)

@@ -1,0 +1,6 @@
+Task train_03
+
+The robot must visit region A and later visit region B. The two visits must
+occur at strictly different trace positions. Other visits may occur between
+them.
+

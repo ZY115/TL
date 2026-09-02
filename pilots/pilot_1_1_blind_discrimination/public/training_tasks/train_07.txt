@@ -1,0 +1,5 @@
+Task train_07
+
+The robot must eventually visit A, and it must never enter X during the run.
+Both requirements are mandatory.
+

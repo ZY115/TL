@@ -1,0 +1,44 @@
+{
+  "author_capability_floor": {
+    "arm_class_mean_correctness": {
+      "a1": 0.0,
+      "a2": 0.133333,
+      "a3": 0.166667
+    },
+    "low_control_tasks": [
+      "audit_01",
+      "audit_02",
+      "audit_03"
+    ],
+    "note": "The three low-novelty controls are near-trivial. If every arm class is at the floor here, the limiting factor is the fixed authoring model rather than benchmark difficulty, and a floor verdict must not be read as a statement about the tasks."
+  },
+  "ceiling_failure": false,
+  "discriminative_tasks": [
+    "audit_01",
+    "audit_03"
+  ],
+  "floor_failure": true,
+  "num_discriminative_tasks": 2,
+  "num_tasks_all_arms_at_ceiling": 0,
+  "num_tasks_all_arms_at_floor": 9,
+  "passes_gate": false,
+  "recommended_action": "reduce_difficulty",
+  "required_discriminative_tasks": 3,
+  "systematic_failure_modes": [
+    {
+      "arm_class": "a3",
+      "failure_category": "runtime error",
+      "leader_fraction": 0.442105,
+      "other_fractions": {
+        "a1": 0.0,
+        "a2": 0.0
+      }
+    }
+  ],
+  "unsupported_rate_by_arm_class": {
+    "a1": 0.0,
+    "a2_pooled": 0.0,
+    "a3": 0.0
+  },
+  "unsupported_rate_spread": 0.0
+}

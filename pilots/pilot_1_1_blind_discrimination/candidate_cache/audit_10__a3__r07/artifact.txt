@@ -1,0 +1,26 @@
+class Monitor:
+    def __init__(self):
+        self.a_visited = False
+        self.b_visited = False
+        self.c_visited = False
+        self.d_offsets = []
+
+    def reset(self) -> None:
+        pass
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and not self.a_visited:
+            self.a_visited = True
+            self.d_offsets.append(0)
+        elif 'B' in propositions and self.a_visited:
+            self.b_visited = True
+            self.d_offsets.append(len(self.d_offsets))
+        elif 'C' in propositions and self.b_visited:
+            self.c_visited = True
+            self.d_offsets.append(min([offset for offset in self.d_offsets if offset > 0]))
+        for i, prop in enumerate(propositions):
+            if prop == 'X' and not (self.b_visited or (i >= min(self.d_offsets) and i < max(self.d_offsets))):
+                raise Exception("Invalid trace: X forbidden before B")
+
+    def finish(self) -> bool:
+        return self.c_visited

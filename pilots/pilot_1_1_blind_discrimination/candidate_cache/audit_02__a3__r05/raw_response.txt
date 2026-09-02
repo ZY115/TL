@@ -1,0 +1,24 @@
+```python
+class Monitor:
+    def __init__(self):
+        self.visited_A = False
+        self.visited_X = False
+        self.c_index = None
+
+    def reset(self) -> None:
+        self.visited_A = False
+        self.visited_X = False
+        self.c_index = None
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions:
+            if not self.visited_A:
+                self.visited_A = True
+            elif self.c_index is None and 'C' in propositions:
+                self.c_index = list(propositions).index('C')
+        if 'X' in propositions and self.c_index is not None and self.c_index == len(list(propositions)) - 1:
+            self.visited_X = True
+
+    def finish(self) -> bool:
+        return not self.visited_X
+```

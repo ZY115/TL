@@ -1,0 +1,1 @@
+( at_A U ( at_C U X^2 at_B ) | !at_X U ( at_D U X^1 at_C ) )

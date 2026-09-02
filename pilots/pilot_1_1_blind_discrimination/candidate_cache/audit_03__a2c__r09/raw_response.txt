@@ -1,0 +1,13 @@
+{
+  "task": {
+    "type": "sequence",
+    "label": [
+      "A"
+    ],
+    "lower": 1,
+    "upper": 4
+  },
+  "label": [
+    "B"
+  ]
+}

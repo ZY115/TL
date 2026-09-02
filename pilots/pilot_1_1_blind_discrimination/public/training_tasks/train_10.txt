@@ -1,0 +1,6 @@
+Task train_10
+
+Whenever B occurs, the robot must subsequently reach C, while avoiding X from
+the B step until just before that C step. X is allowed on the C endpoint. If B
+never occurs, this requirement is satisfied.
+

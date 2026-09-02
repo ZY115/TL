@@ -1,0 +1,66 @@
+{
+  "author_capability_floor": {
+    "arm_class_mean_rate": {
+      "a1": 1.0,
+      "a2": 1.0,
+      "a3": 1.0
+    },
+    "low_control_tasks": [
+      "audit_01",
+      "audit_02",
+      "audit_03",
+      "audit_04"
+    ]
+  },
+  "ceiling_failure": false,
+  "floor_failure": false,
+  "num_spread_discriminative_tasks": 4,
+  "num_tasks": 12,
+  "num_tasks_all_arms_at_ceiling": 8,
+  "num_tasks_all_arms_at_floor": 0,
+  "paired_mcnemar": [
+    {
+      "discordant": 1,
+      "left_only_correct": 1,
+      "mcnemar_p": 1.0,
+      "pair": "a1_vs_a2",
+      "right_only_correct": 0,
+      "significant": false,
+      "tasks": 12
+    },
+    {
+      "discordant": 1,
+      "left_only_correct": 1,
+      "mcnemar_p": 1.0,
+      "pair": "a1_vs_a3",
+      "right_only_correct": 0,
+      "significant": false,
+      "tasks": 12
+    },
+    {
+      "discordant": 2,
+      "left_only_correct": 1,
+      "mcnemar_p": 1.0,
+      "pair": "a2_vs_a3",
+      "right_only_correct": 1,
+      "significant": false,
+      "tasks": 12
+    }
+  ],
+  "passes_gate": true,
+  "recommended_action": "proceed_to_full_benchmark",
+  "significant_pairs": [],
+  "spread_discriminative_tasks": [
+    "audit_05",
+    "audit_09",
+    "audit_10",
+    "audit_11"
+  ],
+  "systematic_failure_modes": [],
+  "unsupported_rate_by_arm_class": {
+    "a1": 0.0,
+    "a2_pooled": 0.0,
+    "a3": 0.0
+  },
+  "unsupported_rate_spread": 0.0
+}

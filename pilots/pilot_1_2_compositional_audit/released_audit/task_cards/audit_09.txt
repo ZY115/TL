@@ -1,0 +1,1 @@
+Pick up at shelf A at least once. After every visit to A, reach the inspection station B one or two steps later, and from that B stay out of the hazard zone X until the delivery bay C is reached; a C at that B step or later is required, X is forbidden strictly between that B and its C, and X is allowed on the C step.

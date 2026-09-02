@@ -1,0 +1,1 @@
+at_A U (F at_B | X^2 F at_C)

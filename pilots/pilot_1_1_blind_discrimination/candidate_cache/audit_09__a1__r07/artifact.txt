@@ -1,0 +1,1 @@
+∃F at_A | ∃G at_B | X at_C | F at_D | !(at_X U G at_X)

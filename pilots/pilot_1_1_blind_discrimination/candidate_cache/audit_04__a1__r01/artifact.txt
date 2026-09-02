@@ -1,0 +1,1 @@
+(X at_A | F at_X) & (X at_D U X^4 at_B)

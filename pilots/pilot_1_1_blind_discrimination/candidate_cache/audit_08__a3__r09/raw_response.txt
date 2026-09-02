@@ -1,0 +1,33 @@
+```python
+class Monitor:
+    def __init__(self):
+        self.A_visited = False
+        self.C_reached = False
+        self.X_forbidden_until_C = True
+
+    def reset(self) -> None:
+        self.A_visited = False
+        self.C_reached = False
+        self.X_forbidden_until_C = True
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and not self.A_visited:
+            self.A_visited = True
+            for i in range(2, 5):
+                if self.C_reached or (not self.C_reached and i == 4):
+                    break
+            else:
+                raise Exception("Task failed: A occurred but no C reached")
+        elif 'B' in propositions and self.A_visited:
+            self.C_reached = True
+            for i in range(1, 3):
+                if not self.X_forbidden_until_C or (self.X_forbidden_until_C and i == 2):
+                    break
+            else:
+                raise Exception("Task failed: B occurred but X forbidden until C reached")
+        elif 'X' in propositions and self.A_visited and self.C_reached:
+            self.X_forbidden_until_C = False
+
+    def finish(self) -> bool:
+        return not (self.A_visited and not self.C_reached)
+```

@@ -1,0 +1,18 @@
+class Monitor:
+    def reset(self) -> None:
+        self.visited_A = False
+        self.visited_X = True
+        self.visited_B = False
+        self.visited_C = False
+        self.visited_D = False
+        self.step_index = 0
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and not self.visited_A:
+            self.visited_A = True
+            self.step_index += 1
+        elif 'X' in propositions and self.visited_X:
+            raise Exception('X detected')
+
+    def finish(self) -> bool:
+        return (self.visited_C and self.step_index >= self.visited_D) or (self.visited_B and not self.visited_C)

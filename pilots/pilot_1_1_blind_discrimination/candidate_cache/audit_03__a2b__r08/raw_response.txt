@@ -1,0 +1,6 @@
+```
+seen A
+after A {
+  seen B
+}
+```

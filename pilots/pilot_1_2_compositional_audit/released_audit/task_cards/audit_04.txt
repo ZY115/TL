@@ -1,0 +1,1 @@
+Pick up at shelf A at least once. After every visit to A, reach the inspection station B one or two steps later; the A step itself does not count.

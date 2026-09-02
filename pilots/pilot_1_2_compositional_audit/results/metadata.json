@@ -1,0 +1,78 @@
+{
+  "authoring_channel": {
+    "model": "claude-haiku-4-5",
+    "model_revision": "haiku-4-5-20251001",
+    "provider": "claude-subagent",
+    "temperature": null,
+    "top_p": null,
+    "transport": "fresh memoryless subagent; reads exactly one exported prompt file outside the repository; no repository access; first attempt only"
+  },
+  "freeze": {
+    "a1_language_tree_hash": "e150fc65ead8358ab1c49f8a22d0699bb32d6bde1a5afa485f5de0a85481ae51",
+    "a1_reference_hash": "12fce5a99c35c00f3446dd640dbd7c3955553e7489ef91611cbf8f95e97d554e",
+    "a2a_design_seed_tag": 11101,
+    "a2a_documentation_hash": "81dd21af1456136a5dbc394b647389dfe6327d9a04b341f2258200e3312e4179",
+    "a2a_interpreter_hash": "85d7aed69698f081b23b7dcc65e7743e227ad83e27e45ac99dce0a94d307728c",
+    "a2a_tree_hash": "fd131f71c1a15393176971df3ffeec579876077d8cada8169cff0071200c3950",
+    "a2b_design_seed_tag": 22202,
+    "a2b_documentation_hash": "6ce815edaa3f86d454b49f8e89241c356a93b50bf6727f91950ec62d1887f86a",
+    "a2b_interpreter_hash": "ca01d2dde05fadaa795d0201d3ce6b0ed35baeed670817ab19c0276f0d31f3fe",
+    "a2b_tree_hash": "f18d32ed39e16665ec77e4ef596b334b89051ad488adc13773749b61e03eaf65",
+    "a2c_design_seed_tag": 33303,
+    "a2c_documentation_hash": "4ab754822296f82c97d87fa5109ffd0aa0e976b17be8d23f064d6b4594b4f0f1",
+    "a2c_interpreter_hash": "c03ab744513bbba9e50acd7a79fd0aa95e8d097f8b0f79dedf98389538a07d68",
+    "a2c_tree_hash": "5d73f6a834901a2fe0c76ddcd1050f0887d50e176e73a656cda8006eaa364e8a",
+    "a3_api_hash": "23e5aaf4024c25e42693b084823263002d2c06356a19392905f693ca20ee18b9",
+    "audit_release_status": "released_after_complete_freeze",
+    "author_prompt_hash": "d0e46ceb6dece5b161fef9cd1d8fb23c955ed1ef5335d275a6b82227e6d3af2f",
+    "gold_audit_bundle_hash": "decda413a7251ee74c70c67aae092d2c61ff6e18c698cad1e5244489ad0ddc27",
+    "hidden_test_bundle_hash": "d2e5848944013769beac0d3616f140ced4a9a289872f2759c1ef59b2a35b08e7",
+    "pilot_1_1_preservation_hash": "12759b2956e48a068c21242adf27fa99decaa5e3573f4cd388724164cc8f5af3",
+    "released_card_bundle_hash": "d566b1bf609437c018ccc13434da9d0d324670fc2c6a3ba7a57be641775a1393",
+    "training_task_hash": "428075fd3d4351f34ed0d70162dc323894951e29d5821fd2bff93830b0c30a30"
+  },
+  "gate_thresholds": {
+    "ceiling": 0.95,
+    "floor": 0.2,
+    "mcnemar_alpha": 0.05,
+    "mcnemar_min_discordant": 3,
+    "spread_margin": 0.2,
+    "spread_tasks_required": 3
+  },
+  "hidden_suite_size_per_task": 4500,
+  "num_tasks": 12,
+  "num_trials": 60,
+  "pilot": "pilot_1_2_compositional_audit",
+  "platform": "macOS-15.3.1-arm64-arm-64bit",
+  "python": "3.12.13",
+  "representations": [
+    "a1",
+    "a2a",
+    "a2b",
+    "a2c",
+    "a3"
+  ],
+  "stage_plan": {
+    "a2_assignment": {
+      "audit_01": "a2c",
+      "audit_02": "a2b",
+      "audit_03": "a2a",
+      "audit_04": "a2c",
+      "audit_05": "a2b",
+      "audit_06": "a2a",
+      "audit_07": "a2c",
+      "audit_08": "a2b",
+      "audit_09": "a2a",
+      "audit_10": "a2c",
+      "audit_11": "a2b",
+      "audit_12": "a2a"
+    },
+    "arms_per_task": [
+      "a1",
+      "<assigned a2>",
+      "a3"
+    ],
+    "rotation_seed": 20261302,
+    "stage2_extra_replicates": 2
+  }
+}

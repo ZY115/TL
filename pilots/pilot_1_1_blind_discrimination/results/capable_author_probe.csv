@@ -1,0 +1,6 @@
+task_id,representation,author_channel,artifact_hash,parse_success,runtime_success,unsupported,hidden_traces_tested,positive_traces,negative_traces,false_accepts,false_rejects,total_mismatches,first_attempt_correct,failure_detail
+audit_09,a1,memoryless-subagent,d3ff4808c6cb0031b1d5e0cd8d3fcc29474a557fc683aa49180d27a95a2279fd,True,True,False,4500,1636,2864,0,0,0,True,
+audit_09,a2a,memoryless-subagent,8eba8b284cba8e5b23f979625ff0a505271563e0aceeee7ff422ecbcb7dbb78e,True,True,False,4500,1636,2864,0,0,0,True,
+audit_09,a2b,memoryless-subagent,9463a5031062835d0fa83db4756b34d3e2e014198d0b331989137c173515c898,True,True,False,4500,1636,2864,0,0,0,True,
+audit_09,a2c,memoryless-subagent,978487da6dd4979a3571e58aba43b8f1e18ead8a5f0999547f406cd3a6e653f2,True,True,False,4500,1636,2864,0,0,0,True,
+audit_09,a3,memoryless-subagent,b6f9abc5b585119be9217ab3fedb591d0eb966b64052500e3d727ab33ed0ce6d,True,True,False,4500,1636,2864,0,0,0,True,

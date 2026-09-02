@@ -1,0 +1,1 @@
+F at_A & G (at_A -> (X at_B | X X at_B))

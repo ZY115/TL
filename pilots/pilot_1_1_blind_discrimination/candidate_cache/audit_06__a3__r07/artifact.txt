@@ -1,0 +1,26 @@
+class Monitor:
+    def reset(self) -> None:
+        self.traces = {}
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and 'C' not in propositions:
+            if 'X' in propositions:
+                raise ValueError("Avoid X until C")
+            if 0 in self.traces or (1, 'C') in self.traces:
+                self.traces[(1, 'C')] = None
+        if 'A' in self.traces and (1, 'C') not in self.traces:
+            self.traces[(1, 'C')] = 'C'
+        self.traces.setdefault('last', (0, ''))
+
+    def finish(self) -> bool:
+        for trace, value in list(self.traces.items()):
+            if value is None or value != 'C':
+                return False
+        del self.traces['last']
+        return True
+
+# Example usage:
+monitor = Monitor()
+monitor.step({'A', 'X'})  # A occurs, avoid X until C
+monitor.step({'A', 'C'})  # A occurs and immediately visits C
+print(monitor.finish())   # Output: True

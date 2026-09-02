@@ -1,0 +1,8 @@
+import warehouse_dsl as dsl
+
+def main():
+    task = "sequence(A, visit(B))"
+    return task
+
+if __name__ == "__main__":
+    print(main())

@@ -1,0 +1,1 @@
+(X at_A U X^2 at_B | X^3 at_C) & (X at_D U X^1 at_E)

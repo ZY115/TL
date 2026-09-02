@@ -1,0 +1,13 @@
+(
+  sequence
+  A
+  (
+    after-each
+      A
+      (
+        within 1 3 D
+      )
+      (avoid-until X B)
+    )
+  )
+)

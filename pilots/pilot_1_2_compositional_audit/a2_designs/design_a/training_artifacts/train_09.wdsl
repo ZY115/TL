@@ -1,0 +1,5 @@
+# train_09: every visit to inspection station B must, from that point on,
+# stay out of hazard zone X until delivery bay C is reached (C at the B
+# step or later; X forbidden strictly between that B and its C, allowed
+# on the C step). Vacuously satisfied if B never occurs.
+every(B, avoid_until(X, C))

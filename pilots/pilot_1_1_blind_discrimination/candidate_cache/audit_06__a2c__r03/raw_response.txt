@@ -1,0 +1,58 @@
+def evaluate_task(source, trace):
+    # Split the source into individual words
+    words = source.split()
+
+    # Initialize the anchor to 0
+    k = 0
+
+    # Iterate over each word in the source
+    for i, word in enumerate(words):
+        # If the word is 'after_each', update the anchor to the trigger's step
+        if word == 'after_each':
+            k = i + 1
+
+        # Get the label and bounds from the current word
+        label = words[i][words[i].find('(') + 1:words[i].find(')')]
+        lower, upper = map(int, words[i][words[i].find('(') + 2:words[i].find(')')].split(','))
+
+        # Check if the word is 'visit' or 'avoid'
+        if label == 'A':
+            # Check if X occurs after C
+            for j in range(k, len(trace[0])):
+                if (label in trace[0][j] and 'X' not in trace[0][j]) or ('C' in trace[0][j] and 'X' in trace[0][j]):
+                    return True
+
+        elif label == 'B':
+            # Check if A occurs before B
+            for j in range(k, len(trace[0])):
+                if (label in trace[0][j] and 'A' not in trace[0][j]) or ('X' not in trace[0][j] and 'C' not in trace[0][j]):
+                    return True
+
+        elif label == 'X':
+            # Check if C occurs after X
+            for j in range(k, len(trace[0])):
+                if (label in trace[0][j] and 'C' not in trace[0][j]) or ('A' not in trace[0][j] and 'B' not in trace[0][j]):
+                    return False
+
+        elif label == 'C':
+            # Check if A occurs before C
+            for j in range(k, len(trace[0])):
+                if (label in trace[0][j] and 'A' not in trace[0][j]) or ('X' not in trace[0][j]):
+                    return True
+
+        elif label == 'all':
+            # Check if all conditions are met
+            for condition in words[i+1:]:
+                result = evaluate_task(condition, trace)
+                if not result:
+                    return False
+
+        elif label == 'any':
+            # Check if any condition is met
+            for condition in words[i+1:]:
+                result = evaluate_task(condition, trace)
+                if result:
+                    return True
+
+    # If all conditions are met, return True
+    return True

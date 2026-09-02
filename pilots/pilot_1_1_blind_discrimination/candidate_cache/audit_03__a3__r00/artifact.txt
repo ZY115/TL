@@ -1,0 +1,21 @@
+class Monitor:
+    def __init__(self):
+        self.a_seen = False
+        self.b_seen = False
+        self.index = 0
+
+    def reset(self) -> None:
+        self.a_seen = False
+        self.b_seen = False
+        self.index = 0
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and not self.a_seen:
+            self.a_seen = True
+            self.index += 1
+        elif 'B' in propositions and self.a_seen:
+            self.b_seen = True
+            self.index += 1
+
+    def finish(self) -> bool:
+        return self.b_seen

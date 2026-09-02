@@ -1,0 +1,34 @@
+import enum
+
+class VisitStatus(enum.Enum):
+    NOT Visited = 0
+    VISITED = 1
+    REACHED_C = 2
+
+class Monitor:
+    def __init__(self, A_set=None, B_set=None, C_set=None, X_set=None):
+        self.A_set = set() if A_set is None else A_set
+        self.B_set = set() if B_set is None else B_set
+        self.C_set = set() if C_set is None else C_set
+        self.X_set = set() if X_set is None else X_set
+
+    def reset(self):
+        self.A_set.clear()
+        self.B_set.clear()
+        self.C_set.clear()
+        self.X_set.clear()
+
+    def step(self, propositions):
+        if 'A' in propositions:
+            self.A_set.add(len(self.A_set))
+        elif 'B' in propositions and len(self.A_set) > 0:
+            self.B_set.add(len(self.B_set))
+        elif 'C' in propositions and len(self.B_set) > 0:
+            self.C_set.add(len(self.C_set))
+        elif 'X' in propositions and len(self.X_set) == 0:
+            self.X_set.add(len(self.X_set))
+
+    def finish(self):
+        return all([len(self.C_set) > 0 or (len(self.A_set) > 0 and len(self.B_set) > 0), 
+                    not (len(self.X_set) > 0 and len(self.C_set) > 0 and 
+                         self.A_set[len(self.A_set)-1] == len(self.B_set))])

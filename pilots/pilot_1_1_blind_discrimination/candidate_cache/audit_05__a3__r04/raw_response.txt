@@ -1,0 +1,16 @@
+```python
+class Monitor:
+    def reset(self) -> None:
+        self.a_count = 0
+        self.b_offset = 2
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and self.a_count == 0:
+            self.a_count += 1
+            b_set = {f'B{i}' for i in range(self.b_offset, self.b_offset + 4)}
+        elif 'A' not in propositions and self.a_count > 0:
+            self.a_count -= 1
+
+    def finish(self) -> bool:
+        return self.a_count > 0
+```

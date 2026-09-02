@@ -1,0 +1,97 @@
+def parse_task(source):
+    import re
+    from warehouse_dsl import DSLException
+    def match(seq):
+        nonlocal source, seq
+        if seq == 'eventually':
+            return source[0] != '(' or not re.match(r'[A-Za-z_][A-Za-z0-9_.-]+', source[1])
+        elif seq == 'never':
+            return source[0] != '(' or not re.match(r'[A-Za-z_][A-Za-z0-9_.-]+', source[1])
+        elif seq == 'sequence':
+            if len(source) < 3:
+                raise DSLException('expected sequence labels')
+            for label in source[1:]:
+                if not match(label):
+                    return False
+            return True
+        elif seq == 'within':
+            if len(source) < 4:
+                raise DSLException('expected within bounds and label')
+            lower, upper = map(int, source[2].split())
+            if lower > upper:
+                raise DSLException('lower bound must not exceed upper bound')
+            label = source[3]
+            if not re.match(r'[A-Za-z_][A-Za-z0-9_.-]+', label):
+                raise DSLException(f'invalid label: {label}')
+            return True
+        elif seq == 'avoid-until':
+            if len(source) < 4:
+                raise DSLException('expected avoid-until labels')
+            x, c = source[2], source[3]
+            if not re.match(r'[A-Za-z_][A-Za-z0-9_.-]+', x):
+                raise DSLException(f'invalid label: {x}')
+            if not re.match(r'[A-Za-z_][A-Za-z0-9_.-]+', c):
+                raise DSLException(f'invalid label: {c}')
+            return True
+        elif seq == 'after-each':
+            if len(source) < 3:
+                raise DSLException('expected after-each label and child')
+            label, child = source[1], source[2]
+            if not re.match(r'[A-Za-z_][A-Za-z0-9_.-]+', label):
+                raise DSLException(f'invalid label: {label}')
+            if not match(child):
+                return False
+            return True
+        elif seq == 'all':
+            if len(source) < 3:
+                raise DSLException('expected all labels')
+            for label in source[1:]:
+                if not match(label):
+                    return False
+            return True
+        elif seq == 'any':
+            if len(source) < 3:
+                raise DSLException('expected any labels')
+            for label in source[1:]:
+                if not match(label):
+                    return False
+            return True
+    try:
+        task = DSLException.match(source, match)
+    except DSLException as e:
+        raise DSLException(f'parse error: {e}')
+    return task
+
+def canonicalize(source):
+    import re
+    def canonicalize_seq(seq):
+        if seq == 'eventually':
+            return '(eventually)'
+        elif seq == 'never':
+            return '(never)'
+        elif seq == 'sequence':
+            return f'(sequence {canonicalize_seq(seq[1:])})'
+        elif seq == 'within':
+            lower, upper = map(str, seq[2].split())
+            label = seq[3]
+            return f'(within {lower} {upper} {label})'
+        elif seq == 'avoid-until':
+            x, c = seq[2], seq[3]
+            return f'(avoid-until {x} {c})'
+        elif seq == 'after-each':
+            label, child = seq[1], seq[2]
+            return f'(after-each {label} {canonicalize_seq(child)})'
+        elif seq == 'all':
+            return f'(all {canonicalize_seq(seq[1:])})'
+        elif seq == 'any':
+            return f'(any {canonicalize_seq(seq[1:])})'
+    try:
+        return DSLException.match(source, canonicalize_seq)
+    except DSLException as e:
+        raise DSLException(f'canonicalize error: {e}')
+
+def evaluate_task(source, trace):
+    import re
+    def evaluate_label(label, index):
+        if label == 'A':
+            return 'B' in trace

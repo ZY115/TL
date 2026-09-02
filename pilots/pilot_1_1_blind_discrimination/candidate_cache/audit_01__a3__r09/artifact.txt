@@ -1,0 +1,26 @@
+class Monitor:
+    def __init__(self):
+        self.a_visited = False
+        self.c_reached = False
+        self.x_entered = False
+        self.b_visited_after_a = []
+        self.d_visited = False
+
+    def reset(self) -> None:
+        pass
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and not self.a_visited:
+            self.a_visited = True
+            self.b_visited_after_a.append(None)
+        elif 'B' in propositions and not self.a_visited and len(self.b_visited_after_a) > 0:
+            b_index = self.b_visited_after_a.pop()
+            if b_index is not None and b_index >= 1:
+                self.c_reached = True
+        elif 'C' in propositions:
+            self.c_reached = True
+        elif 'X' in propositions and not self.x_entered:
+            self.x_entered = True
+
+    def finish(self) -> bool:
+        return self.a_visited and self.c_reached and not self.x_entered

@@ -1,0 +1,3 @@
+# train_03: visit pickup shelf A, then at a strictly later step visit
+# inspection station B. Irrelevant/repeated visits allowed.
+order(A, B)

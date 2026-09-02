@@ -1,0 +1,3 @@
+seen A
+never [X]
+order [A, C]

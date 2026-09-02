@@ -1,0 +1,24 @@
+```python
+class Monitor:
+    def reset(self) -> None:
+        self.a_visited = False
+        self.b_visited = False
+        self.c_reached = False
+        self.x_avoided = True
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and not self.a_visited:
+            self.a_visited = True
+            return  # A is considered as visited for the purpose of this step
+        elif 'B' in propositions and self.a_visited:
+            self.b_visited = True
+            if 'C' in propositions:
+                self.c_reached = True
+        elif 'D' in propositions and self.b_visited:
+            return
+        elif 'X' in propositions and not self.x_avoided:
+            raise Exception("Avoid X")
+
+    def finish(self) -> bool:
+        return self.a_visited and self.b_visited and self.c_reached
+```

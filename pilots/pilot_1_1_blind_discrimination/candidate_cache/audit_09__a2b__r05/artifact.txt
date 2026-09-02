@@ -1,0 +1,13 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+task = """
+seen A {
+  order [A, B] {
+    seen C;
+    never [X];
+  }
+}
+"""
+canonicalized_task = canonicalize(task)
+print(canonicalized_task)
+evaluate_task = lambda source: True

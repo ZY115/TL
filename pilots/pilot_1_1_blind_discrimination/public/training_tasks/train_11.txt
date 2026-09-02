@@ -1,0 +1,5 @@
+Task train_11
+
+The robot must eventually visit at least one of the two regions B or D. It is
+not necessary to visit both.
+

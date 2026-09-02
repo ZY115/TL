@@ -1,0 +1,12 @@
+```
+all {
+  after A {
+    within 0..4 {
+      seen X;
+    }
+  };
+  after C {
+    seen [A, C]
+  };
+}
+```

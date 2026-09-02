@@ -1,0 +1,36 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def audit(task_source):
+    task = parse_task(task_source)
+    canonicalized_task = canonicalize(task)
+
+    def evaluate_clauses():
+        return all(
+            (
+                # Visit A at least once
+                any((eventually A) for _ in range(2)),
+                # Never enter X
+                not any(eventually X),
+                # Visit C before a strictly later visit to D
+                all(
+                    (
+                        eventually C,
+                        not any(
+                            (after-each D child)
+                            for child in [any, eventually] + [(eventually B), (eventually C)]
+                        ),
+                    )
+                    if not any(eventually X),
+                ),
+            )
+
+    return evaluate_task(canonicalized_task, audit_trace)
+
+audit_trace = [
+    frozenset(["A", "B"]),
+    frozenset(["C"]),
+    # ... other steps ...
+]
+
+result = audit("all (eventually A) (never X) (after-each D eventually C)")
+print(result)

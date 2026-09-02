@@ -1,0 +1,1 @@
+Visit A at least once, and after every occurrence of A visit B at an offset from 2 through 4, inclusive. Both window endpoints are included and the trigger step itself is excluded. The response rule alone would be vacuously satisfied without A, but the visit clause requires A.

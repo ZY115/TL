@@ -1,0 +1,76 @@
+task_id,representation,failure_category,count
+audit_01,a1,other semantic error,2
+audit_01,a1,syntax failure,8
+audit_01,a2a,syntax failure,10
+audit_01,a2b,syntax failure,2
+audit_01,a2c,syntax failure,8
+audit_01,a3,other semantic error,6
+audit_01,a3,runtime error,1
+audit_01,a3,syntax failure,1
+audit_02,a1,other semantic error,7
+audit_02,a1,syntax failure,3
+audit_02,a2a,syntax failure,9
+audit_02,a2b,syntax failure,9
+audit_02,a2c,syntax failure,10
+audit_02,a3,other semantic error,3
+audit_02,a3,runtime error,4
+audit_02,a3,syntax failure,2
+audit_03,a1,other semantic error,4
+audit_03,a1,syntax failure,6
+audit_03,a2a,syntax failure,10
+audit_03,a2b,syntax failure,10
+audit_03,a2c,syntax failure,10
+audit_03,a3,other semantic error,5
+audit_03,a3,runtime error,2
+audit_03,a3,syntax failure,1
+audit_04,a1,other semantic error,4
+audit_04,a1,syntax failure,6
+audit_04,a2a,syntax failure,10
+audit_04,a2b,syntax failure,10
+audit_04,a2c,syntax failure,10
+audit_04,a3,other semantic error,6
+audit_04,a3,runtime error,4
+audit_05,a1,syntax failure,10
+audit_05,a2a,syntax failure,10
+audit_05,a2b,syntax failure,10
+audit_05,a2c,syntax failure,10
+audit_05,a3,other semantic error,5
+audit_05,a3,runtime error,5
+audit_06,a1,other semantic error,2
+audit_06,a1,syntax failure,8
+audit_06,a2a,syntax failure,10
+audit_06,a2b,syntax failure,10
+audit_06,a2c,syntax failure,10
+audit_06,a3,other semantic error,4
+audit_06,a3,runtime error,5
+audit_06,a3,syntax failure,1
+audit_07,a1,syntax failure,10
+audit_07,a2a,syntax failure,10
+audit_07,a2b,syntax failure,10
+audit_07,a2c,syntax failure,10
+audit_07,a3,other semantic error,6
+audit_07,a3,runtime error,3
+audit_07,a3,syntax failure,1
+audit_08,a1,syntax failure,10
+audit_08,a2a,syntax failure,10
+audit_08,a2b,syntax failure,10
+audit_08,a2c,syntax failure,10
+audit_08,a3,other semantic error,5
+audit_08,a3,runtime error,4
+audit_08,a3,syntax failure,1
+audit_09,a1,other semantic error,1
+audit_09,a1,syntax failure,9
+audit_09,a2a,other semantic error,1
+audit_09,a2a,syntax failure,9
+audit_09,a2b,syntax failure,10
+audit_09,a2c,syntax failure,10
+audit_09,a3,other semantic error,2
+audit_09,a3,runtime error,8
+audit_10,a1,other semantic error,1
+audit_10,a1,syntax failure,9
+audit_10,a2a,syntax failure,10
+audit_10,a2b,syntax failure,10
+audit_10,a2c,syntax failure,10
+audit_10,a3,other semantic error,1
+audit_10,a3,runtime error,6
+audit_10,a3,syntax failure,3

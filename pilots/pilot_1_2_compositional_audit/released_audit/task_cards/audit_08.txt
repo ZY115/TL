@@ -1,0 +1,1 @@
+Stay out of the hazard zone X until the delivery bay C is reached. A C at the current or a later step is required; X is forbidden strictly before that C and allowed on the C step and afterwards.

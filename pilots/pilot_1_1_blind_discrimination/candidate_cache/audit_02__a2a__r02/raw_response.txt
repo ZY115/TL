@@ -1,0 +1,60 @@
+```python
+import re
+
+def parse_task(source):
+    # eventually P: P at some index i >= o
+    def eventually(P, o):
+        return (f"eventually {P}" in source) or (not source.strip().startswith(f"(eventually {P})"))
+
+    # never P: no P at any index i >= o
+    def never(P, o):
+        return not (f"never {P}" in source) and not source.strip().startswith(f"(never {P})")
+
+    # sequence P1 ... Pk: strictly increasing indices for P1...Pk
+    def sequence(*Ps, o):
+        return len(re.findall(r"\b" + r"|".join(P for P in Ps) + r"\b", source)) == len(Ps)
+
+    # within lower upper P: P at some index i >= o + d where lower <= d <= upper
+    def within(lower, upper, P, o):
+        return re.search(rf"(?:(?:{P})\s*(?=\d{{{lower}}}\s*to\s*\d{{{upper}}}|\d{{{upper}}}))", source) is not None
+
+    # avoid-until X G: G at j >= o with no X before i < j and X allowed at j
+    def avoid_until(X, G, o):
+        match = re.search(rf"(?:(?:{G})\s*(?:until\s*{X})(?=([A-Za-z_][A-Za-z0-9_.-]+))", source)
+        return match is not None and (not re.search(rf"{X}\s*before\s*\d{{{i}}}", source) for i in range(o, o + 10))
+
+    # after-each T child: T at some index i >= o with child true at origin i
+    def after_each(T, child, o):
+        return any(re.search(rf"(?:{T})\s*(after-each)", source) and re.search(rf"{child}\s*at\s*\d+?", source), [o])
+
+    # all or any: multiple children satisfying the same condition
+    def all_or_any(*children, o):
+        return all(re.match(f"({|})*{re.escape(child)}", source) for child in children)
+
+    task = {
+        "eventually": eventually,
+        "never": never,
+        "sequence": sequence,
+        "within": within,
+        "avoid-until": avoid_until,
+        "after-each": after_each,
+        "all": all_or_any,
+        "any": all_or_any
+    }
+
+    def evaluate_task(source, trace):
+        if source.startswith("(eventually P)"):
+            return any(task["eventually"](re.search(rf"(?:(?:{P})\s*", source).group(), t).group() == True for t in trace)
+        elif source.startswith("(never P)"):
+            return not any(task["never"](re.search(rf"(?:(?:{P})\s*", source).group(), t).group() == False for t in trace)
+        elif source.startswith("(sequence P1 ... Pk)"):
+            P = re.findall(r"\b" + r"|".join([r"(?:{P})" for P in Ps]) + r"\b", source)[0]
+            return sequence(*[task[P](t.group()) for t, P in zip(trace, [f"{source.split(f'(sequence {|}')[1].split(')')[-1]}"]*len(Ps))], 0)
+        elif source.startswith("(within lower upper P)"):
+            lower = int(re.search(rf"\d{{{lower}}}", source).group())
+            upper = int(re.search(rf"\d{{{upper}}}", source).group())
+            return within(lower, upper, re.findall(r"\b" + r"|".join(P for P in Ps) + r"\b", source)[0], 0)
+        elif source.startswith("(avoid-until X G)"):
+            match = re.search(f"(?:{G})\s*(until\s*{X})(?=([A-Za-z_][A-Za-z0-9_.-]+))", source)
+            return avoid_until(X, G, 0)
+        elif source.startswith("(

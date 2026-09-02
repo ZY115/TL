@@ -1,0 +1,55 @@
+class Monitor:
+    def reset(self):
+        self.trace = []
+
+    def step(self, propositions):
+        self.trace.append(set(propositions))
+
+    def finish(self):
+        n = len(self.trace)
+
+        # Requirement 1: A is visited at least once
+        if not any('A' in props for props in self.trace):
+            return False
+
+        # Requirement 2: After every visit to A, reach B within 1-2 steps, then reach C
+        for i in range(n):
+            if 'A' not in self.trace[i]:
+                continue
+
+            b_found = False
+            b_index = None
+            for j in range(i + 1, min(i + 3, n)):
+                if 'B' in self.trace[j]:
+                    b_index = j
+                    b_found = True
+                    break
+
+            if not b_found:
+                return False
+
+            c_found = False
+            for k in range(b_index, n):
+                if 'C' in self.trace[k]:
+                    c_found = True
+                    break
+
+            if not c_found:
+                return False
+
+        # Requirement 3: After every visit to C, reach D at or after C with no X strictly between
+        for i in range(n):
+            if 'C' not in self.trace[i]:
+                continue
+
+            d_found = False
+            for j in range(i, n):
+                if 'D' in self.trace[j]:
+                    if all('X' not in self.trace[p] for p in range(i + 1, j)):
+                        d_found = True
+                        break
+
+            if not d_found:
+                return False
+
+        return True

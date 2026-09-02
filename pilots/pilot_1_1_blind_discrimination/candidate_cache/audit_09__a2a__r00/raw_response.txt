@@ -1,0 +1,1 @@
+(eventually (all (after-each A (within 1 4 B)) (never X)))

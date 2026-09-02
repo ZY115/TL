@@ -1,0 +1,24 @@
+class Monitor:
+    def reset(self) -> None:
+        self.a_visited = False
+        self.b_visited = False
+        self.c_visited = {}
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and not self.a_visited:
+            self.a_visited = True
+            self.c_visited[0] = 1  # initial C visit offset
+
+        elif 'B' in propositions and self.a_visited:
+            self.b_visited = True
+            self.c_visited[len(self.c_visited) + 1] = len(self.c_visited) + 2  # increment C visit offset
+
+        elif 'C' in propositions and self.a_visited:
+            if len(self.c_visited) < 4:  # not reached maximum C visit offset
+                self.c_visited[len(self.c_visited)] = len(self.c_visited) + 1  # increment C visit offset
+
+        elif 'D' in propositions and self.b_visited:
+            self.c_visited[len(self.c_visited) + 1] = len(self.c_visited) + 2  # increment D visit offset
+
+    def finish(self) -> bool:
+        return self.a_visited and self.b_visited

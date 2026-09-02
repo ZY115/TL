@@ -1,0 +1,13 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def audit_task():
+    return "all(after_each(A, avoid_until(X, C)))"
+
+tree = parse_task("all(after_each(A, avoid_until(X, C)))")
+text = canonicalize(" all ( after_each(A,avoid_until(X,C)) ) ")
+ok = evaluate_task(
+    "all(after_each(A, avoid_until(X, C)))",
+    (frozenset(), frozenset({"A"}), frozenset({"X", "C"}))
+)
+
+print(audit_task())

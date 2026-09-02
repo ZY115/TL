@@ -1,0 +1,20 @@
+```python
+class Monitor:
+    def reset(self) -> None:
+        self.a_visited = False
+        self.c_visited = False
+        self.x_entered = False
+        self.d_visits = []
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and not self.a_visited:
+            self.a_visited = True
+            self.d_visits.append(0)
+        elif 'D' in propositions and self.c_visited:
+            self.d_visits.append(len(self.d_visits))
+            if len(self.d_visits) > 1:
+                self.c_visited = True
+
+    def finish(self) -> bool:
+        return self.a_visited and not self.x_entered and self.c_visited
+```

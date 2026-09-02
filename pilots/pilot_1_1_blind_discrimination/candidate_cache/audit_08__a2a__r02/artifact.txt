@@ -1,0 +1,16 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+task = (
+    "eventually A"
+    " after-each A (within 2 4 C)"
+    " after-each B (within 1 2 D)"
+    " avoid-until X C"
+)
+
+canonicalized_task = canonicalize(task)
+parsed_task = parse_task(canonicalized_task)
+
+def main(trace):
+    return evaluate_task(parsed_task, trace) and True
+
+print(main(("A", frozenset({"B"}), frozenset({"D"}))))

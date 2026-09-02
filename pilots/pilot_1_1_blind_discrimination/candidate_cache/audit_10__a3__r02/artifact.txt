@@ -1,0 +1,102 @@
+class Monitor:
+    def reset(self) -> None:
+        self.traces = set()
+        self.props = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'X': -4}
+
+    def step(self, propositions: set[str]) -> None:
+        if len(propositions) > 0:
+            prop_set = frozenset(propositions)
+            if prop_set in self.traces:
+                return
+            self.traces.add(prop_set)
+
+            a_occurred = {'A'} in self.props and self.props['A'] >= 0
+            b_occurred = {'B'} in self.props and self.props['B'] >= 0
+
+            if a_occurred:
+                c_occurred = {'C'} in self.props and self.props['C'] >= 0
+                d_occurred = {'D'} in self.props and self.props['D'] >= 0
+
+                d_offset = min(self.props['D'], 3)
+                last_d = self.props['D'] - d_offset
+
+                x_forbidden = (prop_set, prop_set) not in self.props if self.props['X'] == -4
+                x_allowed_on_c = {'C'} in prop_set and self.props['C'] >= 0
+
+                for i in range(d_offset):
+                    new_prop_set = frozenset(self.props.keys())
+                    new_prop_set.discard('A')
+                    if not (prop_set, new_prop_set) in self.props:
+                        return
+                    new_prop_set.discard('B')
+
+                    x_allowed = True
+                    if prop_set in self.props and x_forbidden:
+                        x_allowed = False
+
+                    if not x_allowed:
+                        continue
+
+                    new_prop_set.add('D')
+                    new_prop_set.add(last_d)
+
+                    if i == 0 or last_d > 1:
+                        x_allowed_on_c = {'C'} not in new_prop_set
+                    else:
+                        x_allowed_on_c = True
+
+                    if not x_allowed_on_c:
+                        continue
+
+                    self.props.update({k: v + 1 for k, v in prop_set.items()})
+                    self.props.update(new_prop_set)
+                    return
+
+            b_occurred = False
+            aoccured =False
+
+            if b_occurred:
+                c_occurred = {'C'} in self.props and self.props['C'] >= 0
+                d_occurred = {'D'} in self.props and self.props['D'] >= 0
+
+                d_offset = min(self.props['D'], 3)
+                last_d = self.props['D'] - d_offset
+
+                x_forbidden = (prop_set, prop_set) not in self.props if self.props['X'] == -4
+                x_allowed_on_c = {'C'} in prop_set and self.props['C'] >= 0
+
+                for i in range(d_offset):
+                    new_prop_set = frozenset(self.props.keys())
+                    new_prop_set.discard('B')
+                    if not (prop_set, new_prop_set) in self.props:
+                        return
+                    new_prop_set.discard('A')
+
+                    x_allowed = True
+                    if prop_set in self.props and x_forbidden:
+                        x_allowed = False
+
+                    if not x_allowed:
+                        continue
+
+                    new_prop_set.add('D')
+                    new_prop_set.add(last_d)
+
+                    if i == 0 or last_d > 1:
+                        x_allowed_on_c = {'C'} not in new_prop_set
+                    else:
+                        x_allowed_on_c = True
+
+                    if not x_allowed_on_c:
+                        continue
+
+                    self.props.update({k: v + 1 for k, v in prop_set.items()})
+                    self.props.update(new_prop_set)
+                    return
+
+
+    def finish(self) -> bool:
+        if len(self.traces) == 0:
+            return False
+        else:
+            return True

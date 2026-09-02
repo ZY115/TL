@@ -1,0 +1,16 @@
+class Monitor:
+    def reset(self) -> None:
+        self.step_count = 0
+        self.props = set()
+
+    def step(self, propositions: set[str]) -> None:
+        if len(propositions) > self.props:
+            self.props = propositions
+            if 'A' in propositions and self.step_count < 4:
+                self.props.add('D')
+            elif 'B' in propositions and ('C' not in propositions or self.step_count + 1 >= 4):
+                self.props.add('X')
+        self.step_count += 1
+
+    def finish(self) -> bool:
+        return True

@@ -1,0 +1,3 @@
+```
+(at_A U X^0 F at_B) | (at_A X^1 F at_C)
+```

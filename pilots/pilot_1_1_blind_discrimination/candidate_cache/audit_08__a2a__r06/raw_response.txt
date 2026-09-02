@@ -1,0 +1,5 @@
+import warehouse_dsl
+
+task = warehouse_dsl.parse_task("(after-each A (within 2 4 C)) (after-each B (within 1 2 D)) (avoid-until X C)")
+canonicalized_task = warehouse_dsl.canonicalize(task)
+print(canonicalized_task)

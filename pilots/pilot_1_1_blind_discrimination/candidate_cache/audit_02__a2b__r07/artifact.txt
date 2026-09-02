@@ -1,0 +1,10 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def task_train_02(source: str) -> bool:
+    return never([X])
+
+canonicalize(source="never [X]")
+parse_task(source="never [X]")
+evaluate_task(source="never [X]", trace=(frozenset(["X"])))
+
+print("task_train_02")

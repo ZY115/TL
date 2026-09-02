@@ -1,0 +1,11 @@
+```python
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def task_train_02():
+    return "never [X]"
+
+task = parse_task(task_train_02)
+canonicalized_task = canonicalize(task)
+result = evaluate_task(canonicalized_task, ())
+print(result)  # False
+```

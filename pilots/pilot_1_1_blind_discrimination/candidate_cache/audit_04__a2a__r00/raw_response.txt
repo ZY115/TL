@@ -1,0 +1,4 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def task_15():
+    return (eventually A) & (never X) | (sequence A C), 'Visit A at least once; Never enter X; and Visit C before a strictly later visit to D.'

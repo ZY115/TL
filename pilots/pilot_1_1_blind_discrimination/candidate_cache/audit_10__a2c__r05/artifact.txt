@@ -1,0 +1,2 @@
+# train_08.wdsl
+sequence(A, between(1, 3, D), after_each(B, avoid(X, D)))

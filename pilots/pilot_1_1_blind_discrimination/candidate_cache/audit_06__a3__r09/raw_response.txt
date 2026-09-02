@@ -1,0 +1,18 @@
+```python
+class Monitor:
+    def reset(self) -> None:
+        self.a_occurred = False
+        self.x_avoided = []
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions:
+            self.a_occurred = True
+            for i, x in enumerate(self.x_avoided):
+                if i < len(x) - 1 and x[i + 1] == 'C':
+                    break
+            else:
+                raise Exception('X should be avoided until C')
+
+    def finish(self) -> bool:
+        return self.a_occurred
+```

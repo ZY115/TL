@@ -1,0 +1,38 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def task(source: str) -> bool:
+    def seen(A):
+        return any(i == 0 or i < len(trace) - 1 and label in trace[i] for i, label in enumerate(source.split(";")[0].split()))
+
+    def order(A, B):
+        return all(i_A + 1 < i_B + 1 and i_A < i_C + 1 and i_B < i_C + 1 for i_A, i_B, i_C in [(i - 1, next_i - 1, next_j - 1) for (i, label), next_i, next_j in enumerate(zip([0], source.split(";")[1].split(), source.split(";")[2].split())) if label == A])
+
+    def within(L, U):
+        return any(i < len(trace) and i + L <= i + U for i in range(len(source.split(";")[0].split()[1:])))
+    
+    def after(A):
+        return len(source.split(";")[0].split()) >= 2
+
+    def all(Es):
+        Es = [E.strip() for E in source.split(";")]
+        if not Es:
+            return False
+        return all(evaluate_task(E, trace) for e in Es)
+
+    def any(Es):
+        Es = [e.strip() for e in source.split(";")]
+        return any(evaluate_task(E, trace) for e in Es)
+
+    def until(C, avoiding):
+        C, avoiding = source.split("avoiding")
+        if not after(C):
+            return False
+        return all(visit_C or visit_X for (i, visit_X), visit_C in enumerate(zip([len(trace) - 1] + [False] * len(source.split(";")[2].split()), [True] * len(source.split(";")[2].split()) if label != avoiding[0] else [False] * len(source.split(";")[2].split())) for i, label in enumerate(source.split(";")[1].split()))
+
+    return all([
+        seen("A"),
+        order("A", "B"),
+        within(1, 3),
+        after("A") and all(["C"]),
+        any([after("C"), until("D", ["X"])])
+    ])

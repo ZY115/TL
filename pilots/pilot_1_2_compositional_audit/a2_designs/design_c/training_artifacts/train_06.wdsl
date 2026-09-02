@@ -1,0 +1,5 @@
+# Task train_06: every time the robot visits the pickup shelf A, it must
+# afterwards reach at least one of the two packing stations B or C (at or
+# after the A step -- see README design note on this card's wording).
+# Vacuously satisfied if A is never visited.
+every(A, visit(any(B, C)))

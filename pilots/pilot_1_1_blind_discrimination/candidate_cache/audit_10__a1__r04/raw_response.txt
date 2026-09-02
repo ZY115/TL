@@ -1,0 +1,9 @@
+```
+(at_A U (F at_B & !X) | X^1 at_D) U (
+  F at_C &
+  (!X | (at_B U F at_D)) |
+  (G at_X & 
+    (at_A U (X^2 at_D)) |
+    (at_B U (X^3 at_D)))) U (
+  G at_C & !X)
+```

@@ -1,0 +1,4 @@
+# Task train_03: visit the pickup shelf A and, at a strictly later step,
+# visit the inspection station B. Irrelevant and repeated visits are
+# allowed; an earlier B does not count as the required later one.
+order(A, B)

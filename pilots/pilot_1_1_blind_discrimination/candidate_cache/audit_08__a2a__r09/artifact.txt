@@ -1,0 +1,8 @@
+import warehouse_dsl
+
+def audit_task():
+    task = warehouse_dsl.parse_task("(after-each A (within 2 4 C)) (after-each B (within 1 2 D)) (avoid-until X C)")
+    result = warehouse_dsl.evaluate_task(task, [(frozenset({'A', 'B'}), frozenset({'C', 'D'}))]
+    return bool(result)
+
+print(audit_task())

@@ -1,0 +1,27 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+task = "(never X)"
+canonicalized_task = canonicalize(task)
+print(canonicalized_task)
+
+def audit(warehouse_trace):
+    for i in range(len(warehouse_trace)):
+        if "X" in warehouse_trace[i]:
+            return False
+    return True
+
+audit_result = audit([(frozenset(["A", "B"])), (frozenset(["C", "D"]))]
+print(audit_result)
+
+task = "(all (never X))"
+canonicalized_task = canonicalize(task)
+print(canonicalized_task)
+
+def audit(warehouse_trace):
+    for i in range(len(warehouse_trace)):
+        if "X" in warehouse_trace[i]:
+            return False
+    return True
+
+audit_result = audit([(frozenset(["A", "B"])), (frozenset(["C", "D"]))])
+print(audit_result)

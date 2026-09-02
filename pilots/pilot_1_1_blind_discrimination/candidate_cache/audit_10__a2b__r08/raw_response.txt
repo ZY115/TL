@@ -1,0 +1,11 @@
+seen A
+after A {
+  within 1..3 {
+    seen D;
+  }
+}
+any {
+  after B {
+    until C avoiding [X]
+  };
+}

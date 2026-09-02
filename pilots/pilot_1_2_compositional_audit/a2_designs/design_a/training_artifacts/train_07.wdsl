@@ -1,0 +1,3 @@
+# train_07: visit pickup shelf A at least once, and never enter the
+# hazard zone X -- two independent requirements that must both hold.
+all_of(visit(A), avoid(X))

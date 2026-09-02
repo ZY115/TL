@@ -1,0 +1,85 @@
+import re
+from dataclasses import dataclass, field
+from typing import List, Tuple
+
+# Define a label to represent X
+X = 'X'
+
+# Define label to represent A
+A = 'A'
+B = 'B'
+C = 'C'
+
+@dataclass
+class Clause:
+    """Represents one of the three clauses in the audit task."""
+    label: str  # Label to check for (e.g., A, B, C)
+    constraint: List[int]  # Indices at which the constraint must be satisfied
+
+def parse_constraint(constraint_str: str) -> Tuple[bool, int]:
+    """Parse a constraint string into a tuple of boolean value and index."""
+    pattern = r'\b(\w+)\s*\(([0-9]+)\)-([0-9]+)\)'
+    match = re.match(pattern, constraint_str)
+    if match:
+        label, lo, hi = match.groups()
+        return (label == X or label in [A, B, C] and int(lo) <= int(hi)), int(lo)
+    else:
+        raise ValueError(f"Invalid constraint: {constraint_str}")
+
+def evaluate_clause(clause: Clause, trace: Tuple[frozenset[str], ...]) -> bool:
+    """Evaluate the clause against a given trace."""
+    anchor = 0
+    for step in reversed(trace):
+        if A in step:
+            label = A
+            lo = -1
+            hi = clause.constraint[0] + 2
+        elif B in step:
+            label = B
+            lo = -1
+            hi = clause.constraint[0]
+        elif C in step:
+            label = C
+            lo = clause.constraint[0] - 1
+            hi = clause.constraint[0]
+        else:
+            return False
+
+        if lo == -1:
+            lo = anchor + 2 if anchor < len(trace) else 3
+        hi += 1
+
+        if not (lo <= clause.constraint[0] <= hi):
+            return False
+
+        if anchor >= len(trace):
+            break
+
+        anchor = step.pop() if label in [A, B, C] and len(step) > 0 else anchor + 1
+
+    # Check the last step
+    for label in [B, D]:
+        if label in trace[-1]:
+            return False
+
+    return True
+
+def solve_audit_task(task: str) -> bool:
+    """Solve the audit task by evaluating all possible assignments of clauses."""
+    clauses = []
+    for line in task.split('\n'):
+        if line.startswith('clause '):
+            clause_str, constraint_str = line.split(':')
+            label, constraint = clause_str.strip(), constraint_str.strip()
+            if constraint == '':
+                lo, hi = 1, int(constraint.split('-')[1])
+            else:
+                lo, hi = parse_constraint(constraint)
+            clauses.append(Clause(label=label, constraint=constraint))
+
+    for assignment in [(A, C), (B, D)]:
+        for clause in clauses:
+            if not evaluate_clause(clause, ((frozenset(),),)) or not evaluate_clause(clause, ((assignment[0],), assignment[1])) or not evaluate_clause(clause, ((assignment[0], assignment[1]),)):
+                return False
+
+    return True

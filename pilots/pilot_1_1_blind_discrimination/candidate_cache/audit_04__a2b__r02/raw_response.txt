@@ -1,0 +1,14 @@
+seen A
+any {
+  seen C;
+  after D {
+    never [X];
+  }
+}
+all {
+  after A {
+    within 1..4 {
+      seen B
+    }
+  };
+}

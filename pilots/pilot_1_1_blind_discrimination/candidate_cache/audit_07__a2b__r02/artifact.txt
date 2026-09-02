@@ -1,0 +1,50 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def task(source: str) -> bool:
+    def never(window: tuple) -> bool:
+        return not any(label in window for label in ["X"])
+
+    def seen(window: tuple) -> bool:
+        for i, label in enumerate(window):
+            if label == "A":
+                return True
+        return False
+
+    def order(window: tuple) -> bool:
+        labels = [label for label in window if label != "A"]
+        return len(labels) >= 2 and all(labels[i] < labels[i + 1] for i in range(len(labels) - 1))
+
+    def until(window: tuple, avoiding: list) -> bool:
+        c_index = next((i for i, label in enumerate(window) if label == "C"), None)
+        return c_index is not None and all(label not in window[i] for i, label in enumerate(avoiding[:c_index]))
+
+    def within(window: tuple, lower: int, upper: int) -> bool:
+        start = max(0, len(window) - 1 - upper)
+        end = min(len(window), lower)
+        return start <= end
+
+    def after(window: tuple, label: str) -> tuple:
+        return (i for i, l in enumerate(window) if l == label)
+
+    def all(window: tuple, *expressions: callable) -> bool:
+        return all(expression(window) for expression in expressions)
+
+    def any(window: tuple, *expressions: callable) -> bool:
+        return any(expression(window) for expression in expressions)
+
+    window = parse_task(source)
+    assert len(window) == 1
+    window = canonicalize(source)
+    
+    if not seen(window):
+        raise ValueError("A is never visited")
+        
+    a_window = after(window, "A")
+    c_windows = (within(a_window, i, 3) for i in range(1, 4))
+    all_c_windows = any(c_windows)
+
+    b_window = after(window, "B")
+    d_windows = (within(b_window, j, 4) for j in range(2, 5))
+    all_d_windows = all(d_windows)
+
+    return all_c_windows and all_d_windows

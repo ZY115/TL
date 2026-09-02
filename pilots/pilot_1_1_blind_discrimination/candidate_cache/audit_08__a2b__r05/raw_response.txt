@@ -1,0 +1,1 @@
+seen A { within 2..4 { seen C } ; after B { seen D } ; until X avoiding [X] }

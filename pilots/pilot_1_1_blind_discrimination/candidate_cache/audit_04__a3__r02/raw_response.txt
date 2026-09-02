@@ -1,0 +1,23 @@
+```python
+class Monitor:
+    def reset(self) -> None:
+        self.A_visited = False
+        self.X_entered = False
+        self.C_reached = False
+        self.D_visited = {}
+        self.trace_steps = 0
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and not self.A_visited:
+            self.A_visited = True
+        elif 'X' in propositions and self.X_entered:
+            raise ValueError("X entered during trace")
+        elif 'C' in propositions and self.C_reached:
+            raise ValueError("C reached before D")
+        else:
+            self.trace_steps += 1
+
+    def finish(self) -> bool:
+        return not ('A' in {self.D_visited[x] for x in self.D_visited if 'D' in self.D_visited[x]} or 
+                   'X' in {self.D_visited[x] for x in self.D_visited if 'X' in self.D_visited[x]})
+```

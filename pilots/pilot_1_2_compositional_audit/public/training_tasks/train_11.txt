@@ -1,0 +1,3 @@
+Task train_11
+
+Every time the robot picks up at A, it must reach the inspection station B between one and three steps later, inclusive, and after that inspection it must eventually reach the delivery bay C. The C must come at or after the B chosen for that pickup. If A is never visited, this requirement is satisfied.

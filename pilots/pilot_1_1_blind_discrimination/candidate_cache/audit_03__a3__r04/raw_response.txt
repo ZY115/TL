@@ -1,0 +1,13 @@
+```python
+class Monitor:
+    def reset(self) -> None:
+        self.visited = set()
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and 'B' not in self.visited:
+            self.visited.add('A')
+            self.visited.add('B')
+
+    def finish(self) -> bool:
+        return len(self.visited) == 2
+```

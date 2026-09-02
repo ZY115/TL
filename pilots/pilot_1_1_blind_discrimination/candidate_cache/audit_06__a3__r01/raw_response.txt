@@ -1,0 +1,26 @@
+```python
+class Monitor:
+    def __init__(self):
+        self.a_visited = False
+        self.c_reached = False
+        self.x_forgiven = True
+
+    def reset(self) -> None:
+        pass
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and not self.a_visited:
+            self.a_visited = True
+            return
+        elif 'X' in propositions:
+            if not self.x_forgiven:
+                raise ValueError("X forbidden")
+        elif 'C' in propositions and not self.c_reached:
+            self.c_reached = True
+
+    def finish(self) -> bool:
+        if self.a_visited and self.c_reached:
+            return True
+        else:
+            return False
+```

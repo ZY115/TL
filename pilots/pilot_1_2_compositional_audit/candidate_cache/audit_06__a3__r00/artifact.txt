@@ -1,0 +1,14 @@
+class Monitor:
+    def reset(self):
+        self.trace = []
+
+    def step(self, propositions):
+        self.trace.append(set(propositions))
+
+    def finish(self):
+        n = len(self.trace)
+        for i in range(n):
+            if 'A' in self.trace[i] or 'D' in self.trace[i]:
+                if any('C' in self.trace[j] for j in range(i + 1, n)):
+                    return True
+        return False

@@ -1,0 +1,15 @@
+```python
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+task = """
+(all (eventually A) 
+  (after-each A (within 1 3 D))
+  (after-each B (avoid-until X D)))
+"""
+
+canonicalized_task = canonicalize(task)
+print(canonicalized_task)
+
+result = evaluate_task(canonicalized_task, [(frozenset(["A"])), (frozenset(["B", "D"])), (frozenset(["C"]))])
+print(result)
+```

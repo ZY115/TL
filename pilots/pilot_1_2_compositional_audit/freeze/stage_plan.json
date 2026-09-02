@@ -1,0 +1,23 @@
+{
+  "a2_assignment": {
+    "audit_01": "a2c",
+    "audit_02": "a2b",
+    "audit_03": "a2a",
+    "audit_04": "a2c",
+    "audit_05": "a2b",
+    "audit_06": "a2a",
+    "audit_07": "a2c",
+    "audit_08": "a2b",
+    "audit_09": "a2a",
+    "audit_10": "a2c",
+    "audit_11": "a2b",
+    "audit_12": "a2a"
+  },
+  "arms_per_task": [
+    "a1",
+    "<assigned a2>",
+    "a3"
+  ],
+  "rotation_seed": 20261302,
+  "stage2_extra_replicates": 2
+}

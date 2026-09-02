@@ -1,0 +1,77 @@
+import re
+from typing import Tuple, List
+
+def parse_task(source: str) -> Tuple[List[str], int]:
+    """Parse a task source into its constituent parts."""
+    labels = re.findall(r"[A-Za-z_][A-Za-z0-9_.-]*", source)
+    lower_bound = re.search(r"(\d+)", source).group()
+    upper_bound = re.search(r"(\d+)", source).group()
+
+    if not (lower_bound.isdigit() and upper_bound.isdigit()):
+        raise ValueError("Malformed task")
+
+    return labels, int(lower_bound), int(upper_bound)
+
+
+def canonicalize(source: str) -> str:
+    """Canonicalize a task source."""
+    return source
+
+
+def evaluate_task(source: str, trace: List[Tuple[str]]) -> bool:
+    """Evaluate a task against a given trace."""
+    labels = re.findall(r"[A-Za-z_][A-Za-z0-9_.-]*", source)
+    origin = 0
+
+    for i, step in enumerate(trace):
+        if any(label in step for label in labels):
+            if "eventually" not in source:
+                return True
+            lower_bound = re.search(r"\d+", source).group()
+            upper_bound = re.search(r"\d+", source).group()
+
+            if lower_bound == str(i + 1) and upper_bound != "inf":
+                return False
+
+    # Check for all, any, after-each conditions
+    sequence_pattern = r"sequence\s+([A-Za-z_][A-Za-z0-9_.-]+)"
+    all_pattern = r"All\s*\(([A-Za-z_][A-Za-z0-9_.-]+)\s*"
+    any_pattern = r"Any\s*\(([A-Za-z_][A-Za-z0-9_.-]+)\s*"  # Modified pattern to better match the original DSL
+
+    if re.search(sequence_pattern, source) and not re.search(all_pattern + sequence_pattern, source):
+        for i in range(len(trace)):
+            for j in range(i + 2, len(trace)):
+                if trace[i] == tuple(labels) and trace[j] == tuple(labels):
+                    return False
+
+    if re.search(any_pattern, source) and not re.search(all_pattern + any_pattern, source):
+        for i in range(len(trace)):
+            for j in range(i + 1, len(trace)):
+                if trace[i] == tuple(labels) and trace[j] == tuple(labels):
+                    return True
+
+    avoid_until_pattern = r"avoid-until\s+([A-Za-z_][A-Za-z0-9_.-]+)"
+    after_each_pattern = r"After-each\s+([A-Za-z_][A-Za-z0-9_.-]+)"
+
+    if re.search(avoid_until_pattern, source):
+        for i in range(len(trace)):
+            for j in range(i + 1, len(trace)):
+                if trace[i] == tuple(labels) and trace[j] == tuple(labels):
+                    return False
+
+    if re.search(after_each_pattern, source):
+        for step in trace:
+            if "eventually" not in source:
+                continue
+            after_each_label = re.search(r"\d+", re.search(after_each_pattern, source).group()).group()
+            if len(step) == 1 and int(after_each_label) > i + 1:
+                return False
+
+    # Check for never condition
+    never_pattern = r"never\s+([A-Za-z_][A-Za-z0-9_.-]+)"
+    if re.search(never_pattern, source):
+        for i in range(len(trace)):
+            if trace[i] == tuple(labels):
+                return False
+
+    return True

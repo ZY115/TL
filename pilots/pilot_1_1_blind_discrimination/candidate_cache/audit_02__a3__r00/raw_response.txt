@@ -1,0 +1,20 @@
+```python
+class Monitor:
+    def reset(self) -> None:
+        self.x_visited = False
+        self.b_visited = False
+        self.c_visited = False
+        self.a_index = -1
+
+    def step(self, propositions: set[str]) -> None:
+        if 'X' in propositions:
+            self.x_visited = True
+        if 'A' in propositions and not self.a_index == len(propositions) - 1:
+            self.a_index += 1
+            if ('B' in propositions or 'C' in propositions) and not self.b_visited:
+                self.b_visited = True
+
+    def finish(self) -> bool:
+        return not self.x_visited and (self.a_index != -1 and self.a_index == len([prop for prop in set('A B C X') if prop in propositions]) or
+                                     self.c_visited)
+```

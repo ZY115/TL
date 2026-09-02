@@ -1,0 +1,57 @@
+class Monitor:
+    def reset(self):
+        self.trace = []
+
+    def step(self, propositions):
+        self.trace.append(set(propositions))
+
+    def finish(self):
+        n = len(self.trace)
+
+        # A must occur at least once
+        if not any('A' in props for props in self.trace):
+            return False
+
+        # For each A, check the A->B->C constraint
+        for i in range(n):
+            if 'A' not in self.trace[i]:
+                continue
+
+            # Find B in 1-2 steps after A
+            b_found = False
+            b_index = None
+            for j in range(i + 1, min(i + 3, n)):
+                if 'B' in self.trace[j]:
+                    b_found = True
+                    b_index = j
+                    break
+
+            if not b_found:
+                return False
+
+            # Find C at or after B
+            if not any('C' in self.trace[k] for k in range(b_index, n)):
+                return False
+
+        # For each C, check the C->D->noX constraint
+        for k in range(n):
+            if 'C' not in self.trace[k]:
+                continue
+
+            # Find D at or after C
+            d_found = False
+            d_index = None
+            for j in range(k, n):
+                if 'D' in self.trace[j]:
+                    d_found = True
+                    d_index = j
+                    break
+
+            if not d_found:
+                return False
+
+            # Check no X strictly between C and D
+            if not all('X' not in self.trace[m] for m in range(k, d_index)):
+                return False
+
+        return True

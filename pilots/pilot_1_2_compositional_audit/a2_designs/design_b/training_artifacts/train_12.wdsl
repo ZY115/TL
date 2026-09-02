@@ -1,0 +1,4 @@
+# train_12: every pickup at A must reach inspection B one or two steps
+# later, and from that same B onward must avoid hazard X until delivery
+# bay C. Vacuous if A never occurs.
+(whenever A (within 1 2 B (then (avoid_until X C))))

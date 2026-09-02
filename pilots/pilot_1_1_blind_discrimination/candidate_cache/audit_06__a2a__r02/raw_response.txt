@@ -1,0 +1,24 @@
+```python
+import re
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def create_task(source):
+    # Parse the source using the DSL parser
+    task = parse_task(source)
+    
+    # Canonicalize the task to ensure it's in a standard format
+    canonicalized_task = canonicalize(task)
+    
+    # Evaluate the canonicalized task against an empty trace
+    evaluation_result = evaluate_task(canonicalized_task, [])
+    
+    return evaluation_result
+
+# The audit task
+audit_task = "after-each A (avoid-until X C)"
+
+# Create the artifact by running the create_task function with the audit task
+artifact = create_task(audit_task)
+
+print(artifact)
+```

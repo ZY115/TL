@@ -1,0 +1,17 @@
+```python
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def task_15():
+    return (
+        "all {"
+        "  seen A;"
+        "  never [X];"
+        "  order [A, D] {"
+        "    within 1..inf {"
+        "      seen C;"
+        "    };"
+        "  };"
+    )
+
+print(canonicalize(task_15()))
+```

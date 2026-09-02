@@ -1,0 +1,8 @@
+# train_13: acceptable if at least one of two plans is completed.
+# Plan one: visit A then, strictly later, visit B, while never entering
+# hazard zone X. Plan two: visit overflow dock D at least once.
+# Completing both plans is allowed (this is a disjunction, not exclusive-or).
+any_of(
+    all_of(order(A, B), avoid(X)),
+    visit(D)
+)

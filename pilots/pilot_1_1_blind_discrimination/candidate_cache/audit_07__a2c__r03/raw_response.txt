@@ -1,0 +1,27 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def visit_a_before_b_with_offset(task):
+    return all(
+        task[0].intersection({"A"}) & task[1].intersection({"B"}),
+        any(
+            task[0].intersection({"C"}) & between(1, 3, "D")
+            for _ in range(len(task))
+        ),
+        all(
+            task[-2].intersection({"B"}) & task[-1].intersection({"D"})
+            if len(task) > 1
+            else False,
+            any(
+                task[-2].intersection({"C"}) & between(2, 4, "D")
+                for _ in range(len(task))
+            ),
+        )
+    )
+
+task = parse_task("visit(A) after_each(B, sequence(C between(1,3,D), D between(2,4)))")
+result = evaluate_task(
+    task,
+    (frozenset({"A"}), frozenset({"B", "C", "D"})),
+)
+
+print(result)

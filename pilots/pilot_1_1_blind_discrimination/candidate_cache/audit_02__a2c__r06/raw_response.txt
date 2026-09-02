@@ -1,0 +1,23 @@
+```
+{
+  "warehouse_dsl": {
+    "parse_task": {
+      "source": "avoid(X)",
+      "task": {
+        "type": "visit",
+        "label": "X"
+      }
+    },
+    "canonicalize": {
+      "source": " avoid ( X ) "
+    },
+    "evaluate_task": {
+      "source": "avoid(X)",
+      "trace": (
+        frozenset(),
+        frozenset({"X"})
+      )
+    }
+  }
+}
+```

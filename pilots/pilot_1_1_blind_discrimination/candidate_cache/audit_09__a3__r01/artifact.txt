@@ -1,0 +1,21 @@
+class Monitor:
+    def reset(self) -> None:
+        self.propositions = set()
+        self.traces = []
+        self.indices = {}
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions:
+            if not self.indices.get('A', float('-inf')) < len(self.traces):
+                raise ValueError("Early A is allowed")
+            self.indices['A'] = len(self.traces)
+            for prop in ['B', 'C']:
+                if prop != 'X':
+                    self.propositions.add(prop)
+        elif 'D' in propositions:
+            if not self.indices.get('D', float('-inf')) < len(self.traces):
+                raise ValueError("Early D is allowed")
+            self.indices['D'] = len(self.traces)
+
+    def finish(self) -> bool:
+        return all(self.propositions == set() or self.indices[proposition] >= len(self.traces) for proposition in ['A', 'B', 'C'])

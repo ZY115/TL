@@ -1,0 +1,3 @@
+Task train_06
+
+Every time the robot visits the pickup shelf A, it must afterwards reach at least one of the two packing stations B or C. Either one suffices. If A is never visited, this requirement is satisfied.

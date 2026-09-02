@@ -1,0 +1,4 @@
+import warehouse_dsl as dsl
+
+def task():
+    return dsl.parse_task("(after-each A (avoid-until X C))")

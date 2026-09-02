@@ -1,0 +1,4 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def create_candidate_artifact():
+    return "(after-each A (avoid-until X C))"

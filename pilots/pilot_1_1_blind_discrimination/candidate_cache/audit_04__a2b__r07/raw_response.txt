@@ -1,0 +1,18 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+task = """
+all {
+  seen A;
+  never [X];
+  order [
+    C; 
+    D; 
+    after C {
+      within 1..1 { seen D }
+    }
+  ]
+}
+"""
+
+canonicalized_task = canonicalize(task)
+print(canonicalized_task)

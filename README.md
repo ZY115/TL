@@ -31,7 +31,10 @@ tl_sequence_pilot/
     ├── pilot_0_3_branch_timing/
     ├── pilot_0_3b_abstraction_audit/
     ├── pilot_0_4_frozen_evolution/
-    └── pilot_1_0_heldout_benchmark/
+    ├── pilot_1_0_heldout_benchmark/
+    ├── pilot_1_1_blind_discrimination/
+    ├── pilot_1_2_compositional_audit/
+    └── pilot_2_0_analysis_readiness/
 ```
 
 | Pilot | Independent variable | Fixed structure | Main modification |
@@ -42,9 +45,23 @@ tl_sequence_pilot/
 | [0.3B — Abstraction audit](pilots/pilot_0_3b_abstraction_audit/README.md) | abstraction interface | exact Pilot 0.3 task family | compare Core TL, Macro TL, explicit, and parameterized surfaces |
 | [0.4 — Frozen evolution](pilots/pilot_0_4_frozen_evolution/README.md) | cumulative requirement type `E0...E6` | fixed `B4` | separate task-source, infrastructure, validation, and migration evolution |
 | [1.0 — Held-out benchmark](pilots/pilot_1_0_heldout_benchmark/README.md) | unseen semantic composition | fixed 8×8 warehouse family and `H=40` | analysis readiness and frozen-representation adaptation; P0 + arm freeze complete |
+| [1.1 — Blind discrimination audit](pilots/pilot_1_1_blind_discrimination/README.md) | representation, authored blind from natural language | ten sacrificial audit tasks, one fixed authoring model | first-attempt hidden-suite correctness; **gate failed (floor), do not scale** |
+| [1.2 — Compositional audit](pilots/pilot_1_2_compositional_audit/README.md) | representation, authored blind by memoryless Haiku agents | twelve realistic tasks, compositional gold IR, symmetric worked examples, two-stage adaptive plan | first-attempt hidden-suite correctness; **gate passed on spread (A1 20/20, A2 17/20, A3 16/20); paired test underpowered at n=12** |
+| [2.0 — Analysis readiness](pilots/pilot_2_0_analysis_readiness/README.md) | representation, analysed as an artifact | 30 cases (12 released + 18 constructed), 8 questions, blocked floor plan | which questions each representation can answer, exactly or only by bounded search; **no authors, no agents, pure code** |
 
 Every pilot owns its `src/`, `tests/`, `generated/`, `results/`, and `plots/`
 directories. This prevents later experiments from overwriting earlier outputs.
+
+Pilot 1.1 is a benchmark-validation experiment rather than a representation
+study. It asks whether a genuinely blind apparatus can separate standard
+LTLf, three independently designed DSLs, and free handwritten Python when all
+are authored from the same natural-language cards. It publishes
+`run_public.py` instead of `run_experiment.py`: its measured data are 500
+cached model responses, so re-running the authoring stage would replace the
+observations rather than reproduce them. Its first iteration floored — the
+fixed 3B authoring model could not produce valid artifacts even for the
+trivial control tasks — so its verdict is about the apparatus, not about any
+representation.
 
 ## Environment
 

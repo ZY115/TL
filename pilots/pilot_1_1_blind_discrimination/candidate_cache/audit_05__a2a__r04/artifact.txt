@@ -1,0 +1,5 @@
+import warehouse_dsl
+
+task = warehouse_dsl.parse_task("(after-each A (within 2 4 B))")
+canonicalized_task = task canonicalize
+result = task.evaluate_task(canonicalized_task, [(frozenset(["A"])), (frozenset(["B"])), (frozenset(["B"]))])

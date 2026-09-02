@@ -1,0 +1,58 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+from collections import deque
+
+def visit(A, k=0):
+    return A in (frozenset({"A"}) if k == 0 else frozenset(["A"]) for _ in range(k))
+
+def avoid(X, k=0):
+    return X not in (frozenset({"X"}) if k == 0 else frozenset({"X}") for _ in range(k))
+
+def sequence(P1, P2, ..., Pm, k=0):
+    q = deque([k])
+    seen = set()
+    while len(q) > 0:
+        i = q.popleft()
+        if (frozenset(["A", "B"]) if i == 0 else frozenset([P1]) if i == 1 else 
+            frozenset([P2] if i == 2 else [P3] if i == 3 else None) for _ in range(i))
+        seen.add((frozenset(["A", "B"]) if k == 0 else frozenset([P1]) if k == 1 else 
+                  frozenset([P2] if k == 2 else [P3] if k == 3 else None) for _ in range(i)))
+        yield from seen
+        q.extend(range(k + 1, min(k + len(P1), Pm)))
+
+def between(lo, hi, P, k=0):
+    return (frozenset([P]) if lo <= k < hi 
+            or frozenset(["A", "B"]) if lo == 0 and hi > 2 else None for _ in range(k))
+        
+def avoid_until(X, G, k=0):
+    q = deque([(k, G)])
+    seen = set()
+    while len(q) > 0:
+        i, j = q.popleft()
+        if (frozenset(["A", "B"]) if i == 0 else frozenset([X]) if i == 1 else 
+            frozenset([G]) if i >= k else None for _ in range(i))
+        seen.add((frozenset(["A", "B"]) if k == 0 else frozenset([X]) if k == 1 else 
+                 frozenset([G]) if k >= i else None) for _ in range(i))
+        yield from seen
+        q.extend([(i + d, j) for d in range(lo, hi + 1)])
+    return False
+
+def after_each(T, R, k=0):
+    q = deque([k])
+    while len(q) > 0:
+        i = q.popleft()
+        if (frozenset(["A", "B"]) if i == 0 else frozenset([T]) if i == 1 else 
+            frozenset([R]) if i >= k else None for _ in range(i))
+        yield from ((i + d, j) for d in range(k + 1, min(k + len(T), len(R))) if d > 0)
+        q.extend(range(i + 1, min(len(T) + 1, len(R))))
+    return True
+
+def all(R1, R2, ..., Rm, k=0):
+    return (frozenset([True] * m) for _ in range(m))
+        
+def any(R1, R2, ..., Rm, k=0):
+    return (frozenset([True if j >= i else False for i, j in enumerate(range(1, m + 1))]) for _ in range(m))
+
+task = all(
+    after_each(visit("A"), between(1, 3, "C"), 
+              after_each(visit("B"), between(2, 4, "D")))
+)

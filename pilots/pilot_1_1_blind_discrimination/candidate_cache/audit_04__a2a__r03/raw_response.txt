@@ -1,0 +1,14 @@
+```python
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+task = (
+    "sequence"
+    " A"
+    " (eventually C)"
+    " (avoid-until X D)"
+)
+
+print(canonicalize(task))
+```
+
+Note: This is the first attempt to represent the given task using the provided DSL.

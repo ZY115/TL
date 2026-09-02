@@ -1,0 +1,1 @@
+at_A U X at_C | at_B F at_D (X at_C | X at_D) & at_A -> at_B

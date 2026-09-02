@@ -1,0 +1,37 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+task = """
+all {
+  seen A;
+  until C avoiding X {
+    any {
+      seen C;
+    }
+  };
+}
+"""
+
+canonicalized_task = canonicalize(task)
+print(canonicalized_task)
+
+def audit_task(trace):
+    for i, (step, labels) in enumerate(trace):
+        if 'A' in labels:
+            window_start = max(i - 4, 0)
+            while window_start < len(labels) and 'X' not in labels[window_start:]:
+                window_start += 1
+            if window_start >= len(labels):
+                return False
+            C_index = next((j for j in range(window_start + 1, i + 1) if 'C' in labels[j]), None)
+            if C_index is None:
+                return False
+            X_index = next((j for j in range(i - 4, window_start) if 'X' in labels[j]), None)
+            if X_index is not None and X_index < i:
+                return False
+
+    return True
+
+parsed_task = parse_task(canonicalized_task)
+result = evaluate_task(parsed_task, trace)
+
+print(result)

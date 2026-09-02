@@ -1,0 +1,58 @@
+```python
+class Monitor:
+    def reset(self) -> None:
+        self.a_seen = False
+        self.c_seen = False
+        self.x_seen = True
+        self.b_seen = False
+        self.d_seen = False
+        self.b_offset = 0
+        self.c_offset = 0
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions:
+            if not self.a_seen and 'B' in propositions:
+                raise AssertionError("Visit A before B")
+            elif self.a_seen:
+                for c_offset in range(2, 5):
+                    if c_offset == self.c_offset:
+                        continue
+                    if not (0 <= c_offset <= 4) or self.x_seen:
+                        return
+                    if 'C' in propositions:
+                        break
+                else:
+                    raise AssertionError("After every A visit C at an offset from 2 through 4")
+            elif self.a_seen and not self.c_seen and 'X' in propositions:
+                raise AssertionError("Avoid X globally until C is reached")
+            self.a_seen = True
+
+        if 'B' in propositions:
+            if not self.b_seen:
+                for d_offset in range(1, 3):
+                    if d_offset == self.d_offset:
+                        continue
+                    if not (0 <= d_offset <= 2) or self.x_seen:
+                        return
+                    if 'D' in propositions:
+                        break
+                else:
+                    raise AssertionError("After every B visit D at an offset from 1 through 2")
+            elif self.b_seen and self.c_seen:
+                for c_offset in range(2, 5):
+                    if c_offset == self.c_offset:
+                        continue
+                    if not (0 <= c_offset <= 4) or self.x_seen:
+                        return
+                    if 'C' in propositions:
+                        break
+                else:
+                    raise AssertionError("After every B visit D at an offset from 1 through 2")
+            self.b_seen = True
+
+        if 'X' in propositions and not (self.c_seen or 'C' in propositions):
+            raise AssertionError("Avoid X globally until C is reached")
+
+    def finish(self) -> bool:
+        return self.a_seen
+```

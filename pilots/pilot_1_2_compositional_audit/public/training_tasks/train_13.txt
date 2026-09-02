@@ -1,0 +1,3 @@
+Task train_13
+
+The run is acceptable if at least one of these two plans is completed. Plan one: visit A and then, at a strictly later step, visit B, while never entering the hazard zone X. Plan two: visit the overflow dock D at least once. Completing both plans is allowed.

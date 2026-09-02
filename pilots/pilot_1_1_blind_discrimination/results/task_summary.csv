@@ -1,0 +1,11 @@
+task_id,hidden_novelty_level,hidden_unseen_composition_count,hidden_nesting_depth,hidden_node_count,hidden_top_level_obligations,a1_correct_rate,a2a_correct_rate,a2b_correct_rate,a2c_correct_rate,a3_correct_rate,a1_class_rate,a2_class_rate,a3_class_rate,max_minus_min_correctness,discriminative
+audit_01,low,0,1,1,1,0.0,0.0,0.8,0.2,0.2,0.0,0.333333,0.2,0.333333,True
+audit_02,low,0,1,1,1,0.0,0.1,0.1,0.0,0.1,0.0,0.066667,0.1,0.1,False
+audit_03,low,0,1,1,1,0.0,0.0,0.0,0.0,0.2,0.0,0.0,0.2,0.2,True
+audit_04,low,0,1,3,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,False
+audit_05,low,0,2,3,2,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,False
+audit_06,low,0,2,2,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,False
+audit_07,low,0,2,5,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,False
+audit_08,low,0,2,6,4,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,False
+audit_09,high,13,4,9,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,False
+audit_10,low,0,2,5,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,False

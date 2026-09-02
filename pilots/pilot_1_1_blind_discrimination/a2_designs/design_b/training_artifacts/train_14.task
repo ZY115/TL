@@ -1,0 +1,6 @@
+all {
+  seen A;
+  after A {
+    until C avoiding [X]
+  };
+}

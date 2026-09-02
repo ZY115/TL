@@ -1,0 +1,35 @@
+class Monitor:
+    def __init__(self, proposition_names):
+        self.propositions = {name: set() for name in proposition_names}
+        self.visited = {}
+        self.X_avoided = {}
+
+    def reset(self) -> None:
+        self.visited = {}
+        self.X_avoided = {}
+
+    def step(self, propositions: set[str]) -> None:
+        for proposition_name in list(propositions):
+            if proposition_name == 'A':
+                if proposition_name not in self.propositions['A']:
+                    self.visited[proposition_name] = 0
+                    self.X_avoided[proposition_name] = False
+                else:
+                    self.visited[proposition_name] += 1
+                if self.visited[proposition_name] == 1 and proposition_name in propositions:
+                    for pn in self.propositions:
+                        self.propositions[pn].add(proposition_name)
+
+            elif proposition_name == 'B':
+                if proposition_name not in self.propositions['B']:
+                    self.X_avoided[proposition_name] = False
+                else:
+                    self.X_avoided[proposition_name] = True
+
+            elif proposition_name == 'C' and proposition_name in propositions:
+                for pn in self.propositions:
+                    if pn != 'A':
+                        self.propositions[pn].add(proposition_name)
+
+    def finish(self) -> bool:
+        return len({pn: len(prop_set) for pn, prop_set in self.propositions.items()}) == 3

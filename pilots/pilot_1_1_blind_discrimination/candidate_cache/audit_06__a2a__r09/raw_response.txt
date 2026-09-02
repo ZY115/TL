@@ -1,0 +1,5 @@
+from warehouse_dsl import evaluate_task
+
+task = "(after-each A (avoid-until X C))"
+print(evaluate_task(task, [("A", {"X", "C"})]))  # True
+print(evaluate_task(task, [("B", {"X", "D"})]))  # False

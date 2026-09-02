@@ -1,0 +1,5 @@
+# Task train_04: every time the robot visits the pickup shelf A, it must
+# reach the inspection station B between one and four steps later,
+# inclusive (the trigger step itself does not count). Vacuously satisfied
+# if A is never visited.
+every(A, within(B, 1, 4))

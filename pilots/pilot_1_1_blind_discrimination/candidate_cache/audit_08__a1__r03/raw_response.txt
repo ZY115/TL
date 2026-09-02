@@ -1,0 +1,1 @@
+at_A | (X^3 at_C) & ((!at_B) U (at_D U X))

@@ -1,0 +1,6 @@
+# Task train_11: every time the robot picks up at A, it must reach the
+# inspection station B between one and three steps later, inclusive, and
+# after that inspection it must eventually reach the delivery bay C (at or
+# after the B chosen for that pickup). Vacuously satisfied if A is never
+# visited.
+every(A, within(B, 1, 3, then=visit(C)))

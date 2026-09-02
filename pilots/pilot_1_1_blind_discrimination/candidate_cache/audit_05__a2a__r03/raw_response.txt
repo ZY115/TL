@@ -1,0 +1,35 @@
+import warehouse_dsl
+
+task = warehouse_dsl.parse_task("after-each A (within 2 4 B)")
+print(task.canonicalize())
+def evaluate_task(source, trace):
+    return task.evaluate(source, trace)
+# Task train_01
+source = "(eventually A)"
+trace = ("A", "B")
+print(evaluate_task(source, trace)) # True
+
+# Task train_02
+source = "(never X)"
+trace = ()
+print(evaluate_task(source, trace)) # True
+
+# Task train_03
+source = "(sequence A B)"
+trace = ("A", "B")
+print(evaluate_task(source, trace)) # True
+
+# Task train_04
+source = "(after-each A (within 2 4 B))"
+trace = ("A", "B", "C")
+print(evaluate_task(source, trace)) # False
+
+# Task train_05
+source = "(avoid-until X C)"
+trace = ()
+print(evaluate_task(source, trace)) # True
+
+# Task train_06
+source = "(after-each A (any (eventually B) (eventually C)))"
+trace = ("A", "B")
+print(evaluate_task(source, trace)) # False

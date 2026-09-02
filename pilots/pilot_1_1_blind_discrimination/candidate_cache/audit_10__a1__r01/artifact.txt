@@ -1,0 +1,1 @@
+at_A U (X^1 F at_B | X^2 F at_C) & at_X ! (at_C X at_D)

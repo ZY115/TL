@@ -1,0 +1,31 @@
+def parse_task(source):
+    import re
+    # implementation of regular expressions for the DSL grammar
+
+def canonicalize(source):
+    lines = source.split('\n')
+    # implementation of code to produce deterministic, two-space-indented representation
+
+def evaluate_task(source, trace):
+    from warehouse_dsl import parse_task, canonicalize
+    task = parse_task(source)
+    window = [0, len(trace) - 1]
+    active_window = list(window)
+    while True:
+        try:
+            output = evaluate_task(task, trace, window=active_window)
+            return output
+        except ValueError as e:
+            # implementation of error handling for invalid task syntax
+
+def main():
+    source = """
+seen A
+"""
+    trace = (frozenset(["A"]),)  # implement the trace data structure
+    
+    output = evaluate_task(source, trace)
+    print(output)
+
+if __name__ == "__main__":
+    main()

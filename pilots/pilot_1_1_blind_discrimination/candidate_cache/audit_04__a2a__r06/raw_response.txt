@@ -1,0 +1,4 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def task_15():
+    return "(eventually A) (never X) (all (eventually C) (avoid-until D))"

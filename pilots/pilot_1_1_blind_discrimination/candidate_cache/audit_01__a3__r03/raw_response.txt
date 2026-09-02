@@ -1,0 +1,17 @@
+```python
+class Monitor:
+    def reset(self) -> None:
+        self.trace = []
+        self.visited_A = False
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions:
+            self.trace.append('A')
+            self.visited_A = True
+        for prop in list(propositions):
+            if 'A' not in propositions and prop == 'B':
+                propositions.remove(prop)
+
+    def finish(self) -> bool:
+        return len(self.trace) > 0 and self.visited_A
+```

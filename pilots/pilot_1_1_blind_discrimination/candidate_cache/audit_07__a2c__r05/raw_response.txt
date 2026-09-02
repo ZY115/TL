@@ -1,0 +1,17 @@
+import ast
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+class VisitABeforeB:
+    def __init__(self, task):
+        self.task = task
+        self.traces = []
+
+    def visit(self, trace):
+        return any(
+            a < b and (b - a) >= 1 and (b - a) <= 3 
+            for a, b in zip(trace, trace[2:])
+            if "visit(A)" in ast.unparse(ast.parse("after_each(A, C)")) or "visit(B)" in ast.unparse(ast.parse("after_each(B, D)"))
+        )
+
+    def evaluate(self, task):
+        return evaluate_task(task, (self.visit(trace),))

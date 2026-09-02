@@ -1,0 +1,29 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+task = "(eventually A (within 2 4 B))"
+canonicalized_task = canonicalize(task)
+print(canonicalized_task)
+
+def check_trace(trace):
+    for i in range(len(trace)):
+        if trace[i] == 'A':
+            yield i + 1
+    return True
+
+def validate_trace(trace, task):
+    def evaluate_step(step):
+        if step in [i + 2 for i in check_trace(trace)]:
+            return True
+        return False
+
+    result = evaluate_task(task, trace)
+    print(f"Task: {task}, Trace: {canonicalized_task}")
+    if not (evaluate_task(task, {'0': 'A', '1': 'B'}) and
+            evaluate_task(task, {'0': 'A', '3': 'B'}) and
+            evaluate_step(2) and evaluate_step(4)):
+        raise ValueError(f"Invalid task: {task}")
+
+try:
+    validate_trace(['0', 'A'], "(eventually A (within 2 4 B))")
+except ValueError as e:
+    print(e)

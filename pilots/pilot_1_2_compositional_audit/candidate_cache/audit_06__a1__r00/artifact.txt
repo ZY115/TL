@@ -1,0 +1,1 @@
+F ((at_A | at_D) & X F at_C)

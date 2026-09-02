@@ -1,0 +1,11 @@
+task_id,candidate_id,difficulty,curator_positive_accepted,curator_negative_rejected,contract_traces_compared,contract_divergences,card_repair_kind,ltlf_expressible,ltlf_traces_compared,ltlf_mismatches,mechanical_rating,independent_rater_rating,notes
+audit_01,low_01,low,True,True,29331,0,,True,29331,0,unambiguous_match,pending_human_rater,
+audit_02,low_02,low,True,True,29331,0,,True,29331,0,unambiguous_match,pending_human_rater,
+audit_03,low_03,low,True,True,29331,0,,True,29331,0,unambiguous_match,pending_human_rater,
+audit_04,medium_01,medium,True,True,29331,0,,True,29331,0,unambiguous_match,pending_human_rater,
+audit_05,medium_02,medium,True,True,29331,0,,True,29331,0,unambiguous_match,pending_human_rater,
+audit_06,medium_03,medium,True,True,29331,987,trigger_goal_cooccurrence,True,29331,0,repaired_before_release,pending_human_rater,curator card required a strictly later until-goal; public warehouse contract admits the goal at the trigger step
+audit_07,medium_04,medium,True,True,29331,0,,True,29331,0,unambiguous_match,pending_human_rater,
+audit_08,high_02,high,True,True,29331,0,,True,29331,0,unambiguous_match,pending_human_rater,
+audit_09,high_03,high,True,True,29331,0,,True,29331,0,unambiguous_match,pending_human_rater,
+audit_10,high_05,high,True,True,29331,106,trigger_goal_cooccurrence,True,29331,0,repaired_before_release,pending_human_rater,curator card required a strictly later until-goal; public warehouse contract admits the goal at the trigger step

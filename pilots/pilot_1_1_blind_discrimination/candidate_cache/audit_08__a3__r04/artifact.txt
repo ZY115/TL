@@ -1,0 +1,26 @@
+class Monitor:
+    def reset(self) -> None:
+        self.a_seen = False
+        self.b_seen = False
+        self.c_seen = False
+        self.x_forbidden = True
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and not self.a_seen:
+            self.a_seen = True
+            self.b_seen = False
+        elif 'B' in propositions and self.a_seen:
+            self.b_seen = True
+            if 'C' in propositions and self.c_seen is False:
+                offset = (propositions.index('C') - props.index('B')) + 1
+                if 2 <= offset <= 4:
+                    self.c_seen = True
+                    for x in ['X']:
+                        self.x_forbidden &= not (x == 'C')
+            elif 'D' in propositions and (self.b_seen is False or props.index('D') < props.index('B')):
+                offset = (props.index('D') - props.index('B')) + 1
+                if 1 <= offset <= 2:
+                    self.x_forbidden &= True
+
+    def finish(self) -> bool:
+        return self.c_seen and not self.x_forbidden

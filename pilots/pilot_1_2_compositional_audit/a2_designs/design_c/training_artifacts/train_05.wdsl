@@ -1,0 +1,4 @@
+# Task train_05: stay out of the hazard zone X until reaching the delivery
+# bay C. A C at the current step or a later step is required; X is
+# forbidden strictly before that C and allowed on the C step itself.
+avoid_until(X, C)

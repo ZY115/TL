@@ -1,0 +1,23 @@
+```python
+class Monitor:
+    def __init__(self):
+        self.last_A_index = -1
+        self.A_visited = False
+        self.X_to_avoid = set()
+
+    def reset(self) -> None:
+        self.last_A_index = -1
+        self.A_visited = False
+        self.X_to_avoid = set()
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and not self.A_visited:
+            self.last_A_index = len(propositions)
+            self.A_visited = True
+            self.X_to_avoid = {i for i, x in enumerate(propositions) if x == 'X'}
+
+    def finish(self) -> bool:
+        return all(not (index in self.X_to_avoid and index < self.last_A_index or 
+                      index in self.X_to_avoid and index >= self.last_A_index + 1) 
+                  for index, _ in enumerate(propositions))
+```

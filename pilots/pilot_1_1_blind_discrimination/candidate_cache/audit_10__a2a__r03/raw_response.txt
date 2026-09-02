@@ -1,0 +1,34 @@
+```python
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+task = "(sequence (eventually A) (after-each A (within 1 3 D)) (avoid-until X B))"
+canonicalized_task = canonicalize(task)
+print(canonicalized_task)
+
+def solve():
+    # Define the origin
+    o = 0
+    
+    # Iterate through each step in the task
+    for i in range(5):
+        # Check if we have reached A
+        if "A" in [s for s in ["A", "B", "C"]]:
+            o += 1
+            # Check if we have reached B
+            if "B" in [s for s in ["A", "B", "C"]]:
+                o += 1
+                # Check if we have reached C and avoided X until D
+                d_index = parse_task("(within 1 3 D)")
+                if "D" not in [s for s in ["X", "B", "C"]]:
+                    return False
+            # If we haven't reached B, we should be at A
+        else:
+            # We haven't reached A yet
+            continue
+    
+    # If we've made it through all steps and found the correct order, return True
+    return True
+
+result = solve()
+print(result)
+```

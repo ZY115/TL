@@ -1,0 +1,69 @@
+def visit(label):
+    def evaluate(expr, k, n):
+        if expr.label == label:
+            return k < n
+        elif isinstance(expr, tuple):
+            return any(evaluate(child, k, n) for child in expr)
+        else:
+            return False
+
+    return lambda k, n: evaluate(expr, k, n)
+
+def avoid(label):
+    def evaluate(expr, k, n):
+        if expr.label == label:
+            return True
+        elif isinstance(expr, tuple):
+            return not any(evaluate(child, k, n) for child in expr)
+        else:
+            return False
+
+    return lambda k, n: evaluate(expr, k, n)
+
+def sequence(label1, label2, ...):
+    def evaluate(expr, k, n):
+        labels = [child.label for child in expr]
+        if not all(l == label1 or l == label2 for l in labels):
+            return False
+        indices = sorted([i for i, x in enumerate(labels) if x == label1], reverse=True)
+        target_index = next((i for i in range(len(labels)) if labels[i] == label2), None)
+        if target_index is not None:
+            return all(evaluate(child, k + i, n) for i, child in zip(indices, expr))
+        else:
+            return False
+
+    return lambda k, n: evaluate(expr, k, n)
+
+def between(lo, hi, label):
+    def evaluate(expr, k, n):
+        indices = [k + d for d in range(lo, hi+1) if 0 <= d < n - k]
+        return any(evaluate(child, k + index, n) for index, child in zip(indices, expr))
+
+    return lambda k, n: evaluate(expr, k, n)
+
+def avoid_until(forbidden_label, goal_label):
+    def evaluate(expr, k, n):
+        forbidden = all(not evaluate(child, k + i, n) for i, child in enumerate(expr)) if isinstance(expr, tuple)
+        goal = any(evaluate(child, k + j, n) and not evaluate(child, k + i, n) for j, child in enumerate(expr))
+        return forbidden or goal
+
+    return lambda k, n: evaluate(expr, k, n)
+
+def after_each(trigger_label, expr):
+    def evaluate(expr, k, n):
+        trigger = any(evaluate(child, k + i, n) and not evaluate(child, k + j, n) for i, child in enumerate(expr)) if isinstance(expr, tuple)
+        return all(evaluate(child, k + i, n) for i, child in zip(range(k), expr))
+
+    return lambda k, n: evaluate(expr, k, n)
+
+def all(*exprs):
+    def evaluate(exprs, k, n):
+        return all(evaluate(child, k, n) for child in exprs)
+
+    return lambda k, n: evaluate(exprs, k, n)
+
+def any(*exprs):
+    def evaluate(exprs, k, n):
+        return any(evaluate(child, k, n) for child in exprs)
+
+    return lambda k, n: evaluate(exprs, k, n)

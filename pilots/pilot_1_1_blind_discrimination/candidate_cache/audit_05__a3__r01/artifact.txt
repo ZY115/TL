@@ -1,0 +1,14 @@
+class Monitor:
+    def reset(self) -> None:
+        self.A_seen = False
+        self.B_visited = {}
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions:
+            self.A_seen = True
+            for i in range(2, 5):
+                if f'B_{i}' not in self.B_visited and self.B_visited.get(f'B_{i}', None) is None:
+                    return
+
+    def finish(self) -> bool:
+        return self.A_seen

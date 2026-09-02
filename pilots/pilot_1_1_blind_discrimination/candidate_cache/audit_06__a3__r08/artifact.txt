@@ -1,0 +1,20 @@
+class Monitor:
+    def __init__(self):
+        self.A_visited = False
+        self.X Avoided = False
+        self.C_reached = False
+
+    def reset(self) -> None:
+        self.A_visited = False
+        self.X_Avoided = False
+        self.C_reached = False
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions:
+            self.A_visited = True
+            self.X_Avoided = True  # reset X avoided flag
+        elif 'C' in propositions and not self.X_Avoided:
+            self.C_reached = True
+
+    def finish(self) -> bool:
+        return self.C_reached

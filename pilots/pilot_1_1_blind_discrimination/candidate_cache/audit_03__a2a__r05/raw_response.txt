@@ -1,0 +1,8 @@
+from warehouse_dsl import evaluate_task
+
+def task_03():
+    return (after-each A, sequence B)
+
+print(evaluate_task(task_03(), [("A", {"B"}), ("B", {""})]))  # True
+print(evaluate_task(task_03(), [("A", {"A"}), ("C", {""})]))  # False
+print(evaluate_task(task_03(), [("D", {"B"}), ("B", {""})]))  # True

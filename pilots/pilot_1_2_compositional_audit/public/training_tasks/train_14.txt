@@ -1,0 +1,3 @@
+Task train_14
+
+Every time the robot visits the delivery bay C, it must reach the charging dock D between two and four steps later, inclusive. If C is never visited, this requirement is satisfied.

@@ -1,0 +1,3 @@
+after B {
+  until C avoiding [X]
+}

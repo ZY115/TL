@@ -1,0 +1,13 @@
+```
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+task = """
+after A {
+  until C avoiding X
+}
+"""
+
+canonicalized_task = canonicalize(task)
+evaluated_task = evaluate_task(canonicalized_task, [(frozenset(["A"])), (frozenset(["C"]))])
+print(evaluated_task)
+```

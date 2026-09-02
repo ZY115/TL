@@ -1,0 +1,1 @@
+(eventually A after-each A (within 1 3 C) any (eventually B) (after-each B (within 2 4 D)))

@@ -1,0 +1,20 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def audit_task():
+    task = "all(visit(A), after_each(A, avoid_until(X, C)), any(after_each(D, visit(B)))"
+
+    tree = parse_task(task)
+    text = canonicalize(task)
+    ok = evaluate_task(task, (frozenset(), frozenset({"A"})))
+
+    assert(ok)
+
+# The audit task should always pass
+def test_audit_task():
+    try:
+        audit_task()
+        assert False, "Audit task failed"
+    except AssertionError:
+        print("Audit task passed")
+
+test_audit_task()  # Run the test function

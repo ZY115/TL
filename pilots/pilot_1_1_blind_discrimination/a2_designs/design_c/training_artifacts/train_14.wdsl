@@ -1,0 +1,1 @@
+all(visit(A), after_each(A, avoid_until(X, C)))

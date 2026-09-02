@@ -1,0 +1,30 @@
+```python
+class Monitor:
+    def reset(self) -> None:
+        self.a_visited = False
+        self.b_visited = False
+        self.c_visited = False
+        self.d_offset = 0
+        self.x_forbidden = False
+        self.step_index = 0
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and not self.a_visited:
+            self.a_visited = True
+            self.step_index += 1
+            self.d_offset = (self.step_index - 1) % 3 + 1
+        elif 'B' in propositions and not self.b_visited:
+            self.b_visited = True
+            self.x_forbidden = False
+            self.step_index += 1
+            if 'X' in propositions:
+                self.x_forbidden = True
+        elif 'C' in propositions and not self.c_visited:
+            self.c_visited = True
+            self.step_index += 1
+        else:
+            pass
+
+    def finish(self) -> bool:
+        return (self.a_visited and self.b_visited and self.c_visited)
+```

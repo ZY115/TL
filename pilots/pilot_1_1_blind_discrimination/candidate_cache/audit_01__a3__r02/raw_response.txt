@@ -1,0 +1,20 @@
+```python
+class Monitor:
+    def __init__(self):
+        self.visited = set()
+        self.a_occurred = False
+
+    def reset(self) -> None:
+        self.visited.clear()
+        self.a_occurred = False
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and not self.a_occurred:
+            self.visited.add('A')
+            self.a_occurred = True
+        elif 'B' in propositions and 'A' in self.visited:
+            self.visited.add('B')
+
+    def finish(self) -> bool:
+        return len(self.visited) > 0
+```

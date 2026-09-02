@@ -1,0 +1,1 @@
+Meet all three clauses: visit A at least once; never enter X; and visit C before a strictly later visit to D. Irrelevant and repeated visits are allowed.

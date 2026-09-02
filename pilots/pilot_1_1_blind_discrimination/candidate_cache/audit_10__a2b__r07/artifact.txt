@@ -1,0 +1,22 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def main():
+    task = """seen A
+after A { seen D; within 1..3 { seen E } }
+all {
+  after B {
+    until C avoiding [X] {
+      seen F;
+      avoid X { seen G };
+      allow X { seen H };
+      include X {};
+    }
+  };
+}"""
+
+    trace = ({"A", "B", "C"},)
+    result = evaluate_task(task, trace)
+    print(result)
+
+if __name__ == "__main__":
+    main()

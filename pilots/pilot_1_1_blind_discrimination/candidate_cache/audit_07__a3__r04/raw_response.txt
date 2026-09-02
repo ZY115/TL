@@ -1,0 +1,56 @@
+```python
+class Monitor:
+    def reset(self) -> None:
+        self.a_visited = False
+        self.c_offset = 0
+        self.b_visited = False
+        self.d_offset = 0
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and not self.a_visited:
+            self.a_visited = True
+            self.c_offset = min(3, len(self.propositions) - 1)
+        elif 'B' in propositions and self.a_visited:
+            self.b_visited = True
+            self.d_offset = max(2, len(self.propositions) - 3)
+
+    def finish(self) -> bool:
+        return (self.a_visited and self.b_visited and
+                min(self.c_offset + 1, len(self.propositions)) >=
+                max(self.d_offset + 2, len(self.propositions)))
+```
+```python
+class PropositionSet:
+    def __init__(self):
+        self.propositions = set()
+
+    def add_proposition(self, proposition: str) -> None:
+        self.propositions.add(proposition)
+
+    def get_propositions(self) -> set[str]:
+        return self.propositions
+
+def monitor_step(proposition_set: PropositionSet) -> None:
+    if 'A' in proposition_set.get_propositions():
+        proposition_set.add_proposition('C')
+        proposition_set.add_proposition('D')
+    elif 'B' in proposition_set.get_propositions() and 'A' in proposition_set.get_propositions():
+        proposition_set.add_proposition('D')
+
+def monitor_finish(proposition_set: PropositionSet) -> bool:
+    if len(proposition_set.get_propositions()) >= 3:
+        return True
+    else:
+        return False
+
+# Harness code to call the monitor functions
+def harness() -> None:
+    monitor = Monitor()
+    proposition_set = PropositionSet()
+
+    for i in range(10):
+        proposition_set.add_proposition('A' if i % 2 == 0 else 'B')
+        monitor.step(proposition_set)
+    
+    return monitor.finish(), proposition_set.get_propositions()
+```

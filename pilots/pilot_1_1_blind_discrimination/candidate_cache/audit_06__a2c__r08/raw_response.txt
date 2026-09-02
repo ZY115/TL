@@ -1,0 +1,8 @@
+```
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+task = "after_each(A, avoid_until(X, C))"
+print(canonicalize(task))
+ok = evaluate_task(task, (frozenset(), frozenset({"A"})))
+print(ok)
+```

@@ -1,0 +1,3 @@
+# train_10: eventually visit at least one of the two packing stations
+# B or D; visiting both is not required.
+visit({B, D})

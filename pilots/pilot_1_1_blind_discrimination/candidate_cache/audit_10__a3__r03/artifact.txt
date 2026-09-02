@@ -1,0 +1,36 @@
+```python
+class Monitor:
+    def __init__(self):
+        self.a_visited = False
+        self.b_visited = False
+        self.c_visited = False
+        self.x_avoided = True
+
+    def reset(self) -> None:
+        self.a_visited = False
+        self.b_visited = False
+        self.c_visited = False
+        self.x_avoided = True
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions:
+            if not self.a_visited and 'X' not in propositions:
+                self.a_visited = True
+            elif self.a_visited and ('B' in propositions or 'C' in propositions):
+                for i in range(1, 4):  # D must occur within 1-3 steps after A
+                    if 'D' in [p for p in propositions if p != 'A']:
+                        self.x_avoided = False
+                        break
+            else:
+                self.a_visited = True
+        elif 'B' in propositions and not self.b_visited:
+            self.b_visited = True
+            for i in range(1, 4):  # D must occur within 1-3 steps after B
+                if 'D' in [p for p in propositions if p != 'A']:
+                    self.x_avoided = False
+                    break
+        elif 'C' in propositions and not self.c_visited:
+            self.c_visited = True
+
+    def finish(self) -> bool:
+        return self.a_visited and self.b_visited and self.c_visited and (self.x_avoided or ('D' in [p for p in propositions if p != 'A']))

@@ -1,0 +1,1 @@
+(eventually A (after-each A (any (within 1 3 D) (avoid-until X C))))

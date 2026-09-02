@@ -1,0 +1,41 @@
+```python
+import random
+
+class Monitor:
+    def __init__(self):
+        self.propositions = set()
+        self.step_offset = 0
+        self.visited_A = False
+        self.last_D_step = None
+
+    def reset(self) -> None:
+        pass
+
+    def step(self, propositions: set[str]) -> None:
+        if len(propositions) == 0:
+            raise ValueError("No propositions provided")
+        
+        # Update proposition sets
+        for prop in propositions:
+            if prop == 'A':
+                self.propositions.add(prop)
+                if not self.visited_A:
+                    self.step_offset = random.randint(1, 4)
+                    self.last_D_step = None
+                    self.visited_A = True
+            elif prop == 'B':
+                if not self.visited_A:
+                    raise ValueError("A must be visited before B")
+                self.propositions.add(prop)
+                if self.last_D_step is None or random.randint(1, 4) <= self.step_offset:
+                    self.last_D_step = len(self.propositions) - 1
+            elif prop == 'C':
+                if self.visited_A:
+                    if self.last_D_step is not None and random.random() < 0.5:
+                        raise ValueError("X must be avoided from A step until C step")
+                self.propositions.add(prop)
+                self.step_offset = 0
+
+    def finish(self) -> bool:
+        return len(self.propositions) > 0
+```

@@ -1,0 +1,11 @@
+from warehouse_dsl import evaluate_task
+import itertools
+
+def task(candidate):
+    return tuple(frozenset([candidate]) for _ in range(2))
+
+if __name__ == "__main__":
+    candidates = [f"sequence A (eventually B)"]
+    for candidate in candidates:
+        result = evaluate_task(candidate, task(candidate))
+        print(result)

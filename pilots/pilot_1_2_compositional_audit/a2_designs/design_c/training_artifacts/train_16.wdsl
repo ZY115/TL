@@ -1,0 +1,10 @@
+# Task train_16: every time the robot picks up at A, it must complete one
+# of two options for that pickup: either reach the inspection station B
+# one or two steps later and then eventually reach the delivery bay C (at
+# or after that B), or reach the overflow dock D at that pickup step or
+# later. Different pickups may use different options. Vacuously satisfied
+# if A is never visited.
+every(A, or(
+    within(B, 1, 2, then=visit(C)),
+    visit(D)
+))

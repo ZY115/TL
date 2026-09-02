@@ -1,0 +1,3 @@
+# train_04: every visit to A must be followed by B within 1-4 steps
+# (trigger step excluded, both bounds inclusive). Vacuous if A never occurs.
+(whenever A (within 1 4 B))

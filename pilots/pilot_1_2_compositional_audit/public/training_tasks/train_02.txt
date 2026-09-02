@@ -1,0 +1,3 @@
+Task train_02
+
+The robot must never enter the hazard zone X at any point during the run.

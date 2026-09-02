@@ -1,0 +1,1 @@
+seen [A, B, C] never [X]; seen D any { seen E } within 1..2 { seen F };

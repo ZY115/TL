@@ -1,0 +1,4 @@
+# train_09: every visit to inspection station B opens an avoid-X-until-C
+# window scoped at that B (C at/after B required; X forbidden strictly
+# before the chosen C, allowed on the C step). Vacuous if B never occurs.
+(whenever B (avoid_until X C))

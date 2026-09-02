@@ -1,0 +1,12 @@
+{
+    "design": {
+        "seed_tag": "33303",
+        "task": "after_each(A, between(2, 4, B))"
+    },
+    "language": "warehouse_dsl",
+    "grammar": {
+        "tokens": ["A", "B", "visit", "avoid", "sequence", "between", "after_each"],
+        "bounds": [0, 1000000000],
+        "whitespace": "\\s+"
+    }
+}

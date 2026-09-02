@@ -1,0 +1,4 @@
+import warehouse_dsl
+
+task = warehouse_dsl.parse_task("all (eventually A) (avoid-until X C)")
+print(task.canonicalize())

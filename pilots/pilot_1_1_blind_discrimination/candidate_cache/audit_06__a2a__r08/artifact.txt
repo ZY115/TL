@@ -1,0 +1,7 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+task = "(after-each A (avoid-until X C))"
+parsed_task = parse_task(task)
+canonicalized_task = canonicalize(parsed_task)
+result = evaluate_task(canonicalized_task, [])  # Pass an empty trace
+print(result)

@@ -1,0 +1,2 @@
+# train_07: visit pickup shelf A at least once, and never enter hazard zone X.
+(all_of (visit A) (never X))

@@ -1,0 +1,55 @@
+```python
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def train_01():
+    return (eventually A)
+
+def train_02():
+    return (never X)
+
+def train_03():
+    return sequence(A, B)
+
+def train_04():
+    return after_each(A, within(1, 4, B))
+
+def train_05():
+    return avoid_until(X, C)
+
+def train_06():
+    return after_each(A, any(eventually(B), eventually(C)))
+
+def train_07():
+    return all(eventually(A), never(X))
+
+def train_08():
+    return sequence(A, B, C)
+
+def train_09():
+    return after_each(A, within(1, 1, B))
+
+def train_10():
+    return after_each(B, avoid_until(X, C))
+
+def train_11():
+    return any(eventually(B), eventually(D))
+
+def train_12():
+    return after_each(A, within(2, 4, B))
+
+def train_13():
+    return all(
+        after_each(A, within(1, 3, B)),
+        after_each(C, within(1, 2, D))
+    )
+
+def train_14():
+    return all(
+        eventually(A),
+        after_each(A, avoid_until(X, C))
+    )
+
+task = [train_01(), train_02()]
+# task = [train_03()]  # or any other combination of tasks
+print(canonicalize(task))
+```

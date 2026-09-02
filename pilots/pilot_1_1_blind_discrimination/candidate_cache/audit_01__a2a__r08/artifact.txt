@@ -1,0 +1,11 @@
+from warehouse_dsl import evaluate_task
+
+def solve_artifact():
+    task = "(eventually A)"
+    return task, None
+
+task_source, error_message = solve_artifact()
+print("Task Source:")
+print(task_source)
+if error_message is not None:
+    print(f"Error Message: {error_message}")

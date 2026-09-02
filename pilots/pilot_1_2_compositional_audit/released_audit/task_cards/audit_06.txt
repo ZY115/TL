@@ -1,0 +1,1 @@
+Collect from either the main shelf A or the overflow dock D, and at a strictly later step deliver to bay C. Either source is acceptable; the delivery must come after the visit to the source you used.

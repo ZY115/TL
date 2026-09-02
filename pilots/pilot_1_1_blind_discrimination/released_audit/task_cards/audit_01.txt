@@ -1,0 +1,1 @@
+Visit A at least once before the finite trace ends.

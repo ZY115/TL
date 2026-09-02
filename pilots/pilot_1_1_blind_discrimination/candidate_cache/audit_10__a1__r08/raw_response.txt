@@ -1,0 +1,5 @@
+( !at_A U ( at_B & ( D U ( F X | ( G at_D U X ) ) ) ) | 
+  !(at_X & at_C) )
+& 
+X^2 at_B | X^3 at_B
+```

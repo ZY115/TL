@@ -1,0 +1,17 @@
+```
+seen A {
+  order [B, C] {
+    after A {
+      within 1..3 {
+        seen D;
+      }
+    };
+    until X avoiding [D] {
+      any {
+        seen B;
+        seen C;
+      };
+    }
+  };
+}
+```

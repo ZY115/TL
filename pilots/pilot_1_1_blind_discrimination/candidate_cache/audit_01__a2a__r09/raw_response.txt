@@ -1,0 +1,13 @@
+```python
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def task_14():
+    return "(eventually A) (all (after-each A (avoid-until X C)))"
+
+# test the task
+task = task_14()
+result = evaluate_task(task, [(frozenset({'A'}), frozenset({'X', 'C'}))])
+assert result == True
+
+print(canonicalize(task))
+```

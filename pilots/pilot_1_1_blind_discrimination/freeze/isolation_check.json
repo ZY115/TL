@@ -1,0 +1,44 @@
+{
+  "author_environments": [
+    {
+      "prompt_hash": "b8186b9459d362f264f315ea02d7bbba762c57cb9bffe8c730325939439b50db",
+      "representation": "a1",
+      "response_hash": "6d8041bbd6e8b8bb7961e480020868938fc2b71ca2a9f6aa6dd3c54c73bcfc25",
+      "sentinel_absent_from_prompt": true,
+      "sentinel_absent_from_response": true
+    },
+    {
+      "prompt_hash": "a77df3e4f65698705f2cf05dc0ade80229a994ed57a7db6bb11963f01dc2f799",
+      "representation": "a2a",
+      "response_hash": "ac16980ca0a5af604aab0e1b232fbe9849d11ab6642e1f53bcaa7c75004fb9f3",
+      "sentinel_absent_from_prompt": true,
+      "sentinel_absent_from_response": true
+    },
+    {
+      "prompt_hash": "4404fb07b2f13c3e295057a26d3651da233cc4867c65844114359c248d4b8d11",
+      "representation": "a2b",
+      "response_hash": "70c09b03131bc37465314d13aa94d07c3036e5b6c5bac54efc87c668f165703e",
+      "sentinel_absent_from_prompt": true,
+      "sentinel_absent_from_response": true
+    },
+    {
+      "prompt_hash": "50ee1e4af47c6704d2b80e3c484674520ffaa31040cf13d15adf0f3aee4d158f",
+      "representation": "a2c",
+      "response_hash": "f7ec8b87a577f68e72ce6a622e0ac270e6742dc2d33a13d902f2bd08d7e27c9c",
+      "sentinel_absent_from_prompt": true,
+      "sentinel_absent_from_response": true
+    },
+    {
+      "prompt_hash": "884c0cec34ee570c0b29f1984e3a60e5a08c59b04854d76c3375d6ac31c362a1",
+      "representation": "a3",
+      "response_hash": "b7d5338c534dd4ff9fa4c7ce381c4d2ef31d4745be7b430175d7ae4336bd78a7",
+      "sentinel_absent_from_prompt": true,
+      "sentinel_absent_from_response": true
+    }
+  ],
+  "filesystem_capability_exposed_to_model": false,
+  "isolation_check": "passed",
+  "sentinel_hash": "37cb79a58066b0d61601eefcf0ec3b9cef855623d8a24c167a4fc882a8be9b4d",
+  "timestamp": "2026-09-02T00:49:57+00:00",
+  "transport": "prompt-only local Ollama HTTP request"
+}

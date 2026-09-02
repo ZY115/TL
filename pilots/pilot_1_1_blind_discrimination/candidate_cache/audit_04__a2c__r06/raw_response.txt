@@ -1,0 +1,5 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+task = parse_task("all(visit(A), after_each(A, between(1, 3, visit(C))), avoid(X))")
+canonicalized_task = canonicalize(task)
+print(canonicalized_task)

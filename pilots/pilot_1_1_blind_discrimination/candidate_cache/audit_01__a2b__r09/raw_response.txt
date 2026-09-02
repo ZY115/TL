@@ -1,0 +1,5 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+parse_task(source="seen A")
+canonicalize(source="seen A")
+evaluate_task(source="seen A", trace=(frozenset(["A"])))

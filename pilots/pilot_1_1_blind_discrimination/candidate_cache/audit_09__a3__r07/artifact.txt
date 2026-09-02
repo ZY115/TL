@@ -1,0 +1,31 @@
+class Monitor:
+    def reset(self) -> None:
+        self.steps = []
+        self.index = 0
+        self.visited_A = set()
+        self.visited_X = set()
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and len(self.steps) == 0:
+            self.steps.append(0)
+            self.visited_A.add('A')
+        elif 'X' in propositions and (len(self.steps) > 0 and self.index < len(self.steps)):
+            raise Exception("Cannot enter X")
+        elif ('B' in propositions and self.index - self.steps[-1] == 1) or (
+            ('C' in propositions and self.index - self.steps[-1] == 2 and 'X' not in self.visited_X)
+        ):
+            pass
+        else:
+            raise Exception("Cannot proceed")
+
+        if len(self.steps) > 0:
+            self.index += 1
+
+    def finish(self) -> bool:
+        return all(
+            self.index > 0,
+            (len(self.steps) == self.index),
+            ('B' not in propositions for _ in range(len(self.steps))),
+            ('C' in propositions and 'X' not in self.visited_X and
+             self.index - self.steps[-1] == 2)
+        )

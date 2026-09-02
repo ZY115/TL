@@ -1,0 +1,3 @@
+```
+task = "sequence(A, between(1, 3, C), sequence(B, between(2, 4, D)))"
+```

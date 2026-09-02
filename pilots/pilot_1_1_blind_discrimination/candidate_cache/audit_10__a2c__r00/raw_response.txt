@@ -1,0 +1,10 @@
+```
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def audit_candidate_task():
+    task = "all(after_each(A, sequence(B, after_each(C, between(1, 3, D))), after_each(B, avoid_until(X, C)))))"
+    trace = (frozenset(), frozenset({"A"}), frozenset({"B", "C", "D"}))
+    return evaluate_task(task, trace)
+
+audit_candidate_task()
+```

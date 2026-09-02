@@ -1,0 +1,35 @@
+```python
+class Monitor:
+    def __init__(self):
+        self.visited_A = False
+        self.visited_X = False
+        self.visit_D_index = None
+        self.A_step_index = None
+        self.C_step_index = None
+
+    def reset(self) -> None:
+        self.visited_A = False
+        self.visited_X = False
+        self.visit_D_index = None
+        self.A_step_index = None
+        self.C_step_index = None
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and not self.visited_A:
+            self.visited_A = True
+            self.A_step_index = len(self.visit_D_index)
+        elif 'X' in propositions and self.visited_X:
+            raise ValueError("Entering X is forbidden")
+        elif 'D' in propositions and self.visit_D_index is None:
+            self.visit_D_index = len(propositions)
+
+    def finish(self) -> bool:
+        if not self.visited_A or not self.visit_D_index is None:
+            return False
+        for i, d in enumerate(self.visit_D_index):
+            if i < self.A_step_index and d == self.C_step_index - 1:
+                return True
+            elif i > self.A_step_index and d != self.C_step_index - 1:
+                return False
+        return False
+```

@@ -1,0 +1,32 @@
+class Monitor:
+    def __init__(self):
+        self.a_seen = False
+        self.x_blocked = {}
+        self.c_reached = {}
+
+    def reset(self) -> None:
+        pass
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and not self.a_seen:
+            self.a_seen = True
+            self.x_blocked[0] = True
+            self.c_reached[0] = False
+        elif 'A' in propositions and self.a_seen:
+            for i, prop in enumerate(propositions):
+                if prop == 'C':
+                    self.c_reached[i] = True
+                    break
+                if i < len(self.x_blocked) and self.x_blocked[i]:
+                    raise Exception('X forbidden between A and C')
+            self.x_blocked.pop(0, None)
+        elif self.a_seen:
+            for i, prop in enumerate(propositions):
+                if prop == 'C':
+                    self.c_reached[i] = True
+                    break
+                if prop == 'X' and (i-1) not in self.c_reached:
+                    raise Exception('X forbidden between A and C')
+
+    def finish(self) -> bool:
+        return all(value for value in self.c_reached.values())

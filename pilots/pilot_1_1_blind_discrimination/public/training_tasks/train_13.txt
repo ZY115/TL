@@ -1,0 +1,6 @@
+Task train_13
+
+Two independent response rules apply. Whenever A occurs, B must occur between
+one and three steps later. Whenever C occurs, D must occur between one and two
+steps later. A run must satisfy both rules.
+

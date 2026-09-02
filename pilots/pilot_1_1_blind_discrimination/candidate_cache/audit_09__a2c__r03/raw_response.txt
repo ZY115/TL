@@ -1,0 +1,14 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def solution():
+    def solve(task):
+        return evaluate_task(task)
+
+    task = "all(after_each(A, after_each(B, after_each(C))), after_each(D, between(1, 2, B)))"
+    result = solve(task)
+    if not result:
+        raise ValueError("Solution failed")
+    return task
+
+task = solution()
+print(canonicalize(task))

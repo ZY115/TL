@@ -1,0 +1,2 @@
+(at_A U at_B) & X^1 at_C | X^2 at_C | X^3 at_C
+  | (at_B U at_D) & X^2 at_D | X^3 at_D

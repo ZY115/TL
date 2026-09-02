@@ -1,0 +1,6 @@
+import warehouse_dsl
+
+def visit_a_at_least_once():
+    return (eventually A)
+
+print(warehouse_dsl.parse_task("visit_a_at_least_once"))

@@ -1,0 +1,10 @@
+task ::= sequence(A, after_each(A, between(2, 4, C)), after_each(B, between(1, 2, D)), avoid_until(X, C))
+
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+tree = parse_task("sequence(A,after_each(A,between(2,4,C)),after_each(B,between(1,2,D)),avoid_until(X,C))")
+text = canonicalize(" sequence (A, after_each ( A, between ( 2 ,   4 ,   C ) ), after_each ( B, between ( 1 ,   2 ,   D ) ), avoid_until ( X , C )) ")
+ok = evaluate_task(
+    "sequence(A,after_each(A,between(2,4,C)),after_each(B,between(1,2,D)),avoid_until(X,C))",
+    (frozenset(), frozenset({"A"})),
+)

@@ -1,0 +1,1 @@
+After every visit to shelf A, reach the inspection station B exactly one step later. If A is never visited, this is satisfied.

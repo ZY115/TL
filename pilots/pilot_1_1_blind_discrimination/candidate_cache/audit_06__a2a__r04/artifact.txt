@@ -1,0 +1,16 @@
+def evaluate_task(source, trace):
+    A = frozenset(['A'])
+    X = frozenset(['X'])
+    C = frozenset(['C'])
+
+    def avoid_X_until_C(i):
+        return (trace[i] & X) == X and (i + 1 < len(trace)) and (trace[i + 1] & C)
+
+    def after_A():
+        for i, step in enumerate(trace):
+            if A.issubset(step):
+                return avoid_X_until_C(i)
+        return False
+
+    task = parse_task(source)  # Assuming parse_task is implemented correctly
+    return task(A, after_A)

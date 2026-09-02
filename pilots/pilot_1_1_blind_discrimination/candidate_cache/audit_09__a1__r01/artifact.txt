@@ -1,0 +1,1 @@
+at_F^4 (X at_A | X^1 at_B) & at_X U (X^(2+1) at_C | X^3 at_D)

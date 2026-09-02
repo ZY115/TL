@@ -1,0 +1,12 @@
+from warehouse_dsl import evaluate_task, parse_task, canonicalize
+
+task = parse_task(canonicalize(
+    """
+    (all
+      (eventually A)
+      (never X))
+    """
+))
+
+result = evaluate_task(task, ["A", "X"])
+print(result)

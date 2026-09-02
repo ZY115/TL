@@ -1,0 +1,22 @@
+```python
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def task():
+    return f"""
+    all {
+      order [A, B];
+      after A {
+        seen C {within 2..4 };
+      }
+      after B {
+        seen D {within 1..2 };
+      }
+      avoid X until C
+    }
+    """
+
+task_str = parse_task(task())
+canonicalized = canonicalize(task_str)
+print(canonicalized)
+result = evaluate_task(canonicalized, (frozenset(["A", "B"])))
+print(result)

@@ -1,0 +1,96 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+import re
+class Visit:
+    def __init__(self, label):
+        self.label = label
+        self.visits = []
+    def append(self, offset):
+        self.visits.append(offset)
+def add_rule(task):
+    regex = r"visit\s*\((\w+)\)"
+    match = re.search(regex, task)
+    if match:
+        label = match.group(1)
+        visit = Visit(label)
+        task = task.replace(f"visit({label})", f"{label}={visit}")
+        return visit
+    else:
+        raise ValueError("Missing 'visit' expression")
+def add_offset(task):
+    regex = r"\d+"
+    matches = re.findall(regex, task)
+    for match in matches:
+        visit, offset = map(int, match.split(','))
+        if not hasattr(Visit, f"{offset}_visits"):
+            setattr(Visit, f"{offset}_visits", [])
+        Visit(f"visit_{offset}").append(offset)
+def add_rule_offset(task):
+    task = add_offset(task)
+    regex = r"\d+"
+    matches = re.findall(regex, task)
+    for match in matches:
+        visit, offset = map(int, match.split(','))
+        rule = f"after_each(visit_{offset}, visit_{offset+1})"
+        if not hasattr(Task, rule):
+            setattr(Task, rule, rule)
+def create_task(task_str):
+    try:
+        tree = parse_task(task_str)
+        task = Task()
+        add_rule_offset(tree)
+        return task
+    except ValueError as e:
+        print(f"Invalid task: {e}")
+        raise
+class Task:
+    def __init__(self):
+        self.rules = []
+
+def evaluate_task(task, trace):
+    global rules
+    rules = task.rules
+    def evaluate(task):
+        for rule in rules:
+            if isinstance(rule, str):
+                func = globals()[rule]
+                result = func(tr)
+                return result
+            elif hasattr(task, rule):
+                func = getattr(task, rule)
+                result = func()
+                return result
+        return True
+    return evaluate(trace[0])
+
+class Task:
+    def __init__(self):
+        self.rules = []
+
+def visit(label):
+    v = Visit(label)
+    task = Task()
+    task.rules.append(v)
+    return task
+
+def after_each(trigger, rule):
+    v1, v2 = rule.visits
+    new_rule = f"After every {trigger} we must have either A at offset {v1}, or B at offset {v2}"
+    if not hasattr(Task, new_rule):
+        setattr(Task, new_rule, new_rule)
+    task = Task()
+    task.rules.append(f"after_each({trigger}, {rule.label})")
+    return task
+
+def all(*rules):
+    return Task() 
+
+class Task:
+    def __init__(self):
+        self.rules = []
+
+def any(*rules):
+    return Task()
+
+task = after_each('A', visit('B'))
+task = any(after_each('C', visit('D')))
+print(evaluate_task(task, (frozenset({"A"}), frozenset({"B", "C", "D"}))))

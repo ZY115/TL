@@ -1,0 +1,3 @@
+Task train_04
+
+Every time the robot visits the pickup shelf A, it must reach the inspection station B between one and four steps later, inclusive. The trigger step itself does not count. If A is never visited, this requirement is satisfied.

@@ -1,0 +1,12 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+task = """
+(all (eventually A) (eventually B))
+(after-each A (within 1 3 C)) 
+(after-each B (within 2 4 D)) 
+"""
+
+def task_to_str(task):
+    return canonicalize(task)
+
+print(task_to_str(task))

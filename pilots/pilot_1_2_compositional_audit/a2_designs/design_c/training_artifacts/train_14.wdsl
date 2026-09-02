@@ -1,0 +1,4 @@
+# Task train_14: every time the robot visits the delivery bay C, it must
+# reach the charging dock D between two and four steps later, inclusive.
+# Vacuously satisfied if C is never visited.
+every(C, within(D, 2, 4))

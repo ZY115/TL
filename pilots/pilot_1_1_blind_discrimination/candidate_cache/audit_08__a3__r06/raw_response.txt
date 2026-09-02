@@ -1,0 +1,38 @@
+```python
+class Monitor:
+    def reset(self) -> None:
+        self.last_A = -1
+        self.last_B = -1
+        self.last_C = -1
+        self.x_visited = False
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and (self.last_B == -1 or len(propositions) > self.last_B):
+            self.last_A = len(propositions)
+            for offset in range(2, 5):
+                if self.last_C + offset not in [0] * 4:  # Avoid X
+                    self.last_C = self.last_A + offset
+
+        elif 'B' in propositions and (self.last_A == -1 or len(propositions) > self.last_A):
+            self.last_B = len(propositions)
+            if self.x_visited:
+                for offset in range(1, 3):  # After every B visit D at an offset from 1 through 2
+                    if self.last_C + offset not in [0] * 4:  # Avoid X
+                        self.last_C = self.last_B + offset
+
+            else:
+                for offset in range(1, 3):
+                    if self.last_C + offset not in [0] * 4:  # After every A visit C at an offset from 2 through 4, inclusive
+                        self.last_C = self.last_A + offset
+                        self.x_visited = True
+
+        elif 'C' in propositions:
+            for offset in range(1, 3):  # After every B visit D at an offset from 1 through 2, inclusive
+                if self.last_D + offset not in [0] * 4:  # Avoid X globally until C is reached
+                    self.last_C = len(propositions)
+                    self.x_visited = False
+
+    def finish(self) -> bool:
+        return all([self.last_B != -1, self.last_A == -1 or (self.last_B < self.last_A + 4), 
+                   self.last_C > 0 and not self.x_visited])
+```

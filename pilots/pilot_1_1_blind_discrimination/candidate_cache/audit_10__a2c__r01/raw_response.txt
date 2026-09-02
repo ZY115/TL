@@ -1,0 +1,59 @@
+import re
+from dataclasses import dataclass
+from typing import Tuple, Union, List
+
+@dataclass(frozen=True)
+class Token:
+    type: str
+    value: str
+
+@dataclass(frozen=True)
+class Expression:
+    kind: str
+    args: List[Union[Token, str]]
+    kwargs: dict[str, int]
+
+def parse_task(source):
+    tokens = re.findall(r"(\w+)|\"([^\"]*)\"|'([^']*)'|(\S+)", source)
+
+    def parse_expression():
+        nonlocal tokens
+
+        def parse_token(token):
+            if token[0]:
+                return Token(type="OP", value=token[1])
+            else:
+                return Token(type="LIT", value=token[2])
+
+        expr = Expression(kind="", args=[], kwargs={})
+
+        while tokens:
+            token = next(tokens, None)
+
+            if not token:
+                break
+
+            if token[0]:
+                match = re.match(r"(\w+)", token[1])
+                if match:
+                    expr.kind = match.group(1)
+                    tokens.pop(0)
+                else:
+                    raise ValueError(f"Unknown token: {token}")
+            elif token[2]:
+                expr.args.append(parse_token(token))
+            elif token[3]:
+                expr.args.append(parse_token(token))
+            elif token[4]:
+                expr.kwargs[token[4]] = int(token[5])
+            else:
+                expr.args[-1].kwargs[token[4]] = int(token[5])
+
+        return expr
+
+    expression = parse_expression()
+
+    if len(expression.args) < 2 or not all(arg.kind in ["OP", "LIT"] for arg in expression.args):
+        raise ValueError("Invalid argument count")
+
+    return expression

@@ -1,0 +1,3 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+task = "(all (eventually A) (never X)) (after-each A (within 1 3 (avoid-until X D)))) (after-each B (after-each C))"

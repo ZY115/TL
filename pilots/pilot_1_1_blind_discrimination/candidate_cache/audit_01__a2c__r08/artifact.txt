@@ -1,0 +1,4 @@
+{
+    "type": "warehouse_dsl",
+    "source": "visit(A)"
+}

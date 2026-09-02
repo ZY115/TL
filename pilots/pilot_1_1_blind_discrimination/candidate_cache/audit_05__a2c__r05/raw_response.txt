@@ -1,0 +1,64 @@
+```python
+import re
+from dataclasses import dataclass, field
+from typing import Tuple, List
+
+@dataclass(frozen=True)
+class Token:
+    type: str
+    value: str
+
+@dataclass(frozen=True)
+class ErrorToken(Token):
+    type: 'SyntaxError'
+
+@dataclass(frozen=True)
+class AttributeToken(Token):
+    attribute: str
+
+def parse_task(source: str) -> Tuple[List[AttributeToken], List[ErrorToken]]:
+    tokens = re.split(r'\s+', source)
+    index = 0
+    attributes = []
+    errors = []
+
+    while index < len(tokens):
+        token_type = None
+        if not re.match(r'[A-Za-z_][A-Za-z0-9_]*', tokens[index]):
+            raise ValueError(f"Expected identifier at position {index}, but found '{tokens[index]}'")
+        else:
+            token_type = 'identifier'
+
+        value = tokens.pop(index)
+        attribute = None
+
+        if token_type == 'identifier':
+            if re.match(r'[A-Za-z_][A-Za-z0-9_]*:[A-Za-z0-9_]+', value):
+                attribute, token_value = value.split(':')
+                token_value = token_value.strip()
+                attributes.append(AttributeToken(attribute=attribute, value=token_value))
+            else:
+                errors.append(ErrorToken(type='SyntaxError', type='syntax_error', value=value))
+
+        elif token_type == 'number':
+            if not re.match(r'\d+', value):
+                raise ValueError(f"Expected integer at position {index}, but found '{value}'")
+            attributes.append(AttributeToken(value=value))
+            index += 1
+            continue
+
+        elif token_type == 'comma':
+            index += 1
+            continue
+
+        else:
+            errors.append(ErrorToken(type='SyntaxError', type='syntax_error', value=value))
+
+    if len(tokens) != 0:
+        raise ValueError(f"Unexpected token at position {index}: '{tokens[0]}'")
+
+    return attributes, errors
+
+class SyntaxError(Exception):
+    pass
+```

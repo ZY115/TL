@@ -1,0 +1,1 @@
+seen A; seen B -> D; never [X]

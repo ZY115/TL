@@ -1,0 +1,7 @@
+coordinator_private/
+author_views/
+candidate_cache/raw/
+__pycache__/
+.pytest_cache/
+*.pyc
+

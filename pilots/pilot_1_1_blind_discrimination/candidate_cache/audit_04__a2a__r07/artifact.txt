@@ -1,0 +1,5 @@
+def task_15_wdsl():
+    return "(eventually A) (never X) (all (after-each D (avoid-until X C)))"
+
+# Note: The original representation document has been adapted to fit into the artifact format.
+# No changes were made to the logic or functionality of the DSL.

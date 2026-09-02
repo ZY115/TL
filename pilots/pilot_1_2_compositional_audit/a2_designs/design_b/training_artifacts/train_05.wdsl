@@ -1,0 +1,3 @@
+# train_05: stay out of hazard zone X until delivery bay C is reached.
+# X is allowed on the C step itself.
+(avoid_until X C)

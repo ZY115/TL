@@ -1,0 +1,1 @@
+at_A | X at_C | at_B U (X^2 at_D) | at_C -> at_B

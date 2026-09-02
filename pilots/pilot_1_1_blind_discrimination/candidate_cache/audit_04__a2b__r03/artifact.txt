@@ -1,0 +1,1 @@
+seen A; seen X; after A { seen C; }

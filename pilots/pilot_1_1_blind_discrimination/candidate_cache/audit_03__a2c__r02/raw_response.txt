@@ -1,0 +1,18 @@
+{
+    "task": {
+        "expression": [
+            "visit",
+            "A",
+            "sequence",
+            "B"
+        ],
+        "label": null,
+        "lower": 1,
+        "upper": 4,
+        "trigger_label": "A",
+        "avoid_until": [],
+        "after_each": ["B"],
+        "all": true,
+        "any": false
+    }
+}

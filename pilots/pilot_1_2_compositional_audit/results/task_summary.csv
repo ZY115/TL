@@ -1,0 +1,13 @@
+task_id,a2_design,hidden_unseen_composition_count,hidden_nesting_depth,hidden_node_count,hidden_top_level_obligations,replicates_per_arm,a1_rate,a2_rate,a3_rate,a1_outcome,a2_outcome,a3_outcome,max_minus_min_rate,spread_discriminative,unanimous
+audit_01,a2c,0,1,1,1,1,1.0,1.0,1.0,True,True,True,0.0,False,True
+audit_02,a2b,0,1,1,1,1,1.0,1.0,1.0,True,True,True,0.0,False,True
+audit_03,a2a,0,1,1,1,1,1.0,1.0,1.0,True,True,True,0.0,False,True
+audit_04,a2c,0,2,3,2,1,1.0,1.0,1.0,True,True,True,0.0,False,True
+audit_05,a2b,0,3,4,2,3,1.0,0.666667,1.0,True,True,True,0.333333,True,True
+audit_06,a2a,1,2,3,1,1,1.0,1.0,1.0,True,True,True,0.0,False,True
+audit_07,a2c,0,2,2,1,1,1.0,1.0,1.0,True,True,True,0.0,False,True
+audit_08,a2b,0,1,1,1,1,1.0,1.0,1.0,True,True,True,0.0,False,True
+audit_09,a2a,0,3,4,2,3,1.0,0.333333,1.0,True,False,True,0.666667,True,False
+audit_10,a2c,0,1,2,2,3,1.0,1.0,0.0,True,True,False,1.0,True,False
+audit_11,a2b,0,3,6,3,3,1.0,1.0,0.666667,True,True,True,0.333333,True,True
+audit_12,a2a,0,2,4,2,1,1.0,1.0,1.0,True,True,True,0.0,False,True

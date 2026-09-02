@@ -1,0 +1,1 @@
+Visit A and then visit B at a strictly later step. Irrelevant visits and repeated visits are allowed.

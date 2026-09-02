@@ -1,0 +1,4 @@
+Task train_01
+
+The robot must visit region A at least once before the finite run ends.
+

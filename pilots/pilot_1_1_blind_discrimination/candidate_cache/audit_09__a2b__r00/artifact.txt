@@ -1,0 +1,5 @@
+seen A { order [B, C] } never [X]; after B {
+  within 1..2 {
+    seen D;
+  }
+}

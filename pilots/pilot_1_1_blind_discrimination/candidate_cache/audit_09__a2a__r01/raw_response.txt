@@ -1,0 +1,7 @@
+```
+(
+  all
+    (eventually A)
+    (after-each A (avoid-until X C))
+)
+```

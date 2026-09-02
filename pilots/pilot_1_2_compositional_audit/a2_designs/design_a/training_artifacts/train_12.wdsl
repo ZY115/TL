@@ -1,0 +1,6 @@
+# train_12: every pickup at A must reach inspection station B 1-2 steps
+# later, and from that same B onward must stay out of hazard zone X until
+# delivery bay C is reached (C at that B step or later; X forbidden
+# strictly between that B and its C, allowed on the C step). Vacuously
+# satisfied if A never occurs.
+every(A, within(1, 2, B) then avoid_until(X, C))

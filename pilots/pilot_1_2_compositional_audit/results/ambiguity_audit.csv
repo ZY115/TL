@@ -1,0 +1,13 @@
+task_id,candidate_id,difficulty,curator_positive_accepted,curator_negative_rejected,contract_traces_compared,contract_divergences,card_repair_kind,ltlf_expressible,ltlf_traces_compared,ltlf_mismatches,mechanical_rating,independent_rater_rating,notes
+audit_01,low_01,low,True,True,29331,0,,True,29331,0,unambiguous_match,pending_human_rater,
+audit_02,low_02,low,True,True,29331,0,,True,29331,0,unambiguous_match,pending_human_rater,
+audit_03,low_03,low,True,True,29331,0,,True,29331,0,unambiguous_match,pending_human_rater,
+audit_04,low_04,low,True,True,29331,0,,True,29331,0,unambiguous_match,pending_human_rater,
+audit_05,medium_01,medium,True,True,29331,0,existential_universal_ambiguity,True,29331,0,repaired_before_release,pending_human_rater,"'Visit A, then reach B within 2 steps, then visit C' read either as some pickup or every pickup; curator purpose is every pickup"
+audit_06,medium_02,medium,True,True,29331,0,ordering_ambiguity,True,29331,0,repaired_before_release,pending_human_rater,'Visit A or visit D. Then visit C' did not state that C must be strictly later; curator explanation says strictly later
+audit_07,medium_03,medium,True,True,29331,0,,True,29331,0,unambiguous_match,pending_human_rater,
+audit_08,medium_04,medium,True,True,29331,0,,True,29331,0,unambiguous_match,pending_human_rater,
+audit_09,high_01,high,True,True,29331,0,existential_universal_ambiguity,True,29331,0,repaired_before_release,pending_human_rater,same chain phrasing as audit_05; curator purpose is every pickup
+audit_10,high_02,high,True,True,29331,0,,True,29331,0,unambiguous_match,pending_human_rater,
+audit_11,high_03,high,True,True,29331,63,existential_universal_ambiguity,True,29331,0,repaired_before_release,pending_human_rater,same chain phrasing as audit_05; curator purpose is every pickup
+audit_12,high_04,high,True,True,29331,435,,True,29331,0,contract_confirmed,pending_human_rater,"curator card 'After every visit to B, avoid X until C' and its explanation 'with evaluation from that B step' already state the contract reading; no repair needed"

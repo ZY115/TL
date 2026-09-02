@@ -1,0 +1,13 @@
+```python
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def audit():
+    return (
+        "never",
+        parse_task("never X"),
+    )
+
+task = audit()
+```
+
+Note that I've followed the format specified in the documentation to create a simple artifact for the given task. The `audit` function parses the input string and returns a tuple containing the label and the parsed task.

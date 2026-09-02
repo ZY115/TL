@@ -1,0 +1,1 @@
+Visit A before a strictly later B. In addition, after every A visit C at an offset from 1 through 3, inclusive, and after every B visit D at an offset from 2 through 4, inclusive. Each response must be strictly later than its trigger. Each response rule is vacuously true if its own trigger is absent, although the ordered-visit clause requires both triggers.

@@ -1,0 +1,3 @@
+Task train_16
+
+Every time the robot picks up at A, it must complete one of two options for that pickup: either reach the inspection station B one or two steps later and then eventually reach the delivery bay C at or after that B, or reach the overflow dock D at that step or later. Different pickups may use different options. If A is never visited, this requirement is satisfied.

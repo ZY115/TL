@@ -1,0 +1,3 @@
+Task train_10
+
+The robot must eventually visit at least one of the two packing stations B or D. It is not necessary to visit both.

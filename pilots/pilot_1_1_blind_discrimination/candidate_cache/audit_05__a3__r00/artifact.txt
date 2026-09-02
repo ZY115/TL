@@ -1,0 +1,14 @@
+class Monitor:
+    def reset(self) -> None:
+        self.a_visited = False
+        self.b_visiteds = []
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions:
+            self.a_visited = True
+            self.b_visiteds.append(0)
+        elif 'B' in propositions and not self.a_visited:
+            raise ValueError("A must be visited before B")
+
+    def finish(self) -> bool:
+        return self.a_visited and len(self.b_visiteds) == 4

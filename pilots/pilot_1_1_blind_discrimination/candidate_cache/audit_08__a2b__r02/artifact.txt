@@ -1,0 +1,9 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def task(source):
+    order = ["seen A", "after A { within 2..4 { seen C } }", "after B { until C avoiding [X] }"]
+    return parse_task(source)
+
+task_14 = task("all { seen A; after A { within 2..4 { seen C } } }")
+canonicalized = canonicalize(task_14)
+print(canonicalized)

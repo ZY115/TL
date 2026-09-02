@@ -1,0 +1,13 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+task = """
+seen A {
+  avoid X until C
+}
+"""
+
+canonicalized_task = canonicalize(task)
+print(canonicalized_task)
+
+result = evaluate_task(canonicalized_task, ([],))
+print(result)

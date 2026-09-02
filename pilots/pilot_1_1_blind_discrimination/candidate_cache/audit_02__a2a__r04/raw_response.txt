@@ -1,0 +1,7 @@
+```python
+from warehouse_dsl import parse_task, canonicalize
+
+task = '(never X)'
+canonicalized_task = canonicalize(task)
+print(canonicalized_task)
+```

@@ -1,0 +1,4 @@
+# train_11: every pickup at A must reach inspection B within 1-3 steps, and
+# from that same B onward must eventually reach delivery bay C.
+# Vacuous if A never occurs.
+(whenever A (within 1 3 B (then (visit C))))

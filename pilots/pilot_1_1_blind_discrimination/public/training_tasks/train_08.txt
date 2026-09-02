@@ -1,0 +1,6 @@
+Task train_08
+
+The robot must visit A, later visit B, and later still visit C. These three
+milestones must occur at strictly increasing trace positions. Repeated or
+irrelevant visits are allowed.
+

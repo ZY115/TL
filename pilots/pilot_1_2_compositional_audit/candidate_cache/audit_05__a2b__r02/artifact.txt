@@ -1,0 +1,1 @@
+(all_of (visit A) (whenever A (within 1 2 B (then (visit C)))))

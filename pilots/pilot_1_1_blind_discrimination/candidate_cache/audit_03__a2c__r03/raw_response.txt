@@ -1,0 +1,8 @@
+```python
+import warehouse_dsl as wds
+
+task = wds.parse_task("sequence(A, visit(B))")
+print(task)
+```
+
+This code defines a task using the Warehouse DSL language and parses it into an immutable dataclass node. The `parse_task` function returns this node, which represents the given task in a canonicalized format.

@@ -1,0 +1,8 @@
+representation,failure_category,count,fraction
+a1,other semantic error,21,0.21
+a1,syntax failure,79,0.79
+a2,other semantic error,1,0.003472
+a2,syntax failure,287,0.996528
+a3,other semantic error,43,0.452632
+a3,runtime error,42,0.442105
+a3,syntax failure,10,0.105263

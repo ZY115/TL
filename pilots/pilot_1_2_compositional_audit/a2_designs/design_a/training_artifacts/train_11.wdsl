@@ -1,0 +1,5 @@
+# train_11: every pickup at A must reach inspection station B within 1-3
+# steps inclusive, and from that same B onward must eventually reach
+# delivery bay C (C at or after the chosen B). Vacuously satisfied if A
+# never occurs.
+every(A, within(1, 3, B) then visit(C))

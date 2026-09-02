@@ -1,0 +1,6 @@
+from warehouse_dsl import evaluate_task
+
+def task_15():
+    return (after-each A (any 
+                        (eventually B) 
+                        (avoid-until X C)))

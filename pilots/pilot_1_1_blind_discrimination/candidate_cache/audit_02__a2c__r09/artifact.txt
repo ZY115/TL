@@ -1,0 +1,8 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+tree = parse_task("avoid(X)")
+text = canonicalize(" avoid (X) ")
+ok = evaluate_task(
+    "avoid(X)",
+    (frozenset(), frozenset({"X"})),
+)

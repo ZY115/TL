@@ -1,0 +1,1 @@
+! (at_A U F) & ! at_X | F at_C -> X^4 at_D

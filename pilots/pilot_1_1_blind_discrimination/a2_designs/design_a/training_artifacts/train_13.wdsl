@@ -1,0 +1,3 @@
+(all
+  (after-each A (within 1 3 B))
+  (after-each C (within 1 2 D)))

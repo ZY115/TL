@@ -1,0 +1,13 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def task():
+    seen A {
+        within 1..3 { seen C };
+        after B {
+            seen D;
+        }
+    }
+
+task_str = parse_task(task)
+canonicalized_task_str = canonicalize(task_str)
+print(canonicalized_task_str)

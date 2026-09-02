@@ -1,0 +1,12 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+task = "sequence(A, visit(B))"
+
+tree = parse_task(task)
+text = canonicalize(task)
+ok = evaluate_task(task, (frozenset(), frozenset({"A", "B"})))
+
+if ok:
+    print("Candidate artifact:", task)
+else:
+    print("No solution found.")

@@ -1,0 +1,1 @@
+∀x (at_A → (X^2 at_B ∨ X^3 at_C)) ∧ ∃y (F at_X → G y) ∧ (∃z (at_Z → X z))

@@ -1,0 +1,9 @@
+```python
+import warehouse_dsl
+
+def task():
+    return (sequence A (avoid-until X C))
+
+task_source = "task.wdsl"
+print(warehouse_dsl.evaluate_task(task_source, ("A", "C")))  # Should print: True
+```

@@ -1,0 +1,3 @@
+# train_14: every visit to delivery bay C must be followed by charging
+# dock D within 2-4 steps, inclusive. Vacuous if C never occurs.
+(whenever C (within 2 4 D))

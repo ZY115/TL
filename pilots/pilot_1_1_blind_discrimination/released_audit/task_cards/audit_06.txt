@@ -1,0 +1,1 @@
+After every occurrence of A, avoid X until C is reached. For each A, a C at that same step or a later step is required, X is forbidden strictly between that A and its selected C, and X is allowed on the selected C endpoint. If A never occurs, the task is vacuously satisfied.

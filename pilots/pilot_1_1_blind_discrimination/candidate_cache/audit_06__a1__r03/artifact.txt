@@ -1,0 +1,1 @@
+at_A -> (X at_X | X^2 at_X) & !X^0 at_X

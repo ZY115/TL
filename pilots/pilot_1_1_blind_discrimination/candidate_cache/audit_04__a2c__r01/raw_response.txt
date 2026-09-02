@@ -1,0 +1,11 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+task = parse_task("all(visit(A), avoid(X), after_each(B, visit(C)))")
+text = canonicalize(" all ( visit(A),avoid(X),after_each(B,visit(C)) ) ")
+ok = evaluate_task(
+    "all(visit(A), avoid(X), after_each(B, visit(C)))",
+    (frozenset(), frozenset({"A", "B", "C"})),
+)
+
+# return the task
+print(task)

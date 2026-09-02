@@ -1,0 +1,43 @@
+import collections
+
+class Monitor:
+    def reset(self) -> None:
+        self TraceState = collections.defaultdict(list)
+        self PropTracker = {}
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions:
+            self.TraceState['A'].append(len(self TRACESTATE))
+            self.PropTracker['A'] = len(self.PropTracker.get('A', 0)) + 1
+        elif self PROPTracker.get('A'):
+            self.PropTracker.pop('A')
+
+    def finish(self) -> bool:
+        COffset = [2, 3, 4]
+        DOffset = [1, 2]
+
+        for state in self.TraceState['C']:
+            if state > max(COFFSET):
+                return False
+            XAllowed = state == COffset[state - 2] + 1
+            for prop in propositions:
+                if prop == 'X' and not XAllowed:
+                    return False
+
+        BState = self.PropTracker.get('B')
+        for state in self.TraceState['D']:
+            if state > max(DOFFSET) or (BSTATE is None and state > 0):
+                return False
+            XAllowed = state == DOffset[state - 1] + 1
+            for prop in propositions:
+                if prop == 'X' and not XAllowed:
+                    return False
+
+        # Ensure A is visited before B
+        AState = self.PropTracker.get('A')
+        BState = self.PropTracker.get('B')
+
+        if AState is None or (BState is not None and AState < BState):
+            return False
+
+        return True

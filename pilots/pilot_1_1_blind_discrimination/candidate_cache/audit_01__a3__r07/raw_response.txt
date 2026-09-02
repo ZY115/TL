@@ -1,0 +1,20 @@
+```python
+class Monitor:
+    def __init__(self):
+        self.visited = set()
+        self.trace_positions = []
+
+    def reset(self) -> None:
+        self.visited.clear()
+        self.trace_positions.append(0)
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and 0 not in self.trace_positions:
+            self.visited.add('A')
+            self.trace_positions.append(len(self.trace_positions))
+        elif len(self.trace_positions) > 0 and 'A' in self.visited:
+            self.trace_positions.append(len(self.trace_positions))
+
+    def finish(self) -> bool:
+        return len(self.trace_positions) == 1 or ('A' in self.visited)
+```

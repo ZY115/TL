@@ -1,0 +1,1 @@
+(X at_A U (X^1 at_C | ! X at_X))

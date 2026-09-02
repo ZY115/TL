@@ -1,0 +1,4 @@
+import warehouse_dsl as wds
+
+task = wds.parse_task("sequence(A, visit(B))")
+print(task)

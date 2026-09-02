@@ -1,0 +1,2 @@
+# train_01: visit the pickup shelf A at least once before the run ends.
+visit(A)

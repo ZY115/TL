@@ -1,0 +1,27 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+import ast
+import re
+
+def ast_to_dsl(source):
+    # Replace sequence with tuple for frozenset compatibility
+    source = re.sub(r'sequence\(([^,]+),([^,]+),([^)]+)\)', r'(\2,\3)', source)
+    
+    # Remove unnecessary spaces and commas
+    source = re.sub(r'\s+', ' ', source).strip()
+    source = re.sub(r',\s*', ',', source)
+
+    return ast.parse(source)
+
+def parse_dsl_task(dsl_source):
+    tree = ast_to_dsl(dsl_source)
+    return parse_task(tree)
+
+task_source = """
+visit(A) and
+between(1, 3, B) and
+after_each(B, avoid_until(X, D))
+"""
+
+task = parse_dsl_task(task_source)
+result = evaluate_task(str(task), (frozenset(), frozenset({"A"})))
+print(result)

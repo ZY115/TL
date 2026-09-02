@@ -1,0 +1,3 @@
+```
+! (at_B U X^2 at_C) & ~at_X | ! at_A X (! at_D U (X^1 at_B & at_C)) 
+```

@@ -1,0 +1,4 @@
+any_of(
+    order(A, C),
+    order(D, C)
+)

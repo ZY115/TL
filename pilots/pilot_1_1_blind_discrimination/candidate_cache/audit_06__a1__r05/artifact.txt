@@ -1,0 +1,1 @@
+(X at_A | (X at_C & !at_X)) U (~at_B) & (F at_A -> F at_B)

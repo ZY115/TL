@@ -1,0 +1,21 @@
+```python
+import re
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def first_attempt():
+    source = """
+seen A;
+never [X];
+order [A, C];
+after A {
+  until D avoiding [X]
+}
+"""
+    
+    return canonicalize(source)
+
+# Run the audit task
+result = evaluate_task(first_attempt(), ([],))
+
+print(result)
+```

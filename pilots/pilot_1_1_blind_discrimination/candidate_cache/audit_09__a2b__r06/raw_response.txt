@@ -1,0 +1,128 @@
+```python
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def main():
+    task_source = """
+seen A
+any {
+  seen B;
+  after A {
+    within 1..2 {
+      seen C
+    }
+  };
+}
+"""
+
+    def parse_and_evaluate(task: str):
+        # Simple parser for a single task expression (currently only supports simple "expression" grammar)
+        lines = task.splitlines()
+        if len(lines) == 1:
+            label = lines[0].split()[0]
+            return [label]
+        
+        expressions = []
+        current_window = None
+        in_expression_block = False
+
+        for line in lines[1:]:
+            if line.strip() == "{":
+                in_expression_block = True
+            elif line.strip() == "}":
+                in_expression_block = False
+            else:
+                if in_expression_block:
+                    # Split each expression across multiple lines into a single list
+                    expressions.append(line.split())
+                elif current_window is None:
+                    labels = []
+                    for part in line.split():
+                        if part[0] != "[" and part[0] != "]":
+                            labels.append(part)
+                    current_window = [0, len(labels) - 1]
+                else:
+                    # Update the window based on the task's expression
+                    new_window = None
+                    i = 0
+                    while i < len(expressions[-1]):
+                        if expressions[-1][i].startswith("["):
+                            window = int(expressions[-1][i+1:-1])
+                            new_window = [current_window[0] + window, current_window[1]]
+                            break
+                        elif expressions[-1][i].startswith("}"):
+                            new_window = current_window
+                            break
+                        else:
+                            i += 1
+
+                    if new_window is not None:
+                        current_window = new_window
+            if line.strip() == "order":
+                order_labels = []
+                for part in line.split():
+                    if part[0] != "[" and part[0] != "]":
+                        order_labels.append(part)
+                expressions.append(order_labels)
+
+        # Post-processing to extract seen, never, etc. labels from task
+        seen_labels = set()
+        never_labels = set()
+        for expr in expressions:
+            if len(expr) == 1:
+                label = expr[0]
+                if label.startswith("seen "):
+                    seen_labels.add(label[5:])
+                elif label.startswith("never "):
+                    never_labels.add(label[6:])
+            else:
+                # Handle the order expression
+                for i, label in enumerate(expr):
+                    if label == expr[i+1]:
+                        continue  # Skip equal labels (e.g., "A A")
+                    seen_labels.add(label)
+
+        return seen_labels, never_labels
+
+    task = parse_task(task_source)
+    assert isinstance(task, dict), f"Invalid task source: {task}"
+    
+    seen_labels, never_labels = parse_and_evaluate(canonicalize(task_source))
+    
+    # Evaluate the task and print results
+    def evaluate_seen(seen_labels):
+        return len(seen_labels) > 0
+
+    def evaluate_never(never_labels):
+        return len(never_labels) == 0
+    
+    def evaluate_order(order_labels):
+        seen_A = False
+        seen_B = False
+        seen_C = False
+        for i, label in enumerate(order_labels):
+            if label == "A":
+                seen_A = True
+            elif label == "B" and not seen_A:
+                seen_B = True
+            elif label == "C" and (not seen_A or not seen_B):
+                seen_C = True
+            else:
+                return False
+        return seen_C
+
+    def evaluate_until(until_clause, seen_labels, labels):
+        seen_X = False
+        for i, label in enumerate(labels):
+            if label == until_clause[1][0]:
+                seen_X = True
+            elif label == until_clause[1][1]:
+                break  # Stop looking at the suffix window after finding the C
+        return not seen_X
+
+    def evaluate_within(within_clause, seen_labels, labels):
+        seen_L = False
+        for i, label in enumerate(labels):
+            if label == within_clause[0]:
+                seen_L = True
+            elif label == within_clause[1] and not seen_L:
+                break

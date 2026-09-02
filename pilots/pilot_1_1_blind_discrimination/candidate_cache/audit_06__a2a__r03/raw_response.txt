@@ -1,0 +1,32 @@
+```python
+from warehouse_dsl import evaluate_task
+
+task = "(after-each A (avoid-until X C))"
+
+def audit(input_trace):
+    # Initialize variables to track progress
+    avoided_x = True
+    reached_c = False
+    
+    for i, step in enumerate(input_trace):
+        if 'A' in step:
+            # Check if we have already visited this region
+            if 'C' not in step:
+                return False
+            
+            avoided_x = False  # A visit means X can be present until C is reached
+            
+        if 'X' in step and not avoided_x:
+            return False
+        
+        if 'C' in step:
+            avoided_x = True
+            reached_c = True
+    
+    # Ensure that we have reached the endpoint C with a valid path
+    return reached_c
+
+# Evaluate the task on an empty input trace (which represents no occurrences of A)
+result = evaluate_task(task, ())
+print(result)  # Should print: False
+```

@@ -1,0 +1,5 @@
+Task train_05
+
+The robot must eventually reach C. Before the selected C step it must not
+enter X. Entering X on the same step as C is allowed.
+

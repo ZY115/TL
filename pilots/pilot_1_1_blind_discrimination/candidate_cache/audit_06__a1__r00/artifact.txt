@@ -1,0 +1,1 @@
+X at_A U (F^4 at_X | F at_C)

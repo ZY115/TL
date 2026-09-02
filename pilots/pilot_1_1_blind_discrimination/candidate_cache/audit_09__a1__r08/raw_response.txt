@@ -1,0 +1,3 @@
+```
+((at_A -> F at_B) & (F at_C)) | !X^1 at_D U (!X^2 at_E)
+```

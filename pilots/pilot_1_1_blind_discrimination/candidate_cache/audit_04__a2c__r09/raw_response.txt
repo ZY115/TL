@@ -1,0 +1,56 @@
+```text
+import warehouse_dsl
+
+class VisitA:
+    def __init__(self, A):
+        self.A = A
+    
+    def evaluate(self, k, trace):
+        return self.A in trace[k]
+
+class AvoidX:
+    def __init__(self, X):
+        self.X = X
+    
+    def evaluate(self, k, trace):
+        return not (self.X in trace[k])
+
+class VisitCBeforeD:
+    def __init__(self, C, D):
+        self.C = C
+        self.D = D
+    
+    def evaluate(self, k, trace):
+        for i, step in enumerate(trace):
+            if self.C in step and i < len(trace) - 1 and self.D in trace[i+1]:
+                return True
+        return False
+
+class Task:
+    def __init__(self, expression):
+        self.expression = expression
+    
+    def evaluate(self, k, trace):
+        visit_A = VisitA("A")
+        avoid_X = AvoidX("X")
+        visit_C_before_D = VisitCBeforeD("C", "D")
+
+        if isinstance(self.expression, list):
+            for sub_expression in self.expression:
+                result = any(sub_expression.evaluate(k, trace))
+                if not result:
+                    return False
+            return True
+        else:
+            expression = self.expression
+            if expression == "visit(A)":
+                return visit_A.evaluate(k, trace)
+            elif expression == "avoid(X)":
+                return avoid_X.evaluate(k, trace)
+            elif expression == "after_each(trigger_label, R)":
+                return all(visit_C_before_D.evaluate(k, trace))
+            else:
+                raise ValueError("Unsupported expression")
+
+task = Task(["visit(A)", "avoid(X)", "after_each(A, visit(C))"])
+```

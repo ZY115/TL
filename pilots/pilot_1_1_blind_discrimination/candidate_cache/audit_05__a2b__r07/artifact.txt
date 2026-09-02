@@ -1,0 +1,5 @@
+seen A {
+  within 2..4 {
+    seen B
+  }
+}

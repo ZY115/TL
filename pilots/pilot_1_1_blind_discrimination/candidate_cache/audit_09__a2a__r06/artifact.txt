@@ -1,0 +1,8 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def task_15():
+    return (eventually A
+            after-each B (avoid-until X C))
+
+# Run a single test to verify correctness
+print(canonicalize(task_15()))

@@ -1,0 +1,39 @@
+class Monitor:
+    def reset(self):
+        self.trace = []
+
+    def step(self, propositions):
+        self.trace.append(set(propositions))
+
+    def finish(self):
+        n = len(self.trace)
+
+        # Part 1: For every A, reach B within 1-2 steps, then eventually C
+        for i in range(n):
+            if 'A' not in self.trace[i]:
+                continue
+            satisfied = False
+            for j in range(i + 1, min(i + 3, n)):
+                if 'B' not in self.trace[j]:
+                    continue
+                if any('C' in self.trace[k] for k in range(j, n)):
+                    satisfied = True
+                    break
+            if not satisfied:
+                return False
+
+        # Part 2: For every C, eventually reach D with X forbidden strictly between
+        for i in range(n):
+            if 'C' not in self.trace[i]:
+                continue
+            ok = False
+            for k in range(i, n):
+                if 'D' not in self.trace[k]:
+                    continue
+                if all('X' not in self.trace[m] for m in range(i, k)):
+                    ok = True
+                    break
+            if not ok:
+                return False
+
+        return True

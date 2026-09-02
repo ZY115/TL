@@ -1,0 +1,13 @@
+seen A {
+  after A {
+    within 1..3 {
+      seen D;
+    }
+  };
+  all {
+    order [B, C];
+    avoid X until B {
+      seen D
+    };
+  };
+}

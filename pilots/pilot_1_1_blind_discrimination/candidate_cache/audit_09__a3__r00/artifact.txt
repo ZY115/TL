@@ -1,0 +1,34 @@
+class Monitor:
+    def __init__(self):
+        self.state = {"A": False, "B": False, "C": False, "X": False}
+        self.trace = []
+
+    def reset(self) -> None:
+        self.state = {"A": False, "B": False, "C": False, "X": False}
+        self.trace = []
+
+    def step(self, propositions: set[str]) -> None:
+        if "A" in propositions and not self.state["A"]:
+            self.state["A"] = True
+            self.trace.append("A")
+        elif "B" in propositions and self.state["A"]:
+            self.state["B"] = True
+            self.trace.append("B")
+        elif "C" in propositions and self.state["A"] and self.state["B"]:
+            self.state["C"] = True
+            self.trace.append("C")
+        elif "D" in propositions:
+            if not self.state["X"]:
+                self.state["D"] = True
+                self.trace.append("D")
+
+    def finish(self) -> bool:
+        for i, step in enumerate(self.trace):
+            if step == "A":
+                if i + 1 >= len(self.trace) or self.trace[i+1] != "B" or i + 2 >= len(self.trace) or self.trace[i+2] != "C":
+                    return False
+            elif step == "X":
+                for j, other_step in enumerate(self.trace):
+                    if j < len(self.trace) and other_step == "A" and i <= j:
+                        return False
+        return True

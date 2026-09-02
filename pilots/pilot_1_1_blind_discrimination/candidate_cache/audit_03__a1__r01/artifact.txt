@@ -1,0 +1,1 @@
+(at_A U F at_B) | (at_B G at_C)

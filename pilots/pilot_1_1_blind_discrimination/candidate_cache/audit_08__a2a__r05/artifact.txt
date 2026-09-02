@@ -1,0 +1,72 @@
+import re
+
+def parse_task(source):
+    tokens = re.split(r'\s+', source)
+    return tokens[0]
+
+def canonicalize(source):
+    return 'eventually ' + source
+
+def evaluate_task(source, trace):
+    if source == 'eventually':
+        for i in range(len(trace)):
+            if i >= 0:
+                if source in trace[i]:
+                    return True
+    elif source == 'never':
+        for i in range(len(trace)):
+            if i >= 0:
+                if source in trace[i]:
+                    return False
+    elif source == 'sequence':
+        if not all([trace[i+1] > trace[i] for i in range(len(trace)-1)]):
+            return False
+        return True
+    elif source == 'within':
+        lower, upper = map(int, re.findall(r'\d+', source))
+        for i in range(lower, upper+1):
+            if source in trace[i]:
+                return True
+    elif source == 'avoid-until':
+        g_idx, x_idx, c_idx = map(int, re.findall(r'\d+', source))
+        for i in range(g_idx, len(trace)):
+            if x_idx < i and x_idx >= 0:
+                return False
+            if c_idx > i and c_idx >= 0:
+                return True
+    elif source == 'after-each':
+        child = parse_task(''.join(re.split(r'\s+', trace[1])[1:]))
+        for i in range(len(trace)):
+            if i >= 0:
+                if source in trace[i]:
+                    if not evaluate_task(child, [trace[j] for j in range(i+1, len(trace))]):
+                        return False
+    elif source == 'all':
+        for child in re.split(r'\s+', trace[1:])[1:]:
+            if not evaluate_task(child, trace):
+                return False
+    elif source == 'any':
+        for child in re.split(r'\s+', trace[1:])[1:]:
+            if evaluate_task(child, trace):
+                return True
+    else:
+        raise ValueError("Unknown task source: " + source)
+    return True
+
+# This function is used to convert the string representation of a task into
+# the canonical form that can be evaluated by the `evaluate_task` function.
+def canonicalize_task(source):
+    tokens = re.split(r'\s+', source)
+    if len(tokens) > 1:
+        return ' '.join(canonicalize(t) for t in tokens[1:])
+    else:
+        return canonicalize(tokens[0])
+
+# This is a test task that can be used to verify the correctness of
+# `parse_task`, `canonicalize`, and `evaluate_task`.
+def test_task():
+    source = "(eventually A) (within 2 4 B)"
+    trace = ["A", "B"]
+    assert parse_task(source) == 'eventually'
+    assert canonicalize(source) == '(eventually A)'
+    assert evaluate_task(source, trace)

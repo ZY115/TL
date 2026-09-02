@@ -1,0 +1,11 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def task():
+    return """seen A;
+    order [A, B];
+    all {
+      seen B;
+    }
+    """
+
+task()

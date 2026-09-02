@@ -1,0 +1,1 @@
+at_A U at_B F at_C | X^2 at_C | at_D F^3 at_D

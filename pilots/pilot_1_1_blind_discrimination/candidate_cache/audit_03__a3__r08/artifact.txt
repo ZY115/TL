@@ -1,0 +1,19 @@
+class Monitor:
+    def reset(self) -> None:
+        self.a_visited = False
+        self.b_visited_at_later_step = False
+        self.c_visited = False
+        self.x_entered = False
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions:
+            self.a_visited = True
+        elif 'B' in propositions and not self.b_visited_at_later_step:
+            self.b_visited_at_later_step = True
+        elif 'C' in propositions and not self.c_visited and not self.x_entered:
+            self.c_visited = True
+        if 'X' in propositions and not (self.a_visited or self.c_visited):
+            self.x_entered = True
+
+    def finish(self) -> bool:
+        return self.b_visited_at_later_step and self.c_visited

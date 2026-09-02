@@ -1,0 +1,1 @@
+Pick up at shelf A at least once. After every visit to A, reach the inspection station B one or two steps later, and after that B eventually visit the delivery bay C; the C may be at that B step or later.

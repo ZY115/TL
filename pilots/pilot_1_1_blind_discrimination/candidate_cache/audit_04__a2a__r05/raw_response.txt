@@ -1,0 +1,8 @@
+import warehouse_dsl
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def generate_artifact():
+    return "(eventually A) (never X) (sequence D C)"
+
+artifact = generate_artifact()
+print(warehouse_dsl.canonicalize(artifact))

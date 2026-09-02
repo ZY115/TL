@@ -1,0 +1,2 @@
+at_A | (at_C X 1 | at_C X 2 | at_C X 3) & 
+       (F at_B | at_D U (at_B F at_C))

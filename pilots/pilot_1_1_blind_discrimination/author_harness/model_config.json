@@ -1,0 +1,9 @@
+{
+  "model": "llama3.2:3b",
+  "model_revision": "a80c4f17acd5",
+  "num_predict": 900,
+  "provider": "ollama-local",
+  "temperature": 0.7,
+  "top_p": 0.9
+}
+

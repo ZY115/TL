@@ -1,0 +1,59 @@
+```python
+import re
+
+def parse_task(source):
+    # Remove whitespace
+    source = source.replace(" ", "")
+
+    # Split into parts
+    parts = source.split("(")
+
+    # Handle 'eventually' and 'never'
+    if parts[0] in ['eventually', 'never']:
+        return (parts[0], re.compile(parts[1].strip(')')))
+
+    # Handle 'within'
+    if parts[0] == "within":
+        match = re.match(r"(\d+)\s+(\d+)\s+(.*)", source)
+        if match:
+            lower, upper, label = int(match.group(1)), int(match.group(2)), match.group(3).strip(')')
+            return (parts[0], (lower, upper), lambda i: label in parts[0].strip(')')[1:])
+
+    # Handle 'avoid-until'
+    if parts[0] == "avoid-until":
+        match = re.match(r"(\w+)\s+(\w+)\s+(.*)", source)
+        if match:
+            x, g, label = match.group(1), match.group(2), match.group(3).strip(')')
+            return (parts[0], (x, g), lambda i: label in parts[0].strip(')')[1:] and not (label in parts[0].strip(')')[1:])
+
+    # Handle 'after-each'
+    if parts[0] == "after-each":
+        match = re.match(r"(\w+)\s+(.*)", source)
+        if match:
+            t, child = match.group(1), match.group(2).strip(')')
+            return (parts[0], t, lambda i: child in parts[0].strip(')')[1:] and int(parts[0].strip(')')[1:]) == i)
+
+    # Handle 'sequence'
+    if parts[0] == "sequence":
+        parts = source.split(',')
+        labels = [l.strip(')') for l in parts]
+        return (parts[0], (*labels,))
+
+    # Handle 'all' and 'any'
+    if parts[0] in ['all', 'any']:
+        match = re.match(r"(\w+)\s+(\.*)", source)
+        if match:
+            child = match.group(1).strip(')')
+            return (parts[0], child)
+
+def evaluate_task(source, trace):
+    task = parse_task(source)
+    result = True
+    for i in range(len(trace)):
+        label = task[2](i)
+        if label and not task[1][label]:
+            return False
+        if not label:
+            break
+    return True
+```

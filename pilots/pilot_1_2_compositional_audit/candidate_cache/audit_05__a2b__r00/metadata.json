@@ -1,0 +1,18 @@
+{
+  "artifact_hash": "b5140035b241f58950efff2aeb83f9c3640c32b7a5181e55fee24b9692fa1507",
+  "cache_key": "f2fcadc83798a55453d11ad6c8628ab7f45764fa1b8d310d75bbb2392ad0e8cc",
+  "model": "claude-haiku-4-5",
+  "model_revision": "haiku-4-5-20251001",
+  "provider": "claude-subagent",
+  "replicate": 0,
+  "representation": "a2b",
+  "response_hash": "c34aaee78a48fce644bccc55e2065f783bf5665fe9a89001f198ec51b063b01c",
+  "seed": null,
+  "system_prompt_hash": "de9dde5047bc260205e352e0e57d5de9ee53d16141b8bee7b2874204604194b3",
+  "task_id": "audit_05",
+  "temperature": null,
+  "timestamp": "2026-09-02T02:48:30+00:00",
+  "top_p": null,
+  "trial_id": "audit_05__a2b__r00",
+  "user_prompt_hash": "b0b4c2eb334e9f7430c9602eda8f8df3b59627460ff349f3cabb1fc3aeaf8015"
+}

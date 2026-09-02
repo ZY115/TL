@@ -1,0 +1,31 @@
+```python
+import random
+
+class Monitor:
+    def __init__(self):
+        self.step_offset = 0
+        self.a_visited = False
+        self.b_visited = False
+        self.c_visited = False
+        self.d_visited = False
+        self.x_forbidden = False
+
+    def reset(self) -> None:
+        pass
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and not self.a_visited:
+            self.step_offset = 0
+            self.a_visited = True
+            self.d_visited = random.randint(1, 3)
+        elif 'B' in propositions and self.a_visited:
+            self.x_forbidden = False
+            self.b_visited = True
+            self.c_visited = False
+            if 'D' not in propositions or (propositions & {'D'}) != self.d_visited:
+                self.x_forbidden = True
+
+    def finish(self) -> bool:
+        return self.a_visited and self.b_visited and self.c_visited and \
+               self.x_forbidden == False and self.d_visited in [1, 2, 3]
+```

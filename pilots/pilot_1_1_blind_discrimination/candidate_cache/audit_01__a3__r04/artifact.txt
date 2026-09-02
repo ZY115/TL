@@ -1,0 +1,15 @@
+class Monitor:
+    def reset(self) -> None:
+        self.a_seen = False
+        self.b_seen = False
+        self.c_seen = False
+        self.x_allowed = True
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions:
+            self.a_seen = True
+        elif 'X' in propositions and not self.x_allowed:
+            raise Exception("Encountered X but was allowed due to previous A")
+
+    def finish(self) -> bool:
+        return self.a_seen and (self.b_seen or self.c_seen)

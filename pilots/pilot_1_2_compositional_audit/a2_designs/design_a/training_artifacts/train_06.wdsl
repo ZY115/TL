@@ -1,0 +1,6 @@
+# train_06: every visit to pickup shelf A must reach at least one of the
+# two packing stations B or C at that A step or later (either suffices,
+# unbounded). Per the contract, evaluation begins at the trigger step, so
+# a B or C co-occurring with the triggering A already satisfies it.
+# Vacuously satisfied if A never occurs.
+every(A, visit({B, C}))

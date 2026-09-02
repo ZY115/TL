@@ -1,0 +1,3 @@
+```
+(F at_A U (X^2 at_X | ! (at_X & X at_C))) | (F at_A U (! (at_X & X at_X)))
+```

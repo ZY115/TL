@@ -1,0 +1,17 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+task = """
+after A {
+  within 2..4 {
+    seen C
+  };
+}
+after B {
+  within 1..2 {
+    seen D;
+  }
+};
+never [X]
+"""
+canonicalized_task = canonicalize(task)
+print(canonicalized_task)

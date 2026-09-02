@@ -1,0 +1,118 @@
+def evaluate_task(source, trace):
+    # Split source into parts
+    parts = source.split()
+    
+    # Initialize anchor and current part index
+    k = 0
+    i = 0
+    
+    while i < len(parts) - 1:
+        if parts[i] == 'visit':
+            label = parts[i + 1]
+            j = i + 2
+            
+            while j < len(parts):
+                if parts[j] == ',':
+                    break
+                elif parts[j] == 'after_each' and parts[j + 1] == '(':
+                    k = j
+                    break
+                else:
+                    # Process next part
+                    if parts[j] == 'between':
+                        lo = int(parts[j + 2])
+                        hi = int(parts[j + 3])
+                        condition_label = parts[j + 4]
+                        
+                        if condition_label == label:
+                            # Condition is met
+                            for d in range(lo, hi + 1):
+                                new_k = k + d
+                                if new_k < len(trace[0]):
+                                    # New anchor set
+                                    k = new_k
+                                else:
+                                    # Trace ends before we can satisfy the condition
+                                    return False
+                    elif parts[j] == 'avoid_until':
+                        forbidden_label = parts[j + 2]
+                        goal_label = parts[j + 3]
+                        
+                        if label == goal_label:
+                            # Condition is met
+                            for d in range(1, len(trace[0])):
+                                new_k = k + d
+                                if new_k < len(trace[0]):
+                                    # New anchor set
+                                    k = new_k
+                                else:
+                                    # Trace ends before we can satisfy the condition
+                                    return False
+                    
+                    j += 4
+                else:
+                    # No matching part, move to next one
+                    break
+            
+            i += j - k + 1
+        
+        elif parts[i] == 'after_each' and parts[i + 1] == '(':
+            trigger_label = parts[i + 2]
+            expression = parts[i + 3:]
+            
+            while k < len(trace[0]):
+                if trigger_label == label:
+                    # Condition is met
+                    for d in range(1, len(expression)):
+                        new_k = k + d
+                        if new_k < len(trace[0]):
+                            # New anchor set
+                            k = new_k
+                    break
+                else:
+                    # Condition not met, move to next step
+                    i += 4
+        
+        elif parts[i] == 'all' or parts[i] == 'any':
+            child_labels = parts[i + 1:]
+            
+            for child in child_labels:
+                if not condition(child):
+                    return False
+            
+            break
+        
+        else:
+            # Process the current part
+            condition = parts[i + 1]
+            
+            while k < len(trace[0]):
+                if label == condition or (label == 'B' and 2 <= k - i <= 4) or (label == 'A' and not condition):
+                    return True
+                else:
+                    # Condition is not met, move to the next step
+                    i += 1
+                    k = min(k + 1, len(trace[0]))
+            
+            # Trace ends before we can satisfy the condition
+            return False
+        
+        i += 2
+    
+    if parts[i] == 'all' or parts[i] == 'any':
+        for child in parts[i + 1:]:
+            if not condition(child):
+                return False
+    
+    # Check for all required labels
+    if label == 'A':
+        if len(trace[0]) < i:
+            return True
+        elif label == 'B':
+            return False
+    
+    elif label == 'C':
+        return True
+    
+    elif label == 'X':
+        return False

@@ -1,0 +1,1 @@
+(eventually A (after-each A (eventually B)))

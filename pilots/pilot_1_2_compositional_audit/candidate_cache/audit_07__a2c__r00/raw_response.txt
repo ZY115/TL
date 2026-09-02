@@ -1,0 +1,1 @@
+every(A, within(B, 1, 1))

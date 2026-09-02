@@ -1,0 +1,16 @@
+class Monitor:
+    def reset(self) -> None:
+        self.visited_A = False
+        self.visited_X = False
+        self.trace_position = 0
+        self.A_index_map = {}
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions:
+            self.visited_A = True
+            self.A_index_map[self.trace_position] = len(propositions) - 1
+        elif 'X' in propositions and not self.visited_X:
+            self.visited_X = True
+
+    def finish(self) -> bool:
+        return not (self.visited_X or not self.visited_A)

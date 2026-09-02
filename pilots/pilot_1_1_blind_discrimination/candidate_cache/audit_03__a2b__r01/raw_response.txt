@@ -1,0 +1,4 @@
+seen A
+any {
+  seen B;
+}

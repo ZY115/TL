@@ -1,0 +1,20 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def create_candidate_artifact():
+    from warehouse_dsl import after_each, all, any, avoid_until, sequence, visit
+    task = (
+        after_each(visit("A"), 
+            sequence(
+                after_each(visit("B"), 
+                    after_each(visit("C"),
+                        after_each(visit("D", between(1, 3)),
+                            avoid_until("X", "C")
+                        )
+                    )
+                ),
+            )
+    )
+    return task
+
+candidate_artifact = create_candidate_artifact()
+print(canonicalize(str(candidate_artifact)))

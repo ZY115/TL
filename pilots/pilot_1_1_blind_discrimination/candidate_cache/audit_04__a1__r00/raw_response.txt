@@ -1,0 +1,1 @@
+X at_A | X^1 at_B | X U (F at_D)

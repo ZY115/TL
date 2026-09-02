@@ -1,0 +1,52 @@
+import json
+
+class Task:
+    def __init__(self, name, trace):
+        self.name = name
+        self.trace = trace
+
+def evaluate_task(task_name, task):
+    if task_name == "alternative_1":
+        return all([
+            visit(A),
+            after_each(B, visit(C))
+        ], task)
+
+    elif task_name == "alternative_2":
+        return any([
+            after_each(D, between(1, 2, B)),
+            avoid_until(X, C)
+        ], task)
+
+def canonicalize(task):
+    # Simple canonicalization: remove whitespace and convert to lowercase
+    return task.replace(" ", "").lower()
+
+def parse_task(source):
+    # Simple parsing: split on newline and strip whitespace
+    lines = source.split("\n")
+    for i, line in enumerate(lines):
+        if line == "":
+            lines.pop(i)
+    
+    for i, line in enumerate(lines):
+        if line.startswith("visit"):
+            label = line[6:]
+            yield Task(line[5:], frozenset([label]))
+        elif line.startswith("after_each"):
+            trigger_label = line[10:]
+            expression = lines[i + 1]
+            yield Task(expression, frozenset([trigger_label]))
+        # Add more rules for other visit commands as needed
+
+def main():
+    with open('train_14.wdsl') as f:
+        dsled = json.load(f)
+    
+    task_source = dsled["source"]
+    canonicalized_task = canonicalize(task_source)
+
+    print(canonicalized_task)
+
+if __name__ == "__main__":
+    main()

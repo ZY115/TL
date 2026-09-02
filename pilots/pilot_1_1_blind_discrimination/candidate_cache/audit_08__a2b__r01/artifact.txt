@@ -1,0 +1,16 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+task = """
+all {
+  after A {
+    within 2..4 { seen C }
+  };
+  order [A, B] {
+    after B {
+      within 1..2 { seen D }
+    }
+  };
+  until X avoiding [A] {
+  };
+}
+"""

@@ -1,0 +1,18 @@
+class Monitor:
+    def reset(self) -> None:
+        self.a_visited = False
+        self.c_visited = []
+        self.b_visited = []
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and not self.a_visited:
+            self.a_visited = True
+            self.c_visited.append(len(self.c_visited))
+        elif 'B' in propositions and self.a_visited:
+            self.b_visited.append(len(self.b_visited))
+            self.c_visited.append(min(3, len(self.c_visited)))
+        elif 'D' in propositions and 'B' in self.b_visited:
+            pass
+
+    def finish(self) -> bool:
+        return all(c_visited and c_visited[0] < c_visited[-1] for c_visited in (self.c_visited,))

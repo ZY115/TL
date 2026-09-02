@@ -1,0 +1,13 @@
+from warehouse_dsl import evaluate_task
+
+def task():
+    return (
+        "sequence"
+        " after-each"
+        " 2 4 C"
+        " after-each"
+        " 1 2 D"
+        " avoid-until X C"
+    )
+
+task_source = "(all (eventually A) " + task() + ")"

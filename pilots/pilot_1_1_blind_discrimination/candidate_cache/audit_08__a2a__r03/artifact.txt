@@ -1,0 +1,9 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+import re
+
+def create_artifact():
+    task = '(eventually A) (after-each A (within 2 4 C)) (after-each B (within 1 2 D)) (avoid-until X C)'
+    return task
+
+artifact = create_artifact()
+print(canonicalize(artifact))

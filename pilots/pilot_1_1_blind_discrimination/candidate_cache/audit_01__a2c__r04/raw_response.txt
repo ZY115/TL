@@ -1,0 +1,4 @@
+from warehouse_dsl import parse_task
+
+task = parse_task("visit(A)")
+print(task)

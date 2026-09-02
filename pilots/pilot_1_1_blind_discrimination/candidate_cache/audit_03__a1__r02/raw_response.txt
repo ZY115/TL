@@ -1,0 +1,1 @@
+∃F(at_A) ∧ G(at_B), where `at_A` and `at_B` are warehouse labels for region A and B, respectively.

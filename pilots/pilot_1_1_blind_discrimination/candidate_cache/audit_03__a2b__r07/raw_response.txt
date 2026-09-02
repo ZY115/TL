@@ -1,0 +1,9 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def task_15():
+    seen A
+    after B { seen B }
+
+task_15_artifact = parse_task("task_15.task")
+canonicalized_task = canonicalize(task_15_artifact)
+print(canonicalized_task)

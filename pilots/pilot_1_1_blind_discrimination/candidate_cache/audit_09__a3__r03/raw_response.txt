@@ -1,0 +1,53 @@
+```python
+import enum
+from typing import Set, Dict
+
+class Proposition(enum.Enum):
+    A = 1
+    B = 2
+    C = 3
+    D = 4
+    X = 5
+
+class Monitor:
+    def __init__(self) -> None:
+        self.traces: List[int] = []
+        self.visited: Dict[int, Set[str]] = {}
+        self.x_avoided: bool = True
+        self.reached_C: bool = False
+
+    def reset(self) -> None:
+        self.traces = []
+        self.visited.clear()
+        self.x_avoided = True
+        self.reached_C = False
+
+    def step(self, propositions: Set[str]) -> None:
+        step = len(self.traces)
+        self.traces.append(step)
+
+        if propositions & Proposition.A:
+            self.visited[step] |= {Proposition.A}
+            if not self.x_avoided and step < 4:
+                print(f"Alert! X detected at step {step}.")
+
+        if propositions & Proposition.B:
+            self.visited[step] |= {Proposition.B}
+
+        if propositions & Proposition.C:
+            self.reached_C = True
+
+        for prop in self.visited:
+            if (propositions & Proposition.D) and (prop not in self.visited or Proposition.B not in self.visited[prop]):
+                print(f"Alert! D detected at step {prop} without B.")
+
+        if propositions & Proposition.X:
+            self.x_avoided = False
+
+    def finish(self) -> bool:
+        for i, trace in enumerate(self.traces):
+            visited = [self.visited[j] for j in range(i+1)]
+            if not any(b in visited for b in [Proposition.B, Proposition.C]):
+                return False
+        return True
+```

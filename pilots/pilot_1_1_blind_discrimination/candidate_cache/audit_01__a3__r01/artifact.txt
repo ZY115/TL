@@ -1,0 +1,25 @@
+class Monitor:
+    def __init__(self):
+        self.traces = set()
+        self.visited_A = False
+        self.A_index = None
+
+    def reset(self) -> None:
+        self.traces = set()
+        self.visited_A = False
+        self.A_index = None
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and not self.visited_A:
+            self.traces.add(0)
+            self.visited_A = True
+            self.A_index = 0
+        elif len(propositions) == 1 and propositions == {'A'} and (self.A_index is None or self.A_index < 4):
+            self.traces.add(self.A_index + 1)
+            if not self.visited_A:
+                self.A_index = self.A_index + 1
+            else:
+                self.A_index += 1
+
+    def finish(self) -> bool:
+        return len(self.traces) != 0 and ('A' in self.traces or ('B' in self.traces and 'C' in self.traces))

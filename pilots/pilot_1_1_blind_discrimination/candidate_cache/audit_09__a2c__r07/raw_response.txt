@@ -1,0 +1,55 @@
+{
+  "design": {
+    "seed": "33304"
+  },
+  "grammar": {
+    "tokens": [
+      "visit", "avoid", "sequence", "between", "avoid_until", "after_each",
+      "all", "any"
+    ],
+    "rules": [
+      {"pattern": "visit(P)", "replacement": "(k, P, n)"},
+      {"pattern": "avoid(P)", "replacement": "(k, ~P, n)"},
+      {"pattern": "sequence(P1, P2, ..., Pm)", "replacement": "(i1, i2, ..., im, k, Pj, n)"},
+      {"pattern": "between(lo, hi, P)", "replacement": "(lo, d, hi, k + d, P, n)"},
+      {"pattern": "avoid_until(X, G)", "replacement": "(X, ~G, j, k, n)"},
+      {"pattern": "after_each(T, R)", "replacement": "(j, T, R, k, n)"},
+      {"pattern": "all(R1, R2, ..., Rm)", "replacement": "(k, all(R1, R2, ..., Rm), n)"},
+      {"pattern": "any(R1, R2, ..., Rm)", "replacement": "(k, any(R1, R2, ..., Rm), n)"}
+    ]
+  },
+  "semantics": {
+    "visit(P)": {
+      "meaning": "(k, P, n)",
+      "truth conditions": "(P at some i with k <= i < n)"
+    },
+    "avoid(P)": {
+      "meaning": "(k, ~P, n)",
+      "truth conditions": "~(P at any i with k <= i < n)"
+    },
+    "sequence(P1, P2, ..., Pm)": {
+      "meaning": "(i1, i2, ..., im, k, Pj, n)",
+      "truth conditions": "indices i1 < i2 < ... < im exist, all at or after k, and Pj occurs at ij"
+    },
+    "between(lo, hi, P)": {
+      "meaning": "(lo, d, hi, k + d, P, n)",
+      "truth conditions": "P occurs at an existing index k + d for at least one inclusive offset lo <= d <= hi"
+    },
+    "avoid_until(X, G)": {
+      "meaning": "(X, ~G, j, k, n)",
+      "truth conditions": "(a selected goal index j >= k exists where ~G occurs, and X is absent at every i with k <= i < j)"
+    },
+    "after_each(T, R)": {
+      "meaning": "(j, T, R, k, n)",
+      "truth conditions": "for every index j >= k containing T, evaluate R with anchor j"
+    },
+    "all(R1, R2, ..., Rm)": {
+      "meaning": "(k, all(R1, R2, ..., Rm), n)",
+      "truth conditions": "every child at the same anchor is true"
+    },
+    "any(R1, R2, ..., Rm)": {
+      "meaning": "(k, any(R1, R2, ..., Rm), n)",
+      "truth conditions": "at least one child at the same anchor is true"
+    }
+  }
+}

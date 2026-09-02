@@ -1,0 +1,22 @@
+import math
+
+class Monitor:
+    def reset(self) -> None:
+        self.a_visited = False
+        self.b_offset = 0
+        self.b_visited = False
+        self.c_reached = False
+        self.x_entered = False
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and not self.a_visited:
+            self.a_visited = True
+            self.b_offset = math.ceil((len(propositions) - 1) / 4)
+        elif 'A' in propositions and self.a_visited:
+            self.b_visited = True
+            new_b_offset = max(self.b_offset + 1, math.ceil((len(propositions) - (self.b_offset + 2)) / 4))
+            if new_b_offset < 5:
+                self.b_offset = new_b_offset
+
+    def finish(self) -> bool:
+        return self.a_visited and self.b_visited

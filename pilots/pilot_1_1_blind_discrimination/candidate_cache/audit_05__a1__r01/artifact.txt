@@ -1,0 +1,1 @@
+at_A U X^2 at_B | at_A X^3 at_B | at_A U X^4 at_B

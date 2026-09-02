@@ -1,0 +1,34 @@
+import ast
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def task_15():
+    # Visit A, then B, then C at strictly increasing step indices.
+    sequence(A, B, C)
+    
+    # Also, after every A visit D at an offset from 1 through 3, inclusive.
+    after_each(A, between(1, 3, D))
+    
+    # After every B, avoid X until D is reached: for each B a D at that same step or a later step is required,
+    all(after_each(B, after_each(D, avoid_until(X, C))))
+    
+    return ast.parse("sequence(A, between(1, 3,D), all(after_each(B,after_each(D,avoid_until(X,C))))")
+
+task_15_str = """
+sequence(A,between(1,3,D),
+all(after_each(B,after_each(D,avoid_until(X,C)))))
+"""
+canonicalized_task_15_str = """sequence(A,between(1,3,D),all(after_each(B,after_each(D,avoid_until(X,C)))))"""
+
+task_15_tree = parse_task(task_15_str)
+assert task_15_tree.__class__.__name__ == 'Task'
+assert ast.parse(canonicalize(task_15_str)).__class__.__name__ == 'Module'
+
+def evaluate_task_15():
+    result = evaluate_task(
+        "sequence(A,between(1,3,D),all(after_each(B,after_each(D,avoid_until(X,C)))))",
+        ((frozenset({"A"}), frozenset({"B", "C", "D"})),),
+    )
+    return result
+
+result_15 = evaluate_task_15()
+assert result_15

@@ -1,0 +1,29 @@
+```python
+import heapq
+
+class Monitor:
+    def __init__(self):
+        self.a_visits = []
+        self.c_visits = []
+        self.d_visits = []
+        self.x_entry_times = set()
+
+    def reset(self) -> None:
+        self.a_visits.clear()
+        self.c_visits.clear()
+        self.d_visits.clear()
+        self.x_entry_times.clear()
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions:
+            heapq.heappush(self.a_visits, len(self.a_visits))
+        elif 'C' in propositions and not self.a_visits:
+            self.c_visits.append(len(self.c_visits))
+        elif 'D' in propositions and not self.d_visits:
+            self.d_visits.append(len(self.d_visits))
+
+    def finish(self) -> bool:
+        return all(len(v) >= 2 for v in [self.a_visits, self.c_visits, self.d_visits]) and \
+               (not any(l < r for l, r in zip(self.x_entry_times, self.a_visits)) or
+                not any(l < r for l, r in zip(self.x_entry_times, self.c_visits)))
+```

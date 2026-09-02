@@ -1,0 +1,3 @@
+```text
+! at_X | !(at_A U at_C)
+```

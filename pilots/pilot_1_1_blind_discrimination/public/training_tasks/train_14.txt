@@ -1,0 +1,6 @@
+Task train_14
+
+The robot must visit A at least once. After every visit to A, it must reach C
+eventually and must avoid X from that A step until just before the selected C
+step. X is allowed on the C endpoint.
+

@@ -1,0 +1,22 @@
+```python
+class Monitor:
+    def __init__(self):
+        self.a_seen = False
+        self.x_entered = True
+        self.c_reached = False
+
+    def reset(self) -> None:
+        self.a_seen = False
+        self.x_entered = True
+        self.c_reached = False
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and not self.a_seen:
+            self.a_seen = True
+            return
+        elif 'X' in propositions:
+            self.x_entered = False
+
+    def finish(self) -> bool:
+        return not self.x_entered and self.c_reached
+```

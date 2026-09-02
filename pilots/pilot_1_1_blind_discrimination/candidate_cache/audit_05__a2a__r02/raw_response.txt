@@ -1,0 +1,18 @@
+```python
+import warehouse_dsl
+
+def task(source):
+    return warehouse_dsl.parse_task(
+        source=(
+            "after-each",  # origin index offset change due to 'eventually A'
+            "A",            # label
+            "within",       # construct type
+            2,              # lower bound
+            4,              # upper bound,
+            "B"             # label
+        )
+    )
+
+# This is the first and only attempt at a solution.
+# No further attempts will be provided.
+```

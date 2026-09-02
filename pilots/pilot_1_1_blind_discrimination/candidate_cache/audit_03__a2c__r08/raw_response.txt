@@ -1,0 +1,117 @@
+```python
+import re
+from dataclasses import dataclass, field
+from typing import Callable, List, Tuple
+
+@dataclass(frozen=True)
+class Token:
+    type: str = None
+    value: str = None
+    pos: int = None
+
+@dataclass(frozen=True)
+class Lexer:
+    source: str
+    pos: int = 0
+
+    def token(self):
+        while self.pos < len(self.source):
+            if self.source[self.pos].isspace():
+                self.pos += 1
+                continue
+            match = re.match(r"[A-Za-z_][A-Za-z0-9_]*", self.source[self.pos:])
+            if match:
+                return Token(type="label", value=match.group(), pos=self.pos)
+            match = re.match(r"\d+", self.source[self.pos:])
+            if match:
+                return Token(type="number", value=str(int(match.group())), pos=self.pos)
+            raise ValueError("Invalid source")
+        raise ValueError("Unexpected end-of-source")
+
+class Expression:
+    def __init__(self, token: Token):
+        self.token = token
+
+    def eval(self, k: int, n: int) -> bool:
+        raise NotImplementedError
+
+@dataclass(frozen=True)
+class Visit(Expression):
+    label: str
+
+    def eval(self, k: int, n: int) -> bool:
+        return self.label in {f"step_{i}" for i in range(k, n)}
+
+@dataclass(frozen=True)
+class Avoid(Expression):
+    label: str
+
+    def eval(self, k: int, n: int) -> bool:
+        return self.label not in {f"step_{i}" for i in range(k, n)}
+
+@dataclass(frozen=True)
+class Sequence(Expression):
+    first: Visit
+    *rest: 'Sequence'
+
+    def eval(self, k: int, n: int) -> bool:
+        indices = [self.first.eval(k, n)]
+        for r in self.rest:
+            indices.extend([i + 1 for i in range(max(indices), n)])
+        return all(r.eval(i, n) for i in indices)
+
+@dataclass(frozen=True)
+class Between(Expression):
+    lo: int
+    hi: int
+    label: str
+
+    def eval(self, k: int, n: int) -> bool:
+        return any(self.label in {f"step_{i}" for i in range(k + d, n)} for d in range(max(0, self.lo - 1), min(n - 1, self.hi)))
+
+@dataclass(frozen=True)
+class AvoidUntil(Expression):
+    forbidden_label: str
+    goal_label: str
+
+    def eval(self, k: int, n: int) -> bool:
+        return all(not (self.forbidden_label in {f"step_{i}" for i in range(k, j)}) and self.goal_label in {f"step_{i}" for i in range(j, n)} for j in range(max(0, k), n))
+
+@dataclass(frozen=True)
+class AfterEach(Expression):
+    trigger: Visit
+    expr: Expression
+
+    def eval(self, k: int, n: int) -> bool:
+        return self.expr.eval(k, n) and (k == 0 or not self.expr.eval(k - 1, n))
+
+@dataclass(frozen=True)
+class All(Expression):
+    *args: 'Expression'
+
+    def eval(self, k: int, n: int) -> bool:
+        return all(arg.eval(k, n) for arg in args)
+
+@dataclass(frozen=True)
+class Any(Expression):
+    *args: 'Expression'
+
+    def eval(self, k: int, n: int) -> bool:
+        return any(arg.eval(k, n) for arg in args)
+
+def parse_task(source: str) -> Expression:
+    lexer = Lexer(source)
+    token = lexer.token()
+    if token.type == "label":
+        return Visit(label=token.value)
+    elif token.type == "number":
+        lo = int(token.value)
+        hi = lo
+        while lexer.pos < len(lexer.source):
+            match = re.match(r"\d+", lexer.source[lexer.pos:])
+            if match:
+                hi = int(match.group())
+                lexer.pos += 1
+            else:
+                raise ValueError("Invalid source")
+       

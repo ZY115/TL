@@ -1,0 +1,12 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+task = (
+    (eventually 'A')
+    after-each 'A'
+    ((within 2 4 'C'))
+    after-each 'B'
+    ((within 1 2 'D'))
+    avoid-until 'X' 'C'
+)
+
+print(canonicalize(task))

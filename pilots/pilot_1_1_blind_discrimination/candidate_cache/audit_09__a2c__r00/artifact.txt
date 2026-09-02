@@ -1,0 +1,12 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def task_15():
+    sequence(A, between(1, 2, B), after_each(C, avoid_until(X, D)))
+    
+task_15_output = evaluate_task("sequence(A,between(1,2,B),after_each(C,avoid_until(X,D)))", (frozenset(), frozenset({"A"})))
+
+# if the task is satisfiable
+if task_15_output:
+    print("Satisfies at least one complete alternative")
+else:
+    print("Does not satisfy at least one complete alternative")

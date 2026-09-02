@@ -1,0 +1,6 @@
+{
+    "task": {
+        "type": "expression",
+        "value": "sequence(A, visit(B))"
+    }
+}

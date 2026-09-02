@@ -1,0 +1,12 @@
+seen A { 
+  after B {
+    within 1..3 {
+      seen C
+    }
+  };
+  after D {
+    within 2..4 {
+      seen E
+    }
+  };
+}

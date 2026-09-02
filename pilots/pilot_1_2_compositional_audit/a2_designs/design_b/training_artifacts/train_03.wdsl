@@ -1,0 +1,2 @@
+# train_03: visit A, then at a strictly later step visit B.
+(order A B)

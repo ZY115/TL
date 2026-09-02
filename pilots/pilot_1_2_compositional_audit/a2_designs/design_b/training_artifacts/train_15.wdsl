@@ -1,0 +1,3 @@
+# train_15: visit delivery bay C then, strictly later, charging dock D;
+# and additionally every visit to C must be followed by D within 1-5 steps.
+(all_of (order C D) (whenever C (within 1 5 D)))

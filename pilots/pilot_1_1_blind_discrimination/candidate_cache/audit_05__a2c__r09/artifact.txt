@@ -1,0 +1,25 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+import re
+
+def calculate_offset(i, j):
+    return (j - i) % 4
+
+# Task to visit A at least once and after every occurrence of A visit B with offset from 2 through 4.
+task = "after_each(A, between(2, 4, B))"
+
+tree = parse_task(task)
+text = canonicalize(" after_each(A, between(2, 4, B) ) ")
+
+def evaluate_expression(k):
+    # Get the set of step indices from the current anchor to the end of the trace
+    steps = list(range(k, tree.length))
+
+    for i in range(len(steps)):
+        if "visit(A)" in tree[k:i+1]:
+            j = calculate_offset(k, i)
+            return True
+
+    return False
+
+ok = evaluate_task(task, (0, frozenset({"A", "B"})))
+print(ok)  # Should print: True

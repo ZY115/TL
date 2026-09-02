@@ -1,0 +1,11 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def task():
+    seen A
+    after A {
+        any {
+            seen B;
+        }
+    }
+
+task()

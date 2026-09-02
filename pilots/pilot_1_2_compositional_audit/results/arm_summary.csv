@@ -1,0 +1,7 @@
+representation,num_trials,num_tasks,parse_success_rate,runtime_success_rate,first_attempt_correct_rate,correct_given_parsed,false_accept_rate,false_reject_rate,unsupported_rate
+a1,20,12,1.0,1.0,1.0,1.0,0.0,0.0,0.0
+a2a,6,4,1.0,1.0,0.666667,0.666667,0.091627,0.0,0.0
+a2b,8,4,1.0,1.0,0.875,0.875,0.035619,0.0,0.0
+a2c,6,4,1.0,1.0,1.0,1.0,0.0,0.0,0.0
+a3,20,12,1.0,1.0,0.8,0.8,0.005513,0.010809,0.0
+a2_pooled,20,12,1.0,1.0,0.85,0.85,0.042175,0.0,0.0

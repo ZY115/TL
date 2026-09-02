@@ -1,0 +1,14 @@
+class Monitor:
+    def reset(self) -> None:
+        self.a_visited = False
+        self.b_offset = 0
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions:
+            self.a_visited = True
+            self.b_offset = min(self.b_offset + 1, 4)
+        elif self.a_visited and 'B' in propositions:
+            b_offset = max(self.b_offset - 1, 2)  # Ensure offset is within bounds
+
+    def finish(self) -> bool:
+        return self.a_visited

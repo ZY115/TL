@@ -1,0 +1,23 @@
+class Monitor:
+    def __init__(self):
+        self.visit_a = False
+        self.visit_b_offset = None
+        self.step_index = 0
+
+    def reset(self) -> None:
+        pass
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions:
+            if not self.visit_a:
+                self.visit_a = True
+                self.visit_b_offset = 2
+        elif self.visit_a and self.visit_b_offset is not None:
+            self.step_index += 1
+            if self.step_index < 4:
+                self.visit_b_offset = min(self.visit_b_offset + 1, 4)
+            else:
+                raise AssertionError('Visit B step exceeded')
+
+    def finish(self) -> bool:
+        return self.visit_a and (self.visit_b_offset is not None or self.step_index >= 5)

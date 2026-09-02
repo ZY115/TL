@@ -1,0 +1,7 @@
+import warehouse_dsl
+
+task = warehouse_dsl.parse_task("eventually A")
+canonicalized_task = warehouse_dsl.canonicalize(task)
+result = warehouse_dsl.evaluate_task(canonicalized_task, ([frozenset(["A"])],))
+
+print(result)  # True

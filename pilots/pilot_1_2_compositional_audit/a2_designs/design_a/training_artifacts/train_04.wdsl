@@ -1,0 +1,4 @@
+# train_04: every visit to pickup shelf A must be followed by inspection
+# station B between 1 and 4 steps later, inclusive; the trigger step does
+# not count. Vacuously satisfied if A never occurs.
+every(A, within(1, 4, B))

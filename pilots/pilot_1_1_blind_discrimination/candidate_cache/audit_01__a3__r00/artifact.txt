@@ -1,0 +1,17 @@
+class Monitor:
+    def __init__(self):
+        self.traces = []
+        self.propositions = set()
+
+    def reset(self) -> None:
+        self.traces = []
+        self.propositions = set()
+
+    def step(self, propositions: set[str]) -> None:
+        if not propositions.issubset(self.propositions):
+            raise ValueError("Invalid proposition set")
+        self.propositions |= propositions
+        self.traces.append(propositions)
+
+    def finish(self) -> bool:
+        return len(self.traces) > 0 and "A" in [prop for trace in self.traces for prop in trace]

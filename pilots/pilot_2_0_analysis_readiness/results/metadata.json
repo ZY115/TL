@@ -1,0 +1,33 @@
+{
+  "artifact_sources": {
+    "a1:authored": 12,
+    "a1:gold_compiled": 18,
+    "a2c:authored": 4,
+    "a2c:coordinator": 26,
+    "a3:authored": 11,
+    "a3:coordinator": 19
+  },
+  "bounds": {
+    "H_ENUM": 6,
+    "H_PATH": 8,
+    "REPAIR_DEPTH": 2,
+    "paths_moves_le_H_PATH": 488281,
+    "traces_len_le_H_ENUM": 55987
+  },
+  "cases": 30,
+  "map": "warehouse_blocked",
+  "pilot": "pilot_2_0_analysis_readiness",
+  "platform": "macOS-15.3.1-arm64-arm-64bit",
+  "python": "3.12.13",
+  "queries": {
+    "B1": "consistency: does any finite trace satisfy every requirement?",
+    "B2": "redundancy: which requirements are implied by the others?",
+    "B3": "trigger vacuity: can each trigger fire on some satisfying trace?",
+    "B4": "environment feasibility on the blocked floor plan",
+    "B5": "minimal conflict set (inclusion-minimal unsatisfiable subset)",
+    "B6": "minimal repair by removing requirements (depth \u2264 2)",
+    "B7": "version relation old vs new, with witness",
+    "B8": "per-requirement shortest witness (requirement in isolation)"
+  },
+  "rows": 645
+}

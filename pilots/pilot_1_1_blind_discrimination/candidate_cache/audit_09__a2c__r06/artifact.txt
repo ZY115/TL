@@ -1,0 +1,6 @@
+def task_15(w):
+    sequence(
+        visit(A),
+        after_each(visit(B), between(1, 2, visit(C))),
+        avoid_until(X, B)
+    )

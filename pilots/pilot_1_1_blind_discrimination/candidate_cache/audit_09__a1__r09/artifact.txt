@@ -1,0 +1,1 @@
+∀X (A U at_A) & ∀Y ((B U at_B) → (∃Z (C U at_C)) | Y X at_D)

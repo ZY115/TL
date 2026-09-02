@@ -1,0 +1,4 @@
+# train_14.wdsl
+
+visit(A)
+after_each(A, between(2, 4, B))

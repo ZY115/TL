@@ -1,0 +1,646 @@
+case_id,case_class,query,representation,artifact_source,support_mode,answer,gold_answer,verdict,witness,work,bound,provenance_units,gold_units,runtime_ms,note
+audit_01,released,B1,a1,authored,native_exact,True,True,correct,"[A, B]",5,unbounded,unknown,1,1.49,
+audit_01,released,B2,a1,authored,native_exact,[],[],correct,unknown,0,unbounded,1,1,0.0,
+audit_01,released,B3,a1,authored,not_applicable,[],[],n/a,unknown,0,,unknown,1,0.0,task has no triggered rule
+audit_01,released,B4,a1,authored,native_exact,True,True,correct,6,320,unbounded,unknown,1,1.53,
+audit_01,released,B5,a1,authored,native_exact,[],[],correct,unknown,0,,1,1,1.51,consistent; no conflict
+audit_01,released,B6,a1,authored,native_exact,[],[],correct,unknown,0,,1,1,1.52,already feasible
+audit_01,released,B8,a1,authored,native_exact,[2],[2],correct,unknown,1,unbounded,1,1,1.56,
+audit_01,released,B1,a2c,authored,adapter_exact,True,True,correct,"[A, B]",5,unbounded,unknown,1,1.55,
+audit_01,released,B2,a2c,authored,adapter_exact,[],[],correct,unknown,0,unbounded,1,1,0.0,
+audit_01,released,B3,a2c,authored,not_applicable,[],[],n/a,unknown,0,,unknown,1,0.0,task has no triggered rule
+audit_01,released,B4,a2c,authored,adapter_exact,True,True,correct,6,320,unbounded,unknown,1,1.61,
+audit_01,released,B5,a2c,authored,adapter_exact,[],[],correct,unknown,0,,1,1,1.55,consistent; no conflict
+audit_01,released,B6,a2c,authored,adapter_exact,[],[],correct,unknown,0,,1,1,1.58,already feasible
+audit_01,released,B8,a2c,authored,adapter_exact,[2],[2],correct,unknown,1,unbounded,1,1,1.63,
+audit_01,released,B1,a3,authored,bounded_only,True,True,correct,"[A, B]",16,len<=6,unknown,1,0.03,
+audit_01,released,B2,a3,authored,no_provenance,unknown,[],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+audit_01,released,B3,a3,authored,not_applicable,[],[],n/a,unknown,0,,unknown,1,0.0,task has no triggered rule
+audit_01,released,B4,a3,authored,bounded_only,True,True,correct,6,9325,moves<=8,unknown,1,27.15,
+audit_01,released,B5,a3,authored,no_provenance,unknown,[],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+audit_01,released,B6,a3,authored,no_provenance,unknown,[],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+audit_01,released,B8,a3,authored,no_provenance,unknown,[2],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+audit_02,released,B1,a1,authored,native_exact,True,True,correct,[],2,unbounded,unknown,1,0.07,
+audit_02,released,B2,a1,authored,native_exact,[],[],correct,unknown,0,unbounded,1,1,0.0,
+audit_02,released,B3,a1,authored,not_applicable,[],[],n/a,unknown,0,,unknown,1,0.0,task has no triggered rule
+audit_02,released,B4,a1,authored,native_exact,True,True,correct,0,128,unbounded,unknown,1,0.06,
+audit_02,released,B5,a1,authored,native_exact,[],[],correct,unknown,0,,1,1,0.07,consistent; no conflict
+audit_02,released,B6,a1,authored,native_exact,[],[],correct,unknown,0,,1,1,0.07,already feasible
+audit_02,released,B8,a1,authored,native_exact,[0],[0],correct,unknown,1,unbounded,1,1,0.06,
+audit_02,released,B1,a2c,coordinator,adapter_exact,True,True,correct,[],2,unbounded,unknown,1,0.07,
+audit_02,released,B2,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,unbounded,1,1,0.0,
+audit_02,released,B3,a2c,coordinator,not_applicable,[],[],n/a,unknown,0,,unknown,1,0.0,task has no triggered rule
+audit_02,released,B4,a2c,coordinator,adapter_exact,True,True,correct,0,128,unbounded,unknown,1,0.06,
+audit_02,released,B5,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,1,1,0.07,consistent; no conflict
+audit_02,released,B6,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,1,1,0.06,already feasible
+audit_02,released,B8,a2c,coordinator,adapter_exact,[0],[0],correct,unknown,1,unbounded,1,1,0.06,
+audit_02,released,B1,a3,authored,bounded_only,True,True,correct,[],1,len<=6,unknown,1,0.01,
+audit_02,released,B2,a3,authored,no_provenance,unknown,[],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+audit_02,released,B3,a3,authored,not_applicable,[],[],n/a,unknown,0,,unknown,1,0.0,task has no triggered rule
+audit_02,released,B4,a3,authored,bounded_only,True,True,correct,0,1,moves<=8,unknown,1,0.0,
+audit_02,released,B5,a3,authored,no_provenance,unknown,[],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+audit_02,released,B6,a3,authored,no_provenance,unknown,[],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+audit_02,released,B8,a3,authored,no_provenance,unknown,[0],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+audit_03,released,B1,a1,authored,native_exact,True,True,correct,"[A, B, C]",11,unbounded,unknown,1,9.72,
+audit_03,released,B2,a1,authored,native_exact,[],[],correct,unknown,0,unbounded,1,1,0.0,
+audit_03,released,B3,a1,authored,not_applicable,[],[],n/a,unknown,0,,unknown,1,0.0,task has no triggered rule
+audit_03,released,B4,a1,authored,native_exact,True,True,correct,12,704,unbounded,unknown,1,10.03,
+audit_03,released,B5,a1,authored,native_exact,[],[],correct,unknown,0,,1,1,9.77,consistent; no conflict
+audit_03,released,B6,a1,authored,native_exact,[],[],correct,unknown,0,,1,1,10.0,already feasible
+audit_03,released,B8,a1,authored,native_exact,[3],[3],correct,unknown,1,unbounded,1,1,9.82,
+audit_03,released,B1,a2c,coordinator,adapter_exact,True,True,correct,"[A, B, C]",11,unbounded,unknown,1,9.67,
+audit_03,released,B2,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,unbounded,1,1,0.0,
+audit_03,released,B3,a2c,coordinator,not_applicable,[],[],n/a,unknown,0,,unknown,1,0.0,task has no triggered rule
+audit_03,released,B4,a2c,coordinator,adapter_exact,True,True,correct,12,704,unbounded,unknown,1,9.95,
+audit_03,released,B5,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,1,1,9.73,consistent; no conflict
+audit_03,released,B6,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,1,1,9.96,already feasible
+audit_03,released,B8,a2c,coordinator,adapter_exact,[3],[3],correct,unknown,1,unbounded,1,1,9.81,
+audit_03,released,B1,a3,authored,bounded_only,True,True,correct,"[A, B, C]",95,len<=6,unknown,1,0.08,
+audit_03,released,B2,a3,authored,no_provenance,unknown,[],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+audit_03,released,B3,a3,authored,not_applicable,[],[],n/a,unknown,0,,unknown,1,0.0,task has no triggered rule
+audit_03,released,B4,a3,authored,bounded_only,unknown,True,inconclusive,unknown,488281,moves<=8,unknown,1,1811.02,
+audit_03,released,B5,a3,authored,no_provenance,unknown,[],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+audit_03,released,B6,a3,authored,no_provenance,unknown,[],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+audit_03,released,B8,a3,authored,no_provenance,unknown,[3],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+audit_04,released,B1,a1,authored,native_exact,True,True,correct,"[A, B]",6,unbounded,unknown,2,3.03,
+audit_04,released,B2,a1,authored,native_exact,[],[],correct,unknown,2,unbounded,2,2,4.93,
+audit_04,released,B3,a1,authored,native_exact,"[[""r2:A"", ""fires""]]","[[""r2:A"", ""fires""]]",correct,unknown,1,unbounded,unknown,2,3.05,
+audit_04,released,B4,a1,authored,native_exact,False,False,correct,unknown,384,unbounded,unknown,2,3.38,
+audit_04,released,B5,a1,authored,native_exact,[],[],correct,unknown,0,,2,2,3.05,consistent; no conflict
+audit_04,released,B6,a1,authored,native_exact,[0],[0],correct,unknown,2,depth<=2,2,2,5.79,
+audit_04,released,B8,a1,authored,native_exact,"[1, 0]","[1, 0]",correct,unknown,2,unbounded,2,2,2.49,
+audit_04,released,B1,a2c,authored,adapter_exact,True,True,correct,"[A, B]",6,unbounded,unknown,2,3.06,
+audit_04,released,B2,a2c,authored,adapter_exact,[],[],correct,unknown,2,unbounded,2,2,4.88,
+audit_04,released,B3,a2c,authored,adapter_exact,"[[""r2:A"", ""fires""]]","[[""r2:A"", ""fires""]]",correct,unknown,1,unbounded,unknown,2,3.09,
+audit_04,released,B4,a2c,authored,adapter_exact,False,False,correct,unknown,384,unbounded,unknown,2,3.31,
+audit_04,released,B5,a2c,authored,adapter_exact,[],[],correct,unknown,0,,2,2,3.04,consistent; no conflict
+audit_04,released,B6,a2c,authored,adapter_exact,[0],[0],correct,unknown,2,depth<=2,2,2,5.84,
+audit_04,released,B8,a2c,authored,adapter_exact,"[1, 0]","[1, 0]",correct,unknown,2,unbounded,2,2,2.48,
+audit_04,released,B1,a3,authored,bounded_only,True,True,correct,"[A, B]",16,len<=6,unknown,2,0.03,
+audit_04,released,B2,a3,authored,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+audit_04,released,B3,a3,authored,bounded_only,"[[""r2:A"", ""fires""]]","[[""r2:A"", ""fires""]]",correct,unknown,16,len<=6,unknown,2,0.02,
+audit_04,released,B4,a3,authored,bounded_only,unknown,False,inconclusive,unknown,488281,moves<=8,unknown,2,1932.37,
+audit_04,released,B5,a3,authored,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+audit_04,released,B6,a3,authored,no_provenance,unknown,[0],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+audit_04,released,B8,a3,authored,no_provenance,unknown,"[1, 0]",n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+audit_05,released,B1,a1,authored,native_exact,True,True,correct,"[A, B+C]",12,unbounded,unknown,2,11.5,
+audit_05,released,B2,a1,authored,native_exact,[],[],correct,unknown,2,unbounded,2,2,16.54,
+audit_05,released,B3,a1,authored,native_exact,"[[""r2:A"", ""fires""]]","[[""r2:A"", ""fires""]]",correct,unknown,1,unbounded,unknown,2,11.69,
+audit_05,released,B4,a1,authored,native_exact,False,False,correct,unknown,768,unbounded,unknown,2,11.82,
+audit_05,released,B5,a1,authored,native_exact,[],[],correct,unknown,0,,2,2,11.51,consistent; no conflict
+audit_05,released,B6,a1,authored,native_exact,[0],[0],correct,unknown,2,depth<=2,2,2,22.51,
+audit_05,released,B8,a1,authored,native_exact,"[1, 0]","[1, 0]",correct,unknown,2,unbounded,2,2,10.74,
+audit_05,released,B1,a2c,coordinator,adapter_exact,True,True,correct,"[A, B+C]",12,unbounded,unknown,2,11.61,
+audit_05,released,B2,a2c,coordinator,adapter_exact,[],[],correct,unknown,2,unbounded,2,2,16.79,
+audit_05,released,B3,a2c,coordinator,adapter_exact,"[[""r2:A"", ""fires""]]","[[""r2:A"", ""fires""]]",correct,unknown,1,unbounded,unknown,2,11.59,
+audit_05,released,B4,a2c,coordinator,adapter_exact,False,False,correct,unknown,768,unbounded,unknown,2,11.78,
+audit_05,released,B5,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,2,2,11.45,consistent; no conflict
+audit_05,released,B6,a2c,coordinator,adapter_exact,[0],[0],correct,unknown,2,depth<=2,2,2,22.48,
+audit_05,released,B8,a2c,coordinator,adapter_exact,"[1, 0]","[1, 0]",correct,unknown,2,unbounded,2,2,10.69,
+audit_05,released,B1,a3,authored,bounded_only,True,True,correct,"[A, B, C]",95,len<=6,unknown,2,0.11,
+audit_05,released,B2,a3,authored,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+audit_05,released,B3,a3,authored,bounded_only,"[[""r2:A"", ""fires""]]","[[""r2:A"", ""fires""]]",correct,unknown,95,len<=6,unknown,2,0.08,
+audit_05,released,B4,a3,authored,bounded_only,unknown,False,inconclusive,unknown,488281,moves<=8,unknown,2,1907.23,
+audit_05,released,B5,a3,authored,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+audit_05,released,B6,a3,authored,no_provenance,unknown,[0],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+audit_05,released,B8,a3,authored,no_provenance,unknown,"[1, 0]",n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+audit_06,released,B1,a1,authored,native_exact,True,True,correct,"[A, C]",5,unbounded,unknown,1,1.89,
+audit_06,released,B2,a1,authored,native_exact,[],[],correct,unknown,0,unbounded,1,1,0.0,
+audit_06,released,B3,a1,authored,not_applicable,[],[],n/a,unknown,0,,unknown,1,0.0,task has no triggered rule
+audit_06,released,B4,a1,authored,native_exact,True,True,correct,12,320,unbounded,unknown,1,2.06,
+audit_06,released,B5,a1,authored,native_exact,[],[],correct,unknown,0,,1,1,1.93,consistent; no conflict
+audit_06,released,B6,a1,authored,native_exact,[],[],correct,unknown,0,,1,1,2.11,already feasible
+audit_06,released,B8,a1,authored,native_exact,[2],[2],correct,unknown,1,unbounded,1,1,1.9,
+audit_06,released,B1,a2c,coordinator,adapter_exact,True,True,correct,"[A, C]",5,unbounded,unknown,1,2.74,
+audit_06,released,B2,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,unbounded,1,1,0.0,
+audit_06,released,B3,a2c,coordinator,not_applicable,[],[],n/a,unknown,0,,unknown,1,0.0,task has no triggered rule
+audit_06,released,B4,a2c,coordinator,adapter_exact,True,True,correct,12,320,unbounded,unknown,1,2.96,
+audit_06,released,B5,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,1,1,2.74,consistent; no conflict
+audit_06,released,B6,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,1,1,2.87,already feasible
+audit_06,released,B8,a2c,coordinator,adapter_exact,[2],[2],correct,unknown,1,unbounded,1,1,2.8,
+audit_06,released,B1,a3,authored,bounded_only,True,True,correct,"[A, C]",17,len<=6,unknown,1,0.03,
+audit_06,released,B2,a3,authored,no_provenance,unknown,[],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+audit_06,released,B3,a3,authored,not_applicable,[],[],n/a,unknown,0,,unknown,1,0.0,task has no triggered rule
+audit_06,released,B4,a3,authored,bounded_only,unknown,True,inconclusive,unknown,488281,moves<=8,unknown,1,1869.05,
+audit_06,released,B5,a3,authored,no_provenance,unknown,[],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+audit_06,released,B6,a3,authored,no_provenance,unknown,[],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+audit_06,released,B8,a3,authored,no_provenance,unknown,[2],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+audit_07,released,B1,a1,authored,native_exact,True,True,correct,[],3,unbounded,unknown,1,0.59,
+audit_07,released,B2,a1,authored,native_exact,[],[],correct,unknown,0,unbounded,1,1,0.0,
+audit_07,released,B3,a1,authored,native_exact,"[[""r1:A"", ""fires""]]","[[""r1:A"", ""fires""]]",correct,unknown,1,unbounded,unknown,1,0.99,
+audit_07,released,B4,a1,authored,native_exact,True,True,correct,0,192,unbounded,unknown,1,0.56,
+audit_07,released,B5,a1,authored,native_exact,[],[],correct,unknown,0,,1,1,0.55,consistent; no conflict
+audit_07,released,B6,a1,authored,native_exact,[],[],correct,unknown,0,,1,1,0.54,already feasible
+audit_07,released,B8,a1,authored,native_exact,[0],[0],correct,unknown,1,unbounded,1,1,0.54,
+audit_07,released,B1,a2c,authored,adapter_exact,True,True,correct,[],3,unbounded,unknown,1,0.54,
+audit_07,released,B2,a2c,authored,adapter_exact,[],[],correct,unknown,0,unbounded,1,1,0.0,
+audit_07,released,B3,a2c,authored,adapter_exact,"[[""r1:A"", ""fires""]]","[[""r1:A"", ""fires""]]",correct,unknown,1,unbounded,unknown,1,0.93,
+audit_07,released,B4,a2c,authored,adapter_exact,True,True,correct,0,192,unbounded,unknown,1,0.54,
+audit_07,released,B5,a2c,authored,adapter_exact,[],[],correct,unknown,0,,1,1,0.56,consistent; no conflict
+audit_07,released,B6,a2c,authored,adapter_exact,[],[],correct,unknown,0,,1,1,0.54,already feasible
+audit_07,released,B8,a2c,authored,adapter_exact,[0],[0],correct,unknown,1,unbounded,1,1,0.54,
+audit_07,released,B1,a3,authored,bounded_only,True,True,correct,[],1,len<=6,unknown,1,0.01,
+audit_07,released,B2,a3,authored,no_provenance,unknown,[],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+audit_07,released,B3,a3,authored,bounded_only,"[[""r1:A"", ""fires""]]","[[""r1:A"", ""fires""]]",correct,unknown,16,len<=6,unknown,1,0.02,
+audit_07,released,B4,a3,authored,bounded_only,True,True,correct,0,1,moves<=8,unknown,1,0.0,
+audit_07,released,B5,a3,authored,no_provenance,unknown,[],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+audit_07,released,B6,a3,authored,no_provenance,unknown,[],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+audit_07,released,B8,a3,authored,no_provenance,unknown,[0],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+audit_08,released,B1,a1,authored,native_exact,True,True,correct,[C],3,unbounded,unknown,1,0.1,
+audit_08,released,B2,a1,authored,native_exact,[],[],correct,unknown,0,unbounded,1,1,0.0,
+audit_08,released,B3,a1,authored,not_applicable,[],[],n/a,unknown,0,,unknown,1,0.0,task has no triggered rule
+audit_08,released,B4,a1,authored,native_exact,False,False,correct,unknown,192,unbounded,unknown,1,0.26,
+audit_08,released,B5,a1,authored,native_exact,[],[],correct,unknown,0,,1,1,0.1,consistent; no conflict
+audit_08,released,B6,a1,authored,native_exact,unknown,unknown,correct,unknown,1,depth<=2,1,1,0.32,no repair within depth
+audit_08,released,B8,a1,authored,native_exact,[1],[1],correct,unknown,1,unbounded,1,1,0.1,
+audit_08,released,B1,a2c,coordinator,adapter_exact,True,True,correct,[C],3,unbounded,unknown,1,0.1,
+audit_08,released,B2,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,unbounded,1,1,0.0,
+audit_08,released,B3,a2c,coordinator,not_applicable,[],[],n/a,unknown,0,,unknown,1,0.0,task has no triggered rule
+audit_08,released,B4,a2c,coordinator,adapter_exact,False,False,correct,unknown,192,unbounded,unknown,1,0.27,
+audit_08,released,B5,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,1,1,0.1,consistent; no conflict
+audit_08,released,B6,a2c,coordinator,adapter_exact,unknown,unknown,correct,unknown,1,depth<=2,1,1,0.27,no repair within depth
+audit_08,released,B8,a2c,coordinator,adapter_exact,[1],[1],correct,unknown,1,unbounded,1,1,0.1,
+audit_08,released,B1,a3,authored,bounded_only,True,True,correct,[C],5,len<=6,unknown,1,0.01,
+audit_08,released,B2,a3,authored,no_provenance,unknown,[],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+audit_08,released,B3,a3,authored,not_applicable,[],[],n/a,unknown,0,,unknown,1,0.0,task has no triggered rule
+audit_08,released,B4,a3,authored,bounded_only,unknown,False,inconclusive,unknown,488281,moves<=8,unknown,1,1782.72,
+audit_08,released,B5,a3,authored,no_provenance,unknown,[],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+audit_08,released,B6,a3,authored,no_provenance,unknown,unknown,n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+audit_08,released,B8,a3,authored,no_provenance,unknown,[1],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+audit_09,released,B1,a1,authored,native_exact,True,True,correct,"[A, B+C]",12,unbounded,unknown,2,13.58,
+audit_09,released,B2,a1,authored,native_exact,[],[],correct,unknown,2,unbounded,2,2,18.55,
+audit_09,released,B3,a1,authored,native_exact,"[[""r2:A"", ""fires""]]","[[""r2:A"", ""fires""]]",correct,unknown,1,unbounded,unknown,2,13.6,
+audit_09,released,B4,a1,authored,native_exact,False,False,correct,unknown,768,unbounded,unknown,2,13.69,
+audit_09,released,B5,a1,authored,native_exact,[],[],correct,unknown,0,,2,2,13.58,consistent; no conflict
+audit_09,released,B6,a1,authored,native_exact,[0],[0],correct,unknown,2,depth<=2,2,2,26.45,
+audit_09,released,B8,a1,authored,native_exact,"[1, 0]","[1, 0]",correct,unknown,2,unbounded,2,2,12.67,
+audit_09,released,B1,a2c,coordinator,adapter_exact,True,True,correct,"[A, B+C]",12,unbounded,unknown,2,13.44,
+audit_09,released,B2,a2c,coordinator,adapter_exact,[],[],correct,unknown,2,unbounded,2,2,18.72,
+audit_09,released,B3,a2c,coordinator,adapter_exact,"[[""r2:A"", ""fires""]]","[[""r2:A"", ""fires""]]",correct,unknown,1,unbounded,unknown,2,13.55,
+audit_09,released,B4,a2c,coordinator,adapter_exact,False,False,correct,unknown,768,unbounded,unknown,2,13.79,
+audit_09,released,B5,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,2,2,13.75,consistent; no conflict
+audit_09,released,B6,a2c,coordinator,adapter_exact,[0],[0],correct,unknown,2,depth<=2,2,2,26.5,
+audit_09,released,B8,a2c,coordinator,adapter_exact,"[1, 0]","[1, 0]",correct,unknown,2,unbounded,2,2,12.52,
+audit_09,released,B1,a3,authored,bounded_only,True,True,correct,"[A, B, C]",95,len<=6,unknown,2,0.11,
+audit_09,released,B2,a3,authored,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+audit_09,released,B3,a3,authored,bounded_only,"[[""r2:A"", ""fires""]]","[[""r2:A"", ""fires""]]",correct,unknown,95,len<=6,unknown,2,0.08,
+audit_09,released,B4,a3,authored,bounded_only,unknown,False,inconclusive,unknown,488281,moves<=8,unknown,2,1907.47,
+audit_09,released,B5,a3,authored,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+audit_09,released,B6,a3,authored,no_provenance,unknown,[0],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+audit_09,released,B8,a3,authored,no_provenance,unknown,"[1, 0]",n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+audit_10,released,B1,a1,authored,native_exact,True,True,correct,"[A, B, C]",22,unbounded,unknown,2,21.6,
+audit_10,released,B2,a1,authored,native_exact,[],[],correct,unknown,2,unbounded,2,2,51.57,
+audit_10,released,B3,a1,authored,not_applicable,[],[],n/a,unknown,0,,unknown,2,0.0,task has no triggered rule
+audit_10,released,B4,a1,authored,native_exact,False,False,correct,unknown,1408,unbounded,unknown,2,22.35,
+audit_10,released,B5,a1,authored,native_exact,[],[],correct,unknown,0,,2,2,22.13,consistent; no conflict
+audit_10,released,B6,a1,authored,native_exact,[1],[1],correct,unknown,3,depth<=2,2,2,32.28,
+audit_10,released,B8,a1,authored,native_exact,"[3, 1]","[3, 1]",correct,unknown,2,unbounded,2,2,10.21,
+audit_10,released,B1,a2c,authored,adapter_exact,True,True,correct,"[A, B, C]",22,unbounded,unknown,2,22.7,
+audit_10,released,B2,a2c,authored,adapter_exact,[],[],correct,unknown,2,unbounded,2,2,52.28,
+audit_10,released,B3,a2c,authored,not_applicable,[],[],n/a,unknown,0,,unknown,2,0.0,task has no triggered rule
+audit_10,released,B4,a2c,authored,adapter_exact,False,False,correct,unknown,1408,unbounded,unknown,2,21.96,
+audit_10,released,B5,a2c,authored,adapter_exact,[],[],correct,unknown,0,,2,2,21.79,consistent; no conflict
+audit_10,released,B6,a2c,authored,adapter_exact,[1],[1],correct,unknown,3,depth<=2,2,2,32.08,
+audit_10,released,B8,a2c,authored,adapter_exact,"[3, 1]","[3, 1]",correct,unknown,2,unbounded,2,2,9.99,
+audit_10,released,B1,a3,coordinator,bounded_only,True,True,correct,"[A, B, C]",95,len<=6,unknown,2,0.13,
+audit_10,released,B2,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+audit_10,released,B3,a3,coordinator,not_applicable,[],[],n/a,unknown,0,,unknown,2,0.0,task has no triggered rule
+audit_10,released,B4,a3,coordinator,bounded_only,unknown,False,inconclusive,unknown,488281,moves<=8,unknown,2,1877.07,
+audit_10,released,B5,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+audit_10,released,B6,a3,coordinator,no_provenance,unknown,[1],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+audit_10,released,B8,a3,coordinator,no_provenance,unknown,"[3, 1]",n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+audit_11,released,B1,a1,authored,native_exact,True,True,correct,"[A, B+C+D]",23,unbounded,unknown,3,29.91,
+audit_11,released,B2,a1,authored,native_exact,[],[],correct,unknown,3,unbounded,3,3,89.32,
+audit_11,released,B3,a1,authored,native_exact,"[[""r2:A"", ""fires""], [""r3:C"", ""fires""]]","[[""r2:A"", ""fires""], [""r3:C"", ""fires""]]",correct,unknown,2,unbounded,unknown,3,62.08,
+audit_11,released,B4,a1,authored,native_exact,False,False,correct,unknown,1472,unbounded,unknown,3,30.59,
+audit_11,released,B5,a1,authored,native_exact,[],[],correct,unknown,0,,3,3,30.69,consistent; no conflict
+audit_11,released,B6,a1,authored,native_exact,[0],[0],correct,unknown,2,depth<=2,3,3,58.46,
+audit_11,released,B8,a1,authored,native_exact,"[1, 0, 0]","[1, 0, 0]",correct,unknown,3,unbounded,3,3,11.63,
+audit_11,released,B1,a2c,coordinator,adapter_exact,True,True,correct,"[A, B+C+D]",23,unbounded,unknown,3,30.9,
+audit_11,released,B2,a2c,coordinator,adapter_exact,[],[],correct,unknown,3,unbounded,3,3,90.0,
+audit_11,released,B3,a2c,coordinator,adapter_exact,"[[""r2:A"", ""fires""], [""r3:C"", ""fires""]]","[[""r2:A"", ""fires""], [""r3:C"", ""fires""]]",correct,unknown,2,unbounded,unknown,3,61.64,
+audit_11,released,B4,a2c,coordinator,adapter_exact,False,False,correct,unknown,1472,unbounded,unknown,3,30.85,
+audit_11,released,B5,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,3,3,30.86,consistent; no conflict
+audit_11,released,B6,a2c,coordinator,adapter_exact,[0],[0],correct,unknown,2,depth<=2,3,3,59.37,
+audit_11,released,B8,a2c,coordinator,adapter_exact,"[1, 0, 0]","[1, 0, 0]",correct,unknown,3,unbounded,3,3,11.41,
+audit_11,released,B1,a3,authored,bounded_only,True,True,correct,"[A, B, C, D]",570,len<=6,unknown,3,0.65,
+audit_11,released,B2,a3,authored,no_provenance,unknown,[],n/a,unknown,0,,unknown,3,0.0,artifact exposes no requirement units
+audit_11,released,B3,a3,authored,bounded_only,"[[""r2:A"", ""fires""], [""r3:C"", ""fires""]]","[[""r2:A"", ""fires""], [""r3:C"", ""fires""]]",correct,unknown,1140,len<=6,unknown,3,1.04,
+audit_11,released,B4,a3,authored,bounded_only,unknown,False,inconclusive,unknown,488281,moves<=8,unknown,3,1932.72,
+audit_11,released,B5,a3,authored,no_provenance,unknown,[],n/a,unknown,0,,unknown,3,0.0,artifact exposes no requirement units
+audit_11,released,B6,a3,authored,no_provenance,unknown,[0],n/a,unknown,0,,unknown,3,0.0,artifact exposes no requirement units
+audit_11,released,B8,a3,authored,no_provenance,unknown,"[1, 0, 0]",n/a,unknown,0,,unknown,3,0.0,artifact exposes no requirement units
+audit_12,released,B1,a1,authored,native_exact,True,True,correct,[],17,unbounded,unknown,2,22.07,
+audit_12,released,B2,a1,authored,native_exact,[],[],correct,unknown,2,unbounded,2,2,65.5,
+audit_12,released,B3,a1,authored,native_exact,"[[""r1:A"", ""fires""], [""r2:B"", ""fires""]]","[[""r1:A"", ""fires""], [""r2:B"", ""fires""]]",correct,unknown,2,unbounded,unknown,2,57.89,
+audit_12,released,B4,a1,authored,native_exact,True,True,correct,0,1088,unbounded,unknown,2,22.07,
+audit_12,released,B5,a1,authored,native_exact,[],[],correct,unknown,0,,2,2,21.96,consistent; no conflict
+audit_12,released,B6,a1,authored,native_exact,[],[],correct,unknown,0,,2,2,22.13,already feasible
+audit_12,released,B8,a1,authored,native_exact,"[0, 0]","[0, 0]",correct,unknown,2,unbounded,2,2,9.17,
+audit_12,released,B1,a2c,coordinator,adapter_exact,True,True,correct,[],17,unbounded,unknown,2,22.08,
+audit_12,released,B2,a2c,coordinator,adapter_exact,[],[],correct,unknown,2,unbounded,2,2,64.62,
+audit_12,released,B3,a2c,coordinator,adapter_exact,"[[""r1:A"", ""fires""], [""r2:B"", ""fires""]]","[[""r1:A"", ""fires""], [""r2:B"", ""fires""]]",correct,unknown,2,unbounded,unknown,2,60.06,
+audit_12,released,B4,a2c,coordinator,adapter_exact,True,True,correct,0,1088,unbounded,unknown,2,22.36,
+audit_12,released,B5,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,2,2,22.46,consistent; no conflict
+audit_12,released,B6,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,2,2,22.2,already feasible
+audit_12,released,B8,a2c,coordinator,adapter_exact,"[0, 0]","[0, 0]",correct,unknown,2,unbounded,2,2,9.12,
+audit_12,released,B1,a3,authored,bounded_only,True,True,correct,[],1,len<=6,unknown,2,0.01,
+audit_12,released,B2,a3,authored,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+audit_12,released,B3,a3,authored,bounded_only,"[[""r1:A"", ""fires""], [""r2:B"", ""fires""]]","[[""r1:A"", ""fires""], [""r2:B"", ""fires""]]",correct,unknown,118,len<=6,unknown,2,0.1,
+audit_12,released,B4,a3,authored,bounded_only,True,True,correct,0,1,moves<=8,unknown,2,0.0,
+audit_12,released,B5,a3,authored,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+audit_12,released,B6,a3,authored,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+audit_12,released,B8,a3,authored,no_provenance,unknown,"[0, 0]",n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+inc_01,inconsistent,B1,a1,gold_compiled,native_exact,False,False,correct,-,2,unbounded,unknown,2,0.17,
+inc_01,inconsistent,B2,a1,gold_compiled,native_exact,[],[],correct,unknown,2,unbounded,2,2,0.13,
+inc_01,inconsistent,B3,a1,gold_compiled,not_applicable,[],[],n/a,unknown,0,,unknown,2,0.0,task has no triggered rule
+inc_01,inconsistent,B4,a1,gold_compiled,native_exact,False,False,correct,unknown,128,unbounded,unknown,2,0.38,
+inc_01,inconsistent,B5,a1,gold_compiled,native_exact,"[0, 1]","[0, 1]",correct,unknown,3,unbounded,2,2,0.28,
+inc_01,inconsistent,B6,a1,gold_compiled,native_exact,[0],[0],correct,unknown,2,depth<=2,2,2,0.45,
+inc_01,inconsistent,B8,a1,gold_compiled,native_exact,"[1, 0]","[1, 0]",correct,unknown,2,unbounded,2,2,0.11,
+inc_01,inconsistent,B1,a2c,coordinator,adapter_exact,False,False,correct,-,2,unbounded,unknown,2,0.17,
+inc_01,inconsistent,B2,a2c,coordinator,adapter_exact,[],[],correct,unknown,2,unbounded,2,2,0.13,
+inc_01,inconsistent,B3,a2c,coordinator,not_applicable,[],[],n/a,unknown,0,,unknown,2,0.0,task has no triggered rule
+inc_01,inconsistent,B4,a2c,coordinator,adapter_exact,False,False,correct,unknown,128,unbounded,unknown,2,0.37,
+inc_01,inconsistent,B5,a2c,coordinator,adapter_exact,"[0, 1]","[0, 1]",correct,unknown,3,unbounded,2,2,0.28,
+inc_01,inconsistent,B6,a2c,coordinator,adapter_exact,[0],[0],correct,unknown,2,depth<=2,2,2,0.44,
+inc_01,inconsistent,B8,a2c,coordinator,adapter_exact,"[1, 0]","[1, 0]",correct,unknown,2,unbounded,2,2,0.11,
+inc_01,inconsistent,B1,a3,coordinator,bounded_only,unknown,False,inconclusive,-,55987,len<=6,unknown,2,80.15,
+inc_01,inconsistent,B2,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+inc_01,inconsistent,B3,a3,coordinator,not_applicable,[],[],n/a,unknown,0,,unknown,2,0.0,task has no triggered rule
+inc_01,inconsistent,B4,a3,coordinator,bounded_only,unknown,False,inconclusive,unknown,488281,moves<=8,unknown,2,1921.88,
+inc_01,inconsistent,B5,a3,coordinator,no_provenance,unknown,"[0, 1]",n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+inc_01,inconsistent,B6,a3,coordinator,no_provenance,unknown,[0],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+inc_01,inconsistent,B8,a3,coordinator,no_provenance,unknown,"[1, 0]",n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+inc_02,inconsistent,B1,a1,gold_compiled,native_exact,False,False,correct,-,5,unbounded,unknown,2,2.07,
+inc_02,inconsistent,B2,a1,gold_compiled,native_exact,[],[],correct,unknown,2,unbounded,2,2,4.81,
+inc_02,inconsistent,B3,a1,gold_compiled,not_applicable,[],[],n/a,unknown,0,,unknown,2,0.0,task has no triggered rule
+inc_02,inconsistent,B4,a1,gold_compiled,native_exact,False,False,correct,unknown,320,unbounded,unknown,2,2.29,
+inc_02,inconsistent,B5,a1,gold_compiled,native_exact,"[0, 1]","[0, 1]",correct,unknown,3,unbounded,2,2,3.78,
+inc_02,inconsistent,B6,a1,gold_compiled,native_exact,[0],[0],correct,unknown,2,depth<=2,2,2,2.34,
+inc_02,inconsistent,B8,a1,gold_compiled,native_exact,"[2, 0]","[2, 0]",correct,unknown,2,unbounded,2,2,1.56,
+inc_02,inconsistent,B1,a2c,coordinator,adapter_exact,False,False,correct,-,5,unbounded,unknown,2,2.07,
+inc_02,inconsistent,B2,a2c,coordinator,adapter_exact,[],[],correct,unknown,2,unbounded,2,2,4.73,
+inc_02,inconsistent,B3,a2c,coordinator,not_applicable,[],[],n/a,unknown,0,,unknown,2,0.0,task has no triggered rule
+inc_02,inconsistent,B4,a2c,coordinator,adapter_exact,False,False,correct,unknown,320,unbounded,unknown,2,2.27,
+inc_02,inconsistent,B5,a2c,coordinator,adapter_exact,"[0, 1]","[0, 1]",correct,unknown,3,unbounded,2,2,3.7,
+inc_02,inconsistent,B6,a2c,coordinator,adapter_exact,[0],[0],correct,unknown,2,depth<=2,2,2,2.35,
+inc_02,inconsistent,B8,a2c,coordinator,adapter_exact,"[2, 0]","[2, 0]",correct,unknown,2,unbounded,2,2,1.59,
+inc_02,inconsistent,B1,a3,coordinator,bounded_only,unknown,False,inconclusive,-,55987,len<=6,unknown,2,83.31,
+inc_02,inconsistent,B2,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+inc_02,inconsistent,B3,a3,coordinator,not_applicable,[],[],n/a,unknown,0,,unknown,2,0.0,task has no triggered rule
+inc_02,inconsistent,B4,a3,coordinator,bounded_only,unknown,False,inconclusive,unknown,488281,moves<=8,unknown,2,1880.95,
+inc_02,inconsistent,B5,a3,coordinator,no_provenance,unknown,"[0, 1]",n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+inc_02,inconsistent,B6,a3,coordinator,no_provenance,unknown,[0],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+inc_02,inconsistent,B8,a3,coordinator,no_provenance,unknown,"[2, 0]",n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+inc_03,inconsistent,B1,a1,gold_compiled,native_exact,False,False,correct,-,3,unbounded,unknown,3,0.75,
+inc_03,inconsistent,B2,a1,gold_compiled,native_exact,[],[],correct,unknown,3,unbounded,3,3,3.3,
+inc_03,inconsistent,B3,a1,gold_compiled,native_exact,"[[""r2:A"", ""vacuous""]]","[[""r2:A"", ""vacuous""]]",correct,unknown,1,unbounded,unknown,3,0.77,
+inc_03,inconsistent,B4,a1,gold_compiled,native_exact,False,False,correct,unknown,192,unbounded,unknown,3,0.9,
+inc_03,inconsistent,B5,a1,gold_compiled,native_exact,"[0, 1, 2]","[0, 1, 2]",correct,unknown,4,unbounded,3,3,2.6,
+inc_03,inconsistent,B6,a1,gold_compiled,native_exact,[0],[0],correct,unknown,2,depth<=2,3,3,1.61,
+inc_03,inconsistent,B8,a1,gold_compiled,native_exact,"[1, 0, 0]","[1, 0, 0]",correct,unknown,3,unbounded,3,3,0.66,
+inc_03,inconsistent,B1,a2c,coordinator,adapter_exact,False,False,correct,-,3,unbounded,unknown,3,0.81,
+inc_03,inconsistent,B2,a2c,coordinator,adapter_exact,[],[],correct,unknown,3,unbounded,3,3,3.23,
+inc_03,inconsistent,B3,a2c,coordinator,adapter_exact,"[[""r2:A"", ""vacuous""]]","[[""r2:A"", ""vacuous""]]",correct,unknown,1,unbounded,unknown,3,0.77,
+inc_03,inconsistent,B4,a2c,coordinator,adapter_exact,False,False,correct,unknown,192,unbounded,unknown,3,0.91,
+inc_03,inconsistent,B5,a2c,coordinator,adapter_exact,"[0, 1, 2]","[0, 1, 2]",correct,unknown,4,unbounded,3,3,2.6,
+inc_03,inconsistent,B6,a2c,coordinator,adapter_exact,[0],[0],correct,unknown,2,depth<=2,3,3,1.68,
+inc_03,inconsistent,B8,a2c,coordinator,adapter_exact,"[1, 0, 0]","[1, 0, 0]",correct,unknown,3,unbounded,3,3,0.66,
+inc_03,inconsistent,B1,a3,coordinator,bounded_only,unknown,False,inconclusive,-,55987,len<=6,unknown,3,73.68,
+inc_03,inconsistent,B2,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,3,0.0,artifact exposes no requirement units
+inc_03,inconsistent,B3,a3,coordinator,bounded_only,"[[""r2:A"", ""unknown""]]","[[""r2:A"", ""vacuous""]]",inconclusive,unknown,55987,len<=6,unknown,3,73.81,
+inc_03,inconsistent,B4,a3,coordinator,bounded_only,unknown,False,inconclusive,unknown,488281,moves<=8,unknown,3,1892.59,
+inc_03,inconsistent,B5,a3,coordinator,no_provenance,unknown,"[0, 1, 2]",n/a,unknown,0,,unknown,3,0.0,artifact exposes no requirement units
+inc_03,inconsistent,B6,a3,coordinator,no_provenance,unknown,[0],n/a,unknown,0,,unknown,3,0.0,artifact exposes no requirement units
+inc_03,inconsistent,B8,a3,coordinator,no_provenance,unknown,"[1, 0, 0]",n/a,unknown,0,,unknown,3,0.0,artifact exposes no requirement units
+inc_04,inconsistent,B1,a1,gold_compiled,native_exact,False,False,correct,-,2,unbounded,unknown,2,0.2,
+inc_04,inconsistent,B2,a1,gold_compiled,native_exact,[],[],correct,unknown,2,unbounded,2,2,0.46,
+inc_04,inconsistent,B3,a1,gold_compiled,not_applicable,[],[],n/a,unknown,0,,unknown,2,0.0,task has no triggered rule
+inc_04,inconsistent,B4,a1,gold_compiled,native_exact,False,False,correct,unknown,128,unbounded,unknown,2,0.35,
+inc_04,inconsistent,B5,a1,gold_compiled,native_exact,"[0, 1]","[0, 1]",correct,unknown,3,unbounded,2,2,0.36,
+inc_04,inconsistent,B6,a1,gold_compiled,native_exact,[1],[1],correct,unknown,3,depth<=2,2,2,0.67,
+inc_04,inconsistent,B8,a1,gold_compiled,native_exact,"[0, 1]","[0, 1]",correct,unknown,2,unbounded,2,2,0.16,
+inc_04,inconsistent,B1,a2c,coordinator,adapter_exact,False,False,correct,-,2,unbounded,unknown,2,0.2,
+inc_04,inconsistent,B2,a2c,coordinator,adapter_exact,[],[],correct,unknown,2,unbounded,2,2,0.46,
+inc_04,inconsistent,B3,a2c,coordinator,not_applicable,[],[],n/a,unknown,0,,unknown,2,0.0,task has no triggered rule
+inc_04,inconsistent,B4,a2c,coordinator,adapter_exact,False,False,correct,unknown,128,unbounded,unknown,2,0.35,
+inc_04,inconsistent,B5,a2c,coordinator,adapter_exact,"[0, 1]","[0, 1]",correct,unknown,3,unbounded,2,2,0.39,
+inc_04,inconsistent,B6,a2c,coordinator,adapter_exact,[1],[1],correct,unknown,3,depth<=2,2,2,0.7,
+inc_04,inconsistent,B8,a2c,coordinator,adapter_exact,"[0, 1]","[0, 1]",correct,unknown,2,unbounded,2,2,0.16,
+inc_04,inconsistent,B1,a3,coordinator,bounded_only,unknown,False,inconclusive,-,55987,len<=6,unknown,2,84.67,
+inc_04,inconsistent,B2,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+inc_04,inconsistent,B3,a3,coordinator,not_applicable,[],[],n/a,unknown,0,,unknown,2,0.0,task has no triggered rule
+inc_04,inconsistent,B4,a3,coordinator,bounded_only,unknown,False,inconclusive,unknown,488281,moves<=8,unknown,2,1847.53,
+inc_04,inconsistent,B5,a3,coordinator,no_provenance,unknown,"[0, 1]",n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+inc_04,inconsistent,B6,a3,coordinator,no_provenance,unknown,[1],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+inc_04,inconsistent,B8,a3,coordinator,no_provenance,unknown,"[0, 1]",n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+inf_01,infeasible,B1,a1,gold_compiled,native_exact,True,True,correct,[C],3,unbounded,unknown,2,0.21,
+inf_01,infeasible,B2,a1,gold_compiled,native_exact,[],[],correct,unknown,2,unbounded,2,2,0.39,
+inf_01,infeasible,B3,a1,gold_compiled,not_applicable,[],[],n/a,unknown,0,,unknown,2,0.0,task has no triggered rule
+inf_01,infeasible,B4,a1,gold_compiled,native_exact,False,False,correct,unknown,192,unbounded,unknown,2,0.38,
+inf_01,infeasible,B5,a1,gold_compiled,native_exact,[],[],correct,unknown,0,,2,2,0.21,consistent; no conflict
+inf_01,infeasible,B6,a1,gold_compiled,native_exact,[0],[0],correct,unknown,2,depth<=2,2,2,0.43,
+inf_01,infeasible,B8,a1,gold_compiled,native_exact,"[1, 0]","[1, 0]",correct,unknown,2,unbounded,2,2,0.11,
+inf_01,infeasible,B1,a2c,coordinator,adapter_exact,True,True,correct,[C],3,unbounded,unknown,2,0.21,
+inf_01,infeasible,B2,a2c,coordinator,adapter_exact,[],[],correct,unknown,2,unbounded,2,2,0.39,
+inf_01,infeasible,B3,a2c,coordinator,not_applicable,[],[],n/a,unknown,0,,unknown,2,0.0,task has no triggered rule
+inf_01,infeasible,B4,a2c,coordinator,adapter_exact,False,False,correct,unknown,192,unbounded,unknown,2,0.37,
+inf_01,infeasible,B5,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,2,2,0.21,consistent; no conflict
+inf_01,infeasible,B6,a2c,coordinator,adapter_exact,[0],[0],correct,unknown,2,depth<=2,2,2,0.43,
+inf_01,infeasible,B8,a2c,coordinator,adapter_exact,"[1, 0]","[1, 0]",correct,unknown,2,unbounded,2,2,0.11,
+inf_01,infeasible,B1,a3,coordinator,bounded_only,True,True,correct,[C],5,len<=6,unknown,2,0.01,
+inf_01,infeasible,B2,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+inf_01,infeasible,B3,a3,coordinator,not_applicable,[],[],n/a,unknown,0,,unknown,2,0.0,task has no triggered rule
+inf_01,infeasible,B4,a3,coordinator,bounded_only,unknown,False,inconclusive,unknown,488281,moves<=8,unknown,2,1866.55,
+inf_01,infeasible,B5,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+inf_01,infeasible,B6,a3,coordinator,no_provenance,unknown,[0],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+inf_01,infeasible,B8,a3,coordinator,no_provenance,unknown,"[1, 0]",n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+inf_02,infeasible,B1,a1,gold_compiled,native_exact,True,True,correct,"[B, C]",6,unbounded,unknown,2,2.39,
+inf_02,infeasible,B2,a1,gold_compiled,native_exact,[],[],correct,unknown,2,unbounded,2,2,6.08,
+inf_02,infeasible,B3,a1,gold_compiled,not_applicable,[],[],n/a,unknown,0,,unknown,2,0.0,task has no triggered rule
+inf_02,infeasible,B4,a1,gold_compiled,native_exact,False,False,correct,unknown,384,unbounded,unknown,2,2.5,
+inf_02,infeasible,B5,a1,gold_compiled,native_exact,[],[],correct,unknown,0,,2,2,2.15,consistent; no conflict
+inf_02,infeasible,B6,a1,gold_compiled,native_exact,[0],[0],correct,unknown,2,depth<=2,2,2,2.36,
+inf_02,infeasible,B8,a1,gold_compiled,native_exact,"[2, 0]","[2, 0]",correct,unknown,2,unbounded,2,2,1.69,
+inf_02,infeasible,B1,a2c,coordinator,adapter_exact,True,True,correct,"[B, C]",6,unbounded,unknown,2,2.1,
+inf_02,infeasible,B2,a2c,coordinator,adapter_exact,[],[],correct,unknown,2,unbounded,2,2,6.01,
+inf_02,infeasible,B3,a2c,coordinator,not_applicable,[],[],n/a,unknown,0,,unknown,2,0.0,task has no triggered rule
+inf_02,infeasible,B4,a2c,coordinator,adapter_exact,False,False,correct,unknown,384,unbounded,unknown,2,2.37,
+inf_02,infeasible,B5,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,2,2,2.13,consistent; no conflict
+inf_02,infeasible,B6,a2c,coordinator,adapter_exact,[0],[0],correct,unknown,2,depth<=2,2,2,2.33,
+inf_02,infeasible,B8,a2c,coordinator,adapter_exact,"[2, 0]","[2, 0]",correct,unknown,2,unbounded,2,2,1.56,
+inf_02,infeasible,B1,a3,coordinator,bounded_only,True,True,correct,"[B, C]",23,len<=6,unknown,2,0.04,
+inf_02,infeasible,B2,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+inf_02,infeasible,B3,a3,coordinator,not_applicable,[],[],n/a,unknown,0,,unknown,2,0.0,task has no triggered rule
+inf_02,infeasible,B4,a3,coordinator,bounded_only,unknown,False,inconclusive,unknown,488281,moves<=8,unknown,2,1850.38,
+inf_02,infeasible,B5,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+inf_02,infeasible,B6,a3,coordinator,no_provenance,unknown,[0],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+inf_02,infeasible,B8,a3,coordinator,no_provenance,unknown,"[2, 0]",n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+inf_03,infeasible,B1,a1,gold_compiled,native_exact,True,True,correct,"[A, C]",10,unbounded,unknown,2,9.44,
+inf_03,infeasible,B2,a1,gold_compiled,native_exact,[],[],correct,unknown,2,unbounded,2,2,14.28,
+inf_03,infeasible,B3,a1,gold_compiled,native_exact,"[[""r2:A"", ""fires""]]","[[""r2:A"", ""fires""]]",correct,unknown,1,unbounded,unknown,2,9.31,
+inf_03,infeasible,B4,a1,gold_compiled,native_exact,False,False,correct,unknown,640,unbounded,unknown,2,9.59,
+inf_03,infeasible,B5,a1,gold_compiled,native_exact,[],[],correct,unknown,0,,2,2,9.25,consistent; no conflict
+inf_03,infeasible,B6,a1,gold_compiled,native_exact,[0],[0],correct,unknown,2,depth<=2,2,2,18.08,
+inf_03,infeasible,B8,a1,gold_compiled,native_exact,"[1, 0]","[1, 0]",correct,unknown,2,unbounded,2,2,8.52,
+inf_03,infeasible,B1,a2c,coordinator,adapter_exact,True,True,correct,"[A, C]",10,unbounded,unknown,2,9.28,
+inf_03,infeasible,B2,a2c,coordinator,adapter_exact,[],[],correct,unknown,2,unbounded,2,2,14.33,
+inf_03,infeasible,B3,a2c,coordinator,adapter_exact,"[[""r2:A"", ""fires""]]","[[""r2:A"", ""fires""]]",correct,unknown,1,unbounded,unknown,2,9.29,
+inf_03,infeasible,B4,a2c,coordinator,adapter_exact,False,False,correct,unknown,640,unbounded,unknown,2,9.53,
+inf_03,infeasible,B5,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,2,2,9.8,consistent; no conflict
+inf_03,infeasible,B6,a2c,coordinator,adapter_exact,[0],[0],correct,unknown,2,depth<=2,2,2,18.3,
+inf_03,infeasible,B8,a2c,coordinator,adapter_exact,"[1, 0]","[1, 0]",correct,unknown,2,unbounded,2,2,8.7,
+inf_03,infeasible,B1,a3,coordinator,bounded_only,True,True,correct,"[A, C]",17,len<=6,unknown,2,0.03,
+inf_03,infeasible,B2,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+inf_03,infeasible,B3,a3,coordinator,bounded_only,"[[""r2:A"", ""fires""]]","[[""r2:A"", ""fires""]]",correct,unknown,17,len<=6,unknown,2,0.02,
+inf_03,infeasible,B4,a3,coordinator,bounded_only,unknown,False,inconclusive,unknown,488281,moves<=8,unknown,2,1923.21,
+inf_03,infeasible,B5,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+inf_03,infeasible,B6,a3,coordinator,no_provenance,unknown,[0],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+inf_03,infeasible,B8,a3,coordinator,no_provenance,unknown,"[1, 0]",n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+inf_04,infeasible,B1,a1,gold_compiled,native_exact,True,True,correct,[C],3,unbounded,unknown,1,0.11,
+inf_04,infeasible,B2,a1,gold_compiled,native_exact,[],[],correct,unknown,0,unbounded,1,1,0.0,
+inf_04,infeasible,B3,a1,gold_compiled,not_applicable,[],[],n/a,unknown,0,,unknown,1,0.0,task has no triggered rule
+inf_04,infeasible,B4,a1,gold_compiled,native_exact,False,False,correct,unknown,192,unbounded,unknown,1,0.26,
+inf_04,infeasible,B5,a1,gold_compiled,native_exact,[],[],correct,unknown,0,,1,1,0.1,consistent; no conflict
+inf_04,infeasible,B6,a1,gold_compiled,native_exact,unknown,unknown,correct,unknown,1,depth<=2,1,1,0.26,no repair within depth
+inf_04,infeasible,B8,a1,gold_compiled,native_exact,[1],[1],correct,unknown,1,unbounded,1,1,0.1,
+inf_04,infeasible,B1,a2c,coordinator,adapter_exact,True,True,correct,[C],3,unbounded,unknown,1,0.1,
+inf_04,infeasible,B2,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,unbounded,1,1,0.0,
+inf_04,infeasible,B3,a2c,coordinator,not_applicable,[],[],n/a,unknown,0,,unknown,1,0.0,task has no triggered rule
+inf_04,infeasible,B4,a2c,coordinator,adapter_exact,False,False,correct,unknown,192,unbounded,unknown,1,0.26,
+inf_04,infeasible,B5,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,1,1,0.1,consistent; no conflict
+inf_04,infeasible,B6,a2c,coordinator,adapter_exact,unknown,unknown,correct,unknown,1,depth<=2,1,1,0.26,no repair within depth
+inf_04,infeasible,B8,a2c,coordinator,adapter_exact,[1],[1],correct,unknown,1,unbounded,1,1,0.1,
+inf_04,infeasible,B1,a3,coordinator,bounded_only,True,True,correct,[C],5,len<=6,unknown,1,0.01,
+inf_04,infeasible,B2,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+inf_04,infeasible,B3,a3,coordinator,not_applicable,[],[],n/a,unknown,0,,unknown,1,0.0,task has no triggered rule
+inf_04,infeasible,B4,a3,coordinator,bounded_only,unknown,False,inconclusive,unknown,488281,moves<=8,unknown,1,1854.11,
+inf_04,infeasible,B5,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+inf_04,infeasible,B6,a3,coordinator,no_provenance,unknown,unknown,n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+inf_04,infeasible,B8,a3,coordinator,no_provenance,unknown,[1],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+red_01,redundant,B1,a1,gold_compiled,native_exact,True,True,correct,"[A, B, C]",11,unbounded,unknown,2,12.56,
+red_01,redundant,B2,a1,gold_compiled,native_exact,[1],[1],correct,unknown,2,unbounded,2,2,23.11,
+red_01,redundant,B3,a1,gold_compiled,not_applicable,[],[],n/a,unknown,0,,unknown,2,0.0,task has no triggered rule
+red_01,redundant,B4,a1,gold_compiled,native_exact,True,True,correct,12,704,unbounded,unknown,2,12.78,
+red_01,redundant,B5,a1,gold_compiled,native_exact,[],[],correct,unknown,0,,2,2,12.33,consistent; no conflict
+red_01,redundant,B6,a1,gold_compiled,native_exact,[],[],correct,unknown,0,,2,2,12.66,already feasible
+red_01,redundant,B8,a1,gold_compiled,native_exact,"[3, 2]","[3, 2]",correct,unknown,2,unbounded,2,2,11.52,
+red_01,redundant,B1,a2c,coordinator,adapter_exact,True,True,correct,"[A, B, C]",11,unbounded,unknown,2,12.36,
+red_01,redundant,B2,a2c,coordinator,adapter_exact,[1],[1],correct,unknown,2,unbounded,2,2,22.61,
+red_01,redundant,B3,a2c,coordinator,not_applicable,[],[],n/a,unknown,0,,unknown,2,0.0,task has no triggered rule
+red_01,redundant,B4,a2c,coordinator,adapter_exact,True,True,correct,12,704,unbounded,unknown,2,12.48,
+red_01,redundant,B5,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,2,2,12.21,consistent; no conflict
+red_01,redundant,B6,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,2,2,12.62,already feasible
+red_01,redundant,B8,a2c,coordinator,adapter_exact,"[3, 2]","[3, 2]",correct,unknown,2,unbounded,2,2,11.45,
+red_01,redundant,B1,a3,coordinator,bounded_only,True,True,correct,"[A, B, C]",95,len<=6,unknown,2,0.11,
+red_01,redundant,B2,a3,coordinator,no_provenance,unknown,[1],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+red_01,redundant,B3,a3,coordinator,not_applicable,[],[],n/a,unknown,0,,unknown,2,0.0,task has no triggered rule
+red_01,redundant,B4,a3,coordinator,bounded_only,unknown,True,inconclusive,unknown,488281,moves<=8,unknown,2,1887.81,
+red_01,redundant,B5,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+red_01,redundant,B6,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+red_01,redundant,B8,a3,coordinator,no_provenance,unknown,"[3, 2]",n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+red_02,redundant,B1,a1,gold_compiled,native_exact,True,True,correct,"[A, B]",5,unbounded,unknown,2,1.65,
+red_02,redundant,B2,a1,gold_compiled,native_exact,[1],[1],correct,unknown,2,unbounded,2,2,2.8,
+red_02,redundant,B3,a1,gold_compiled,not_applicable,[],[],n/a,unknown,0,,unknown,2,0.0,task has no triggered rule
+red_02,redundant,B4,a1,gold_compiled,native_exact,True,True,correct,6,320,unbounded,unknown,2,1.7,
+red_02,redundant,B5,a1,gold_compiled,native_exact,[],[],correct,unknown,0,,2,2,1.68,consistent; no conflict
+red_02,redundant,B6,a1,gold_compiled,native_exact,[],[],correct,unknown,0,,2,2,1.71,already feasible
+red_02,redundant,B8,a1,gold_compiled,native_exact,"[2, 1]","[2, 1]",correct,unknown,2,unbounded,2,2,1.56,
+red_02,redundant,B1,a2c,coordinator,adapter_exact,True,True,correct,"[A, B]",5,unbounded,unknown,2,1.73,
+red_02,redundant,B2,a2c,coordinator,adapter_exact,[1],[1],correct,unknown,2,unbounded,2,2,2.72,
+red_02,redundant,B3,a2c,coordinator,not_applicable,[],[],n/a,unknown,0,,unknown,2,0.0,task has no triggered rule
+red_02,redundant,B4,a2c,coordinator,adapter_exact,True,True,correct,6,320,unbounded,unknown,2,1.73,
+red_02,redundant,B5,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,2,2,1.68,consistent; no conflict
+red_02,redundant,B6,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,2,2,1.79,already feasible
+red_02,redundant,B8,a2c,coordinator,adapter_exact,"[2, 1]","[2, 1]",correct,unknown,2,unbounded,2,2,1.6,
+red_02,redundant,B1,a3,coordinator,bounded_only,True,True,correct,"[A, B]",16,len<=6,unknown,2,0.03,
+red_02,redundant,B2,a3,coordinator,no_provenance,unknown,[1],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+red_02,redundant,B3,a3,coordinator,not_applicable,[],[],n/a,unknown,0,,unknown,2,0.0,task has no triggered rule
+red_02,redundant,B4,a3,coordinator,bounded_only,True,True,correct,6,9325,moves<=8,unknown,2,27.74,
+red_02,redundant,B5,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+red_02,redundant,B6,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+red_02,redundant,B8,a3,coordinator,no_provenance,unknown,"[2, 1]",n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+red_03,redundant,B1,a1,gold_compiled,native_exact,True,True,correct,[],5,unbounded,unknown,2,6.73,
+red_03,redundant,B2,a1,gold_compiled,native_exact,[0],[0],correct,unknown,2,unbounded,2,2,27.15,
+red_03,redundant,B3,a1,gold_compiled,native_exact,"[[""r1:A"", ""fires""], [""r2:A"", ""fires""]]","[[""r1:A"", ""fires""], [""r2:A"", ""fires""]]",correct,unknown,2,unbounded,unknown,2,16.01,
+red_03,redundant,B4,a1,gold_compiled,native_exact,True,True,correct,0,320,unbounded,unknown,2,6.51,
+red_03,redundant,B5,a1,gold_compiled,native_exact,[],[],correct,unknown,0,,2,2,6.49,consistent; no conflict
+red_03,redundant,B6,a1,gold_compiled,native_exact,[],[],correct,unknown,0,,2,2,6.6,already feasible
+red_03,redundant,B8,a1,gold_compiled,native_exact,"[0, 0]","[0, 0]",correct,unknown,2,unbounded,2,2,10.98,
+red_03,redundant,B1,a2c,coordinator,adapter_exact,True,True,correct,[],5,unbounded,unknown,2,6.45,
+red_03,redundant,B2,a2c,coordinator,adapter_exact,[0],[0],correct,unknown,2,unbounded,2,2,26.46,
+red_03,redundant,B3,a2c,coordinator,adapter_exact,"[[""r1:A"", ""fires""], [""r2:A"", ""fires""]]","[[""r1:A"", ""fires""], [""r2:A"", ""fires""]]",correct,unknown,2,unbounded,unknown,2,16.14,
+red_03,redundant,B4,a2c,coordinator,adapter_exact,True,True,correct,0,320,unbounded,unknown,2,6.74,
+red_03,redundant,B5,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,2,2,6.62,consistent; no conflict
+red_03,redundant,B6,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,2,2,6.6,already feasible
+red_03,redundant,B8,a2c,coordinator,adapter_exact,"[0, 0]","[0, 0]",correct,unknown,2,unbounded,2,2,10.9,
+red_03,redundant,B1,a3,coordinator,bounded_only,True,True,correct,[],1,len<=6,unknown,2,0.01,
+red_03,redundant,B2,a3,coordinator,no_provenance,unknown,[0],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+red_03,redundant,B3,a3,coordinator,bounded_only,"[[""r1:A"", ""fires""], [""r2:A"", ""fires""]]","[[""r1:A"", ""fires""], [""r2:A"", ""fires""]]",correct,unknown,32,len<=6,unknown,2,0.03,
+red_03,redundant,B4,a3,coordinator,bounded_only,True,True,correct,0,1,moves<=8,unknown,2,0.0,
+red_03,redundant,B5,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+red_03,redundant,B6,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+red_03,redundant,B8,a3,coordinator,no_provenance,unknown,"[0, 0]",n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+vac_01,vacuous,B1,a1,gold_compiled,native_exact,True,True,correct,[],2,unbounded,unknown,2,0.55,
+vac_01,vacuous,B2,a1,gold_compiled,native_exact,[1],[1],correct,unknown,2,unbounded,2,2,3.95,
+vac_01,vacuous,B3,a1,gold_compiled,native_exact,"[[""r2:A"", ""vacuous""]]","[[""r2:A"", ""vacuous""]]",correct,unknown,1,unbounded,unknown,2,0.62,
+vac_01,vacuous,B4,a1,gold_compiled,native_exact,True,True,correct,0,128,unbounded,unknown,2,0.54,
+vac_01,vacuous,B5,a1,gold_compiled,native_exact,[],[],correct,unknown,0,,2,2,0.55,consistent; no conflict
+vac_01,vacuous,B6,a1,gold_compiled,native_exact,[],[],correct,unknown,0,,2,2,0.55,already feasible
+vac_01,vacuous,B8,a1,gold_compiled,native_exact,"[0, 0]","[0, 0]",correct,unknown,2,unbounded,2,2,2.52,
+vac_01,vacuous,B1,a2c,coordinator,adapter_exact,True,True,correct,[],2,unbounded,unknown,2,0.55,
+vac_01,vacuous,B2,a2c,coordinator,adapter_exact,[1],[1],correct,unknown,2,unbounded,2,2,3.95,
+vac_01,vacuous,B3,a2c,coordinator,adapter_exact,"[[""r2:A"", ""vacuous""]]","[[""r2:A"", ""vacuous""]]",correct,unknown,1,unbounded,unknown,2,0.63,
+vac_01,vacuous,B4,a2c,coordinator,adapter_exact,True,True,correct,0,128,unbounded,unknown,2,0.56,
+vac_01,vacuous,B5,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,2,2,0.57,consistent; no conflict
+vac_01,vacuous,B6,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,2,2,0.56,already feasible
+vac_01,vacuous,B8,a2c,coordinator,adapter_exact,"[0, 0]","[0, 0]",correct,unknown,2,unbounded,2,2,2.57,
+vac_01,vacuous,B1,a3,coordinator,bounded_only,True,True,correct,[],1,len<=6,unknown,2,0.01,
+vac_01,vacuous,B2,a3,coordinator,no_provenance,unknown,[1],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+vac_01,vacuous,B3,a3,coordinator,bounded_only,"[[""r2:A"", ""unknown""]]","[[""r2:A"", ""vacuous""]]",inconclusive,unknown,55987,len<=6,unknown,2,68.93,
+vac_01,vacuous,B4,a3,coordinator,bounded_only,True,True,correct,0,1,moves<=8,unknown,2,0.01,
+vac_01,vacuous,B5,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+vac_01,vacuous,B6,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+vac_01,vacuous,B8,a3,coordinator,no_provenance,unknown,"[0, 0]",n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+vac_02,vacuous,B1,a1,gold_compiled,native_exact,True,True,correct,"[C, D]",6,unbounded,unknown,3,3.28,
+vac_02,vacuous,B2,a1,gold_compiled,native_exact,[2],[2],correct,unknown,3,unbounded,3,3,16.33,
+vac_02,vacuous,B3,a1,gold_compiled,native_exact,"[[""r3:X"", ""vacuous""]]","[[""r3:X"", ""vacuous""]]",correct,unknown,1,unbounded,unknown,3,3.65,
+vac_02,vacuous,B4,a1,gold_compiled,native_exact,False,False,correct,unknown,384,unbounded,unknown,3,3.52,
+vac_02,vacuous,B5,a1,gold_compiled,native_exact,[],[],correct,unknown,0,,3,3,3.29,consistent; no conflict
+vac_02,vacuous,B6,a1,gold_compiled,native_exact,[0],[0],correct,unknown,2,depth<=2,3,3,3.69,
+vac_02,vacuous,B8,a1,gold_compiled,native_exact,"[2, 0, 0]","[2, 0, 0]",correct,unknown,3,unbounded,3,3,2.06,
+vac_02,vacuous,B1,a2c,coordinator,adapter_exact,True,True,correct,"[C, D]",6,unbounded,unknown,3,3.29,
+vac_02,vacuous,B2,a2c,coordinator,adapter_exact,[2],[2],correct,unknown,3,unbounded,3,3,16.44,
+vac_02,vacuous,B3,a2c,coordinator,adapter_exact,"[[""r3:X"", ""vacuous""]]","[[""r3:X"", ""vacuous""]]",correct,unknown,1,unbounded,unknown,3,3.67,
+vac_02,vacuous,B4,a2c,coordinator,adapter_exact,False,False,correct,unknown,384,unbounded,unknown,3,3.48,
+vac_02,vacuous,B5,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,3,3,3.14,consistent; no conflict
+vac_02,vacuous,B6,a2c,coordinator,adapter_exact,[0],[0],correct,unknown,2,depth<=2,3,3,3.79,
+vac_02,vacuous,B8,a2c,coordinator,adapter_exact,"[2, 0, 0]","[2, 0, 0]",correct,unknown,3,unbounded,3,3,2.17,
+vac_02,vacuous,B1,a3,coordinator,bounded_only,True,True,correct,"[C, D]",30,len<=6,unknown,3,0.05,
+vac_02,vacuous,B2,a3,coordinator,no_provenance,unknown,[2],n/a,unknown,0,,unknown,3,0.0,artifact exposes no requirement units
+vac_02,vacuous,B3,a3,coordinator,bounded_only,"[[""r3:X"", ""unknown""]]","[[""r3:X"", ""vacuous""]]",inconclusive,unknown,55987,len<=6,unknown,3,77.11,
+vac_02,vacuous,B4,a3,coordinator,bounded_only,unknown,False,inconclusive,unknown,488281,moves<=8,unknown,3,1867.62,
+vac_02,vacuous,B5,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,3,0.0,artifact exposes no requirement units
+vac_02,vacuous,B6,a3,coordinator,no_provenance,unknown,[0],n/a,unknown,0,,unknown,3,0.0,artifact exposes no requirement units
+vac_02,vacuous,B8,a3,coordinator,no_provenance,unknown,"[2, 0, 0]",n/a,unknown,0,,unknown,3,0.0,artifact exposes no requirement units
+ver_01_old,version_numeric,B1,a1,gold_compiled,native_exact,True,True,correct,"[A, B]",6,unbounded,unknown,2,3.21,
+ver_01_old,version_numeric,B2,a1,gold_compiled,native_exact,[],[],correct,unknown,2,unbounded,2,2,4.95,
+ver_01_old,version_numeric,B3,a1,gold_compiled,native_exact,"[[""r2:A"", ""fires""]]","[[""r2:A"", ""fires""]]",correct,unknown,1,unbounded,unknown,2,3.1,
+ver_01_old,version_numeric,B4,a1,gold_compiled,native_exact,False,False,correct,unknown,384,unbounded,unknown,2,3.47,
+ver_01_old,version_numeric,B5,a1,gold_compiled,native_exact,[],[],correct,unknown,0,,2,2,3.15,consistent; no conflict
+ver_01_old,version_numeric,B6,a1,gold_compiled,native_exact,[0],[0],correct,unknown,2,depth<=2,2,2,6.05,
+ver_01_old,version_numeric,B7,a1,gold_compiled,native_exact,strictly_weaker,strictly_weaker,correct,"[A, O, O, B]",2,unbounded,unknown,2,30.65,
+ver_01_old,version_numeric,B8,a1,gold_compiled,native_exact,"[1, 0]","[1, 0]",correct,unknown,2,unbounded,2,2,2.62,
+ver_01_old,version_numeric,B1,a2c,coordinator,adapter_exact,True,True,correct,"[A, B]",6,unbounded,unknown,2,3.25,
+ver_01_old,version_numeric,B2,a2c,coordinator,adapter_exact,[],[],correct,unknown,2,unbounded,2,2,5.03,
+ver_01_old,version_numeric,B3,a2c,coordinator,adapter_exact,"[[""r2:A"", ""fires""]]","[[""r2:A"", ""fires""]]",correct,unknown,1,unbounded,unknown,2,3.1,
+ver_01_old,version_numeric,B4,a2c,coordinator,adapter_exact,False,False,correct,unknown,384,unbounded,unknown,2,3.5,
+ver_01_old,version_numeric,B5,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,2,2,3.1,consistent; no conflict
+ver_01_old,version_numeric,B6,a2c,coordinator,adapter_exact,[0],[0],correct,unknown,2,depth<=2,2,2,6.12,
+ver_01_old,version_numeric,B7,a2c,coordinator,adapter_exact,strictly_weaker,strictly_weaker,correct,"[A, O, O, B]",2,unbounded,unknown,2,31.2,
+ver_01_old,version_numeric,B8,a2c,coordinator,adapter_exact,"[1, 0]","[1, 0]",correct,unknown,2,unbounded,2,2,2.54,
+ver_01_old,version_numeric,B1,a3,coordinator,bounded_only,True,True,correct,"[A, B]",16,len<=6,unknown,2,0.03,
+ver_01_old,version_numeric,B2,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+ver_01_old,version_numeric,B3,a3,coordinator,bounded_only,"[[""r2:A"", ""fires""]]","[[""r2:A"", ""fires""]]",correct,unknown,16,len<=6,unknown,2,0.02,
+ver_01_old,version_numeric,B4,a3,coordinator,bounded_only,unknown,False,inconclusive,unknown,488281,moves<=8,unknown,2,1930.92,
+ver_01_old,version_numeric,B5,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+ver_01_old,version_numeric,B6,a3,coordinator,no_provenance,unknown,[0],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+ver_01_old,version_numeric,B7,a3,coordinator,bounded_only,strictly_weaker_up_to_bound,strictly_weaker,correct,"[A, O, O, B]",55987,len<=6,unknown,2,176.56,
+ver_01_old,version_numeric,B8,a3,coordinator,no_provenance,unknown,"[1, 0]",n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+ver_02_old,version_scope,B1,a1,gold_compiled,native_exact,True,True,correct,"[A, B, C]",12,unbounded,unknown,2,11.85,
+ver_02_old,version_scope,B2,a1,gold_compiled,native_exact,[],[],correct,unknown,2,unbounded,2,2,36.74,
+ver_02_old,version_scope,B3,a1,gold_compiled,not_applicable,[],[],n/a,unknown,0,,unknown,2,0.0,task has no triggered rule
+ver_02_old,version_scope,B4,a1,gold_compiled,native_exact,False,False,correct,unknown,768,unbounded,unknown,2,11.79,
+ver_02_old,version_scope,B5,a1,gold_compiled,native_exact,[],[],correct,unknown,0,,2,2,11.66,consistent; no conflict
+ver_02_old,version_scope,B6,a1,gold_compiled,native_exact,[0],[0],correct,unknown,2,depth<=2,2,2,12.02,
+ver_02_old,version_scope,B7,a1,gold_compiled,native_exact,strictly_weaker,strictly_weaker,correct,"[A, B, C+X]",2,unbounded,unknown,2,121.8,
+ver_02_old,version_scope,B8,a1,gold_compiled,native_exact,"[3, 0]","[3, 0]",correct,unknown,2,unbounded,2,2,10.3,
+ver_02_old,version_scope,B1,a2c,coordinator,adapter_exact,True,True,correct,"[A, B, C]",12,unbounded,unknown,2,11.51,
+ver_02_old,version_scope,B2,a2c,coordinator,adapter_exact,[],[],correct,unknown,2,unbounded,2,2,36.68,
+ver_02_old,version_scope,B3,a2c,coordinator,not_applicable,[],[],n/a,unknown,0,,unknown,2,0.0,task has no triggered rule
+ver_02_old,version_scope,B4,a2c,coordinator,adapter_exact,False,False,correct,unknown,768,unbounded,unknown,2,11.73,
+ver_02_old,version_scope,B5,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,2,2,11.69,consistent; no conflict
+ver_02_old,version_scope,B6,a2c,coordinator,adapter_exact,[0],[0],correct,unknown,2,depth<=2,2,2,11.71,
+ver_02_old,version_scope,B7,a2c,coordinator,adapter_exact,strictly_weaker,strictly_weaker,correct,"[A, B, C+X]",2,unbounded,unknown,2,121.2,
+ver_02_old,version_scope,B8,a2c,coordinator,adapter_exact,"[3, 0]","[3, 0]",correct,unknown,2,unbounded,2,2,9.95,
+ver_02_old,version_scope,B1,a3,coordinator,bounded_only,True,True,correct,"[A, B, C]",95,len<=6,unknown,2,0.11,
+ver_02_old,version_scope,B2,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+ver_02_old,version_scope,B3,a3,coordinator,not_applicable,[],[],n/a,unknown,0,,unknown,2,0.0,task has no triggered rule
+ver_02_old,version_scope,B4,a3,coordinator,bounded_only,unknown,False,inconclusive,unknown,488281,moves<=8,unknown,2,1893.69,
+ver_02_old,version_scope,B5,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+ver_02_old,version_scope,B6,a3,coordinator,no_provenance,unknown,[0],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+ver_02_old,version_scope,B7,a3,coordinator,bounded_only,strictly_weaker_up_to_bound,strictly_weaker,correct,"[A, B, C, X]",55987,len<=6,unknown,2,171.0,
+ver_02_old,version_scope,B8,a3,coordinator,no_provenance,unknown,"[3, 0]",n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+ver_03_old,version_structural,B1,a1,gold_compiled,native_exact,True,True,correct,"[A, B, C]",11,unbounded,unknown,1,9.93,
+ver_03_old,version_structural,B2,a1,gold_compiled,native_exact,[],[],correct,unknown,0,unbounded,1,1,0.0,
+ver_03_old,version_structural,B3,a1,gold_compiled,not_applicable,[],[],n/a,unknown,0,,unknown,1,0.0,task has no triggered rule
+ver_03_old,version_structural,B4,a1,gold_compiled,native_exact,True,True,correct,12,704,unbounded,unknown,1,10.4,
+ver_03_old,version_structural,B5,a1,gold_compiled,native_exact,[],[],correct,unknown,0,,1,1,10.12,consistent; no conflict
+ver_03_old,version_structural,B6,a1,gold_compiled,native_exact,[],[],correct,unknown,0,,1,1,10.16,already feasible
+ver_03_old,version_structural,B7,a1,gold_compiled,native_exact,strictly_weaker,strictly_weaker,correct,"[A, D, C]",2,unbounded,unknown,1,168.21,
+ver_03_old,version_structural,B8,a1,gold_compiled,native_exact,[3],[3],correct,unknown,1,unbounded,1,1,9.97,
+ver_03_old,version_structural,B1,a2c,coordinator,adapter_exact,True,True,correct,"[A, B, C]",11,unbounded,unknown,1,10.27,
+ver_03_old,version_structural,B2,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,unbounded,1,1,0.0,
+ver_03_old,version_structural,B3,a2c,coordinator,not_applicable,[],[],n/a,unknown,0,,unknown,1,0.0,task has no triggered rule
+ver_03_old,version_structural,B4,a2c,coordinator,adapter_exact,True,True,correct,12,704,unbounded,unknown,1,10.39,
+ver_03_old,version_structural,B5,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,1,1,10.55,consistent; no conflict
+ver_03_old,version_structural,B6,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,1,1,10.62,already feasible
+ver_03_old,version_structural,B7,a2c,coordinator,adapter_exact,strictly_weaker,strictly_weaker,correct,"[A, D, C]",2,unbounded,unknown,1,167.68,
+ver_03_old,version_structural,B8,a2c,coordinator,adapter_exact,[3],[3],correct,unknown,1,unbounded,1,1,10.19,
+ver_03_old,version_structural,B1,a3,coordinator,bounded_only,True,True,correct,"[A, B, C]",95,len<=6,unknown,1,0.1,
+ver_03_old,version_structural,B2,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+ver_03_old,version_structural,B3,a3,coordinator,not_applicable,[],[],n/a,unknown,0,,unknown,1,0.0,task has no triggered rule
+ver_03_old,version_structural,B4,a3,coordinator,bounded_only,unknown,True,inconclusive,unknown,488281,moves<=8,unknown,1,1887.46,
+ver_03_old,version_structural,B5,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+ver_03_old,version_structural,B6,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+ver_03_old,version_structural,B7,a3,coordinator,bounded_only,strictly_weaker_up_to_bound,strictly_weaker,correct,"[A, D, C]",55987,len<=6,unknown,1,183.52,
+ver_03_old,version_structural,B8,a3,coordinator,no_provenance,unknown,[3],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+ver_04_old,version_tightening,B1,a1,gold_compiled,native_exact,True,True,correct,[A],2,unbounded,unknown,1,0.05,
+ver_04_old,version_tightening,B2,a1,gold_compiled,native_exact,[],[],correct,unknown,0,unbounded,1,1,0.0,
+ver_04_old,version_tightening,B3,a1,gold_compiled,not_applicable,[],[],n/a,unknown,0,,unknown,1,0.0,task has no triggered rule
+ver_04_old,version_tightening,B4,a1,gold_compiled,native_exact,True,True,correct,3,128,unbounded,unknown,1,0.07,
+ver_04_old,version_tightening,B5,a1,gold_compiled,native_exact,[],[],correct,unknown,0,,1,1,0.05,consistent; no conflict
+ver_04_old,version_tightening,B6,a1,gold_compiled,native_exact,[],[],correct,unknown,0,,1,1,0.06,already feasible
+ver_04_old,version_tightening,B7,a1,gold_compiled,native_exact,strictly_stronger,strictly_stronger,correct,[A],2,unbounded,unknown,1,2.78,
+ver_04_old,version_tightening,B8,a1,gold_compiled,native_exact,[1],[1],correct,unknown,1,unbounded,1,1,0.05,
+ver_04_old,version_tightening,B1,a2c,coordinator,adapter_exact,True,True,correct,[A],2,unbounded,unknown,1,0.05,
+ver_04_old,version_tightening,B2,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,unbounded,1,1,0.0,
+ver_04_old,version_tightening,B3,a2c,coordinator,not_applicable,[],[],n/a,unknown,0,,unknown,1,0.0,task has no triggered rule
+ver_04_old,version_tightening,B4,a2c,coordinator,adapter_exact,True,True,correct,3,128,unbounded,unknown,1,0.06,
+ver_04_old,version_tightening,B5,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,1,1,0.05,consistent; no conflict
+ver_04_old,version_tightening,B6,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,1,1,0.06,already feasible
+ver_04_old,version_tightening,B7,a2c,coordinator,adapter_exact,strictly_stronger,strictly_stronger,correct,[A],2,unbounded,unknown,1,3.03,
+ver_04_old,version_tightening,B8,a2c,coordinator,adapter_exact,[1],[1],correct,unknown,1,unbounded,1,1,0.05,
+ver_04_old,version_tightening,B1,a3,coordinator,bounded_only,True,True,correct,[A],3,len<=6,unknown,1,0.01,
+ver_04_old,version_tightening,B2,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+ver_04_old,version_tightening,B3,a3,coordinator,not_applicable,[],[],n/a,unknown,0,,unknown,1,0.0,task has no triggered rule
+ver_04_old,version_tightening,B4,a3,coordinator,bounded_only,True,True,correct,3,75,moves<=8,unknown,1,0.15,
+ver_04_old,version_tightening,B5,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+ver_04_old,version_tightening,B6,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+ver_04_old,version_tightening,B7,a3,coordinator,bounded_only,strictly_stronger_up_to_bound,strictly_stronger,correct,[A],55987,len<=6,unknown,1,152.36,
+ver_04_old,version_tightening,B8,a3,coordinator,no_provenance,unknown,[1],n/a,unknown,0,,unknown,1,0.0,artifact exposes no requirement units
+ver_05_old,version_sideways,B1,a1,gold_compiled,native_exact,True,True,correct,[A],3,unbounded,unknown,2,0.2,
+ver_05_old,version_sideways,B2,a1,gold_compiled,native_exact,[],[],correct,unknown,2,unbounded,2,2,0.46,
+ver_05_old,version_sideways,B3,a1,gold_compiled,not_applicable,[],[],n/a,unknown,0,,unknown,2,0.0,task has no triggered rule
+ver_05_old,version_sideways,B4,a1,gold_compiled,native_exact,True,True,correct,3,192,unbounded,unknown,2,0.25,
+ver_05_old,version_sideways,B5,a1,gold_compiled,native_exact,[],[],correct,unknown,0,,2,2,0.22,consistent; no conflict
+ver_05_old,version_sideways,B6,a1,gold_compiled,native_exact,[],[],correct,unknown,0,,2,2,0.22,already feasible
+ver_05_old,version_sideways,B7,a1,gold_compiled,native_exact,incomparable,incomparable,correct,[B],2,unbounded,unknown,2,1.8,
+ver_05_old,version_sideways,B8,a1,gold_compiled,native_exact,"[1, 0]","[1, 0]",correct,unknown,2,unbounded,2,2,0.11,
+ver_05_old,version_sideways,B1,a2c,coordinator,adapter_exact,True,True,correct,[A],3,unbounded,unknown,2,0.21,
+ver_05_old,version_sideways,B2,a2c,coordinator,adapter_exact,[],[],correct,unknown,2,unbounded,2,2,0.39,
+ver_05_old,version_sideways,B3,a2c,coordinator,not_applicable,[],[],n/a,unknown,0,,unknown,2,0.0,task has no triggered rule
+ver_05_old,version_sideways,B4,a2c,coordinator,adapter_exact,True,True,correct,3,192,unbounded,unknown,2,0.22,
+ver_05_old,version_sideways,B5,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,2,2,0.21,consistent; no conflict
+ver_05_old,version_sideways,B6,a2c,coordinator,adapter_exact,[],[],correct,unknown,0,,2,2,0.21,already feasible
+ver_05_old,version_sideways,B7,a2c,coordinator,adapter_exact,incomparable,incomparable,correct,[B],2,unbounded,unknown,2,1.78,
+ver_05_old,version_sideways,B8,a2c,coordinator,adapter_exact,"[1, 0]","[1, 0]",correct,unknown,2,unbounded,2,2,0.11,
+ver_05_old,version_sideways,B1,a3,coordinator,bounded_only,True,True,correct,[A],3,len<=6,unknown,2,0.01,
+ver_05_old,version_sideways,B2,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+ver_05_old,version_sideways,B3,a3,coordinator,not_applicable,[],[],n/a,unknown,0,,unknown,2,0.0,task has no triggered rule
+ver_05_old,version_sideways,B4,a3,coordinator,bounded_only,True,True,correct,3,75,moves<=8,unknown,2,0.15,
+ver_05_old,version_sideways,B5,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+ver_05_old,version_sideways,B6,a3,coordinator,no_provenance,unknown,[],n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units
+ver_05_old,version_sideways,B7,a3,coordinator,bounded_only,incomparable,incomparable,correct,[A],4,len<=6,unknown,2,0.01,
+ver_05_old,version_sideways,B8,a3,coordinator,no_provenance,unknown,"[1, 0]",n/a,unknown,0,,unknown,2,0.0,artifact exposes no requirement units

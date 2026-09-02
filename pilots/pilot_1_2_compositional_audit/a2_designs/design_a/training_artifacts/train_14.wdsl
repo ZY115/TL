@@ -1,0 +1,4 @@
+# train_14: every visit to delivery bay C must be followed by charging
+# dock D between 2 and 4 steps later, inclusive. Vacuously satisfied if
+# C never occurs.
+every(C, within(2, 4, D))

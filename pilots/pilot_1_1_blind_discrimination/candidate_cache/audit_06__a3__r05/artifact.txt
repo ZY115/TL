@@ -1,0 +1,18 @@
+class Monitor:
+    def reset(self) -> None:
+        self.steps = set()
+        self.a_occurred = False
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and not self.a_occurred:
+            self.steps.add(0)
+            self.a_occurred = True
+        elif 'A' in propositions and self.a_occurred:
+            self.steps.add(len(self.steps) + 1)
+        for x in ['X', 'C']:
+            if x in propositions and (x == 'C' and len(self.steps)) or (x != 'C' and x not in self.steps):
+                return
+        self.steps.add(len(self.steps))
+
+    def finish(self) -> bool:
+        return True if self.a_occurred else False

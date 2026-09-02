@@ -1,0 +1,6 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+seen [A]
+any {
+  seen B;
+}

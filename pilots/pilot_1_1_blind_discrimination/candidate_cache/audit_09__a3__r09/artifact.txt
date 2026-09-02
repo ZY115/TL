@@ -1,0 +1,31 @@
+class Monitor:
+    def reset(self) -> None:
+        self.propositions = set()
+        self.index = 0
+        self.X = False
+        self.C = False
+        self.B = {}
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and not self.X:
+            self.propositions.add('A')
+            self.index += 1
+            self.X = False
+
+        for prop in list(propositions):
+            if prop == 'B':
+                b_index = len(self.B)
+                self.B[prop] = (self.index, b_index)
+                break
+            elif prop == 'C' and not self.X:
+                c_index = len(self.C)
+                self.C[prop] = (self.index, c_index)
+                break
+            else:
+                propositions.remove(prop)
+
+        if 'B' in self.B and self.B['B'][1] > 1 and self.propositions == {'A'}:
+            self.propositions.add('B')
+
+    def finish(self) -> bool:
+        return len(self.C) > 0 or len(self.B) > 0

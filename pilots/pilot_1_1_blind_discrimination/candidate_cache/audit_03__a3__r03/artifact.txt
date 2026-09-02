@@ -1,0 +1,16 @@
+import itertools
+
+class Monitor:
+    def __init__(self):
+        self.traces = set()
+        self.propositions = {'A', 'B'}
+
+    def reset(self) -> None:
+        self.traces.clear()
+
+    def step(self, propositions: set[str]) -> None:
+        if any(prop in self.propositions for prop in propositions):
+            self.traces.add(''.join(sorted(propositions)))
+
+    def finish(self) -> bool:
+        return not self.traces

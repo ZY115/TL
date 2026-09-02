@@ -1,0 +1,6 @@
+Task train_12
+
+Every time A occurs, B must occur between two and four steps later, inclusive.
+An occurrence of B one step after A is too early and does not by itself satisfy
+that trigger. If A never occurs, the requirement is satisfied.
+

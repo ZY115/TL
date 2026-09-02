@@ -1,0 +1,39 @@
+{
+  "author_environments": [
+    {
+      "private_fragments_absent": true,
+      "prompt_hash": "059fe3f9b9845ea0b05b3629879b781dd3e6eb276fb7549fc38c14597b4c3749",
+      "representation": "a1",
+      "sentinel_absent_from_prompt": true
+    },
+    {
+      "private_fragments_absent": true,
+      "prompt_hash": "a4c758c2bd90a9087e7de13b4cf24a0e051d6c1e57263ec3dc4eb2aa228b3f2c",
+      "representation": "a2a",
+      "sentinel_absent_from_prompt": true
+    },
+    {
+      "private_fragments_absent": true,
+      "prompt_hash": "398567752e459d00f320b4485be3c95bda99cd3e2114b31de2fa54d4d6006241",
+      "representation": "a2b",
+      "sentinel_absent_from_prompt": true
+    },
+    {
+      "private_fragments_absent": true,
+      "prompt_hash": "cc6287b156e177ba8ff0118cd02fcfe4a9fe9854b764690bd04ab1d19b2222fb",
+      "representation": "a2c",
+      "sentinel_absent_from_prompt": true
+    },
+    {
+      "private_fragments_absent": true,
+      "prompt_hash": "00d0529e122db6a3dc134517ddd5fe05ca57708dda7598a7c9ecaa5d95993870",
+      "representation": "a3",
+      "sentinel_absent_from_prompt": true
+    }
+  ],
+  "isolation_check": "passed",
+  "response_side_check": "ingest_trial refuses any response containing the sentinel",
+  "sentinel_hash": "019d20c3691f693a2f447da03787aef4f925e0e05ff4bdc7119122b43ce3691f",
+  "timestamp": "2026-09-02T02:41:45+00:00",
+  "transport": "exported prompt file outside the repository; fresh memoryless subagent"
+}

@@ -1,0 +1,1 @@
+at_A U (at_B U F(at_C)) U (~X | (F(at_D) & D) X^1)

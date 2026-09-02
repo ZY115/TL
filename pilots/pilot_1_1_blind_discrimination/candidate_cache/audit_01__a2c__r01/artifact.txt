@@ -1,0 +1,12 @@
+{
+  "task": {
+    "type": "visit(A)",
+    "anchor": 0,
+    "trigger": "A"
+  },
+  "requirements": [
+    "A"
+  ],
+  "labels": ["A"],
+  "source_index": 0
+}

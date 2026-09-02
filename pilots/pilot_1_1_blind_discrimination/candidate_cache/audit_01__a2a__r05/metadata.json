@@ -1,0 +1,18 @@
+{
+  "artifact_hash": "38fc085c047227dc85382b7bbfc88a62f5260105715164da05b6246f20042c03",
+  "cache_key": "d1d89f7878c6ad8d2c5e319c0814b03c785a9c48fde9070dc38cbb09a62a27fe",
+  "model": "llama3.2:3b",
+  "model_revision": "a80c4f17acd5",
+  "provider": "ollama-local",
+  "replicate": 5,
+  "representation": "a2a",
+  "response_hash": "5529b8d12d2317247818597ca33b180d13e98bad1613138da2fed735ed3e5a05",
+  "seed": 20261205,
+  "system_prompt_hash": "de9dde5047bc260205e352e0e57d5de9ee53d16141b8bee7b2874204604194b3",
+  "task_id": "audit_01",
+  "temperature": 0.7,
+  "timestamp": "2026-09-02T01:04:50+00:00",
+  "top_p": 0.9,
+  "trial_id": "audit_01__a2a__r05",
+  "user_prompt_hash": "4a1f874671080883941656ad2856d196b6c757194d33b62cb5bbb9e296f61dc4"
+}

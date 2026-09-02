@@ -1,0 +1,11 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+task = "all(after_each(A, between(1, 2, D)), after_each(B, avoid_until(X, C)))"
+
+tree = parse_task(task)
+text = canonicalize(task)
+
+ok = evaluate_task(
+    task,
+    (frozenset(), frozenset({"A"}), frozenset({"D"}), frozenset({"B"}), frozenset({"X", "C"}))
+)

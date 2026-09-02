@@ -1,0 +1,15 @@
+class Monitor:
+    def reset(self) -> None:
+        self.a_visited = False
+        self.b_offset = 0
+        self.step_index = 0
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and not self.a_visited:
+            self.a_visited = True
+            self.b_offset = 2 + self.step_index % (4 - self.step_index)
+        elif 'B' in propositions and self.a_visited:
+            self.step_index += 1
+
+    def finish(self) -> bool:
+        return self.step_index >= 1000

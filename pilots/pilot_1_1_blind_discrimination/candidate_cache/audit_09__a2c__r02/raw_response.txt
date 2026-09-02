@@ -1,0 +1,15 @@
+def task_15(warehouse_dsl):
+    import warehouse_dsl.parse_task as parse_task
+    from warehouse_dsl.canonicalize import canonicalize
+    from warehouse_dsl.evaluate_task import evaluate_task
+    
+    # Parse the input warehouse DSL expression
+    tree = parse_task("all(after_each(A, after_each(B, after_each(C, avoid_until(X, C))))")
+
+    # Canonicalize the parsed task to a deterministic single-line spelling
+    text = canonicalize(tree)
+
+    # Evaluate the task and return its result as a boolean
+    ok = evaluate_task(text, ((frozenset(), frozenset({"A"})), (frozenset({"B"}), frozenset({"C"})), (frozenset({"D"}), frozenset({"B", "D"}})))
+
+    return ok

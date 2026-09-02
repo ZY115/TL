@@ -1,0 +1,23 @@
+def evaluate_task(source, trace):
+    stack = []
+    k = 0
+    for i in range(len(trace[0])):
+        step = set(trace[i])
+        if source == "after_each(A, avoid(X))":
+            for j in range(k+1, len(trace)):
+                if trace[j][0] == 'A':
+                    yield not ('X' in step)
+            k += 1
+        elif source == "avoid_until(X, C)":
+            for j in range(k+1, len(trace)):
+                if (trace[j][0] == 'C'):
+                    if ('X' in step):
+                        return False
+        elif source == "all(visit(A), avoid(X))" or source == "any(visit(B), visit(D"))":
+            yield all(step.issuperset({'A'}) and not ('X' in step) for step in trace[k:])
+            k += 1
+        else:
+            stack.append(i)
+
+    if len(stack) > 0:
+        return False

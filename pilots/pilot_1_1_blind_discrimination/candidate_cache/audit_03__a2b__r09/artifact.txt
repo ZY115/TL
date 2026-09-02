@@ -1,0 +1,15 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def task():
+    seen A
+    order [A, B]
+
+task_source = """
+seen A
+order [A, B]
+"""
+canonicalized_task = canonicalize(task_source)
+print(canonicalized_task)
+
+result = evaluate_task(canonicalized_task, ([frozenset(["A"]), frozenset(["B"])],))
+print(result)  # Should print: True

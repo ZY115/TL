@@ -1,0 +1,1 @@
+( at_A U F at_B ) | ( X^2 at_C ) | ( X^(4) at_D ) & ~( X at_X | X^(1) at_X )

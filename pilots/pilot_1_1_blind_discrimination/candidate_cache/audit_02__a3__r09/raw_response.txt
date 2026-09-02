@@ -1,0 +1,19 @@
+```python
+class Monitor:
+    def __init__(self):
+        self.visited_A = False
+        self.visited_X = True
+
+    def reset(self) -> None:
+        pass
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions:
+            self.visited_A = True
+            self.visited_X = False
+        elif 'X' in propositions and not self.visited_X:
+            raise ValueError("Invalid trace")
+
+    def finish(self) -> bool:
+        return self.visited_A
+```

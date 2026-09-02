@@ -1,0 +1,55 @@
+class Monitor:
+    def __init__(self, proposition_labels):
+        self.proposition_labels = proposition_labels
+        self.last_A_index = None
+        self.last_B_index = None
+        self.last_C_index = None
+        self.X_entry = False
+
+    def reset(self) -> None:
+        pass
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and self.last_A_index is not None:
+            for i in range(max(0, self.last_A_index + 1), min(len(propositions), self.last_B_index + 4)):
+                if 'B' in propositions[i]:
+                    return
+        elif 'B' in propositions and self.last_B_index is not None:
+            if self.last_C_index is None or self.X_entry:
+                return
+            if 'D' in propositions[-2:]:
+                return
+        for p in set(propositions):
+            if p == 'X':
+                self.X_entry = True
+                break
+        else:
+            self.X_entry = False
+
+        if 'A' in propositions and (self.last_A_index is None or self.last_B_index < self.last_A_index + 1) and ('B' not in propositions[self.last_B_index] if self.last_B_index is not None else False):
+            return
+        elif 'C' in propositions:
+            for p in set(propositions):
+                if p == 'D':
+                    break
+            else:
+                return
+        elif ('A' not in propositions and 'B' not in propositions) or (self.X_entry and 'C' not in propositions[self.last_C_index] if self.last_C_index is not None else False):
+            return
+
+        if len(propositions) == 1:
+            return
+        elif 'D' in propositions and 'B' in propositions[self.last_B_index]:
+            return
+        elif ('A' not in propositions or self.X_entry) and 'C' in propositions[-1]:
+            return
+
+        if 'A' in propositions:
+            self.last_A_index = len(propositions)
+        elif 'B' in propositions:
+            self.last_B_index = len(propositions)
+        elif 'C' in propositions:
+            self.last_C_index = len(propositions)
+
+    def finish(self) -> bool:
+        return not (self.X_entry and any(p == 'D' for p in set(propositions) if propositions.index(p) < self.last_C_index))

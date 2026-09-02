@@ -1,0 +1,1 @@
+After every visit to shelf A, reach the inspection station B one to three steps later. After every visit to B, stay out of the hazard zone X until the delivery bay C is reached; a C at that B step or later is required, X is forbidden strictly between that B and its C, and X is allowed on the C step. Each rule is vacuously satisfied if its trigger never occurs.

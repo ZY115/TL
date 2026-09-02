@@ -1,0 +1,22 @@
+```python
+class Monitor:
+    def __init__(self):
+        self.a_visited = False
+        self.x_avoided = True
+        self.c_reached = {}
+
+    def reset(self) -> None:
+        pass
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions:
+            if not self.a_visited and 'X' in propositions:
+                self.x_avoided = False
+            self.a_visited = True
+            for c_step in range(1, 5):
+                if f'A{c_step}' in propositions and f'C{c_step}' in propositions:
+                    self.c_reached[f'A{c_step}'] = c_step
+
+    def finish(self) -> bool:
+        return not (self.x_avoided or self.a_visited and 'C' in self.c_reached)
+```

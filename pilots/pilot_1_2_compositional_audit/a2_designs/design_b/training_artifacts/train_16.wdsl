@@ -1,0 +1,6 @@
+# train_16: every pickup at A must satisfy one of two options for that
+# pickup: reach inspection B one or two steps later and then eventually
+# reach delivery bay C at/after that B; or reach overflow dock D at that
+# pickup step or later. Different pickups may use different options.
+# Vacuous if A never occurs.
+(whenever A (either (within 1 2 B (then (visit C))) (visit D)))

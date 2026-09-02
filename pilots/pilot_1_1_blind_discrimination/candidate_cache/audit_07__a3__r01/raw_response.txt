@@ -1,0 +1,28 @@
+```python
+class Monitor:
+    def reset(self) -> None:
+        self.a_visited = False
+        self.b_visited = False
+        self.c_visited = {}
+        self.d_visited = {}
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions:
+            if not self.a_visited:
+                self.a_visited = True
+                for i in range(1, 4):
+                    self.c_visited[i] = False
+            if 'C' not in self.c_visited:
+                raise Exception("Missing C")
+            c_index = next(i for i, value in self.c_visited.items() if value)
+            self.c_visited.pop(c_index)
+
+        if 'B' in propositions and self.a_visited:
+            if not self.b_visited:
+                self.b_visited = True
+                for i in range(2, 5):
+                    self.d_visited[i] = False
+
+    def finish(self) -> bool:
+        return all(value for value in self.c_visited.values()) or all(value for value in self.d_visited.values())
+```

@@ -1,0 +1,19 @@
+```
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def main(task_source):
+    tree = parse_task(task_source)
+    text = canonicalize(task_source)
+    ok = evaluate_task(tree, (frozenset(), frozenset({"A"})))
+    return {
+        "task": task_source,
+        "tree": str(tree),
+        "text": text,
+        "ok": int(ok),  # True = 1, False = 0
+    }
+
+task_source = """
+after_each(A, avoid_until(X, C))
+"""
+output = main(task_source)
+print(output)

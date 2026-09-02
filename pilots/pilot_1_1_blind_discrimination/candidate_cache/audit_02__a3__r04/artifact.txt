@@ -1,0 +1,11 @@
+class Monitor:
+    def reset(self) -> None:
+        self visited_x = False
+        self propositions = set()
+
+    def step(self, propositions: set[str]) -> None:
+        if 'X' in propositions:
+            self.visited_x = True
+
+    def finish(self) -> bool:
+        return not self.visited_x

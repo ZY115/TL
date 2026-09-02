@@ -1,0 +1,18 @@
+```python
+import collections
+
+class Monitor:
+    def reset(self) -> None:
+        self.state = {}
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions:
+            state = self.state.get('A', {})
+            new_state = {k: v + 1 for k, v in state.items() if k != 'X'}
+            new_state['X'] = False
+            new_state['C'] = False
+            self.state['A'] = new_state
+
+    def finish(self) -> bool:
+        return len(self.state.get('B', {})) > 0 or len(self.state.get('D', {})) > 0
+```

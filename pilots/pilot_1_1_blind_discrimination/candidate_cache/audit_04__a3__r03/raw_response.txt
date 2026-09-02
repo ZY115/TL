@@ -1,0 +1,31 @@
+```python
+class Monitor:
+    def __init__(self):
+        self.a_visited = False
+        self.x_entered = False
+        self.c_visited = set()
+
+    def reset(self) -> None:
+        self.a_visited = False
+        self.x_entered = False
+        self.c_visited.clear()
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions:
+            self.a_visited = True
+            for i in range(4):
+                if f'A{i}' not in propositions:
+                    break
+            else:
+                continue  # All occurrences of A are within the first 4 steps
+        elif 'X' in propositions and not self.x_entered:
+            self.x_entered = True
+
+    def finish(self) -> bool:
+        return (
+            self.a_visited
+            and not self.x_entered
+            and len(self.c_visited) >= 1
+            and all(c_visited < d_visited for c_visited, d_visited in zip(self.c_visited, [c for c in self.c_visited if 'D' in propositions]))
+        )
+```

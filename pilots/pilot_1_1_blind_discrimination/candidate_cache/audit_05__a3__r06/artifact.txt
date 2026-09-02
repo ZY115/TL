@@ -1,0 +1,19 @@
+class Monitor:
+    def reset(self) -> None:
+        self.a_visited = False
+        self.b_offset = 0
+        self.step_count = 0
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions:
+            self.a_visited = True
+            self.step_count += 1
+            if self.a_visited and (self.b_offset == 2 or self.b_offset == 3 or self.b_offset == 4):
+                self.b_offset = min(self.b_offset + 1, 4)
+        elif 'B' in propositions:
+            if self.a_visited and self.step_count > 0:
+                self.b_offset += 1
+                self.b_offset = max(2, self.b_offset)
+
+    def finish(self) -> bool:
+        return self.a_visited and (self.b_offset == 2 or self.b_offset == 3 or self.b_offset == 4)

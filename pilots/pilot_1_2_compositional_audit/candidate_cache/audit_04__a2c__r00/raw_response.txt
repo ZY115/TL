@@ -1,0 +1,4 @@
+and(
+    visit(A),
+    every(A, within(B, 1, 2))
+)

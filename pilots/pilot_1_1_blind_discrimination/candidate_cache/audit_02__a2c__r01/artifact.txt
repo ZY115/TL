@@ -1,0 +1,8 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def audit_candidate():
+    task = "avoid(X)"
+    tree = parse_task(task)
+    text = canonicalize(task)
+    ok = evaluate_task(task, (frozenset(), frozenset({"X"})))
+    return (text, ok)

@@ -1,0 +1,10 @@
+from warehouse_dsl import parse_task, evaluate_task
+
+def visit_A_before_B(task):
+    return evaluate_task(
+        f"all(after_each(A, {after_each('B', between(1, 3, C))}), after_each(B, D))"
+    )
+
+task = parse_task("visit(A) before B")
+result = visit_A_before_B(task)
+print(result)

@@ -1,0 +1,7 @@
+# Task train_15: visit the delivery bay C and, at a strictly later step,
+# the charging dock D. In addition, every visit to C must be followed by
+# a D between one and five steps later, inclusive.
+and(
+    order(C, D),
+    every(C, within(D, 1, 5))
+)

@@ -1,0 +1,46 @@
+class Monitor:
+    def reset(self):
+        self.trace = []
+
+    def step(self, propositions):
+        self.trace.append(set(propositions))
+
+    def finish(self):
+        n = len(self.trace)
+
+        # Find first A
+        idx_a = None
+        for i in range(n):
+            if 'A' in self.trace[i]:
+                idx_a = i
+                break
+
+        if idx_a is None:
+            return False
+
+        # Find first B strictly after A
+        idx_b = None
+        for j in range(idx_a + 1, n):
+            if 'B' in self.trace[j]:
+                idx_b = j
+                break
+
+        if idx_b is None:
+            return False
+
+        # Find first C strictly after B
+        idx_c = None
+        for k in range(idx_b + 1, n):
+            if 'C' in self.trace[k]:
+                idx_c = k
+                break
+
+        if idx_c is None:
+            return False
+
+        # Check that X is not present strictly before C
+        for m in range(idx_c):
+            if 'X' in self.trace[m]:
+                return False
+
+        return True

@@ -1,0 +1,10 @@
+def evaluate_task(source, trace):
+    anchor = 0
+    for step in trace[0]:
+        if source == "avoid(X)":
+            return False
+        elif source == "visit(A)" or source == "sequence(A, B, ...)" or source == "after_each(A, ...)":
+            continue
+        else:
+            raise ValueError("Invalid task source")
+    return True

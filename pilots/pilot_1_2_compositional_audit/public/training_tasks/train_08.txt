@@ -1,0 +1,3 @@
+Task train_08
+
+The robot must visit A, then B, then C at strictly increasing steps: pickup, inspection, delivery. Irrelevant and repeated visits are allowed.

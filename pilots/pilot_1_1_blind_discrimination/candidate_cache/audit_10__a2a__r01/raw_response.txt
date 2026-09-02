@@ -1,0 +1,21 @@
+```python
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def audit_candidate():
+    task = "(sequence (eventually A) (after-each A (avoid-until X D)))"
+    task_source = "task"
+    
+    # Parse the task source into a Task object.
+    parsed_task = parse_task(task)
+    
+    # Get the canonicalized string version of the same task.
+    canonicalized_task = canonicalize(parsed_task)
+    
+    # Evaluate the task at an arbitrary origin index
+    evaluated_task = evaluate_task(canonicalized_task, [])
+
+    return evaluated_task
+
+# Run the audit function and print the result
+result = audit_candidate()
+print(result)

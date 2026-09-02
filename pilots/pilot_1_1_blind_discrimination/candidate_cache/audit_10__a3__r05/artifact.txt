@@ -1,0 +1,23 @@
+class Monitor:
+    def reset(self) -> None:
+        self.visited = set()
+        self.traces = []
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions and not any('B' in p for p in self.traces):
+            self.traces.append(0)
+            self.visited.add('A')
+        elif 'B' in propositions and 'C' not in propositions:
+            self.traces.append(len(self.visited))
+            self.visited.add('B')
+
+    def finish(self) -> bool:
+        if len(self.visited) != max(self.traces) + 1:
+            return False
+        for i, trace in enumerate(self.traces):
+            if 'A' not in trace or ('D' not in trace and (i - 1 >= 0 and trace[i-1] == self.traces[i-1]) or i < len(self.visited) - 1):
+                return False
+        for i, trace in enumerate(reversed(self.traces)):
+            if 'B' not in trace or ('D' not in trace and (i < len(self.visited) - 1 and trace[i+1] == self.traces[i+1])):
+                return False
+        return True

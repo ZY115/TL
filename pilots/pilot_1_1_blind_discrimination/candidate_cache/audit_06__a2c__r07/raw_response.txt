@@ -1,0 +1,108 @@
+import re
+from dataclasses import dataclass
+from typing import Tuple
+
+@dataclass(frozen=True)
+class Token:
+    type: str
+    value: str
+
+@dataclass(frozen=True)
+class ParseError(Exception):
+    message: str
+
+class DSLParser:
+    def __init__(self, input_str: str):
+        self.input_str = input_str
+        self.pos = 0
+
+    def advance(self):
+        self.pos += 1
+
+    def skip_whitespace(self):
+        while self.pos < len(self.input_str) and self.input_str[self.pos].isspace():
+            self.advance()
+
+    def match_token(self, token_type: str, token_value: str):
+        if self.pos >= len(self.input_str) or self.input_str[self.pos] != token_type:
+            raise ParseError(f"Expected '{token_type}' but found '{self.input_str[self.pos]}'")
+        self.advance()
+        return Token(type=token_type, value=token_value)
+
+    def parse_task(self) -> Tuple[Tuple[frozenset[str]], str]:
+        self.skip_whitespace()
+
+        # visit(A)
+        if re.match(r"visit\(([^)]+)\)", self.input_str[self.pos:]):
+            self.advance()
+            label = self.input_str[self.pos]
+            self.input_str = self.input_str[self.pos + 1:]
+            return frozenset([label]), ""
+        else:
+            raise ParseError("Expected 'visit' followed by a single token")
+
+        # avoid(X)
+        if re.match(r"avoid\(([^)]+)\)", self.input_str):
+            self.advance()
+            label = self.input_str[self.pos]
+            self.input_str = self.input_str[self.pos + 1:]
+            return frozenset([label]), ""
+
+        # sequence(A, B)
+        if re.match(r"sequence\([^)]+\), \([^)]+\)\)", self.input_str):
+            self.advance()
+            label1 = self.input_str[self.pos]
+            self.input_str = self.input_str[self.pos + 4:]
+            label2 = self.input_str[self.pos]
+            self.input_str = self.input_str[self.pos + 5:]
+
+            return frozenset([label1, label2]), ""
+
+        # between(lo, hi, P)
+        if re.match(r"between\(([^,]+), \(([^)]+)\)\)", self.input_str):
+            self.advance()
+            lower_bound = int(self.input_str[self.pos])
+            self.input_str = self.input_str[self.pos + 4:]
+            upper_bound = int(self.input_str[self.pos])
+            self.input_str = self.input_str[self.pos + 5:]
+
+            label = self.input_str[self.pos]
+            self.input_str = self.input_str[self.pos + 1:]
+            return frozenset([label]), f"{lower_bound},{upper_bound}"
+
+        # avoid_until(X, G)
+        if re.match(r"avoid_until\(([^)]+)\), \(([^)]+)\)", self.input_str):
+            self.advance()
+            forbidden_label = self.input_str[self.pos]
+            self.input_str = self.input_str[self.pos + 5:]
+            goal_label = self.input_str[self.pos]
+            self.input_str = self.input_str[self.pos + 5:]
+
+            return frozenset([forbidden_label, goal_label]), ""
+
+        # after_each(T, R)
+        if re.match(r"after_each\([^)]+\), \(([^)]+)\)", self.input_str):
+            self.advance()
+            trigger_label = self.input_str[self.pos]
+            self.input_str = self.input_str[self.pos + 5:]
+            expr = self.parse_task()[1]
+
+            return frozenset([trigger_label]), f"After each {expr}"
+
+        # all(R1, R2, ...)
+        if re.match(r"all\([^)]+\)", self.input_str):
+            self.advance()
+            num_args = int(self.input_str[self.pos])
+            self.input_str = self.input_str[self.pos + 3:]
+
+            exprs = []
+            for _ in range(num_args):
+                exprs.append(self.parse_task()[1])
+
+            return frozenset([expr[0] for expr in exprs]), ""
+
+        # any(R1, R2, ...)
+        if re.match(r"any\([^)]+\)", self.input_str):
+            self.advance()
+            num_args = int(self.input_str[self.pos])
+            self.input_str = self

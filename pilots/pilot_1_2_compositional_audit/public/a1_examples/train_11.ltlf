@@ -1,0 +1,1 @@
+G (at_A -> (X (at_B & F at_C) | X X (at_B & F at_C) | X X X (at_B & F at_C)))

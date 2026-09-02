@@ -1,0 +1,1 @@
+at_A -> F at_B & at_C X^1 at_C | at_C X^2 at_C | at_C X^3

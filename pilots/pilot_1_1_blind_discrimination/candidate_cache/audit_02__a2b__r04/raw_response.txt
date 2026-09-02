@@ -1,0 +1,24 @@
+```python
+import re
+
+class DSLError(Exception):
+    pass
+
+def parse_task(source):
+    if not source.startswith("seen A"):
+        raise DSLError(f"Invalid task source: {source}")
+    return "seen A"
+
+def canonicalize(source):
+    return source
+
+def evaluate_task(source, trace):
+    seen = set()
+    for i in range(len(trace)):
+        label = list(re.findall(r"[A-Za-z]", trace[i]))[0]
+        if label == 'X':
+            return False
+    return True
+
+train_02_task = parse_task('never [X]')
+```

@@ -1,0 +1,11 @@
+class Monitor:
+    def reset(self) -> None:
+        self.x_entered = False
+        self.current_step_index = 0
+
+    def step(self, propositions: set[str]) -> None:
+        if 'X' in propositions and not self.x_entered:
+            raise ValueError("Cannot enter X")
+
+    def finish(self) -> bool:
+        return not self.x_entered

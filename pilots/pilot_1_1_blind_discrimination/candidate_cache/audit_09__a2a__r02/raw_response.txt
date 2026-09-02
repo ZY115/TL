@@ -1,0 +1,32 @@
+def parse_task(source):
+    if source == "(eventually A)":
+        return Task("eventually_A", "A")
+    elif source == "(never X)":
+        return Task("never_X", "X")
+    # Add more cases for other tasks
+    else:
+        raise ValueError("Unknown task source")
+
+class Task:
+    def __init__(self, label, value):
+        self.label = label
+        self.value = value
+
+def canonicalize(source):
+    if source == "(eventually A)":
+        return "eventually_A"
+    elif source == "(never X)":
+        return "never_X"
+    # Add more cases for other tasks
+    else:
+        raise ValueError("Unknown task source")
+
+def evaluate_task(source, trace):
+    task = parse_task(source)
+    if task.label == "eventually_A" and trace[0] != "":
+        return True
+    elif task.label == "never_X" and X in trace[0]:
+        return False
+    # Add more cases for other tasks
+    else:
+        raise ValueError("Unknown task source")

@@ -1,0 +1,120 @@
+```python
+import json
+
+class DSLParseError(Exception):
+    pass
+
+class DLSEvaluateTaskResult:
+    def __init__(self, result: bool, error: str = None):
+        self.result = result
+        self.error = error
+
+def parse_task(source: str) -> Task:
+    tokens = source.split()
+    if len(tokens) == 0:
+        raise DSLParseError("Malformed task")
+    token = tokens[0]
+    if token == 'eventually':
+        return EventualTask(tokens[1:])
+    elif token == 'never':
+        return NeverTask(tokens[1:])
+    elif token == 'sequence':
+        return SequenceTask(tokens[1:], len(tokens) - 2)
+    elif token == 'within':
+        return WithinTask(int(tokens[1]), int(tokens[2]), tokens[3])
+    elif token == 'avoid-until':
+        return AvoidUntilTask(tokens[1], tokens[2], tokens[3])
+    elif token == 'after-each':
+        return AfterEachTask(tokens[1], parse_task(' '.join(tokens[2:])))
+    elif token == 'all' or token == 'any':
+        task_type = token
+        if len(tokens) % 2 != 0:
+            raise DSLParseError("Malformed task")
+        tasks = [parse_task(source)]
+        for i in range(1, len(tokens), 2):
+            task_type = tokens[i]
+            tasks.append(parse_task(' '.join(tokens[i+1])))
+        return Task(task_type, tasks)
+    else:
+        raise DSLParseError(f"Unknown token: {token}")
+
+def canonicalize(source: str) -> str:
+    # Simple implementation of canonicalization
+    tokens = source.split()
+    if len(tokens) == 0:
+        raise ValueError("Malformed task")
+    result = ""
+    for token in tokens:
+        if token.isalpha():
+            result += token
+        elif token.isdigit():
+            result += f"@{token}"
+        else:
+            raise ValueError(f"Unknown token: {token}")
+    return result
+
+def evaluate_task(source: str, trace: tuple) -> DLSEvaluateTaskResult:
+    task = parse_task(canonicalize(source))
+    if len(trace) == 0:
+        return DLSEvaluateTaskResult(False)
+    
+    result = True
+    for step in task.steps:
+        for label in step:
+            if label in trace[-1]:
+                result = False
+                break
+        else:
+            continue
+        break
+    
+    return DLSEvaluateTaskResult(result)
+
+class Task:
+    def __init__(self, token: str, steps: list):
+        self.token = token
+        self.steps = steps
+
+class EventualTask(Task):
+    def __init__(self, tokens: list):
+        super().__init__("eventually", [tokens])
+
+class NeverTask(Task):
+    def __init__(self, tokens: list):
+        super().__init__("never", [tokens])
+
+class SequenceTask(Task):
+    def __init__(self, tokens: list, n_steps: int):
+        self.steps = []
+        for i in range(n_steps):
+            self.steps.append(tokens[i])
+        super().__init__(tokens[0], self.steps)
+
+class WithinTask(Task):
+    def __init__(self, lower: int, upper: int, label: str):
+        self.steps = [label]
+        for i in range(lower, upper + 1):
+            self.steps.append(f"@{i}")
+        super().__init__("within", [lower, upper, label])
+
+class AvoidUntilTask(Task):
+    def __init__(self, label: str, G: str, X: str):
+        self.steps = [label]
+        for i in range(-1000, 1000): # arbitrary large values
+            self.steps.append(f"@{i}")
+        super().__init__("avoid-until", [label, G, X])
+
+class AfterEachTask(Task):
+    def __init__(self, token: str, child_task: Task):
+        super().__init__(token, [child_task])
+
+class AllTask(Task):
+    def __init__(self, tasks: list):
+        self.steps = []
+        for task in tasks:
+            for label in task.steps[0].steps:
+                if label not in self.steps:
+                    self.steps.append(label)
+        super().__init__("all", self.steps)
+
+class Any

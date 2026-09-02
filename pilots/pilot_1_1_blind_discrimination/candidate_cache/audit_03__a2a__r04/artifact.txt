@@ -1,0 +1,8 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def task_15_wdsl():
+    return "(after-each A (eventually B))"
+
+task_15 = parse_task(task_15_wdsl())
+canonicalized_task_15 = canonicalize(task_15)
+evaluate_task(canonicalized_task_15, ((frozenset({"A"}), frozenset({"B"})), False))

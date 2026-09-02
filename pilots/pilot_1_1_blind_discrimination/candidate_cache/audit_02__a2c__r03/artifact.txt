@@ -1,0 +1,5 @@
+task = "avoid(X)"
+tree = parse_task(task)
+text = canonicalize(task)
+ok = evaluate_task(task, (frozenset(), frozenset({"X"})))
+assert ok, f"Expected True, got {ok}"

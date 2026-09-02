@@ -1,0 +1,23 @@
+```python
+class Monitor:
+    def reset(self) -> None:
+        self.visited_a = set()
+        self.c_visit_count = 0
+
+    def step(self, propositions: set[str]) -> None:
+        if 'A' in propositions:
+            self.visited_a.add('A')
+            for i in range(1, 5):
+                if f'A{i}' not in self.visited_a:
+                    return
+        if 'D' in propositions and self.c_visit_count > 0:
+            return
+        if 'X' in propositions:
+            return
+        if 'C' in propositions:
+            if len(self.visited_a) == 1:
+                self.c_visit_count += 1
+
+    def finish(self) -> bool:
+        return len(self.visited_a) >= 1 and self.c_visit_count > 0
+```

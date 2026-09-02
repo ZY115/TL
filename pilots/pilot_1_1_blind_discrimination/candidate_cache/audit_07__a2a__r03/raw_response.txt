@@ -1,0 +1,14 @@
+```python
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def train_15():
+    return (
+        sequence A (after-each A (within 1 3 C)) 
+        sequence B (after-each B (within 2 4 D))
+    )
+
+# Run the task to verify correctness
+task = parse_task(train_15())
+result = evaluate_task(task, ([frozenset({"A"})], [frozenset({"B", "C"}), frozenset({"B", "D"})]))
+print(result)  # Should print True
+```

@@ -1,0 +1,1 @@
+(eventually after-each A (avoid-until X C))

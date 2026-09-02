@@ -1,0 +1,1 @@
+at_A U (at_B | at_C) & ~at_X

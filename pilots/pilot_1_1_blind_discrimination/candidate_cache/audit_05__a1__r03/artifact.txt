@@ -1,0 +1,1 @@
+at_B U (X^2 at_A | X^3 at_A)

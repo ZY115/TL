@@ -1,0 +1,24 @@
+```python
+class Monitor:
+    def __init__(self):
+        self.traces = set()
+        self.x_entered = False
+        self.current_step = 0
+
+    def reset(self) -> None:
+        self.traces = set()
+        self.x_entered = False
+        self.current_step = 0
+
+    def step(self, propositions: set[str]) -> None:
+        if 'X' in propositions and not self.x_entered:
+            self.x_entered = True
+
+        if len(propositions) > 1 and 'A' in propositions and 'B' in propositions:
+            self.traces.add(self.current_step)
+            if 'A' not in set(self.traces):
+                raise ValueError("Not all A steps are included")
+
+    def finish(self) -> bool:
+        return len(self.traces) == sum(1 for step in range(len(propositions)) if 'A' in propositions[step])
+```

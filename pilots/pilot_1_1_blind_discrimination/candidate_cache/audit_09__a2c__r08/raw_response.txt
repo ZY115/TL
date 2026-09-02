@@ -1,0 +1,9 @@
+import warehouse_dsl as wds
+
+# Define a task using the Warehouse DSL
+task = wds.parse_task("sequence(A, B, after_each(A, after_each(B, C)))")
+
+# Evaluate the task
+result = wds.evaluate_task(task)
+
+print(result)

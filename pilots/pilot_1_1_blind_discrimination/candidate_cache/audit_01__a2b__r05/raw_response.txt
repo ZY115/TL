@@ -1,0 +1,4 @@
+```python
+# train_01.task
+seen A
+```

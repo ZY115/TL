@@ -1,0 +1,22 @@
+from warehouse_dsl import parse_task, canonicalize, evaluate_task
+
+def solve_task():
+    # Alternative 1
+    task = '(all (eventually A) (never X))'
+    
+    # Alternative 2
+    task2 = '(any (eventually D) (after-each D (within 1 2 B))) (avoid-until X A)'
+    
+    return task, task2
+
+# Run the task and get the result
+task, task2 = solve_task()
+
+print(canonicalize(task))
+print(canonicalize(task2))
+
+result = evaluate_task(task, [(frozenset({'A'}), frozenset({'B', 'X'})), (frozenset({'D'}), frozenset({}))])
+print(result)
+
+result = evaluate_task(task2, [(frozenset({'D'}), frozenset({'B'})), (frozenset({'D'}), frozenset({}))])
+print(result)

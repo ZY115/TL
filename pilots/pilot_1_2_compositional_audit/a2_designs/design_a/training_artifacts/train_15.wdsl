@@ -1,0 +1,7 @@
+# train_15: visit delivery bay C then, strictly later, charging dock D;
+# in addition, every visit to C must be followed by a D within 1-5 steps,
+# inclusive. Two independent requirements that must both hold.
+all_of(
+    order(C, D),
+    every(C, within(1, 5, D))
+)
