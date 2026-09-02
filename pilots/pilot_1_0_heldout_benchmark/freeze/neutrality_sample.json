@@ -1,0 +1,232 @@
+[
+  {
+    "requirement": {
+      "obligation": {
+        "options": [
+          {
+            "event": "B",
+            "lower": 1,
+            "type": "Deadline",
+            "upper": 4
+          },
+          {
+            "forbidden": "X",
+            "goal": "C",
+            "type": "MaintainUntil"
+          }
+        ],
+        "type": "Alternative"
+      },
+      "trigger": "A",
+      "type": "On"
+    },
+    "sample_id": "stream_00"
+  },
+  {
+    "requirement": {
+      "requirements": [
+        {
+          "event": "X",
+          "maximum": 2,
+          "type": "CountAtMost"
+        },
+        {
+          "obligation": {
+            "event": "A",
+            "type": "Once"
+          },
+          "trigger": "B",
+          "type": "On"
+        }
+      ],
+      "type": "AllOf"
+    },
+    "sample_id": "stream_01"
+  },
+  {
+    "requirement": {
+      "obligation": {
+        "requirements": [
+          {
+            "condition": "SAFE",
+            "landmark": "A",
+            "type": "Since"
+          },
+          {
+            "operator": ">=",
+            "resource": "battery",
+            "type": "Threshold",
+            "value": 5
+          }
+        ],
+        "type": "AllOf"
+      },
+      "trigger": "C",
+      "type": "On"
+    },
+    "sample_id": "stream_02"
+  },
+  {
+    "requirement": {
+      "options": [
+        {
+          "options": [
+            {
+              "event": "C",
+              "lower": 1,
+              "type": "Deadline",
+              "upper": 12
+            },
+            {
+              "event": "D",
+              "type": "Visit"
+            }
+          ],
+          "type": "Alternative"
+        },
+        {
+          "events": [
+            "A",
+            "B",
+            "C"
+          ],
+          "type": "OrderedVisit"
+        }
+      ],
+      "type": "Priority"
+    },
+    "sample_id": "stream_03"
+  },
+  {
+    "requirement": {
+      "obligation": {
+        "event": "X",
+        "maximum": 1,
+        "type": "CountAtMost"
+      },
+      "trigger": "A",
+      "type": "On"
+    },
+    "sample_id": "stream_04"
+  },
+  {
+    "requirement": {
+      "options": [
+        {
+          "operator": ">=",
+          "resource": "battery",
+          "type": "Threshold",
+          "value": 10
+        },
+        {
+          "forbidden": "X",
+          "goal": "D",
+          "type": "MaintainUntil"
+        }
+      ],
+      "type": "Alternative"
+    },
+    "sample_id": "stream_05"
+  },
+  {
+    "requirement": {
+      "requirements": [
+        {
+          "options": [
+            {
+              "event": "C",
+              "type": "Visit"
+            },
+            {
+              "event": "D",
+              "type": "Visit"
+            }
+          ],
+          "type": "Priority"
+        },
+        {
+          "event": "A",
+          "lower": 1,
+          "type": "Deadline",
+          "upper": 8
+        }
+      ],
+      "type": "AllOf"
+    },
+    "sample_id": "stream_06"
+  },
+  {
+    "requirement": {
+      "obligation": {
+        "options": [
+          {
+            "event": "B",
+            "type": "Once"
+          },
+          {
+            "condition": "SAFE",
+            "landmark": "A",
+            "type": "Since"
+          }
+        ],
+        "type": "Alternative"
+      },
+      "trigger": "C",
+      "type": "On"
+    },
+    "sample_id": "stream_07"
+  },
+  {
+    "requirement": {
+      "requirements": [
+        {
+          "event": "X",
+          "maximum": 1,
+          "type": "CountAtMost"
+        },
+        {
+          "events": [
+            "A",
+            "D",
+            "C"
+          ],
+          "type": "OrderedVisit"
+        }
+      ],
+      "type": "AllOf"
+    },
+    "sample_id": "stream_08"
+  },
+  {
+    "requirement": {
+      "obligation": {
+        "requirements": [
+          {
+            "options": [
+              {
+                "event": "B",
+                "lower": 1,
+                "type": "Deadline",
+                "upper": 6
+              },
+              {
+                "event": "D",
+                "type": "Visit"
+              }
+            ],
+            "type": "Alternative"
+          },
+          {
+            "forbidden": "X",
+            "goal": "C",
+            "type": "MaintainUntil"
+          }
+        ],
+        "type": "AllOf"
+      },
+      "trigger": "A",
+      "type": "On"
+    },
+    "sample_id": "stream_09"
+  }
+]

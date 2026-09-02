@@ -1,0 +1,4 @@
+environment,b_to_c_reachable,b_to_c_avoiding_x_reachable,every_b_to_c_path_uses_x
+warehouse_base,True,True,False
+warehouse_blocked,True,False,True
+warehouse_bottleneck,True,False,True

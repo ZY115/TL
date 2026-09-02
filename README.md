@@ -8,7 +8,10 @@ experiments. The core pilots compare three first-class task representations:
 3. a reasonable parameterized handwritten monitor.
 
 Pilot 0.3B adds a fourth Macro-TL representation to audit whether differences
-come from the language or from the author-facing abstraction level.
+come from the language or from the author-facing abstraction level. Pilot 0.4
+then freezes an existing general TL stack and specialized DSL and measures how
+their task sources and infrastructure evolve under cumulative heterogeneous
+requirements.
 
 The suite does **not** assume that temporal logic wins. It reports raw
 task-specific representation size and structural edit footprint, validates all
@@ -26,7 +29,9 @@ tl_sequence_pilot/
     ├── pilot_0_1_sequence/
     ├── pilot_0_2_timing/
     ├── pilot_0_3_branch_timing/
-    └── pilot_0_3b_abstraction_audit/
+    ├── pilot_0_3b_abstraction_audit/
+    ├── pilot_0_4_frozen_evolution/
+    └── pilot_1_0_heldout_benchmark/
 ```
 
 | Pilot | Independent variable | Fixed structure | Main modification |
@@ -35,6 +40,8 @@ tl_sequence_pilot/
 | [0.2 — Timing](pilots/pilot_0_2_timing/README.md) | overlapping deadlines `m=0...5` | ten-event sequence | add a constraint; change `8 -> 6` |
 | [0.3 — Branch + timing](pilots/pilot_0_3_branch_timing/README.md) | conditional stages `k=0...6` | left/right bounded obligations | add a stage; rewire `Pq -> Xq` |
 | [0.3B — Abstraction audit](pilots/pilot_0_3b_abstraction_audit/README.md) | abstraction interface | exact Pilot 0.3 task family | compare Core TL, Macro TL, explicit, and parameterized surfaces |
+| [0.4 — Frozen evolution](pilots/pilot_0_4_frozen_evolution/README.md) | cumulative requirement type `E0...E6` | fixed `B4` | separate task-source, infrastructure, validation, and migration evolution |
+| [1.0 — Held-out benchmark](pilots/pilot_1_0_heldout_benchmark/README.md) | unseen semantic composition | fixed 8×8 warehouse family and `H=40` | analysis readiness and frozen-representation adaptation; P0 + arm freeze complete |
 
 Every pilot owns its `src/`, `tests/`, `generated/`, `results/`, and `plots/`
 directories. This prevents later experiments from overwriting earlier outputs.
@@ -89,6 +96,16 @@ Within each pilot, the most useful files for sharing are:
 - the modification CSV files for structural edit footprint;
 - `plots/` for presentation-ready visual summaries;
 - `results/metadata.json` and `checksums.sha256` for reproducibility.
+
+Pilot 0.4 uses different result names because its experimental unit is system
+evolution rather than task-family construction. Start with
+`results/evolution_steps.csv`, `results/cumulative.csv`,
+`results/compatibility.csv`, and `results/semantics.csv`.
+
+Pilot 1.0 supersedes size crossover as the active methodology but is built in
+gated phases. Its current one-command entry point reproduces the completed P0
+backend and frozen-arm semantic gate; it does not claim that the full Pilot 1.0
+analysis/evolution/modification study is finished.
 
 Do not combine AST or tree-edit units from different representation languages
 into a synthetic overall-complexity score. Those metrics are primarily for

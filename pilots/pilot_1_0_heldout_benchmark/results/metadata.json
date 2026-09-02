@@ -1,0 +1,50 @@
+{
+  "arm_conformance_evaluations": 3000000,
+  "arm_conformance_mismatches": 0,
+  "arm_conformance_status": "passed",
+  "arm_freeze_status": "complete",
+  "bounded_expansion": "F[l,u] p = X^l p OR ... OR X^u p",
+  "calibration_seed_base": 20261100,
+  "dfa_state_budget": 1000000,
+  "dfa_timeout_seconds": 60,
+  "environment_question": "existential path in deterministic transition system",
+  "finite_trace_next": "strong X; false at the final position",
+  "freeze_manifest_hash": "06e0f807fdbe6b5c3caa3f06a831ec1891b2206d3067bab00ab2aa8ed09a7b0f",
+  "full_pilot_status": "P0 and frozen-arm gate complete; P1/P2 not started",
+  "heldout_stream_count": 20,
+  "horizon": 40,
+  "known_limitations": [
+    "The bounded prefix DFA is exact but may hit its explicit 1e6-state/60s synthesis budget.",
+    "Two independently implemented semantic pipelines can still share a misreading.",
+    "Frozen-arm conformance covers the training suite; held-out authoring and analysis remain unmeasured until P1."
+  ],
+  "neutrality_audit_counts": {
+    "configuration": 3,
+    "logic": 4,
+    "neutral/mixed": 3
+  },
+  "packages": {
+    "black": "26.5.1",
+    "matplotlib": "3.11.1",
+    "pandas": "2.3.3",
+    "pytest": "8.4.2"
+  },
+  "phase": "P0_shared_backend",
+  "phase_status": "complete",
+  "pilot": "1.0",
+  "priority_boolean_semantics": "accept iff at least one ranked option is satisfied; preferred satisfied rank is retained separately and is not an LTLf trace operator",
+  "python": "3.12.13",
+  "reactive_synthesis_out_of_scope": true,
+  "semantic_gate_mismatches": 0,
+  "split_seed": 20261001,
+  "steps_per_heldout_stream": 10,
+  "supersedes": "tl_sequence_pilot 0.1-0.4 as the active methodology; old outputs are preserved",
+  "trace_mixture": {
+    "constructive_satisfying": 0.3,
+    "targeted_mutation": 0.3,
+    "uniform_random": 0.4
+  },
+  "traces_per_training_task": 50000,
+  "training_task_count": 15,
+  "wait_allows_padding": true
+}

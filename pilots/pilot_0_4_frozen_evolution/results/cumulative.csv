@@ -1,0 +1,15 @@
+step,system,baseline_infrastructure_tokens,current_infrastructure_tokens,cumulative_task_token_churn,cumulative_infrastructure_token_churn,cumulative_files_modified,cumulative_capabilities_added,cumulative_migrations,infrastructure_change_steps,infrastructure_free_requirement_steps
+E0,general_tl_stack,2136,2136,0,0,0,0,0,0,0
+E1,general_tl_stack,2136,2136,6,0,0,0,0,0,1
+E2,general_tl_stack,2136,2136,26,0,0,0,0,0,2
+E3,general_tl_stack,2136,2136,46,0,0,0,0,0,3
+E4,general_tl_stack,2136,2303,60,173,5,1,0,1,3
+E5,general_tl_stack,2136,2303,85,173,5,1,0,1,4
+E6,general_tl_stack,2136,2303,122,173,5,1,0,1,5
+E0,specialized_handwritten_dsl,438,438,0,0,0,0,0,0,0
+E1,specialized_handwritten_dsl,438,478,6,42,2,1,0,1,0
+E2,specialized_handwritten_dsl,438,550,20,116,4,2,0,2,0
+E3,specialized_handwritten_dsl,438,621,32,189,6,3,0,3,0
+E4,specialized_handwritten_dsl,438,699,44,269,8,4,0,4,0
+E5,specialized_handwritten_dsl,438,699,56,269,8,4,0,4,1
+E6,specialized_handwritten_dsl,438,769,80,341,10,5,0,5,1

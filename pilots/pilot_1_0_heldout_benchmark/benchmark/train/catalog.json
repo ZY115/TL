@@ -1,0 +1,239 @@
+[
+  {
+    "id": "train_01",
+    "requirements": [
+      {
+        "expr": {
+          "event": "A",
+          "type": "Visit"
+        },
+        "id": "r1"
+      }
+    ]
+  },
+  {
+    "id": "train_02",
+    "requirements": [
+      {
+        "expr": {
+          "event": "X",
+          "type": "Avoid"
+        },
+        "id": "r2"
+      }
+    ]
+  },
+  {
+    "id": "train_03",
+    "requirements": [
+      {
+        "expr": {
+          "events": [
+            "A",
+            "B",
+            "C"
+          ],
+          "type": "OrderedVisit"
+        },
+        "id": "r3"
+      }
+    ]
+  },
+  {
+    "id": "train_04",
+    "requirements": [
+      {
+        "expr": {
+          "event": "A",
+          "lower": 1,
+          "type": "Deadline",
+          "upper": 10
+        },
+        "id": "r4"
+      }
+    ]
+  },
+  {
+    "id": "train_05",
+    "requirements": [
+      {
+        "expr": {
+          "forbidden": "X",
+          "goal": "C",
+          "type": "MaintainUntil"
+        },
+        "id": "r5"
+      }
+    ]
+  },
+  {
+    "id": "train_06",
+    "requirements": [
+      {
+        "expr": {
+          "obligation": {
+            "event": "B",
+            "type": "Visit"
+          },
+          "trigger": "A",
+          "type": "On"
+        },
+        "id": "r6"
+      }
+    ]
+  },
+  {
+    "id": "train_07",
+    "requirements": [
+      {
+        "expr": {
+          "options": [
+            {
+              "event": "A",
+              "type": "Visit"
+            },
+            {
+              "event": "D",
+              "type": "Visit"
+            }
+          ],
+          "type": "Alternative"
+        },
+        "id": "r7"
+      }
+    ]
+  },
+  {
+    "id": "train_08",
+    "requirements": [
+      {
+        "expr": {
+          "requirements": [
+            {
+              "event": "A",
+              "type": "Visit"
+            },
+            {
+              "event": "X",
+              "type": "Avoid"
+            }
+          ],
+          "type": "AllOf"
+        },
+        "id": "r8"
+      }
+    ]
+  },
+  {
+    "id": "train_09",
+    "requirements": [
+      {
+        "expr": {
+          "event": "X",
+          "maximum": 1,
+          "type": "CountAtMost"
+        },
+        "id": "r9"
+      }
+    ]
+  },
+  {
+    "id": "train_10",
+    "requirements": [
+      {
+        "expr": {
+          "obligation": {
+            "event": "A",
+            "type": "Once"
+          },
+          "trigger": "B",
+          "type": "On"
+        },
+        "id": "r10"
+      }
+    ]
+  },
+  {
+    "id": "train_11",
+    "requirements": [
+      {
+        "expr": {
+          "obligation": {
+            "condition": "SAFE",
+            "landmark": "A",
+            "type": "Since"
+          },
+          "trigger": "C",
+          "type": "On"
+        },
+        "id": "r11"
+      }
+    ]
+  },
+  {
+    "id": "train_12",
+    "requirements": [
+      {
+        "expr": {
+          "operator": ">=",
+          "resource": "battery",
+          "type": "Threshold",
+          "value": 5
+        },
+        "id": "r12"
+      }
+    ]
+  },
+  {
+    "id": "train_13",
+    "requirements": [
+      {
+        "expr": {
+          "options": [
+            {
+              "event": "C",
+              "type": "Visit"
+            },
+            {
+              "event": "D",
+              "type": "Visit"
+            }
+          ],
+          "type": "Priority"
+        },
+        "id": "r13"
+      }
+    ]
+  },
+  {
+    "id": "train_14",
+    "requirements": [
+      {
+        "expr": {
+          "obligation": {
+            "event": "B",
+            "lower": 1,
+            "type": "Deadline",
+            "upper": 10
+          },
+          "trigger": "A",
+          "type": "On"
+        },
+        "id": "r14"
+      }
+    ]
+  },
+  {
+    "id": "train_15",
+    "requirements": [
+      {
+        "expr": {
+          "event": "A",
+          "maximum": 2,
+          "type": "CountAtMost"
+        },
+        "id": "r15"
+      }
+    ]
+  }
+]

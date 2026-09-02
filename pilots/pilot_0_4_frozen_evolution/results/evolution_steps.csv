@@ -1,0 +1,8 @@
+step,requirement_name,tl_expressible_before_step,tl_infrastructure_changed,tl_new_capability,dsl_expressible_before_step,dsl_infrastructure_changed,dsl_new_capability,expected_from_preregistration,observed_matches_preregistration,tl_capability_classes,dsl_capability_classes
+E0,Existing branch-dependent bounded timing,baseline,False,baseline,baseline,False,STAGES,baseline,True,8,1
+E1,Global safety invariant,True,False,,False,True,GLOBAL_AVOID,TL=source-only; DSL=extension,True,8,2
+E2,Branch-dependent post-goal sequence,True,False,,False,True,BRANCH_POST_SEQUENCES,TL=source-only; DSL=extension,True,8,3
+E3,Global bounded recovery,True,False,,False,True,BOUNDED_RESPONSES,TL=source-only; DSL=extension,True,8,4
+E4,Branch-scoped safety-until,False,True,Until,False,True,AVOID_UNTIL,TL=extension; DSL=extension,True,9,5
+E5,Second branch-dependent nested sequence,True,False,,True,False,,TL=source-only; DSL=source-only,True,9,5
+E6,Disjunctive bounded recovery,True,False,,False,True,ALTERNATIVE_BOUNDED_RESPONSES,TL=source-only; DSL=extension,True,9,6

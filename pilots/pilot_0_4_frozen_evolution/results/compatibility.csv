@@ -1,0 +1,15 @@
+step,system,previous_evolution_specs_tested,previous_evolution_specs_passed,legacy_specs_tested,legacy_specs_passed,specs_requiring_migration,migration_lines_changed,migration_tokens_changed
+E0,general_tl_stack,1,1,12,12,0,0,0
+E0,specialized_handwritten_dsl,1,1,12,12,0,0,0
+E1,general_tl_stack,2,2,12,12,0,0,0
+E1,specialized_handwritten_dsl,2,2,12,12,0,0,0
+E2,general_tl_stack,3,3,12,12,0,0,0
+E2,specialized_handwritten_dsl,3,3,12,12,0,0,0
+E3,general_tl_stack,4,4,12,12,0,0,0
+E3,specialized_handwritten_dsl,4,4,12,12,0,0,0
+E4,general_tl_stack,5,5,12,12,0,0,0
+E4,specialized_handwritten_dsl,5,5,12,12,0,0,0
+E5,general_tl_stack,6,6,12,12,0,0,0
+E5,specialized_handwritten_dsl,6,6,12,12,0,0,0
+E6,general_tl_stack,7,7,12,12,0,0,0
+E6,specialized_handwritten_dsl,7,7,12,12,0,0,0

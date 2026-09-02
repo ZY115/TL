@@ -1,0 +1,56 @@
+{
+  "E0_random_distribution_exception": "4000 valid + 6000 base-invalid because no evolved requirement is active",
+  "base_task": "B4",
+  "dsl_E5_reuses_E2_capability": true,
+  "dsl_generic_callback_allowed": false,
+  "evolution_steps": [
+    "E0",
+    "E1",
+    "E2",
+    "E3",
+    "E4",
+    "E5",
+    "E6"
+  ],
+  "future_capabilities_preimplemented": false,
+  "global_avoid_equivalence_note": "Successful generated traces terminate at E, so before-E GLOBAL_AVOID and the canonical G(!BAD) agree on the benchmark domain; early-E base-negative traces already fail B4.",
+  "legacy_portfolio_size": 12,
+  "packages": {
+    "apted": "1.0.3",
+    "black": "26.5.1",
+    "matplotlib": "3.11.1",
+    "pandas": "2.3.3",
+    "pytest": "8.4.2"
+  },
+  "pilot": "0.4",
+  "preserved_pilot_output_sha256": {
+    "pilot_0_1_sequence/results/construction.csv": "0ca53f3d8e72eee7ad39e88ef361e1570d80036de0cb0707696bcd25b556d1af",
+    "pilot_0_2_timing/results/construction.csv": "5a8c3c66c03e1db11888501a65a9018129cf671326df35fc0ff2386ce027aff5",
+    "pilot_0_3_branch_timing/results/construction.csv": "2a2774c1ba035238aa49112862a97ebadd1a691ae2cd0c0f3c21c7fc3d3f9afc",
+    "pilot_0_3b_abstraction_audit/results/abstraction_summary.csv": "db3144dd1f7ab0d329becd347b0e8146e305bfb1120e50cf40e143e17bb815d3",
+    "pilot_0_3b_abstraction_audit/results/semantics.csv": "b997a4d489329f5d033cc169392aa25f4483229cf74a4188ce1613684890761b"
+  },
+  "python": "3.12.13",
+  "random_seed_base": 20260910,
+  "random_seed_by_step": {
+    "E0": 20260910,
+    "E1": 20260911,
+    "E2": 20260912,
+    "E3": 20260913,
+    "E4": 20260914,
+    "E5": 20260915,
+    "E6": 20260916
+  },
+  "random_trajectories_per_step": 10000,
+  "source_diff": "SequenceMatcher autojunk=False",
+  "source_pilot": "0.3B",
+  "source_pilot_commit_sha": "b3cda18fe01e8667f9672220fbb27732ccb8a68d",
+  "successful_trace_terminal_event": "E",
+  "systems": [
+    "general_tl_stack",
+    "specialized_handwritten_dsl"
+  ],
+  "tl_requirement_specific_macros_allowed": false,
+  "tl_until_added_at": "E4",
+  "tl_until_available_at_E0": false
+}

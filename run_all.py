@@ -13,6 +13,8 @@ PILOTS = (
     ROOT / "pilots/pilot_0_2_timing",
     ROOT / "pilots/pilot_0_3_branch_timing",
     ROOT / "pilots/pilot_0_3b_abstraction_audit",
+    ROOT / "pilots/pilot_0_4_frozen_evolution",
+    ROOT / "pilots/pilot_1_0_heldout_benchmark",
 )
 
 

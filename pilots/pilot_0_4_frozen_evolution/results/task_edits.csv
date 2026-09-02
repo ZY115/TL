@@ -1,0 +1,13 @@
+step_before,step_after,system,lines_inserted,lines_deleted,lines_changed,tokens_inserted,tokens_deleted,tokens_changed,token_churn
+E0,E1,general_tl_stack,1,0,0,6,0,0,6
+E0,E1,specialized_handwritten_dsl,4,0,0,6,0,0,6
+E1,E2,general_tl_stack,1,0,0,20,0,0,20
+E1,E2,specialized_handwritten_dsl,4,0,0,14,0,0,14
+E2,E3,general_tl_stack,1,0,0,20,0,0,20
+E2,E3,specialized_handwritten_dsl,4,0,0,12,0,0,12
+E3,E4,general_tl_stack,1,0,0,14,0,0,14
+E3,E4,specialized_handwritten_dsl,4,0,0,12,0,0,12
+E4,E5,general_tl_stack,1,0,0,25,0,0,25
+E4,E5,specialized_handwritten_dsl,1,0,0,12,0,0,12
+E5,E6,general_tl_stack,1,0,0,37,0,0,37
+E5,E6,specialized_handwritten_dsl,10,0,0,24,0,0,24

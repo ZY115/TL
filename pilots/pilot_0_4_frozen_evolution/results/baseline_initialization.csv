@@ -1,0 +1,5 @@
+component,accounting_boundary,characters,lines,tokens,python_ast_nodes,notes
+Pilot 0.3B reported TL stack,complete prior Core TL + Macro TL infrastructure,18006,602,3102,3198,Reported source-pilot baseline; includes its frozen module organization.
+Pilot 0.4 TL E0 snapshot,complete executable E0 snapshot excluding validation,11994,418,2136,2201,"Current consolidated snapshot; absolute sizes are descriptive, not development effort."
+E0 initialization boundary: parser.py,complete new E0 file; conservative isolated initialization footprint,2748,93,530,546,Generic Core-TL RULE expression parser introduced before E1.
+E0 initialization boundary: system.py,complete new E0 file; conservative isolated initialization footprint,1761,55,326,316,Macro base and RULE conjunction interface introduced before E1.

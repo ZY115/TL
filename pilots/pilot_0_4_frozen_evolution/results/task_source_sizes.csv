@@ -1,0 +1,15 @@
+step,system,characters,lines,tokens,new_task_atoms,new_numeric_parameters,active_requirement_count
+E0,general_tl_stack,262,12,90,18,8,0
+E0,specialized_handwritten_dsl,161,6,60,18,8,0
+E1,general_tl_stack,275,13,96,1,0,1
+E1,specialized_handwritten_dsl,192,10,66,1,0,1
+E2,general_tl_stack,310,14,116,1,0,2
+E2,specialized_handwritten_dsl,247,14,80,1,0,2
+E3,general_tl_stack,342,15,136,2,2,3
+E3,specialized_handwritten_dsl,293,18,92,2,1,3
+E4,general_tl_stack,369,16,150,1,0,4
+E4,specialized_handwritten_dsl,336,22,104,1,0,4
+E5,general_tl_stack,412,17,175,2,0,5
+E5,specialized_handwritten_dsl,368,23,116,2,0,5
+E6,general_tl_stack,463,18,212,3,4,6
+E6,specialized_handwritten_dsl,496,33,140,3,2,6

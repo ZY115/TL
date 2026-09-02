@@ -1,0 +1,13 @@
+step_before,step_after,system,test_files_modified,test_lines_inserted,test_lines_deleted,test_lines_changed,test_tokens_inserted,test_tokens_deleted,test_tokens_changed,new_capability_tests,regression_tests_run,regression_failures
+E0,E1,general_tl_stack,1,4,0,1,3,0,0,1,13,0
+E0,E1,specialized_handwritten_dsl,1,3,0,1,3,0,0,1,13,0
+E1,E2,general_tl_stack,1,1,0,0,2,0,0,1,14,0
+E1,E2,specialized_handwritten_dsl,1,1,0,0,2,0,0,1,14,0
+E2,E3,general_tl_stack,1,1,0,0,2,0,0,1,15,0
+E2,E3,specialized_handwritten_dsl,1,1,0,0,2,0,0,1,15,0
+E3,E4,general_tl_stack,1,1,0,0,2,0,0,1,16,0
+E3,E4,specialized_handwritten_dsl,1,1,0,0,2,0,0,1,16,0
+E4,E5,general_tl_stack,1,1,0,0,2,0,0,1,17,0
+E4,E5,specialized_handwritten_dsl,1,1,0,0,2,0,0,1,17,0
+E5,E6,general_tl_stack,1,1,0,0,2,0,0,1,18,0
+E5,E6,specialized_handwritten_dsl,1,1,0,0,2,0,0,1,18,0

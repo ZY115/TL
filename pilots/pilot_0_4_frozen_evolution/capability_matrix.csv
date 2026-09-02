@@ -1,0 +1,7 @@
+requirement,tl_E0,dsl_E0,expected_extension
+Global invariant,supported,unsupported,DSL
+Conditional post-sequence,supported,unsupported,DSL
+Bounded response,supported,unsupported,DSL
+Strong Until,unsupported,unsupported,TL + DSL
+Second branch sequence,supported,supported after E2,neither
+Disjunctive bounded response,supported,unsupported,DSL

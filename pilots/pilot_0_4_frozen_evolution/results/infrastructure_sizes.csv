@@ -1,0 +1,15 @@
+step,system,characters,lines,tokens,python_ast_nodes,capability_classes
+E0,general_tl_stack,11994,418,2136,2201,8
+E0,specialized_handwritten_dsl,2705,77,438,499,1
+E1,general_tl_stack,11994,418,2136,2201,8
+E1,specialized_handwritten_dsl,2941,81,478,549,2
+E2,general_tl_stack,11994,418,2136,2201,8
+E2,specialized_handwritten_dsl,3477,96,550,638,3
+E3,general_tl_stack,11994,418,2136,2201,8
+E3,specialized_handwritten_dsl,3952,111,621,727,4
+E4,general_tl_stack,12895,445,2303,2388,9
+E4,specialized_handwritten_dsl,4553,127,699,822,5
+E5,general_tl_stack,12895,445,2303,2388,9
+E5,specialized_handwritten_dsl,4553,127,699,822,5
+E6,general_tl_stack,12895,445,2303,2388,9
+E6,specialized_handwritten_dsl,5114,140,769,914,6

@@ -1,0 +1,11 @@
+sample_id,classification,reason
+stream_00,logic,A trigger activates a temporal choice between a bounded deadline and a maintain-until obligation.
+stream_01,neutral/mixed,It combines a configurable occurrence cap with a separate trigger-response rule.
+stream_02,neutral/mixed,A trigger and historical since-condition are logic-like while the battery cutoff is a scalar configuration.
+stream_03,neutral/mixed,The event order and deadline bounds are configurable but nested priority and alternative structure adds explicit logic.
+stream_04,configuration,This is a compact trigger-event pair with one occurrence-limit parameter.
+stream_05,logic,Choosing between a threshold condition and a maintain-until path is naturally a disjunctive behavioral rule.
+stream_06,configuration,The requirement is readily expressed as a priority list plus lower and upper deadline parameters.
+stream_07,logic,A trigger activates a choice between once and since-style temporal obligations.
+stream_08,configuration,It consists mainly of an occurrence limit and an explicit ordered event list.
+stream_09,logic,The triggered conjunction contains both a temporal alternative and a maintain-until constraint making rule composition central.

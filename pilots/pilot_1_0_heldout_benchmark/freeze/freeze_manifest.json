@@ -1,0 +1,18 @@
+{
+  "a1_commit": "tree-sha256:bbce3886e83f41a2264c44bd8c3231b5717443c89cf1d0a0ace34b35d2336a10",
+  "a2_design_seed_tags": {
+    "a2a": 1101,
+    "a2b": 2202,
+    "a2c": 3303
+  },
+  "a2a_commit": "tree-sha256:ef3bfcf157f2631bd119b451d714d93a720467b70e089e9e540c22eff0eaabeb",
+  "a2b_commit": "tree-sha256:403c9134aa63db6cbdfd1da29fc4f441ffb1b43bb34f986668a35ec8106228f1",
+  "a2c_commit": "tree-sha256:d70cdf8dc70de060620e895d766886b047a677ef4180d830b7054773282bdd58",
+  "a3_adapter_commit": "tree-sha256:7f58aa39f1998c3b38866e0e6b462814b69806c6d9c4f50081cbf2c71fbf43ca",
+  "arm_freeze_time": "2026-09-01T16:55:47-07:00",
+  "freeze_time": "2026-09-01T16:39:39-0700",
+  "heldout_hash": "11d3169a668307519e0d1a72cd9b1415b31599dd01a10bff762ad4218e6137b4",
+  "heldout_release_status": "released to coordinator only after all arm tree hashes were frozen",
+  "split_algo_hash": "b45b94667c7359882b71f6f2dd37fa24bb36dad3a2e160f0bf293f49ed63edd7",
+  "train_hash": "4272dd0e7411d596c483d656822f7b154057f9a80895f77d87c71368b069044b"
+}

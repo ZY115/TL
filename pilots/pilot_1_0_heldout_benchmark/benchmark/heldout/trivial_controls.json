@@ -1,0 +1,58 @@
+[
+  {
+    "id": "control_01",
+    "requirements": [
+      {
+        "expr": {
+          "event": "A",
+          "lower": 1,
+          "type": "Deadline",
+          "upper": 8
+        },
+        "id": "r1"
+      }
+    ]
+  },
+  {
+    "id": "control_02",
+    "requirements": [
+      {
+        "expr": {
+          "event": "B",
+          "lower": 1,
+          "type": "Deadline",
+          "upper": 9
+        },
+        "id": "r1"
+      }
+    ]
+  },
+  {
+    "id": "control_03",
+    "requirements": [
+      {
+        "expr": {
+          "event": "C",
+          "lower": 1,
+          "type": "Deadline",
+          "upper": 12
+        },
+        "id": "r1"
+      }
+    ]
+  },
+  {
+    "id": "control_04",
+    "requirements": [
+      {
+        "expr": {
+          "event": "D",
+          "lower": 1,
+          "type": "Deadline",
+          "upper": 14
+        },
+        "id": "r1"
+      }
+    ]
+  }
+]
